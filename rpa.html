@@ -42,9 +42,25 @@ small {
     line-height: 1.2em !important;
     vertical-align: top !important;
 }
+em {
+    font-size: 0.3em !important;
+    line-height: 1.2em !important;
+    vertical-align: top !important;
+}
 b {
 	font-weight: bold !important;
 }
+
+td {
+   width: 120px !important;
+}
+
+.reveal img {
+    border: none !important;
+    box-shadow: none !important; 
+}
+
+html body { background-color: white !important; }
 </style>
 	</head>
 
@@ -63,6 +79,14 @@ b {
 	<p>
 		<small>Advisor: Richard Zanibbi</small>
 	</p>
+	<div style="height:80px;"></div>
+	<em>Research Potential Assessment</em>
+	<em>(May 1 2018)</em>
+	<div style="height:10px;"></div>
+	<div style="height:90px;">
+		<img src="img/dprl-logo.png"/>
+		<img src="img/rit-logo.png"/>
+	</div>
 </section>
 
 <section>
@@ -73,15 +97,20 @@ b {
 		<li>Detect and extract math expressions from document (e.g., PDF)</li>
 		<li>Computation query and knowledge search (e.g., WolframAlpha)</li>
 		<li>Handwriten/image recognition for math</li>
-		<li>Search math by similarity</li>
+		<li>Search math by similarity,
+		Combined text and math search</li>
 	</ul>
 	</small>
 </section>
 
 <section>
 	<h3>Search math by similarity</h3>
-	<div style="height:60px;"></div>
-	<img src="img/approach0.png" height="500px" />
+	<div style="height:30px; margin:0"></div>
+	<div style="text-align:center">
+		<div style="display: inline-block; border: 1px solid black; height:500px; width:660px">
+		<img src="img/approach0.png"/>
+		</div>
+	</div>
 	<br/>
 	<small>(screenshot of Approach0 math-aware search engine)</small>
 </section>
@@ -98,7 +127,7 @@ b {
 	</small>
 	<img src="img/bag-of-words.jpg" height="300px" />
 	<br/>
-	<small>https://i0.wp.com/thecaffeinedev.com/wp-content/uploads/2017/12/bag.jpg</small>
+	<em>https://i0.wp.com/thecaffeinedev.com/wp-content/uploads/2017/12/bag.jpg</em>
 </section>
 
 <section>
@@ -108,13 +137,13 @@ b {
 	<ul>
 		<li>Need new representation</li>
 			<ul>
-				<li>Symbols can be used interchangeably</li>
+				<li>Symbols can be used interchangeably (e.g., $x^2+x$ and $a^2+a$)</li>
 				<li>Math is structured rather than linear</li>
 			</ul>
 		<li>Need new similarity measurement</li>
 			<ul>
-				<li>Commutativity/associativity</li>
-				<li>Sub-expression identification</li>
+				<li>Associativity/commutativity (e.g., $x+xy$ and $ab+b$)</li>
+				<li>Sub-expression identification (e.g., $f(x+1)$ and $x+1$)</li>
 			</ul>
 		<li>New retrieval model?</li>
 	</ul>
@@ -128,12 +157,12 @@ b {
 	<div style="height:20px;"></div>
 	<img src="img/mias-perm.png" height="480px" />
 	<br/>
-	<small>(Sojka, Petr, and Martin Líška. "Indexing and searching mathematics in digital libraries.")</small>
+	<em>(Sojka, Petr, and Martin Líška. "Indexing and searching mathematics in digital libraries.")</em>
 </section>
 
 <section>
 	<h3>Math representation</h3>
-	<div style="height:40px;"></div>
+	<div style="height:20px;"></div>
 	<small>(Symbol Layout Tree)</small>
 	<div style="height:20px;"></div>
 	<img src="img/slt-example.svg"/>
@@ -147,9 +176,11 @@ b {
 
 <section>
 	<h3>Math representation </h3>
-	<div style="height:40px;"></div>
+	<div style="height:20px;"></div>
 	<small>(Operator Tree)</small>
 	<div style="height:20px;"></div>
+
+	<div style="display: inline-block; width: 270px;">
 <div class="mermaid">
 graph TD;
 	add("ADD")
@@ -162,6 +193,7 @@ graph TD;
 	add2 --- c("c")
 </div>
 	<p>$a+b^{2+c}$</p>
+	</div>
 </section>
 
 <!-- aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa  -->
@@ -215,15 +247,15 @@ graph TD;
 	add2 --- times1("TIMES")
 	times1 --- b("b")
 	times1 --- c("c")
-style add2 stroke:#080,stroke-width:4px
-style times1 stroke:#080,stroke-width:4px
-style b stroke:#080,stroke-width:4px
-style a stroke:#080,stroke-width:4px
-style c stroke:#080,stroke-width:4px
-linkStyle 0 stroke:#080,stroke-width:4px;
-linkStyle 1 stroke:#080,stroke-width:4px;
-linkStyle 2 stroke:#080,stroke-width:4px;
-linkStyle 3 stroke:#080,stroke-width:4px;
+style add2 stroke:#080,stroke-width:8px
+style times1 stroke:#080,stroke-width:8px
+style b stroke:#080,stroke-width:8px
+style a stroke:#080,stroke-width:8px
+style c stroke:#080,stroke-width:8px
+linkStyle 0 stroke:#080,stroke-width:8px;
+linkStyle 1 stroke:#080,stroke-width:8px;
+linkStyle 2 stroke:#080,stroke-width:8px;
+linkStyle 3 stroke:#080,stroke-width:8px;
 </div>
 		<small>Query: $ a+bc $</small>
 		</div>
@@ -239,15 +271,15 @@ graph TD;
 	add --- times2("TIMES")
 	times2 --- x("x")
 	times2 --- y("y")
-style add stroke:#080,stroke-width:4px
-style times1 stroke:#080,stroke-width:4px
-style a stroke:#080,stroke-width:4px
-style b stroke:#080,stroke-width:4px
-style c stroke:#080,stroke-width:4px
-linkStyle 0 stroke:#080,stroke-width:4px;
-linkStyle 1 stroke:#080,stroke-width:4px;
-linkStyle 2 stroke:#080,stroke-width:4px;
-linkStyle 3 stroke:#080,stroke-width:4px;
+style add stroke:#080,stroke-width:8px
+style times1 stroke:#080,stroke-width:8px
+style a stroke:#080,stroke-width:8px
+style b stroke:#080,stroke-width:8px
+style c stroke:#080,stroke-width:8px
+linkStyle 0 stroke:#080,stroke-width:8px;
+linkStyle 1 stroke:#080,stroke-width:8px;
+linkStyle 2 stroke:#080,stroke-width:8px;
+linkStyle 3 stroke:#080,stroke-width:8px;
 </div>
 		<small>Candidate: $ a+bc+xy $</small>
 		</div>
@@ -257,11 +289,11 @@ linkStyle 3 stroke:#080,stroke-width:4px;
 </section>
 
 <section>
-	<p>Needs for efficiency</p>
+	<p>Time complexity for finding common subtree</p>
 	<div style="height:70px;"></div>
-	<small>$O((m^{1.5} / \log m) \cdot n)$ time complexity$^{[1]}$ for finding subtree isomorphism</small>
+	<small>$O((m^{1.5} / \log m) \cdot n)$ $^{[1]}$ for finding subtree isomorphism</small>
 	<br/>
-	<small>$O(n + m)$ time complexity$^{[2]}$ for finding largest common forest between rooted trees, but requires vertex matching outdegree, it also needs parent/children info to construct a Directed Acyclic Graph before starting aligning nodes</small>
+	<small>$O(n + m)$ $^{[2]}$ for finding largest common forest between rooted trees, but requires vertex matching outdegree, it also needs parent/children info to construct a Directed Acyclic Graph before starting aligning nodes</small>
 	</br/>
 	<div style="height:70px;"></div>
 	<small style="text-align: left">
@@ -288,12 +320,12 @@ graph TD;
 style add2 stroke:#080,stroke-width:9px
 style times1 stroke:#080,stroke-width:9px
 style b stroke:#080,stroke-width:9px
-style a stroke:#080,stroke-width:4px
-style c stroke:#080,stroke-width:4px
-linkStyle 0 stroke:#080,stroke-width:4px;
-linkStyle 1 stroke:#080,stroke-width:9px;
-linkStyle 2 stroke:#080,stroke-width:9px;
-linkStyle 3 stroke:#080,stroke-width:4px;
+style a stroke:#080,stroke-width:8px
+style c stroke:#080,stroke-width:8px
+linkStyle 0 stroke:#080,stroke-width:8px;
+linkStyle 1 stroke:#6ada9a,stroke-width:9px;
+linkStyle 2 stroke:#6ada9a,stroke-width:9px;
+linkStyle 3 stroke:#080,stroke-width:8px;
 </div>
 		<small>Query: $ a+bc $</small>
 		</div>
@@ -311,13 +343,13 @@ graph TD;
 	times2 --- y("y")
 style add stroke:#080,stroke-width:9px
 style times1 stroke:#080,stroke-width:9px
-style a stroke:#080,stroke-width:4px
+style a stroke:#080,stroke-width:8px
 style b stroke:#080,stroke-width:9px
-style c stroke:#080,stroke-width:4px
-linkStyle 0 stroke:#080,stroke-width:4px;
-linkStyle 1 stroke:#080,stroke-width:9px;
-linkStyle 2 stroke:#080,stroke-width:9px;
-linkStyle 3 stroke:#080,stroke-width:4px;
+style c stroke:#080,stroke-width:8px
+linkStyle 0 stroke:#080,stroke-width:8px;
+linkStyle 1 stroke:#6ada9a,stroke-width:9px;
+linkStyle 2 stroke:#6ada9a,stroke-width:9px;
+linkStyle 3 stroke:#080,stroke-width:8px;
 </div>
 		<small>Candidate: $ a+bc+xy $</small>
 		</div>
@@ -340,15 +372,15 @@ graph TD;
 	add2 --- times1("TIMES")
 	times1 --- b("b")
 	times1 --- c("c")
-style add2 stroke:#080,stroke-width:4px
-style times1 stroke:#080,stroke-width:4px
-style b stroke:#080,stroke-width:4px
-style a stroke:#080,stroke-width:4px
-style c stroke:#080,stroke-width:4px
-linkStyle 0 stroke:#080,stroke-width:4px;
-linkStyle 1 stroke:#080,stroke-width:4px;
-linkStyle 2 stroke:#080,stroke-width:4px;
-linkStyle 3 stroke:#080,stroke-width:4px;
+style add2 stroke:#080,stroke-width:8px
+style times1 stroke:#080,stroke-width:8px
+style b stroke:#080,stroke-width:8px
+style a stroke:#080,stroke-width:8px
+style c stroke:#080,stroke-width:8px
+linkStyle 0 stroke:#080,stroke-width:8px;
+linkStyle 1 stroke:#080,stroke-width:8px;
+linkStyle 2 stroke:#080,stroke-width:8px;
+linkStyle 3 stroke:#080,stroke-width:8px;
 </div>
 		<small>Query: $ a+bc $</small>
 		</div>
@@ -364,17 +396,17 @@ graph TD;
 	add --- times2("TIMES")
 	times2 --- x("x")
 	times2 --- y("y")
-style add stroke:#080,stroke-width:4px
-style times1 stroke:#080,stroke-width:4px
-style a stroke:#080,stroke-width:4px
-style b stroke:#080,stroke-width:4px
-style times2 stroke:#080,stroke-width:4px
-style y stroke:#080,stroke-width:4px
-linkStyle 0 stroke:#080,stroke-width:4px;
-linkStyle 1 stroke:#080,stroke-width:4px;
-linkStyle 2 stroke:#080,stroke-width:4px;
-linkStyle 4 stroke:#080,stroke-width:4px;
-linkStyle 6 stroke:#080,stroke-width:4px;
+style add stroke:#080,stroke-width:8px
+style times1 stroke:#080,stroke-width:8px
+style a stroke:#080,stroke-width:8px
+style b stroke:#080,stroke-width:8px
+style times2 stroke:#080,stroke-width:8px
+style y stroke:#080,stroke-width:8px
+linkStyle 0 stroke:#080,stroke-width:8px;
+linkStyle 1 stroke:#080,stroke-width:8px;
+linkStyle 2 stroke:#080,stroke-width:8px;
+linkStyle 4 stroke:#080,stroke-width:8px;
+linkStyle 6 stroke:#080,stroke-width:8px;
 </div>
 		<small>Candidate: $ a+bc+xy $</small>
 		</div>
@@ -401,6 +433,7 @@ $$ 2 \sum_{k=0}^r \binom{n}{2k} \binom{n}{2r-2k} = \binom{2n}{2r} + (-1)^k \bino
 <!-- prefix leaf-root paths -->
 <section>
 	<h3>Similarity measurement</h3>
+	<div style="height:20px;"></div>
 	<small>(Capturing multiple subtrees' structure isomorphism)</small>
 	<div style="height:20px;"></div>
 	<div>
@@ -420,20 +453,20 @@ graph TD;
 	add --- times2("TIMES")
 	times2 --- x("x")
 	times2 --- y("y")
-style add2 stroke:#080,stroke-width:4px
-style times1 stroke:#080,stroke-width:4px
-style b stroke:#080,stroke-width:4px
-style a stroke:#080,stroke-width:4px
-style c stroke:#080,stroke-width:4px
-style times2 stroke:#800,stroke-width:4px
-style x stroke:#800,stroke-width:4px
-style y stroke:#800,stroke-width:4px
-linkStyle 2 stroke:#080,stroke-width:4px;
-linkStyle 3 stroke:#080,stroke-width:4px;
-linkStyle 4 stroke:#080,stroke-width:4px;
-linkStyle 5 stroke:#080,stroke-width:4px;
-linkStyle 7 stroke:#800,stroke-width:4px;
-linkStyle 8 stroke:#800,stroke-width:4px;
+style add2 stroke:#080,stroke-width:8px
+style times1 stroke:#080,stroke-width:8px
+style b stroke:#080,stroke-width:8px
+style a stroke:#080,stroke-width:8px
+style c stroke:#080,stroke-width:8px
+style times2 stroke:#800,stroke-width:8px
+style x stroke:#800,stroke-width:8px
+style y stroke:#800,stroke-width:8px
+linkStyle 2 stroke:#080,stroke-width:8px;
+linkStyle 3 stroke:#080,stroke-width:8px;
+linkStyle 4 stroke:#080,stroke-width:8px;
+linkStyle 5 stroke:#080,stroke-width:8px;
+linkStyle 7 stroke:#800,stroke-width:8px;
+linkStyle 8 stroke:#800,stroke-width:8px;
 </div>
 		<small>Query:<br/> $ (a+bc)+xy $</small>
 		</div>
@@ -449,20 +482,20 @@ graph TD;
 	add --- times2("TIMES")
 	times2 --- x("x")
 	times2 --- y("y")
-style add stroke:#080,stroke-width:4px
-style times1 stroke:#080,stroke-width:4px
-style a stroke:#080,stroke-width:4px
-style b stroke:#080,stroke-width:4px
-style c stroke:#080,stroke-width:4px
-linkStyle 0 stroke:#080,stroke-width:4px;
-linkStyle 1 stroke:#080,stroke-width:4px;
-linkStyle 2 stroke:#080,stroke-width:4px;
-linkStyle 3 stroke:#080,stroke-width:4px;
-style times2 stroke:#800,stroke-width:4px
-style x stroke:#800,stroke-width:4px
-style y stroke:#800,stroke-width:4px
-linkStyle 5 stroke:#800,stroke-width:4px;
-linkStyle 6 stroke:#800,stroke-width:4px;
+style add stroke:#080,stroke-width:8px
+style times1 stroke:#080,stroke-width:8px
+style a stroke:#080,stroke-width:8px
+style b stroke:#080,stroke-width:8px
+style c stroke:#080,stroke-width:8px
+linkStyle 0 stroke:#080,stroke-width:8px;
+linkStyle 1 stroke:#080,stroke-width:8px;
+linkStyle 2 stroke:#080,stroke-width:8px;
+linkStyle 3 stroke:#080,stroke-width:8px;
+style times2 stroke:#800,stroke-width:8px
+style x stroke:#800,stroke-width:8px
+style y stroke:#800,stroke-width:8px
+linkStyle 5 stroke:#800,stroke-width:8px;
+linkStyle 6 stroke:#800,stroke-width:8px;
 </div>
 		<small>Candidate: $ a+bc+xy $</small>
 		</div>
@@ -474,10 +507,10 @@ linkStyle 6 stroke:#800,stroke-width:4px;
 <!-- prefix leaf-root paths (argument) -->
 <section>
 	<h3>Similarity measurement</h3>
-	<small>(Beyond single maximum alignment)</small>
 	<div style="height:20px;"></div>
+	<small>(Beyond single maximum alignment)</small>
 	<div>
-		<div style="display: inline-block; width: 240px; height:150px;">
+		<div style="display: inline-block; width: 200px; height:150px;">
 <div class="mermaid">
 graph TD;
 	add("ADD")
@@ -493,20 +526,20 @@ graph TD;
 	add --- times2("TIMES ")
 	times2 --- x("x")
 	times2 --- y("y")
-linkStyle 2  stroke:#080,stroke-width:4px;
-linkStyle 3  stroke:#080,stroke-width:4px;
-linkStyle 4  stroke:#080,stroke-width:4px;
-linkStyle 5  stroke:#080,stroke-width:4px;
-style add2   stroke:#080,stroke-width:4px
-style times1 stroke:#080,stroke-width:4px
-style a stroke:#080,stroke-width:4px
-style b stroke:#080,stroke-width:4px
-style c stroke:#080,stroke-width:4px
-linkStyle 7  stroke:#800,stroke-width:4px;
-linkStyle 8  stroke:#800,stroke-width:4px;
-style times2 stroke:#800,stroke-width:4px
-style x      stroke:#800,stroke-width:4px
-style y      stroke:#800,stroke-width:4px
+linkStyle 2  stroke:#080,stroke-width:8px;
+linkStyle 3  stroke:#080,stroke-width:8px;
+linkStyle 4  stroke:#080,stroke-width:8px;
+linkStyle 5  stroke:#080,stroke-width:8px;
+style add2   stroke:#080,stroke-width:8px
+style times1 stroke:#080,stroke-width:8px
+style a stroke:#080,stroke-width:8px
+style b stroke:#080,stroke-width:8px
+style c stroke:#080,stroke-width:8px
+linkStyle 7  stroke:#800,stroke-width:8px;
+linkStyle 8  stroke:#800,stroke-width:8px;
+style times2 stroke:#800,stroke-width:8px
+style x      stroke:#800,stroke-width:8px
+style y      stroke:#800,stroke-width:8px
 </div>
 		<small>$(a+bc) + xy$ <br/> $T_1$</small>
 		</div>
@@ -522,20 +555,20 @@ graph TD;
 	add --- times2("TIMES ")
 	times2 --- x("x")
 	times2 --- y("y")
-linkStyle 0  stroke:#080,stroke-width:4px;
-linkStyle 1  stroke:#080,stroke-width:4px;
-linkStyle 2  stroke:#080,stroke-width:4px;
-linkStyle 3  stroke:#080,stroke-width:4px;
-style add  stroke: #080,stroke-width:4px
-style times1 stroke:#080,stroke-width:4px
-style a stroke:#080,stroke-width:4px
-style b stroke:#080,stroke-width:4px
-style c stroke:#080,stroke-width:4px
-linkStyle 5 stroke:#800,stroke-width:4px;
-linkStyle 6 stroke:#800,stroke-width:4px;
-style times2 stroke:#800,stroke-width:4px
-style x stroke:#800,stroke-width:4px
-style y stroke:#800,stroke-width:4px
+linkStyle 0  stroke:#080,stroke-width:8px;
+linkStyle 1  stroke:#080,stroke-width:8px;
+linkStyle 2  stroke:#080,stroke-width:8px;
+linkStyle 3  stroke:#080,stroke-width:8px;
+style add  stroke: #080,stroke-width:8px
+style times1 stroke:#080,stroke-width:8px
+style a stroke:#080,stroke-width:8px
+style b stroke:#080,stroke-width:8px
+style c stroke:#080,stroke-width:8px
+linkStyle 5 stroke:#800,stroke-width:8px;
+linkStyle 6 stroke:#800,stroke-width:8px;
+style times2 stroke:#800,stroke-width:8px
+style x stroke:#800,stroke-width:8px
+style y stroke:#800,stroke-width:8px
 </div>
 		<small>$a+bc + xy$ <br/> $T_2$</small>
 		</div>
@@ -551,20 +584,20 @@ graph TD;
 	add --- POWER
 	POWER --- x("x")
 	POWER --- y("y")
-linkStyle 0  stroke:#080,stroke-width:4px;
-linkStyle 1  stroke:#080,stroke-width:4px;
-linkStyle 2  stroke:#080,stroke-width:4px;
-linkStyle 3  stroke:#080,stroke-width:4px;
-style add stroke:#080,stroke-width:4px
-style times1 stroke:#080,stroke-width:4px
-style a stroke:#080,stroke-width:4px
-style b stroke:#080,stroke-width:4px
-style c stroke:#080,stroke-width:4px
+linkStyle 0  stroke:#080,stroke-width:8px;
+linkStyle 1  stroke:#080,stroke-width:8px;
+linkStyle 2  stroke:#080,stroke-width:8px;
+linkStyle 3  stroke:#080,stroke-width:8px;
+style add stroke:#080,stroke-width:8px
+style times1 stroke:#080,stroke-width:8px
+style a stroke:#080,stroke-width:8px
+style b stroke:#080,stroke-width:8px
+style c stroke:#080,stroke-width:8px
 </div>
 		<small>$a+bc + x^y$ <br/> $T_3$</small>
 		</div>
 	</div>
-	<div style="height:50px;"></div>
+	<div style="height:45px;"></div>
 	<small>Formula tree similarity<br/>
 $\Gamma(T_1, T_2) = \gamma(\pi_{1,2} \in \Pi(T_1, T_2)) = (3, 2)$  <br/>
 is greater than<br/>
@@ -577,15 +610,18 @@ $\Gamma(T_1, T_3) = \gamma(\pi_{1,3} \in \Pi(T_1, T_3)) = (3, 0)$
 	<h3>Retrieval model</h3>
 	<div style="height:20px;"></div>
 	<small>(High-level idea)</small>
+	<div style="height:50px;"></div>
+	<small>
 	<ul>
 		<li>Break the tree into different "prefixed" leaf-root paths.</li>
 		<li>Index "hit lists" that represents the matched paths.</li>
 		<li>At query processing time, repeat until we find $k$ best matched formula subtree:</li>
 		<ul>
-			<li><small>Find the maximum common subtree using hit lists.</small></li>
-			<li><small>Exclude the previous matched leaf-root paths and find the next best matched formula subtree.</small></li>
-		</ul>
+		<li>Find the maximum common subtree using hit lists.</li>
+		<li>Exclude the previous matched leaf-root paths and find the next best matched formula subtree.</li>
+		<ul>
 	</ul>
+	</small>
 </section>
 
 <!-- Model (notation)--> 
@@ -594,7 +630,7 @@ $\Gamma(T_1, T_3) = \gamma(\pi_{1,3} \in \Pi(T_1, T_3)) = (3, 0)$
 	<div style="height:20px;"></div>
 	<small>(Notation of prefixed leaf-root path)</small>
 		<div style="text-align:center">
-			<div style="width:270px; display: inline-block">
+			<div style="width:200px; display: inline-block">
 <div class="mermaid">
 graph TD;
 	add("ADD<br/>#10")
@@ -610,11 +646,11 @@ graph TD;
 	add --- times2("TIMES <br/>#9")
 	times2 --- x("x<br/>#4")
 	times2 --- y("y<br/>#5")
-linkStyle 3 stroke:#009,stroke-width:4px;
-linkStyle 4 stroke:#009,stroke-width:4px;
-style add2 stroke:#009,stroke-width:4px
-style times1 stroke:#009,stroke-width:4px
-style b stroke:#009,stroke-width:4px
+linkStyle 3 stroke:#009,stroke-width:8px;
+linkStyle 4 stroke:#009,stroke-width:8px;
+style add2 stroke:#009,stroke-width:8px
+style times1 stroke:#009,stroke-width:8px
+style b stroke:#009,stroke-width:8px
 </div>
 			</div>
 		</div>
@@ -627,8 +663,21 @@ style b stroke:#009,stroke-width:4px
 	<div style="height:20px;"></div>
 	<small>(Hit list)</small>
 	<div>
-		<div width="100px" style="display:inline-block">
-		<img src="img/hitlist.png"></img>
+		<div width="130px" style="display:inline-block">
+		<!-- <img src="img/hitlist.png"></img> -->
+<pre style="font-size: 0.4em; padding: 8px 0 8px 15px">
+7~1 (ADD, VAR): 8~1.
+
+6~2 (TIMES, VAR): 6~2, 6~3, 7~4, 7~5.
+6~3 (TIMES, VAR): 6~2, 6~3, 7~4, 7~5.
+9~4 (TIMES, VAR): 6~2, 6~3, 7~4, 7~5.
+9~5 (TIMES, VAR): 6~2, 6~3, 7~4, 7~5.
+
+7 ~2 (ADD, TIMES, VAR): 8~2, 8~3, 8~4, 8~5.
+7 ~3 (ADD, TIMES, VAR): 8~2, 8~3, 8~4, 8~5.
+10~4 (ADD, TIMES, VAR): 8~2, 8~3, 8~4, 8~5.
+10~5 (ADD, TIMES, VAR): 8~2, 8~3, 8~4, 8~5.
+</pre>
 		<br/>
 		<small>Hit lists (ordered from short to long)</small>
 		</div>
@@ -649,20 +698,20 @@ graph TD;
 	add --- times2("TIMES <br/>#9")
 	times2 --- x("x<br/>#4")
 	times2 --- y("y<br/>#5")
-linkStyle 2 stroke:#080,stroke-width:4px;
-linkStyle 3 stroke:#080,stroke-width:4px;
-linkStyle 4 stroke:#080,stroke-width:4px;
-linkStyle 5 stroke:#080,stroke-width:4px;
-style add2  stroke:#080,stroke-width:4px
-style times1 stroke:#080,stroke-width:4px
-style a stroke:#080,stroke-width:4px
-style b stroke:#080,stroke-width:4px
-style c stroke:#080,stroke-width:4px
-linkStyle 7 stroke:#800,stroke-width:4px;
-linkStyle 8 stroke:#800,stroke-width:4px;
-style times2 stroke:#800,stroke-width:4px
-style x stroke:#800,stroke-width:4px
-style y stroke:#800,stroke-width:4px
+linkStyle 2 stroke:#080,stroke-width:8px;
+linkStyle 3 stroke:#080,stroke-width:8px;
+linkStyle 4 stroke:#080,stroke-width:8px;
+linkStyle 5 stroke:#080,stroke-width:8px;
+style add2  stroke:#080,stroke-width:8px
+style times1 stroke:#080,stroke-width:8px
+style a stroke:#080,stroke-width:8px
+style b stroke:#080,stroke-width:8px
+style c stroke:#080,stroke-width:8px
+linkStyle 7 stroke:#800,stroke-width:8px;
+linkStyle 8 stroke:#800,stroke-width:8px;
+style times2 stroke:#800,stroke-width:8px
+style x stroke:#800,stroke-width:8px
+style y stroke:#800,stroke-width:8px
 </div>
 		<small>$(a+bc) + xy$</small>
 		</div>
@@ -678,20 +727,20 @@ graph TD;
 	add --- times2("TIMES <br/>#7")
 	times2 --- x("x<br/>#4")
 	times2 --- y("y<br/>#5")
-linkStyle 0  stroke:#080,stroke-width:4px;
-linkStyle 1  stroke:#080,stroke-width:4px;
-linkStyle 2  stroke:#080,stroke-width:4px;
-linkStyle 3  stroke:#080,stroke-width:4px;
-style add  stroke: #080,stroke-width:4px
-style times1 stroke:#080,stroke-width:4px
-style a stroke:#080,stroke-width:4px
-style b stroke:#080,stroke-width:4px
-style c stroke:#080,stroke-width:4px
-linkStyle 5 stroke:#800,stroke-width:4px;
-linkStyle 6 stroke:#800,stroke-width:4px;
-style times2 stroke:#800,stroke-width:4px
-style x stroke:#800,stroke-width:4px
-style y stroke:#800,stroke-width:4px
+linkStyle 0  stroke:#080,stroke-width:8px;
+linkStyle 1  stroke:#080,stroke-width:8px;
+linkStyle 2  stroke:#080,stroke-width:8px;
+linkStyle 3  stroke:#080,stroke-width:8px;
+style add  stroke: #080,stroke-width:8px
+style times1 stroke:#080,stroke-width:8px
+style a stroke:#080,stroke-width:8px
+style b stroke:#080,stroke-width:8px
+style c stroke:#080,stroke-width:8px
+linkStyle 5 stroke:#800,stroke-width:8px;
+linkStyle 6 stroke:#800,stroke-width:8px;
+style times2 stroke:#800,stroke-width:8px
+style x stroke:#800,stroke-width:8px
+style y stroke:#800,stroke-width:8px
 </div>
 		<small>$a+bc + xy$</small>
 		</div>
@@ -703,39 +752,184 @@ style y stroke:#800,stroke-width:4px
 	<h3>Retrieval model</h3>
 	<div style="height:15px;"></div>
 	<small>(By assumption, "most-hit" cell corresponds to the best matched subtree)</small>
-	<div style="height:15px;"></div>
+	<div style="height:40px;"></div>
 
-<table border="1" style="font-size: 30px">
+<!-- ===========  ROW ===================== -->
+<div>
+
+<!-- ============ TABLE =================== -->
+	<div style="display: inline-block;">
+<table border="1" style="font-size: 0.4em">
 <tr>
 <th>Qry\Doc</th><th>8~1, 8~2, 8~3, 8~4, 8~5</th><th>6~2, 6~3</th><th>7~4, 7~5</th>
 </tr>
-<tr><th>7~1, 7~2, 7~3</th><td style="background-color: #d4cbd0"> <7~1, 8~1>, <br/><7~2, 8~2>, <br/><7~3, 8~3> </td><td>   </td><td>   </td></tr>
+<tr><th>7~1, 7~2, 7~3</th><td style="background-color: #3a3"> <7~1, 8~1>, <br/><7~2, 8~2>, <br/><7~3, 8~3> </td><td>   </td><td>   </td></tr>
 <tr><th>6~2, 6~3     </th><td>            </td><td> <6~2, 6~2>, <6~3, 6~3> </td><td> <6~2, 7~4>, <6~3, 7~5> </td></tr>
 <tr><th>9~4, 9~5     </th><td>            </td><td> <9~4, 6~2>, <9~5, 6~3> </td><td> <9~4, 7~4>, <9~5, 7~5> </td></tr>
 <tr><th>10~4, 10~5   </th><td> <10~4, 8~2>, <10~5, 8~3>   </td><td>   </td><td>   </td></tr>
 </table>
-	<div style="height:20px;"></div>
-	<small>1st iteration</small>
+		<div style="height:40px;"></div>
+		<small>1st iteration</small>
+	</div>
+	<div style="display: inline-block; width: 40px;"></div>
+<!-- ============ TABLE =================== -->
+	<div style="display: inline-block; width: 100px; height:70px;">
+<div class="mermaid">
+graph TD;
+	add("ADD<br/>#10")
+	group("GROUP<br/>#8")
+	add --- group
+	group --- add2
+	add2("ADD<br/>#7")
+	add2 --- a("a<br/>#1")
+	add2 --- times1("TIMES<br/>#6")
+	times1 --- b("b<br/>#2")
+	times1 --- c("c<br/>#3")
+
+	add --- times2("TIMES <br/>#9")
+	times2 --- x("x<br/>#4")
+	times2 --- y("y<br/>#5")
+linkStyle 2 stroke:#080,stroke-width:8px;
+linkStyle 3 stroke:#080,stroke-width:8px;
+linkStyle 4 stroke:#080,stroke-width:8px;
+linkStyle 5 stroke:#080,stroke-width:8px;
+style add2  stroke:#080,stroke-width:8px
+style times1 stroke:#080,stroke-width:8px
+style a stroke:#080,stroke-width:8px
+style b stroke:#080,stroke-width:8px
+style c stroke:#080,stroke-width:8px
+</div>
+	<em>$(a+bc) + xy$</em>
+	</div>
+
+	<div style="display: inline-block; width: 10px;"></div>
+
+	<div style="display: inline-block; width: 100px; height:70px;">
+<div class="mermaid">
+graph TD;
+	add("ADD<br/>#8")
+	add --- a("a<br/>#1")
+	add --- times1("TIMES<br/>#6")
+	times1 --- b("b<br/>#2")
+	times1 --- c("c<br/>#3")
+	add --- times2("TIMES <br/>#7")
+	times2 --- x("x<br/>#4")
+	times2 --- y("y<br/>#5")
+linkStyle 0  stroke:#080,stroke-width:8px;
+linkStyle 1  stroke:#080,stroke-width:8px;
+linkStyle 2  stroke:#080,stroke-width:8px;
+linkStyle 3  stroke:#080,stroke-width:8px;
+style add  stroke: #080,stroke-width:8px
+style times1 stroke:#080,stroke-width:8px
+style a stroke:#080,stroke-width:8px
+style b stroke:#080,stroke-width:8px
+style c stroke:#080,stroke-width:8px
+</div>
+	<em>$a+bc + xy$</em>
+	</div>
+</div>
+<!-- ====================================== -->
 
 </section>
 
 <!-- Model (table 2)--> 
 <section>
-	<small>2nd iteration ...</small>
-<table border="1" style="font-size: 30px">
+<h3>Retrieval model</h3>
+<div style="height:40px;"></div>
+
+<div>
+	<div style="display: inline-block;">
+<table border="1" style="font-size: 0.4em">
 <tr>
 <th>Qry\Doc</th><th>8~1, 8~2, 8~3, 8~4, 8~5</th><th>6~2, 6~3</th><th>7~4, 7~5</th>
 </tr>
-<tr><th>7~1, 7~2, 7~3</th><td style="background-color: #d4cbd0"> <7~1, 8~1>, <br/><7~2, 8~2>, <br/><7~3, 8~3> </td><td>   </td><td>   </td></tr>
+<tr><th>7~1, 7~2, 7~3</th><td style="background-color: #3a3"> <7~1, 8~1>, <br/><7~2, 8~2>, <br/><7~3, 8~3> </td><td>   </td><td>   </td></tr>
 <tr><th>6~2, 6~3     </th><td>            </td><td> <6~2, 6~2>, <6~3, 6~3> </td><td> <6~2, 7~4>, <6~3, 7~5> </td></tr>
-<tr><th>9~4, 9~5     </th><td>            </td><td> <9~4, 6~2>, <9~5, 6~3> </td><td style="background-color: #eae0e6"> <9~4, 7~4>, <9~5, 7~5> </td></tr>
+<tr><th>9~4, 9~5     </th><td>            </td><td> <9~4, 6~2>, <9~5, 6~3> </td><td style="background-color: #f33"> <9~4, 7~4>, <9~5, 7~5> </td></tr>
 <tr><th>10~4, 10~5   </th><td> <10~4, 8~2>, <10~5, 8~3>   </td><td>   </td><td>   </td></tr>
 </table>
-	<div style="height:30px;"></div>
-	<small>Compute next best matched subtree by excluding path $S_q=\{1,2,3\}$ and 
-	 $S_d=\{1,2,3\}$ </small>
-	<small>Greedily count aligned "internal nodes" by looking at "subtree cells" in this table.</small>
-	<small>Final formula tree similarity ($k=3$) score: (3, 2, 0)</small>
+	<div style="height:40px;"></div>
+	<small>2nd iteration</small>
+	</div>
+	<div style="display: inline-block; width: 40px;"></div>
+<!-- ====================================== -->
+	<div style="display: inline-block; width: 100px; height:70px;">
+<div class="mermaid">
+graph TD;
+	add("ADD<br/>#10")
+	group("GROUP<br/>#8")
+	add --- group
+	group --- add2
+	add2("ADD<br/>#7")
+	add2 --- a("a<br/>#1")
+	add2 --- times1("TIMES<br/>#6")
+	times1 --- b("b<br/>#2")
+	times1 --- c("c<br/>#3")
+
+	add --- times2("TIMES <br/>#9")
+	times2 --- x("x<br/>#4")
+	times2 --- y("y<br/>#5")
+linkStyle 2 stroke:#080,stroke-width:8px;
+linkStyle 3 stroke:#080,stroke-width:8px;
+linkStyle 4 stroke:#080,stroke-width:8px;
+linkStyle 5 stroke:#080,stroke-width:8px;
+style add2  stroke:#080,stroke-width:8px
+style times1 stroke:#080,stroke-width:8px
+style a stroke:#080,stroke-width:8px
+style b stroke:#080,stroke-width:8px
+style c stroke:#080,stroke-width:8px
+linkStyle 7 stroke:#800,stroke-width:8px;
+linkStyle 8 stroke:#800,stroke-width:8px;
+style times2 stroke:#800,stroke-width:8px
+style x stroke:#800,stroke-width:8px
+style y stroke:#800,stroke-width:8px
+</div>
+	<em>$(a+bc) + xy$</em>
+	</div>
+
+	<div style="display: inline-block; width: 10px;"></div>
+
+	<div style="display: inline-block; width: 100px; height:70px;">
+<div class="mermaid">
+graph TD;
+	add("ADD<br/>#8")
+	add --- a("a<br/>#1")
+	add --- times1("TIMES<br/>#6")
+	times1 --- b("b<br/>#2")
+	times1 --- c("c<br/>#3")
+	add --- times2("TIMES <br/>#7")
+	times2 --- x("x<br/>#4")
+	times2 --- y("y<br/>#5")
+linkStyle 0  stroke:#080,stroke-width:8px;
+linkStyle 1  stroke:#080,stroke-width:8px;
+linkStyle 2  stroke:#080,stroke-width:8px;
+linkStyle 3  stroke:#080,stroke-width:8px;
+style add  stroke: #080,stroke-width:8px
+style times1 stroke:#080,stroke-width:8px
+style a stroke:#080,stroke-width:8px
+style b stroke:#080,stroke-width:8px
+style c stroke:#080,stroke-width:8px
+linkStyle 5 stroke:#800,stroke-width:8px;
+linkStyle 6 stroke:#800,stroke-width:8px;
+style times2 stroke:#800,stroke-width:8px
+style x stroke:#800,stroke-width:8px
+style y stroke:#800,stroke-width:8px
+</div>
+	<em>$a+bc + xy$</em>
+	</div>
+<!-- ====================================== -->
+</div>
+
+<div style="height:70px;"></div>
+<small>
+Compute next best matched subtree by excluding path $S_q=\{1,2,3\}$ and 
+ $S_d=\{1,2,3\}$ 
+<br/>
+Greedily count aligned "internal nodes" by looking at "subtree cells" in this table.
+<br/>
+Final formula tree similarity ($k=3$) score: (3, 2, 0)
+</small>
+
 </section>
 
 <!-- Scoring function --> 
@@ -779,6 +973,13 @@ $$
 
 <section>
 	<p>Thank you!</p>
+	<div style="height:90px;"></div>
+	<div style="height:90px;">
+		<img src="img/sloan-logo.png"/>
+		<br/>
+		<img src="img/dprl-logo.png"/>
+		<img src="img/rit-logo.png"/>
+	</div>
 </section>
 			</div>
 		</div>
@@ -808,6 +1009,9 @@ $$
 					{ src: 'plugin/math/math.js', async: true } // mathjax / MathJaX plugin.
 				]
 			});
+
+			Reveal.configure({ slideNumber: true });
+			Reveal.configure({ slideNumber: 'c/t' });
 
 		</script>
 
