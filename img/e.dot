@@ -1,0 +1,27 @@
+strict graph {
+rankdir=LR;
+sum[label="∑", fillcolor="green3", style="filled"];
+r[fillcolor="green3", style="filled"]
+sum -- r[label="o"]
+minus[label="-"]
+r -- minus
+minus -- 1
+lb[label="("]
+rb[label=")"]
+first2[label="2", fillcolor="green3", style="filled"]
+sec2[label="2"]
+firstk[label="k", fillcolor="green3", style="filled"]
+seck[label="k", fillcolor="green3", style="filled"]
+add[label="+"]
+eq[label="=", fillcolor="green3", style="filled"]
+0[fillcolor="green3", style="filled"]
+sum -- lb
+lb -- first2
+first2 -- firstk
+firstk -- add
+add    -- sec2
+sec2   -- rb[color="darkgreen", style="bold"]
+sum -- seck[label="u"]
+seck -- eq
+eq -- 0
+}
