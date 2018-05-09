@@ -43,7 +43,7 @@ small {
     vertical-align: top !important;
 }
 em {
-    font-size: 0.3em !important;
+    font-size: 0.29em !important;
     line-height: 1.2em !important;
     vertical-align: top !important;
 }
@@ -52,7 +52,10 @@ b {
 }
 
 td {
-   width: 120px !important;
+   width: 100px !important;
+}
+th {
+   width: 100px !important;
 }
 
 .reveal img {
@@ -81,7 +84,7 @@ html body { background-color: white !important; }
 	</p>
 	<div style="height:80px;"></div>
 	<em>Research Potential Assessment</em>
-	<em>(May 1 2018)</em>
+	<em>(May 10 2018)</em>
 	<div style="height:10px;"></div>
 	<div style="height:90px;">
 		<img src="img/dprl-logo.png"/>
@@ -96,23 +99,33 @@ html body { background-color: white !important; }
 	<ul>
 		<li>Detect and extract math expressions from document (e.g., PDF)</li>
 		<li>Computation query and knowledge search (e.g., WolframAlpha)</li>
-		<li>Handwriten/image recognition for math</li>
-		<li>Search math by similarity,
-		Combined text and math search</li>
+		<li>Handwritten/image recognition for math</li>
+		<li>Combined text and math search</li>
+		<li>Search math by similarity</li>
 	</ul>
 	</small>
+	<div style="height:60px;"></div>
+<div style="text-align: left; line-height: 10px">
+<em>Zanibbi, Richard, and Dorothea Blostein. “Recognition and Retrieval of Mathematical Expressions.”
+International Journal on Document Analysis and Recognition (IJDAR) 15, no. 4. 2012.
+</em>
+</div>
 </section>
 
 <section>
 	<h3>Search math by similarity</h3>
 	<div style="height:30px; margin:0"></div>
 	<div style="text-align:center">
-		<div style="display: inline-block; border: 1px solid black; height:500px; width:660px">
+		<div style="display: inline-block; border: 1px solid black; height:500px;">
 		<img src="img/approach0.png"/>
 		</div>
 	</div>
 	<br/>
-	<small>(screenshot of Approach0 math-aware search engine)</small>
+<div style="text-align: left; line-height: 10px">
+<em>
+Zhong, Wei, and Hui Fang. “OPMES: A Similarity Search Engine for Mathematical Content.” In Advances in Information Retrieval, 849–52. Lecture Notes in Computer Science. Springer, Cham, 2016.
+</em>
+</div>
 </section>
 
 <section>
@@ -126,8 +139,11 @@ html body { background-color: white !important; }
 	</ul>
 	</small>
 	<img src="img/bag-of-words.jpg" height="300px" />
-	<br/>
-	<em>https://i0.wp.com/thecaffeinedev.com/wp-content/uploads/2017/12/bag.jpg</em>
+<div style="text-align: left; line-height: 10px">
+<em>[image] https://i0.wp.com/thecaffeinedev.com/wp-content/uploads/2017/12/bag.jpg</em>
+<br/>
+<em>Christopher D. Manning, Prabhakar Raghavan, and Hinrich Schütze. 2008. Introduction to Information Retrieval. Cambridge University Press, NY, USA.</em>
+</div>
 </section>
 
 <section>
@@ -148,6 +164,12 @@ html body { background-color: white !important; }
 		<li>New retrieval model?</li>
 	</ul>
 	</small>
+	<div style="height:60px;"></div>
+<div style="text-align: left; line-height: 10px">
+<em>
+Zhong, Wei. “A Novel Similarity-Search Method for Mathematical Content in LaTeX Markup and Its Implementation.” Thesis, University of Delaware, 2015.
+</em>
+</div>
 </section>
 
 <section>
@@ -157,43 +179,51 @@ html body { background-color: white !important; }
 	<div style="height:20px;"></div>
 	<img src="img/mias-perm.png" height="480px" />
 	<br/>
-	<em>(Sojka, Petr, and Martin Líška. "Indexing and searching mathematics in digital libraries.")</em>
+
+<div style="text-align: left; line-height: 10px"><em>
+Sojka, Petr, and Martin Líška. “Indexing and Searching Mathematics in Digital Libraries.” In Intelligent Computer Mathematics, 228–43. Lecture Notes in Computer Science. Springer, Berlin, Heidelberg, 2011.
+</em></div>
 </section>
 
 <section>
 	<h3>Math representation</h3>
 	<div style="height:20px;"></div>
-	<small>(Symbol Layout Tree)</small>
-	<div style="height:20px;"></div>
-	<img src="img/slt-example.svg"/>
-	<br/>
-	<p>$a+b^{2+c}$</p>
+	<small>(Tree-based)</small>
 	<div style="height:60px;"></div>
-	<img src="img/slt-example2.svg"/>
-	<br/>
-	<p>$a+b^{2+c} + \frac 1 x$</p>
-</section>
+	<div style="text-align:center">
+		<div style="display:inline-block; width: 400px">
+			<img src="img/slt-example2.svg"/>
+			<div style="height:60px;"></div>
+			<small>Symbol Layout Tree</small>
+		</div>
+		<div style="display: inline-block; width: 80px;"></div>
 
-<section>
-	<h3>Math representation </h3>
-	<div style="height:20px;"></div>
-	<small>(Operator Tree)</small>
-	<div style="height:20px;"></div>
-
-	<div style="display: inline-block; width: 270px;">
+		<div style="display: inline-block; width: 300px;">
 <div class="mermaid">
 graph TD;
 	add("ADD")
 	add --- a
 	add --- power
+	add --- frac
 	power --- base
 	power --- add2("ADD")
 	base --- b("b")
 	add2 --- 2("2")
 	add2 --- c("c")
+	frac --- rank1
+	rank1 --- 1
+	frac --- rank2
+	rank2 --- x
 </div>
-	<p>$a+b^{2+c}$</p>
+	<small>Operator tree</small>
+		</div>
 	</div>
+	<div style="height:30px;"></div>
+	<small>$a+b^{2+c} + \frac 1 x$ in two different tree representations</small>
+	<div style="height:30px;"></div>
+<div style="text-align: left; line-height: 10px"><em>
+Davila, Kenny. “Appearance-Based Retrieval of Mathematical Notation in Documents and Lecture Videos.” In Proceedings of the 39th International ACM SIGIR Conference on Research and Development in Information Retrieval, 1165–1165. SIGIR ’16. New York, NY, USA.
+</em></div>
 </section>
 
 <!-- aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa  -->
@@ -290,16 +320,16 @@ linkStyle 3 stroke:#080,stroke-width:8px;
 
 <section>
 	<p>Time complexity for finding common subtree</p>
+	<div style="height:60px;"></div>
+<ul>
+<li><small>$O((m^{1.5} / \log m) \cdot n)$ $^{[1]}$ for finding subtree isomorphism</small></li>
+<li><small>$O(n + m)$ $^{[2]}$ for finding largest common forest between rooted trees, but requires vertex matching outdegree, it also needs parent/children info to construct a Directed Acyclic Graph before starting aligning nodes</small></li>
+</ul>
 	<div style="height:70px;"></div>
-	<small>$O((m^{1.5} / \log m) \cdot n)$ $^{[1]}$ for finding subtree isomorphism</small>
-	<br/>
-	<small>$O(n + m)$ $^{[2]}$ for finding largest common forest between rooted trees, but requires vertex matching outdegree, it also needs parent/children info to construct a Directed Acyclic Graph before starting aligning nodes</small>
-	</br/>
-	<div style="height:70px;"></div>
-	<small style="text-align: left">
+<div style="text-align: left; line-height: 1"> <em>
 [1] Ron Shamir, Dekel Tsur, Faster Subtree Isomorphism, Journal of Algorithms. 1999.<br/>
 [2] G. Valiente, "An efficient bottom-up distance between trees," Proceedings Eighth Symposium on String Processing and Information Retrieval, 2001.
-	</small>
+</div></em>
 </section>
 
 <!-- leaf-root paths -->
@@ -317,15 +347,10 @@ graph TD;
 	add2 --- times1("TIMES")
 	times1 --- b("b")
 	times1 --- c("c")
-style add2 stroke:#080,stroke-width:9px
-style times1 stroke:#080,stroke-width:9px
-style b stroke:#080,stroke-width:9px
-style a stroke:#080,stroke-width:8px
-style c stroke:#080,stroke-width:8px
 linkStyle 0 stroke:#080,stroke-width:8px;
 linkStyle 1 stroke:#6ada9a,stroke-width:9px;
 linkStyle 2 stroke:#6ada9a,stroke-width:9px;
-linkStyle 3 stroke:#080,stroke-width:8px;
+linkStyle 3 stroke:#066,stroke-width:8px;
 </div>
 		<small>Query: $ a+bc $</small>
 		</div>
@@ -341,15 +366,10 @@ graph TD;
 	add --- times2("TIMES")
 	times2 --- x("x")
 	times2 --- y("y")
-style add stroke:#080,stroke-width:9px
-style times1 stroke:#080,stroke-width:9px
-style a stroke:#080,stroke-width:8px
-style b stroke:#080,stroke-width:9px
-style c stroke:#080,stroke-width:8px
 linkStyle 0 stroke:#080,stroke-width:8px;
 linkStyle 1 stroke:#6ada9a,stroke-width:9px;
 linkStyle 2 stroke:#6ada9a,stroke-width:9px;
-linkStyle 3 stroke:#080,stroke-width:8px;
+linkStyle 3 stroke:#066,stroke-width:8px;
 </div>
 		<small>Candidate: $ a+bc+xy $</small>
 		</div>
@@ -412,8 +432,6 @@ linkStyle 6 stroke:#080,stroke-width:8px;
 		</div>
 	<small>Reality: <br/>
 	leaf-root paths match $\nRightarrow$ corresponding structure aligned.
-	<br/>
-	(not injective mapping)
 	</small>
 	</div>
 </section>
@@ -421,11 +439,17 @@ linkStyle 6 stroke:#080,stroke-width:8px;
 <section>
 	<p>Vandermonde-like identities</p>
 	<div style="height:70px;"></div>
+<div style="text-align: center">
 <small>
-$$ 2 \sum_{k=0}^{r-1} \binom{n}{2k+1} \binom{n}{2r-2k-1} = \binom{2n}{2r} - (-1)^k \binom{n}{r} $$
-$$ 2 \sum_{k=0}^r \binom{n}{2k} \binom{n}{2r-2k} = \binom{2n}{2r} + (-1)^k \binom{n}{r} $$
+$$
+\begin{aligned}
+&\color{green}{2} \sum_{\color{red}{k=0}}^{\color{CYAN}{r}-1} \binom{\color{blue}{n}}{\color{SALMON}{2k}+1} \binom{\color{blue}{n}}{\color{ORANGE}{2r-2k}-1}
+\\
+&\color{green}{2} \sum_{\color{red}{k=0}}^\color{CYAN}{r} \binom{\color{blue}{n}}{\color{SALMON}{2k}} \binom{\color{blue}{n}}{\color{ORANGE}{2r-2k}}
+\end{aligned}
+$$
 </small>
-
+</div>
 	<div style="height:70px;"></div>
 <small>(https://math.stackexchange.com/questions/216752)</small>
 </section>
@@ -599,9 +623,11 @@ style c stroke:#080,stroke-width:8px
 	</div>
 	<div style="height:45px;"></div>
 	<small>Formula tree similarity<br/>
-$\Gamma(T_1, T_2) = \gamma(\pi_{1,2} \in \Pi(T_1, T_2)) = (3, 2)$  <br/>
+$\Gamma(T_1, T_2) = \gamma(\pi_{1,2} \in \Pi(T_1, T_2)) (3, 2, 0)$  <br/>
 is greater than<br/>
-$\Gamma(T_1, T_3) = \gamma(\pi_{1,3} \in \Pi(T_1, T_3)) = (3, 0)$
+$\Gamma(T_1, T_3) = \gamma(\pi_{1,3} \in \Pi(T_1, T_3)) (3, 0, 0)$
+	<div style="height:15px;"></div>
+Scoring tuple <b>width value</b>: (w_1, w_2, w_3)
 	</small>
 </section>
 
@@ -666,17 +692,17 @@ style b stroke:#009,stroke-width:8px
 		<div width="130px" style="display:inline-block">
 		<!-- <img src="img/hitlist.png"></img> -->
 <pre style="font-size: 0.4em; padding: 8px 0 8px 15px">
-7~1 (ADD, VAR): 8~1.
+7~1 (<i>ADD, VAR</i>): 8~1.
 
-6~2 (TIMES, VAR): 6~2, 6~3, 7~4, 7~5.
-6~3 (TIMES, VAR): 6~2, 6~3, 7~4, 7~5.
-9~4 (TIMES, VAR): 6~2, 6~3, 7~4, 7~5.
-9~5 (TIMES, VAR): 6~2, 6~3, 7~4, 7~5.
+6~2 (<i>TIMES, VAR</i>): 6~2, 6~3, 7~4, 7~5.
+6~3 (<i>TIMES, VAR</i>): 6~2, 6~3, 7~4, 7~5.
+9~4 (<i>TIMES, VAR</i>): 6~2, 6~3, 7~4, 7~5.
+9~5 (<i>TIMES, VAR</i>): 6~2, 6~3, 7~4, 7~5.
 
-7 ~2 (ADD, TIMES, VAR): 8~2, 8~3, 8~4, 8~5.
-7 ~3 (ADD, TIMES, VAR): 8~2, 8~3, 8~4, 8~5.
-10~4 (ADD, TIMES, VAR): 8~2, 8~3, 8~4, 8~5.
-10~5 (ADD, TIMES, VAR): 8~2, 8~3, 8~4, 8~5.
+7 ~2 (<i>ADD, TIMES, VAR</i>): 8~2, 8~3, 8~4, 8~5.
+7 ~3 (<i>ADD, TIMES, VAR</i>): 8~2, 8~3, 8~4, 8~5.
+10~4 (<i>ADD, TIMES, VAR</i>): 8~2, 8~3, 8~4, 8~5.
+10~5 (<i>ADD, TIMES, VAR</i>): 8~2, 8~3, 8~4, 8~5.
 </pre>
 		<br/>
 		<small>Hit lists (ordered from short to long)</small>
@@ -750,10 +776,7 @@ style y stroke:#800,stroke-width:8px
 <!-- Model (table 1)--> 
 <section>
 	<h3>Retrieval model</h3>
-	<div style="height:15px;"></div>
-	<small>(By assumption, "most-hit" cell corresponds to the best matched subtree)</small>
 	<div style="height:40px;"></div>
-
 <!-- ===========  ROW ===================== -->
 <div>
 
@@ -773,7 +796,7 @@ style y stroke:#800,stroke-width:8px
 	</div>
 	<div style="display: inline-block; width: 40px;"></div>
 <!-- ============ TABLE =================== -->
-	<div style="display: inline-block; width: 100px; height:70px;">
+	<div style="display: inline-block; width: 200px; height:150px;">
 <div class="mermaid">
 graph TD;
 	add("ADD<br/>#10")
@@ -799,12 +822,12 @@ style a stroke:#080,stroke-width:8px
 style b stroke:#080,stroke-width:8px
 style c stroke:#080,stroke-width:8px
 </div>
-	<em>$(a+bc) + xy$</em>
+	<small>$(a+bc) + xy$</small>
 	</div>
 
 	<div style="display: inline-block; width: 10px;"></div>
 
-	<div style="display: inline-block; width: 100px; height:70px;">
+	<div style="display: inline-block; width: 200px; height:150px;">
 <div class="mermaid">
 graph TD;
 	add("ADD<br/>#8")
@@ -825,17 +848,19 @@ style a stroke:#080,stroke-width:8px
 style b stroke:#080,stroke-width:8px
 style c stroke:#080,stroke-width:8px
 </div>
-	<em>$a+bc + xy$</em>
+	<small>$a+bc + xy$</small>
 	</div>
 </div>
 <!-- ====================================== -->
-
+<div style="height:30px;"></div>
+<small>(By assumption, "max-hits" cell corresponds to the best matched subtree)</small>
+<div style="height:70px;"></div>
 </section>
 
 <!-- Model (table 2)--> 
 <section>
 <h3>Retrieval model</h3>
-<div style="height:40px;"></div>
+	<div style="height:40px;"></div>
 
 <div>
 	<div style="display: inline-block;">
@@ -853,7 +878,7 @@ style c stroke:#080,stroke-width:8px
 	</div>
 	<div style="display: inline-block; width: 40px;"></div>
 <!-- ====================================== -->
-	<div style="display: inline-block; width: 100px; height:70px;">
+	<div style="display: inline-block; width: 200px; height:150px;">
 <div class="mermaid">
 graph TD;
 	add("ADD<br/>#10")
@@ -884,12 +909,12 @@ style times2 stroke:#800,stroke-width:8px
 style x stroke:#800,stroke-width:8px
 style y stroke:#800,stroke-width:8px
 </div>
-	<em>$(a+bc) + xy$</em>
+	<small>$(a+bc) + xy$</small>
 	</div>
 
 	<div style="display: inline-block; width: 10px;"></div>
 
-	<div style="display: inline-block; width: 100px; height:70px;">
+	<div style="display: inline-block; width: 200px; height:150px;">
 <div class="mermaid">
 graph TD;
 	add("ADD<br/>#8")
@@ -915,7 +940,7 @@ style times2 stroke:#800,stroke-width:8px
 style x stroke:#800,stroke-width:8px
 style y stroke:#800,stroke-width:8px
 </div>
-	<em>$a+bc + xy$</em>
+	<small>$a+bc + xy$</small>
 	</div>
 <!-- ====================================== -->
 </div>
@@ -936,39 +961,119 @@ Final formula tree similarity ($k=3$) score: (3, 2, 0)
 <section>
 	<h3>Scoring</h3>
 	<div style="height:50px;"></div>
+<ul style="list-style-type: none;">
+
+<li>
 <small>
-Scoring function (combine structure and symbol set similarity):
+Structure similarity $S_{\text{st}}$ is determined by top-3 width values:
+	<div style="height:20px;"></div>
+$$
+S_{\text{st}} = \max(0, \frac{w_1}{|\mathcal{P}(T_q)|} - 0.1) + \beta_2 \frac{w_2}{|\mathcal{P}(T_q)|} + \beta_3 \frac{w_3}{|\mathcal{P}(T_q)|}
+$$
+</small>
+</li>
+
+<li>
+<small>
+Symbol set similarity $S_{\text{sy}}$ is a function of normalized Mark-and-Cross score$^{[1]}$ $y$:
+	<div style="height:20px;"></div>
+$$
+S_{\text{sy}} = \frac 1 {1 + (1 - y)^2}
+$$
+</small>
+</li>
+
+<li>
+<small>
+Scoring function (combine structure and symbol similarity in F-measure$^{[2]}$):
 	<div style="height:20px;"></div>
 $$
 \frac{ S_{\text{st}} S_{\text{sy}} }{ S_{\text{st}} + S_{\text{sy}} }
 \left[ (1-\alpha)  + \alpha \frac 1 {\log(1 + |\mathcal{P}(T_d)|)} \right]
 \quad (\alpha = 0.05)
 $$
-	<div style="height:50px;"></div>
-Structure similarity $S_{\text{st}}$ is determined by top-3 width values:
-	<div style="height:20px;"></div>
-$$
-S_{\text{st}} = \max(0, \frac{w_1}{|\mathcal{P}(T_q)|} - 0.1) + \beta_2 \frac{w_2}{|\mathcal{P}(T_q)|} + \beta_3 \frac{w_3}{|\mathcal{P}(T_q)|}
-$$
-	<div style="height:50px;"></div>
-Symbol set similarity $S_{\text{sy}}$ is a function of normalized Mark-and-Cross score $y$:
-	<div style="height:20px;"></div>
-$$
-S_{\text{sy}} = \frac 1 {1 + (1 - y)^2}
-$$
 </small>
+</li>
+
+</ul>
+
+<div style="height:60px;"></div>
+<div style="text-align: left; line-height: 0">
+<em>
+[1] Zhong, Wei. 2015. “A Novel Similarity-Search Method for Mathematical Content in LaTeX Markup and Its Implementation.” Thesis, University of Delaware.
+</em>
+<br/>
+<em>[2] Christopher D. Manning, Prabhakar Raghavan, and Hinrich Schütze. 2008. Introduction to Information Retrieval. Cambridge University Press, NY, USA.</em>
+</div>
+</section>
+
+<section>
+<h3>Evaluation settings</h3>
+<div style="height:40px;"></div>
+<small>
+<ul style="list-style-type: none;">
+<li> NTCIR-12 dataset and human-assessed ratting (judged pool) 
+ Corpus has 387,947 unique math expressions, 20 non-wildcards queries. </li>
+<li> We evaluated 5 runs:
+	<div style="height:10px;"></div>
+	<ul>
+	<li>New model</li>
+		<ul>
+		<li> A0-new-1: $\beta_1 = \beta_2 = 0$ (single common subtree awareness)</li>
+		<li> A0-new-2: $\beta_1 = 1, \beta_2 = 0.1$ (multiple common subtrees awareness)</li>
+		</ul>
+	<li> A0-orig: Original system</li>
+	<li> MCAT$^{[1]}$</li>
+	<li> Tangent$^{[2]}$</li>
+	</ul>
+</ul>
+</small>
+
+<div style="text-align: left; line-height: 10px">
+<em>
+[1, 2] Zanibbi, Richard, et al. "NTCIR-12 MathIR Task Overview." NTCIR. 2016.
+</em>
+</div>
+
+</section>
+
+<!-- sample results --> 
+<section>
+	<h3>Sample results</h3>
+	<div style="height:20px;"></div>
+	<small>
+	NTCIR12-MathWiki-8 (multiple subtrees matching)
+	</small>
+	<img src="img/sample-results.png" height="490px" />
+	<br/>
 </section>
 
 <!-- Results --> 
 <section>
-	<h3>Preliminary results</h3>
+	<h3>Evaluation results</h3>
 	<div style="height:20px;"></div>
 	<img src="img/rpa-results.png" height="470px" />
-	<br/>
+</section>
+
+<!-- interesting finding --> 
+<section>
+	<h3>Sample results</h3>
+	<div style="height:20px;"></div>
 	<small>
-	(A0<sub>new</sub>-1 only considers single best matched subtree,
-	A0<sub>new</sub>-2 considers<br/> top-3 best matched subtree)
+	NTCIR12-MathWiki-16 (multiple subtrees matching)
 	</small>
+	<img src="img/sample-results2.png" height="400px" />
+	<br/>
+</section>
+
+<section>
+	<h3>Sample results</h3>
+	<div style="height:20px;"></div>
+	<small>
+	NTCIR12-MathWiki-16 (single one subtree matching)
+	</small>
+	<img src="img/sample-results3.png" height="490px" />
+	<br/>
 </section>
 
 <section>
@@ -976,6 +1081,8 @@ $$
 	<div style="height:90px;"></div>
 	<div style="height:90px;">
 		<img src="img/sloan-logo.png"/>
+		<br/>
+		<em>Thanks the Sloan foundation for providing financial support for my studies.</em>
 		<br/>
 		<img src="img/dprl-logo.png"/>
 		<img src="img/rit-logo.png"/>
