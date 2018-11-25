@@ -1,0 +1,654 @@
+<!doctype html>
+<html lang="en">
+
+	<head>
+		<meta charset="utf-8">
+
+		<title>reveal.js – The HTML Presentation Framework</title>
+
+		<meta name="description" content="A framework for easily creating beautiful presentations using HTML">
+		<meta name="author" content="Hakim El Hattab">
+
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+		<link rel="stylesheet" href="tk/mermaid.min.css">
+
+		<link rel="stylesheet" href="css/reveal.css">
+		<link rel="stylesheet" href="css/theme/beige.css" id="theme">
+
+		<!-- Theme used for syntax highlighting of code -->
+		<link rel="stylesheet" href="lib/css/zenburn.css">
+
+		<!-- Printing and PDF exports -->
+		<script>
+			var link = document.createElement( 'link' );
+			link.rel = 'stylesheet';
+			link.type = 'text/css';
+			link.href = window.location.search.match( /print-pdf/gi ) ? 'css/print/pdf.css' : 'css/print/paper.css';
+			document.getElementsByTagName( 'head' )[0].appendChild( link );
+		</script>
+<style>
+li {
+	padding-bottom: 30px !important;
+	margin-left: 80px !important;
+	margin-right: 80px !important;
+    font-size: 0.6em !important;
+}
+small {
+    display: inline-block !important;
+    font-size: 0.6em !important;
+    line-height: 1.2em !important;
+    vertical-align: top !important;
+}
+p.small {
+    font-size: 0.6em !important;
+}
+em {
+    font-size: 0.29em !important;
+    line-height: 1.2em !important;
+    vertical-align: top !important;
+}
+b {
+	font-weight: bold !important;
+}
+
+td {
+   width: 100px !important;
+}
+th {
+   width: 100px !important;
+}
+
+.reveal img {
+    border: none !important;
+    box-shadow: none !important; 
+}
+
+html body { background-color: white !important; }
+</style>
+	</head>
+
+	<body>
+
+<div class="reveal">
+	<div class="slides">
+<!-- BEGIN  -->
+
+<section>
+$
+\DeclareMathOperator{\min}{\operatorname{min}}
+\DeclareMathOperator{\argmin}{\operatorname{argmin}}
+\DeclareMathOperator{\x}{\operatorname{\times}}
+\newcommand{\mat}[1]{\begin{bmatrix} #1 \end{bmatrix}}
+\newcommand{\zeros}{\mathbf{0}}
+\newcommand{\new}{^{\text{new}}}
+$
+	<p>Linear Programming - Simplex method</a>
+	<div style="height:60px;"></div>
+	<div style="height:60px;"></div>
+	<p>
+		<small>Wei Zhong</small>
+	</p>
+</section>
+
+<section>
+	<p>Introduction</p>
+	<small>
+	<img style="float: right" height="200px" src="img/dantzig.jpg"/>
+	<p>Dantzig's simplex algorithm (not to be confused with Nelder–Mead' simplex method) is a popular algorithm for linear programming.</p>
+	<p>It was developed by George Dantzig when he solved two open statistics problems listed by his advisor on the blackboard, at that time he had mistaken the unsolved problems for homework after arriving late to the lecture.</p>
+	</small>
+</section>
+
+<section>
+	<p>Problem definition</p>
+	<div style="height:30px;"></div>
+	<small>
+	<img style="float: left" src="img/lp.png"/>
+	<p>In optimization problems, linear programming is a special case of convex optimization where the objective function is linear and the constraints consist of linear equalities and inequalities.</p>
+	<div style="height:10px;"></div>
+$$
+\left\{
+\begin{array}{llr}
+\min & z  = c^T x &  \\
+s.t. & Ax \le b   & (\text{standard form}) \\
+ & x \ge \zeros
+\end{array}
+\right.
+$$
+	</small>
+</section>
+
+<section>
+	<p>Example</p>
+	<small>
+	<p>Every week it is suggested to consume at least 16800KJ energy and 75g protein, you want to stay one week at home just eating snacks, what to buy in order to minimize the price?</p>
+<table>
+<thead>
+<tr>
+<th>Snacks</th>
+<th>Energy (KJ)</th>
+<th>Protein (g)</th>
+<th>Price ($)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Potato chips</td>
+<td>668</td>
+<td>1.5</td>
+<td>6.8</td>
+</tr>
+<tr>
+<td>Cherry pie</td>
+<td>883</td>
+<td>1.2</td>
+<td>2.7</td>
+</tr>
+</tbody>
+</table>
+	</small>
+</section>
+
+<section>
+	<small>
+<table class="float: left">
+<thead>
+<tr>
+<th>Snacks</th>
+<th>Energy (KJ)</th>
+<th>Protein (g)</th>
+<th>Price ($)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Potato chips</td>
+<td>668</td>
+<td>1.5</td>
+<td>6.8</td>
+</tr>
+<tr>
+<td>Cherry pie</td>
+<td>883</td>
+<td>1.2</td>
+<td>2.7</td>
+</tr>
+</tbody>
+</table>
+<div style="height:30px;"></div>
+<p>
+$$
+\left\{
+\begin{array}{llr}
+\min & z  = 6.8x_1+2.7x_2 &  \\
+s.t. & 668x_1+883x_2 \ge 16800 \\
+     & 1.5x_1+1.2x_2 \ge 525 \\
+
+     & x \ge \zeros
+\end{array}
+\right.
+$$
+</p>
+	</small>
+</section>
+
+<section>
+<p>Geometry point of view</p>
+<img style="float: left" height="370px" src="img/2d-solver.png"/>
+<div style="height:30px;"></div>
+<small>
+<p>
+$$
+\left\{
+\begin{array}{llr}
+\min & z  = 6.8x_1+2.7x_2 &  \\
+s.t. & 668x_1+883x_2 \ge 16800 \\
+     & 1.5x_1+1.2x_2 \ge 525 \\
+
+     & x \ge \zeros
+\end{array}
+\right.
+$$
+</p>
+</small>
+<span style="font-size: 0.6em !important">
+Minimal cost for $\dfrac{z}{2.7}$ is obtained when $z = \dfrac{525}{1.2}$, thus $z = 437.5 \times 2.7 = 1181.25$
+</span>
+</section>
+
+<section>
+<div style="height:40px;"></div>
+<p>What if you have more choices?</p>
+<p>(rather than chips and pie)</p>
+</section>
+
+<section>
+	<p>Everything starts from Canonical form</p>
+	<div style="height:30px;"></div>
+<p class="small">
+$$
+\left\{
+\begin{array}{llr}
+\min & z  = c^T x &  \\
+s.t. & Ax \color{red}{=} b   & (\text{canonical form}) \\
+ & x \ge \zeros
+\end{array}
+\right.
+$$
+</p>
+<p class="small">
+The matrix $A_{m \x n}$ is full-rank, and we can write $A$ in a form such that it separates its basis and non-basis: $A = \mat{B & N}$, similarly $c^T = \mat{c_B^T & c_N^T}$ and $x = \mat{x_B \\ x_N}$.
+</p>
+</section>
+
+<section>
+	<p>Reformulate</p>
+	<div style="height:30px;"></div>
+<p class="small">
+$$
+\begin{align}
+                && \mat{B & N} \mat{x_B \\ x_N} &= b \\
+\Leftrightarrow && x_B  + B^{-1} N x_N          &= B^{-1} b \\
+\tag{1}
+\end{align}
+$$
+</p>
+	<div style="height:30px;"></div>
+<p class="small">
+$$
+\begin{align}
+                && z &= c^T x = c_B^T x_B + c_N^T x_N \\
+\Leftrightarrow &&   &= c_B^T (B^{-1} b - B^{-1} N x_N) + c_N^T x_N \\
+\Leftrightarrow &&   &= c_B^T B^{-1} b - c_B^T B^{-1} N x_N + c_N^T x_N \\
+\Leftrightarrow &&   &= c_B^T B^{-1} b - (c_B^T B^{-1} N  - c_N^T) x_N \\
+\tag{2}
+\end{align}
+$$
+</p>
+</section>
+
+<section>
+	<p>Reformulate</p>
+	<div style="height:30px;"></div>
+<p class="small">
+To make the form pretty, introduce new notations $\bar{A}$ and $\bar{b}$:
+</p>
+<p class="small">
+$$
+\left\{
+\begin{align}
+\bar{A}_{m \x n} &= B^{-1} A = B^{-1} \mat{B & N} = \mat{E & B^{-1} N} \\
+\bar{b}_{m \x 1} &= B^{-1} b
+\end{align}
+\right.
+$$
+</p>
+	<div style="height:30px;"></div>
+<p class="small">
+Using this notation, we can rewrite equation (1) and (2)
+</p>
+<p class="small">
+$$
+\begin{align}
+\tag{3}
+z &= c_B^T \bar{b} -  \big( c_B^T (B^{-1} N)  - c_N^T \big) x_N
+   = c_B^T \bar{b} -  \sum_{j=m+1}^n \left( c_B^T \bar{A_j} - c_j \right) x_j \\
+\tag{4}
+\bar{A} x &= \mat{E & B^{-1} N} \mat{x_B \\ x_N} = \bar{b}
+\end{align}
+$$
+</p>
+</section>
+
+<section>
+	<p>Reformulate</p>
+	<div style="height:30px;"></div>
+  <p class="small">
+  To simplify (3) a little bit, imagine a vector $\xi^T$
+  </p>
+<p class="small">
+$$
+\mat{0 & \dots & \underbrace{0}_{\text{#m element}} & \overbrace{c_B^T \bar{A}_{m+1} - c_{m+1}}^{\text{#m+1 element}} & c_B^T \bar{A}_{m+2} - c_{m+2} & \dots & c_B^T \bar{A_{n}} - c_{n}} _ {1 \x n}
+$$
+</p>
+	<div style="height:30px;"></div>
+<p class="small">
+so that (3) can be rewritten as
+</p>
+<p class="small">
+$$
+z = c_B^T \bar{b} - \xi^T x \tag{5}
+$$
+</p>
+</section>
+
+<section>
+	<p>Reformulated form - Simplex algorithm input</p>
+	<div style="height:30px;"></div>
+<p class="small">
+$$
+\left\{
+\begin{array}{llr}
+\min & z  = c_B^T \bar{b} - \xi^T x &  \\
+s.t. & \bar{A} x = \mat{E & B^{-1} N} \mat{x_B \\ x_N} = \bar{b} \\
+ & x \ge \zeros
+\end{array}
+\right.
+$$
+</p>
+<p class="small">
+After selecting a "basis", the we can solve a $x_B = \bar{b}$ and $x_N = \zeros$ (uniquely) so it satisfy above constraints as long as $\bar{b} \ge \mathbf{0}$ (i.e. "feasible").
+</p>
+	<div style="height:20px;"></div>
+<p class="small">
+We call this solution $\bar{x}$ a basic feasible solution (BFS)
+$$
+\tag{6}
+\bar{x} = \mat{\bar{b} \\ \mathbf{0}} \text{ and } \bar{b} \ge \zeros
+$$
+<br/>
+we may assume that $\bar{b} \ge \zeros$ (if it is not the case, just negate the corresponding rows of $\bar{A}$).
+</p>
+<p class="small">What is the benefit of this reformulated form? (we are done if $\xi^T \le \zeros$)</p>
+</section>
+
+<section>
+	<p>Convert to reformulated form (an example)</p>
+	<div style="height:30px;"></div>
+<p class="small">
+$$
+\left\{
+\begin{array}{ll}
+\min & z  = x_1 + x_2 - 3x_3   \\
+s.t. & x_1 - 2x_2 + x_3 \le 11 \\
+     & 2x_1 + x_2 -4x_3 \ge 3 \\
+     & x_1  - 2 x_3 = 1 \\
+     & x \ge \zeros
+\end{array}
+\right.
+$$
+</p>
+	<div style="height:20px;"></div>
+<p class="small">
+introduce slack variables $s_4, s_5$ and artificial variables $a_6, a_7$,
+</p>
+	<div style="height:20px;"></div>
+<p class="small">
+$$
+\left\{
+\begin{array}{lrll}
+\min & z  = x_1 + x_2 - 3x_3 &+ M(\color{red}{a_6 + a_7})  \\
+s.t. & x_1 - 2x_2 + x_3      &                    & \color{red}{+ s_4} && &= 11 \\
+     & 2x_1 + x_2 -4x_3      &- \color{red}{s_5} && \color{red}{+ a_6} & &= 3 \\
+     & x_1  - 2 x_3          &                  &&& \color{red}{+ a_7}  &= 1 \\
+     & x, \color{red}{a, s} \ge \zeros
+\end{array}
+\right.
+$$
+</p>
+</section>
+
+<section>
+	<p>If for some $k$, there is $\xi_k &gt; 0$</p>
+	<div style="height:30px;"></div>
+<p class="small">
+Let us find a scalar $\theta &gt; 0$ and a vector $\Delta$,
+we are hoping $c^T(\bar{x} + \theta\Delta) &lt; c^T \bar{x}$, which implies $c^T \Delta$ is a negative scalar number. How about ...
+</p>
+	<div style="height:20px;"></div>
+<p class="small">
+$$
+\begin{array}{lrl}
+\tag{8}
+            & c^T \Delta &= - \xi_k \\
+\Rightarrow & \mat{c^T_B & c^T_N} \Delta &= - (c_B^T \bar{A}_{k} - c_{k}) \\
+\Rightarrow & \Delta &= \mat{-\bar{A}_{k} \\ 0 \\ \vdots \\ 0 \\1 \\0 \\ \vdots } = \mat{- \bar{A}_{k} \\ \zeros} + e_k
+\end{array}
+$$
+</p>
+</section>
+
+<section>
+	<p>Is $(\bar{x} + \theta\Delta)$ a BFS?</p>
+	<div style="height:30px;"></div>
+<p class="small">
+For equality constraints
+</p>
+	<div style="height:20px;"></div>
+<p class="small">
+$$
+\begin{align}
+	 & A(\bar{x} + \theta \Delta) \\
+	=& A\bar{x} + \theta \mat{B & N} (\mat{- \bar{A}_{k} \\ \zeros} + e_k) \\
+	=& A\bar{x} + \theta \mat{B & N} (\mat{- B^{-1} {A}_{k} \\ \zeros} + e_k) \\
+	=& A\bar{x} + 0 = b
+	\end{align}
+$$
+</p>
+</section>
+
+<section>
+	<p>Is $(\bar{x} + \theta\Delta)$ a BFS?</p>
+	<div style="height:30px;"></div>
+<p class="small">
+For inequality constraints (feasibility), it requires
+</p>
+<p class="small">
+$$
+\bar{x} + \theta \Delta = \mat{ \bar{b} \\ \zeros} + \theta\mat{- \bar{A}_{k} \\ \zeros} + \theta e_k = \mat{\bar{b} - \theta \bar{A}_{k} \\ \zeros} + \theta e_k \ge \zeros
+$$
+</p>
+	<div style="height:20px;"></div>
+<ul>
+<li>Case 1: If $\bar{A}_{k} \le \zeros$, then the above inequality always holds.</li>
+<li>Case 2: If otherwise, $\bar{A}_{k,t} &gt; 0$ for some $t$, then it is satisfied if we set
+$$
+\theta = \frac{\bar{b}_r}{\bar{A}_{k,r}}, \qquad r = \argmin_{\,t} \left\{ \frac {\bar{b}_t}{\bar{A}_{k,t}} s.t. \bar{A}_{k,t} &gt; 0 \right\} \tag{10}
+$$
+in this case, comparing to old $\bar{x}$, the updated solution $\bar{x} + \theta \Delta$ essentially zeroes the element at r-th row (<b>exiting variable</b>) and set the element at k-th row (<b>entering variable</b>) to non-zero value $\theta$. This process is called pivoting.
+Notice, if $\bar{b}_r$ is zero, it makes our "step size" become zero, this is called <i>degeneracy</i>. ``Bland's rule'' can be applied to guarantee finiteness of the simplex method, where smallest index of $k, r$ are chosen if there are other options.
+</li>
+</ul>
+</section>
+
+<section>
+	<p>Is $(\bar{x} + \theta\Delta)$ a BFS?</p>
+	<div style="height:30px;"></div>
+<p class="small">
+For still being corresponding to a basis (linear independent), if we <b>assume</b> the resulting 
+$A_1, A_2, ... A_{r-1}, \color{red}{A_k}, A_{r+1}, ... A_m$ is linearly dependent, then there exits some coefficients $y_i$ such that $A_k = \sum_{i=1, i\neq r}^m y_i A_i $.
+</p>
+<p class="small">
+On the other hand, because
+$A_k = B(B^{-1}A_k) = \mat{A_1 & A_2 ... A_m} \mat{\bar{A}_{k,1} \\ \bar{A}_{k,2} \\ ... \\ \bar{A}_{k,m}}$.
+<br/>
+Subtract two equations above, we get
+$ 0 = \bar{A}_{k,r} A_r + \sum_{i=1, i\neq r}^m (\bar{A}_{k,1} - y_i)A_i $.
+<br/>
+Since $\bar{A}_{k,r} > 0$, it follows $A_1, A_2 ... A_m$ are linearly dependent, we see contradiction.
+</p>
+</section>
+
+<section>
+	<p>Simplex Tableau</p>
+	<div style="height:30px;"></div>
+<p class="small">
+We will show the iteration of step into lower solution can be represented and done using only <i>elementary row operations</i> in a table called "Simplex Tableau"
+</p>
+	<div style="height:20px;"></div>
+<p class="small">
+$$
+\begin{array}{c|c}
+\qquad \xi^T \qquad & z_0 = c_B^T \bar{b} \\
+\hline
+\bar{A}             & x_B = \bar{b} \\
+\end{array}
+$$
+</p>
+<p class="small">
+The first row is called "objective row". Notice the $\xi^T_B = \{c_B^T \bar{A_{j}} - c_{j} \}_j = \{ -c_j \}_j$ if we manage to get a basis where $c_B^T = \zeros$ by using artificial variable.
+</p>
+</section>
+
+<section>
+	<p>Simplex Tableau - Pivoting in $\bar{A} | \bar{b}$</p>
+	<div style="height:30px;"></div>
+<p class="small">
+At some iteration, we have fixed on pivot point $k, r$, and $t$ represents the other rows in $\bar{A} | \bar b$.
+<br/>
+Perform <i>elementary row operations</i> to make $\bar{A}_{k,r} \leftarrow 1$ and $\forall t \neq r, \bar{A}_{k,t} \leftarrow 0$:
+</p>
+	<div style="height:20px;"></div>
+<p class="small">
+$$
+\begin{array}{c|c}
+\ldots \xi^T_k \ldots & z_0 \\
+\hline
+\vdots              & \vdots \\
+\bar{A}_{k,r} \leftarrow \bar{A}_{k,r} \times \frac 1 {\bar{A}_{k,r}} = 1 &
+\bar b_r      \leftarrow \bar b_r      \times \frac 1 {\bar{A}_{k,r}} = \theta \\
+\vdots              & \vdots \\
+\bar{A}_{k,t} \leftarrow \bar{A}_{k,t} -\bar{A}_{k,r} \frac {\bar{A}_{k,t}} {\bar{A}_{k,r}} = 0 &
+\bar b_t      \leftarrow \bar b_t - \bar b_r \frac {\bar{A}_{k,t}} {\bar{A}_{k,r}} = \bar b_t - \theta \bar{A}_{k,t} \\
+\vdots              & \vdots \\
+\end{array}
+$$
+</p>
+<p class="small">
+The updated RHS becomes $\bar{x} + \theta\Delta$  (notice at r-th row in RHS, the exiting variable gets dropped and replaced by the entering variable).
+</p>
+</section>
+
+<section>
+	<p>Simplex Tableau - Pivoting in objective row</p>
+	<div style="height:30px;"></div>
+<p class="small">
+Perform a column swap to move identity matrix to the left-most (notice that, column swaps produces a new simplex tableau that is equivalent to the original problem)
+</p>
+<p class="small">
+$$
+\begin{array}{cccccccccc|c}
+0 & ... & \xi_k & \dots & 0 & \xi_m & ... & \xi_j & ... & \xi_n & z_0 \\
+\hline
+1 &        &     &         &      & &&&&& \\
+  & \ddots &     &         &      & \bar{A}\new_m & ... & \bar{A}\new_j & ... & \bar{A}\new_n & \bar b\new \\
+  &        &  1  &         &      & &&&&& \\
+  &        &     & \ddots  &      & &&&&& \\
+  &        &     &         &  1   & &&&&& \\
+\end{array}
+$$
+</p>
+	<div style="height:20px;"></div>
+<p class="small">
+Apply row operation again, this time we want to zero the objective row elements who are on top of the identity matrix, i.e., we multiply $-\xi_k$ and add onto the objective row...
+$$
+\left\{
+\begin{array}{lrlr}
+\xi_j &\leftarrow &\xi_j - \mat{0 & ... & 0 & \xi_k & 0 & ... & 0} \bar{A}\new_j &= \xi_j - \xi^T_B \bar{A}\new_j & j > m\\
+z_0       &\leftarrow &z_0 - \mat{0 & ... & 0 & \xi_k & 0 & ... & 0} \bar{b}\new &= z_0 - \xi^T_B \bar{b}\new & \\
+\end{array}
+\right.
+$$
+</p>
+</section>
+
+<section>
+	<p>Simplex Tableau - Pivoting in objective row (2)</p>
+	<div style="height:30px;"></div>
+<p class="small">
+In order to know if the updates in previous slide would work to the next iteration,
+let us think $z$ as a variable, since initially $z + \xi^T = z_0$,
+we can think the tableau is actually representing:
+$$
+\mat{
+1      & \qquad \xi^T \qquad  \\
+\hline
+\zeros &\bar{A}
+}
+\cdot
+\mat{
+z \\
+\mathbf{x}
+}
+=
+\mat{
+z_0 \\
+\mathbf{\bar{b}}
+}
+$$
+thus the previous row operations would not stop the equation $ z + \xi^T x = z_0 $ holding true.
+</p>
+	<div style="height:10px;"></div>
+<p class="small">
+Now apply the same derivation in (1) and (2):
+$$
+\begin{align}
+            && z + \xi^T x &= z_0 \\
+\Rightarrow && z + \xi_B^T (\bar{b}\new - \bar{A}_N\new x_N) + \xi^T_N x_N &= z_0 \\
+\Rightarrow && z + (\xi_N^T - \xi_B^T \bar{A}_N\new) x_N  &= z_0 -  \xi_B^T \bar{b}\new \\
+\Rightarrow && z + \mat{\zeros & \xi_N^T - \xi_B^T \bar{A}_N\new} \mat{x_B \\ x_N}  &= z_0 -  \xi_B^T \bar{b}\new
+\end{align}
+$$
+</p>
+	<div style="height:10px;"></div>
+<p class="small">
+You might find $\xi_N^T - \xi_B^T \bar{A_N}$ is exactly updated $\xi^T$, and $ z_0 - \xi_B^T$ is the updated minimal value, and this similar form will keep previous method still working in the next iteration.
+</p>
+</section>
+
+<section>
+	<p>Complexity</p>
+	<div style="height:30px;"></div>
+<p class="small">
+The worst-case complexiy is exponential. Because the number of vertices is equal to choosing $m$ basis from $n$ variables, $n \choose m$ reaches maximum if $m = \lceil \frac n2 \rceil \text{ or } \lfloor \frac n2 \rfloor$ depending on even or odd, it is exponential because $2^{n/2} &lt; \binom{n}{n/2} &lt; 2^{n}$ holds.
+</p>
+	<div style="height:20px;"></div>
+<p class="small">
+Nevertheless, the simplex method is very efficient in practice, generally taking small constants polynomial time with regarding to the number of equality constraints, and converging in expected polynomial time for certain distributions of random inputs (Nocedal and Wright 1999, Forsgren 2002).
+</p>
+</section>
+
+<section>
+<h3>Thank you</h3>
+</section>
+<!-- END  -->
+			</div>
+		</div>
+
+		<script src="lib/js/head.min.js"></script>
+		<script src="tk/mermaid.min.js"></script>
+		<script>
+        mermaid.initialize({startOnLoad:true});
+        </script>
+		<script src="js/reveal.js"></script>
+
+		<script>
+
+			// More info https://github.com/hakimel/reveal.js#configuration
+			Reveal.initialize({
+				controls: true,
+				progress: true,
+				history: true,
+				center: true,
+
+				transition: 'slide', // none/fade/slide/convex/concave/zoom
+
+				// More info https://github.com/hakimel/reveal.js#dependencies
+				dependencies: [
+					{ src: 'lib/js/classList.js', condition: function() { return !document.body.classList; } },
+					{ src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
+					{ src: 'plugin/math/math.js', async: true } // mathjax / MathJaX plugin.
+				]
+			});
+
+			Reveal.configure({ slideNumber: true });
+			Reveal.configure({ slideNumber: 'c/t' });
+
+		</script>
+
+	</body>
+</html>
