@@ -44,7 +44,7 @@ small {
     vertical-align: top !important;
 }
 p.small {
-    font-size: 0.6em !important;
+    font-size: 0.5em !important;
 }
 em {
     font-size: 0.29em !important;
@@ -87,14 +87,14 @@ $
 \newcommand{\new}{^{\text{new}}}
 $
 	<p>Linear Programming - Simplex method</a>
-	<div style="height:60px;"></div>
+	<div style="height:30px;"></div>
 	<p class="small">
 		Slide URL: <span id="slide-url-address">?</span>
 		<script>
 		document.getElementById("slide-url-address").innerHTML = window.location.href;
 		</script>
 	</p>
-	<div style="height:60px;"></div>
+	<div style="height:30px;"></div>
 	<p>
 		<small>Wei Zhong</small>
 	</p>
@@ -222,6 +222,7 @@ $$
 </p>
 </small>
 <span style="font-size: 0.6em !important">
+<br/>
 Minimal cost for $\dfrac{z}{2.7}$ is obtained when $z = \dfrac{525}{1.2}$, thus $z = 437.5 \times 2.7 = 1181.25$
 </span>
 </section>
@@ -334,7 +335,6 @@ $$
 
 <section>
 	<p>Reformulated form - Simplex algorithm input</p>
-	<div style="height:30px;"></div>
 <p class="small">
 $$
 \left\{
@@ -349,7 +349,6 @@ $$
 <p class="small">
 After selecting a "basis", the we can solve a $x_B = \bar{b}$ and $x_N = \zeros$ (uniquely) so it satisfy above constraints as long as $\bar{b} \ge \mathbf{0}$ (i.e. "feasible").
 </p>
-	<div style="height:20px;"></div>
 <p class="small">
 We call this solution $\bar{x}$ a basic feasible solution (BFS)
 $$
@@ -364,7 +363,6 @@ we may assume that $\bar{b} \ge \zeros$ (if it is not the case, just negate the 
 
 <section>
 	<p>Convert to reformulated form (an example)</p>
-	<div style="height:30px;"></div>
 <p class="small">
 $$
 \left\{
@@ -378,11 +376,9 @@ s.t. & x_1 - 2x_2 + x_3 \le 11 \\
 \right.
 $$
 </p>
-	<div style="height:20px;"></div>
 <p class="small">
 introduce slack variables $s_4, s_5$ and artificial variables $a_6, a_7$,
 </p>
-	<div style="height:20px;"></div>
 <p class="small">
 $$
 \left\{
@@ -400,17 +396,16 @@ $$
 
 <section>
 	<p>If for some $k$, there is $\xi_k &gt; 0$</p>
-	<div style="height:30px;"></div>
+	<div style="height:10px;"></div>
 <p class="small">
-Let us find a scalar $\theta &gt; 0$ and a vector $\Delta$,
-we are hoping $c^T(\bar{x} + \theta\Delta) &lt; c^T \bar{x}$, which implies $c^T \Delta$ is a negative scalar number. How about ...
+Find a scalar $\theta &gt; 0$ and a vector $\Delta$,
+we are hoping $c^T(\bar{x} + \theta\Delta) &lt; c^T \bar{x}$, which implies $c^T \Delta &lt; 0$
 </p>
-	<div style="height:20px;"></div>
 <p class="small">
 $$
 \begin{array}{lrl}
 \tag{8}
-            & c^T \Delta &= - \xi_k \\
+\text{how about}     & c^T \Delta &= - \xi_k \\
 \Rightarrow & \mat{c^T_B & c^T_N} \Delta &= - (c_B^T \bar{A}_{k} - c_{k}) \\
 \Rightarrow & \Delta &= \mat{-\bar{A}_{k} \\ 0 \\ \vdots \\ 0 \\1 \\0 \\ \vdots } = \mat{- \bar{A}_{k} \\ \zeros} + e_k
 \end{array}
@@ -502,7 +497,7 @@ The first row is called "objective row". Notice the $\xi^T_B = \{c_B^T \bar{A_{j
 
 <section>
 	<p>Simplex Tableau - Pivoting in $\bar{A} | \bar{b}$</p>
-	<div style="height:30px;"></div>
+	<div style="height:20px;"></div>
 <p class="small">
 At some iteration, we have fixed on pivot point $k, r$, and $t$ represents the other rows in $\bar{A} | \bar b$.
 <br/>
@@ -531,7 +526,6 @@ The updated RHS becomes $\bar{x} + \theta\Delta$  (notice at r-th row in RHS, th
 
 <section>
 	<p>Simplex Tableau - Pivoting in objective row</p>
-	<div style="height:30px;"></div>
 <p class="small">
 Perform a column swap to move identity matrix to the left-most (notice that, column swaps produces a new simplex tableau that is equivalent to the original problem)
 </p>
@@ -548,7 +542,6 @@ $$
 \end{array}
 $$
 </p>
-	<div style="height:20px;"></div>
 <p class="small">
 Apply row operation again, this time we want to zero the objective row elements who are on top of the identity matrix, i.e., we multiply $-\xi_k$ and add onto the objective row...
 $$
@@ -588,7 +581,6 @@ z_0 \\
 $$
 thus the previous row operations would not stop the equation $ z + \xi^T x = z_0 $ holding true.
 </p>
-	<div style="height:10px;"></div>
 <p class="small">
 Now apply the same derivation in (1) and (2):
 $$
