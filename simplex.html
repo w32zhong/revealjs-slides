@@ -138,7 +138,7 @@ $$
 <th>Snacks</th>
 <th>Energy (KJ)</th>
 <th>Protein (g)</th>
-<th>Price ($)</th>
+<th>Price</th>
 </tr>
 </thead>
 <tbody>
@@ -167,7 +167,7 @@ $$
 <th>Snacks</th>
 <th>Energy (KJ)</th>
 <th>Protein (g)</th>
-<th>Price ($)</th>
+<th>Price</th>
 </tr>
 </thead>
 <tbody>
@@ -468,9 +468,9 @@ On the other hand, because
 $A_k = B(B^{-1}A_k) = \mat{A_1 & A_2 ... A_m} \mat{\bar{A}_{k,1} \\ \bar{A}_{k,2} \\ ... \\ \bar{A}_{k,m}}$.
 <br/>
 Subtract two equations above, we get
-$ 0 = \bar{A}_{k,r} A_r + \sum_{i=1, i\neq r}^m (\bar{A}_{k,1} - y_i)A_i $.
+$ 0 = \bar{A}_{k,r} A_r + \sum_{i=1, i\neq r}^m (\bar{A}_{k,i} - y_i)A_i $.
 <br/>
-Since $\bar{A}_{k,r} > 0$, it follows $A_1, A_2 ... A_m$ are linearly dependent, we see contradiction.
+Since $\bar{A}_{k,r} &gt; 0$, it follows $A_1, A_2 ... A_m$ are linearly dependent, we see contradiction.
 </p>
 </section>
 
@@ -619,10 +619,10 @@ You might find $\xi_N^T - \xi_B^T \bar{A_N}$ is exactly updated $\xi^T$, and $ z
 $$
 \left\{
 \begin{array}{lrll}
-\min & z = x_1 +&   x_2  & -3x_3  &      &       &    \\
-s.t. &     x_1 +& -2 x_2 & +x_3   &      &       &= 2 \\
-     &          &  x_2   & -3x_3  & +x_4 &  +x_5 &= 1 \\
-     &          &  x_2   & - x_3  &      &       &= 2 \\
+\min & z = x_1 +&   x_2  & -2 x_3  &      &       &    \\
+s.t. &     x_1 +& -2 x_2 &  + x_3  &      &       &= 2 \\
+     &          &  x_2   & -3 x_3  & +x_4 &  +x_5 &= 1 \\
+     &          &  x_2   &  - x_3  &      &       &= 2 \\
      &&&&& \vec x &\ge \zeros 
 \end{array}
 \right.
