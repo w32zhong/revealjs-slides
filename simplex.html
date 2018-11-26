@@ -664,6 +664,43 @@ optimal!
 </section>
 
 <section>
+	<p>Unbounded example</p>
+	<div style="height:20px;"></div>
+<p class="small">
+\begin{alignat}{2} 
+\min\quad &-x_1 – x_2& \\ 
+\mbox{s.t.}\quad
+& x_1 – x_2 &\leq{1} \\ 
+-&x_1 + x_2 & \leq{1}\\ 
+& x_1, x_2 &\geq{0} \\ 
+\end{alignat}
+<img height="220px" src="img/simplex-unbounded.png"/>
+</p>
+</section>
+
+<section>
+	<p>Unbounded example (Cont.)</p>
+	<div style="height:20px;"></div>
+<pre>
+## Iteration 0
+[      x3       x4       x1       x2]
+[[       0        0        1        1]] [[       0]]
+[[       1        0        1       -1]] [[       1]]
+[[       0        1       -1        1]] [[       1]]
+k = 2 (entering), r = 0 (exiting), theta = 1.000000
+</pre>
+	<div style="height:10px;"></div>
+<pre>
+## Iteration 1
+[      x1       x4       x3       x2]
+[[       0        0       -1        2]] [[      -1]]
+[[       1        0        1       -1]] [[       1]]
+[[       0        1        1        0]] [[       2]]
+k = 3 (entering), no lower bound!
+</pre>
+</section>
+
+<section>
 	<p>Complexity</p>
 	<div style="height:30px;"></div>
 <p class="small">
