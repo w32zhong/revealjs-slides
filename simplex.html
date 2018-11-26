@@ -613,12 +613,67 @@ You might find $\xi_N^T - \xi_B^T \bar{A_N}$ is exactly updated $\xi^T$, and $ z
 </section>
 
 <section>
+	<p>Example</p>
+	<div style="height:20px;"></div>
+<p class="small">
+$$
+\left\{
+\begin{array}{lrll}
+\min & z = x_1 +&   x_2  & -3x_3  &      &       &    \\
+s.t. &     x_1 +& -2 x_2 & +x_3   &      &       &= 2 \\
+     &          &  x_2   & -3x_3  & +x_4 &  +x_5 &= 1 \\
+     &          &  x_2   & - x_3  &      &       &= 2 \\
+     &&&&& \vec x &\ge \zeros 
+\end{array}
+\right.
+$$
+</p>
+	<div style="height:10px;"></div>
+<pre>
+[      x1       x4       x5       x2       x3]
+[[  -0.000   -0.000   -0.000    1.000   -2.000]] [[   0.000]]
+[[   1.000    0.000    0.000   -2.000    1.000]] [[   2.000]]
+[[   0.000    1.000    0.000    1.000   -3.000]] [[   1.000]]
+[[   0.000    0.000    1.000    1.000   -1.000]] [[   2.000]]
+k = 3 (entering), r = 1 (exiting), theta = 1.000000
+</pre>
+</section>
+
+<section>
+	<p>Example (Cont.)</p>
+	<div style="height:20px;"></div>
+<pre>
+ ## Iteration 1
+[      x1       x2       x5       x4       x3]
+[[       0        0        0       -1        1]] [[      -1]]
+[[       1        0        0        2       -5]] [[       4]]
+[[       0        1        0        1       -3]] [[       1]]
+[[       0        0        1       -1        2]] [[       1]]
+k = 4 (entering), r = 2 (exiting), theta = 0.500000
+</pre>
+	<div style="height:10px;"></div>
+<pre>
+ ## Iteration 2
+[      x1       x2       x3       x4       x5]
+[[       0        0        0     -1/2     -1/2]] [[    -3/2]]
+[[       1        0        0     -1/2      5/2]] [[    13/2]]
+[[       0        1        0     -1/2      3/2]] [[     5/2]]
+[[       0        0        1     -1/2      1/2]] [[     1/2]]
+optimal!
+</pre>
+</section>
+
+<section>
 	<p>Complexity</p>
 	<div style="height:30px;"></div>
 <p class="small">
-The worst-case complexity is exponential. Because the number of vertices is equal to choosing $m$ basis from $n$ variables, $n \choose m$ reaches maximum if $m = \lceil \frac n2 \rceil \text{ or } \lfloor \frac n2 \rfloor$ depending on even or odd, it is exponential because $2^{n/2} &lt; \binom{n}{n/2} &lt; 2^{n}$ holds.
+In each iteration, since $A_{m \times p}B_{p \times n}$ takes $O(mpn)$, and $A^{-1}$ takes $O(m^3)$, the dominate part is line#38 (last line) where the complexity is $O(m^3 + m^2n)$.
 </p>
-	<div style="height:20px;"></div>
+	<div style="height:10px;"></div>
+<p class="small">
+In terms of number of iterations, the worst-case complexity is exponential. Because the number of vertices is equal to choosing $m$ basis from $n$ variables, $n \choose m$ reaches maximum if $m = \lceil \frac n2 \rceil \text{ or } \lfloor \frac n2 \rfloor$ depending on even or odd, it is exponential because $2^{n/2} &lt; \binom{n}{n/2} &lt; 2^{n}$ holds.
+</p>
+	<div style="height:10px;"></div>
 <p class="small">
 Nevertheless, the simplex method is very efficient in practice, generally taking small constants polynomial time with regarding to the number of equality constraints, and converging in expected polynomial time for certain distributions of random inputs (Nocedal and Wright 1999, Forsgren 2002).
 </p>
