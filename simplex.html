@@ -599,10 +599,24 @@ You might find $\xi_N^T - \xi_B^T \bar{A_N}$ is exactly updated $\xi^T$, and $ z
 </section>
 
 <section>
+	<p>Implementation</p>
+	<p class="small">
+		URL: https://github.com/t-k-/simplex-method
+	</p>
+	<img height="550px" src="img/simplex-code.png"/>
+</section>
+
+<section>
+	<p>Program run</p>
+	<img height="100px" src="img/simplex-input.png"/>
+	<img height="450px" src="img/simplex-run.png"/>
+</section>
+
+<section>
 	<p>Complexity</p>
 	<div style="height:30px;"></div>
 <p class="small">
-The worst-case complexiy is exponential. Because the number of vertices is equal to choosing $m$ basis from $n$ variables, $n \choose m$ reaches maximum if $m = \lceil \frac n2 \rceil \text{ or } \lfloor \frac n2 \rfloor$ depending on even or odd, it is exponential because $2^{n/2} &lt; \binom{n}{n/2} &lt; 2^{n}$ holds.
+The worst-case complexity is exponential. Because the number of vertices is equal to choosing $m$ basis from $n$ variables, $n \choose m$ reaches maximum if $m = \lceil \frac n2 \rceil \text{ or } \lfloor \frac n2 \rfloor$ depending on even or odd, it is exponential because $2^{n/2} &lt; \binom{n}{n/2} &lt; 2^{n}$ holds.
 </p>
 	<div style="height:20px;"></div>
 <p class="small">
