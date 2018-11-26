@@ -619,10 +619,10 @@ You might find $\xi_N^T - \xi_B^T \bar{A_N}$ is exactly updated $\xi^T$, and $ z
 $$
 \left\{
 \begin{array}{lrll}
-\min & z = x_1 +&   x_2  & -2 x_3  &      &       &    \\
+\min & z =      &  -x_2  & +2 x_3  &      &       &    \\
 s.t. &     x_1 +& -2 x_2 &  + x_3  &      &       &= 2 \\
-     &          &  x_2   & -3 x_3  & +x_4 &  +x_5 &= 1 \\
-     &          &  x_2   &  - x_3  &      &       &= 2 \\
+     &          &  x_2   & -3 x_3  & +x_4 &       &= 1 \\
+     &          &  x_2   &  - x_3  &      &  +x_5 &= 2 \\
      &&&&& \vec x &\ge \zeros 
 \end{array}
 \right.
