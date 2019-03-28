@@ -1,0 +1,1238 @@
+<!doctype html>
+<html lang="en">
+
+	<head>
+		<meta charset="utf-8">
+
+		<title>Slides</title>
+
+		<meta name="description" content="A framework for easily creating beautiful presentations using HTML">
+		<meta name="author" content="Hakim El Hattab">
+
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+		<link rel="stylesheet" href="tk/mermaid.min.css">
+
+		<link rel="stylesheet" href="css/reveal.css">
+		<link rel="stylesheet" href="css/theme/beige.css" id="theme">
+
+		<!-- Theme used for syntax highlighting of code -->
+		<link rel="stylesheet" href="lib/css/zenburn.css">
+
+		<!-- Printing and PDF exports -->
+		<script>
+			var link = document.createElement( 'link' );
+			link.rel = 'stylesheet';
+			link.type = 'text/css';
+			link.href = window.location.search.match( /print-pdf/gi ) ? 'css/print/pdf.css' : 'css/print/paper.css';
+			document.getElementsByTagName( 'head' )[0].appendChild( link );
+		</script>
+<style>
+li {
+	padding-bottom: 30px !important;
+	margin-left: 80px !important;
+	margin-right: 80px !important;
+}
+small {
+    display: inline-block !important;
+    font-size: 0.6em !important;
+    line-height: 1.2em !important;
+    vertical-align: top !important;
+}
+em {
+    font-size: 0.29em !important;
+    line-height: 1.2em !important;
+    vertical-align: top !important;
+}
+b {
+	font-weight: bold !important;
+}
+
+td {
+   width: 100px !important;
+}
+th {
+   width: 100px !important;
+}
+
+.reveal img {
+    border: none !important;
+    box-shadow: none !important; 
+}
+
+html body { background-color: white !important; }
+</style>
+	</head>
+
+	<body>
+
+<div class="reveal">
+	<div class="slides">
+
+<section>
+	<p>Structure Similarity Search for Formulas using Leaf-root Paths in Operator Subtrees</p>
+	<div style="height:60px;"></div>
+	<div style="height:60px;"></div>
+	<p>
+		<small>Wei Zhong and Richard Zanibbi</small>
+	</p>
+	<small>wxz8033@rit.edu, rlaz@cs.rit.edu</small>
+	<div style="height:05px;"></div>
+	<small>Rochester Institute of Technology, Rochester, USA</small>
+	<div style="height:10px;"></div>
+	<div>
+		<img style="height:110px; padding-top: 15px;" src="img/rit-logo.png"/>
+		<img style="height:70px; padding-bottom: 30px;" src="img/dprl2019.png"/>
+	</div>
+</section>
+
+<section>
+	<p>Mathematical Information Retrieval (MIR)</p>
+	<div style="height:60px;"></div>
+	<small>
+	<ul>
+		<li>Detect and extract math expressions from scientific document (e.g., PDF)</li>
+		<li>Computational scientific search (e.g., WolframAlpha)</li>
+		<li>Handwritten formulas and formula image recognition</li>
+		<li>Search math by similarity</li>
+	</ul>
+	</small>
+	<div style="height:50px;"></div>
+<div style="text-align: left; line-height: 10px">
+<em>Zanibbi, Richard, and Dorothea Blostein. “Recognition and Retrieval of Mathematical Expressions.”
+International Journal on Document Analysis and Recognition (IJDAR) 15, no. 4. 2012.
+</em>
+</div>
+</section>
+
+<section>
+	<p>What do you mean by search math by similarity?</p>
+	<div style="height:30px; margin:0"></div>
+	<div style="text-align:center">
+		<div style="display: inline-block; border: 1px solid black; height:500px;">
+		<img src="img/approach0.png"/>
+		</div>
+	</div>
+	<br/>
+<div style="text-align: left; line-height: 10px">
+<em>
+Zhong, Wei, and Hui Fang. “OPMES: A Similarity Search Engine for Mathematical Content.” In Advances in Information Retrieval, 849–52. 2016.
+</em>
+</div>
+</section>
+
+<section>
+	<p>Problems in math similarity search</p>
+	<div style="height:60px;"></div>
+	<small>
+	<ul>
+		<li>Need new representation (Bag of words model may not be appropriate for highly structured content)</li>
+			<ul>
+				<li>Math is structured rather than linear</li>
+				<li>Symbols can be used interchangeably (e.g., $x^2+x$ and $a^2+a$)</li>
+			</ul>
+		<li>Need new similarity measurement (word frequency and proximity are not enough)</li>
+			<ul>
+				<li>Associativity/commutativity (e.g., $x+xy$ and $ab+b$)</li>
+				<li>Sub-expression identification (e.g., $a(x+1)$ vs. $ax+1$ and $x + 1$)</li>
+			</ul>
+		<li>How to design an effective retrieval model for formulas?</li>
+		<li>...... (list goes on)</li>
+	</ul>
+	</small>
+</section>
+
+
+<section>
+	<p>Math representation (Text-based)</p>
+	<div style="height:20px;"></div>
+	<img src="img/mias-perm.png" height="480px" />
+	<br/>
+
+<div style="text-align: left; line-height: 10px"><em>
+Sojka, Petr, and Martin Líška. “Indexing and Searching Mathematics in Digital Libraries.” In Intelligent Computer Mathematics, 228–43. Lecture Notes in Computer Science. Springer, Berlin, Heidelberg, 2011.
+</em></div>
+</section>
+
+<section>
+	<p>Math representation (Tree-based)</p>
+	<div style="height:60px;"></div>
+	<div style="text-align:center">
+		<div style="display:inline-block; width: 400px">
+			<img src="img/slt-example2.svg"/>
+			<div style="height:60px;"></div>
+			<small>Symbol Layout Tree</small>
+		</div>
+		<div style="display: inline-block; width: 80px;"></div>
+
+		<div style="display: inline-block; width: 300px;">
+<div class="mermaid">
+graph TD;
+	add("ADD")
+	add --- a
+	add --- power
+	add --- frac
+	power --- base
+	power --- add2("ADD")
+	base --- b("b")
+	add2 --- 2("2")
+	add2 --- c("c")
+	frac --- rank1
+	rank1 --- 1
+	frac --- rank2
+	rank2 --- x
+</div>
+	<small>Operator tree</small>
+		</div>
+	</div>
+	<div style="height:30px;"></div>
+	<small>$a+b^{2+c} + \frac 1 x$ in two different tree representations</small>
+	<div style="height:30px;"></div>
+<div style="text-align: left; line-height: 10px"><em>
+K. Davila, R. Zanibbi. "Layout and Semantics: Combining Representations for Mathematical Formula Search". In Proceedings of the 40th International ACM SIGIR conference on Research and Development in Information Retrieval (SIGIR 2017). ACM.
+</em></div>
+</section>
+
+<section>
+	<p>Intuition</p>
+	<small>Vandermonde-like identities</small>
+	<div style="height:70px;"></div>
+<div style="text-align: center">
+<small>
+$$
+\begin{aligned}
+&\color{green}{2} \sum_{\color{red}{k=0}}^{\color{CYAN}{r}-1} \binom{\color{blue}{n}}{\color{SALMON}{2k}+1} \binom{\color{blue}{n}}{\color{ORANGE}{2r-2k}-1}
+\\
+&\color{green}{2} \sum_{\color{red}{k=0}}^\color{CYAN}{r} \binom{\color{blue}{n}}{\color{SALMON}{2k}} \binom{\color{blue}{n}}{\color{ORANGE}{2r-2k}}
+\end{aligned}
+$$
+</small>
+</div>
+	<div style="height:70px;"></div>
+<small>(https://math.stackexchange.com/questions/216752)</small>
+</section>
+
+<!-- multi-tree match -->
+<section>
+	<p>Similarity measurement</p>
+	<div style="height:10px;"></div>
+	<small>(Capturing multiple subtrees' structure isomorphism)</small>
+	<div style="height:20px;"></div>
+	<div>
+		<div style="display: inline-block; width: 240px; height:150px;">
+<div class="mermaid">
+graph TD;
+	add("ADD")
+	group("GROUP")
+	add --- group
+	group --- add2
+	add2("ADD")
+	add2 --- a("a")
+	add2 --- times1("TIMES")
+	times1 --- b("b")
+	times1 --- c("c")
+
+	add --- times2("TIMES")
+	times2 --- x("x")
+	times2 --- y("y")
+style add2 stroke:#080,stroke-width:8px
+style times1 stroke:#080,stroke-width:8px
+style b stroke:#080,stroke-width:8px
+style a stroke:#080,stroke-width:8px
+style c stroke:#080,stroke-width:8px
+style times2 stroke:#800,stroke-width:8px
+style x stroke:#800,stroke-width:8px
+style y stroke:#800,stroke-width:8px
+linkStyle 2 stroke:#080,stroke-width:8px;
+linkStyle 3 stroke:#080,stroke-width:8px;
+linkStyle 4 stroke:#080,stroke-width:8px;
+linkStyle 5 stroke:#080,stroke-width:8px;
+linkStyle 7 stroke:#800,stroke-width:8px;
+linkStyle 8 stroke:#800,stroke-width:8px;
+</div>
+		<small>Query:<br/> $ (a+bc)+xy $</small>
+		</div>
+		<div style="display: inline-block; width: 100px;"></div>
+		<div style="display: inline-block; width: 240px; height:150px;">
+<div class="mermaid">
+graph TD;
+	add("ADD")
+	add --- a("a")
+	add --- times1("TIMES")
+	times1 --- b("b")
+	times1 --- c("c")
+	add --- times2("TIMES")
+	times2 --- x("x")
+	times2 --- y("y")
+style add stroke:#080,stroke-width:8px
+style times1 stroke:#080,stroke-width:8px
+style a stroke:#080,stroke-width:8px
+style b stroke:#080,stroke-width:8px
+style c stroke:#080,stroke-width:8px
+linkStyle 0 stroke:#080,stroke-width:8px;
+linkStyle 1 stroke:#080,stroke-width:8px;
+linkStyle 2 stroke:#080,stroke-width:8px;
+linkStyle 3 stroke:#080,stroke-width:8px;
+style times2 stroke:#800,stroke-width:8px
+style x stroke:#800,stroke-width:8px
+style y stroke:#800,stroke-width:8px
+linkStyle 5 stroke:#800,stroke-width:8px;
+linkStyle 6 stroke:#800,stroke-width:8px;
+</div>
+		<small>Candidate: $ a+bc+xy $</small>
+		</div>
+	</div>
+	<div style="height:50px;"></div>
+	<small>Common formula subforest $\pi \in \Pi(T_q, T_d)$</small>
+	<div></div>
+	<small>Scoring: $\gamma(\pi) = \sum_{T_q, T_d \in \pi} \beta_i (\alpha \cdot \text{operators}(T_d) + (1 - \alpha) \text{leaves}(T_d))$</small>
+</section>
+
+<!-- costly matching problem -->
+<section>
+	<p>Time complexity for finding common subtree</p>
+	<div style="height:60px;"></div>
+<ul>
+<li><small>$O((m^{1.5} / \log m) \cdot n)$ $^{[1]}$ for finding subtree isomorphism</small></li>
+<li><small>$O(n + m)$ $^{[2]}$ for finding largest common forest between rooted trees, but requires vertex matching outdegree, it also needs parent/children info to construct a Directed Acyclic Graph before starting aligning nodes</small></li>
+</ul>
+	<div style="height:70px;"></div>
+<div style="text-align: left; line-height: 1"> <em>
+[1] Ron Shamir, Dekel Tsur, Faster Subtree Isomorphism, Journal of Algorithms. 1999.<br/>
+[2] G. Valiente, "An efficient bottom-up distance between trees," Proceedings Eighth Symposium on String Processing and Information Retrieval, 2001.
+</div></em>
+</section>
+
+<!-- match leaf-root paths -->
+<section>
+	<p>Matching from leaf-root paths</p>
+	<div style="height:50px;"></div>
+	<div>
+		<div style="display: inline-block; width: 200px; height:100px;">
+<div class="mermaid">
+graph TD;
+	add2("ADD")
+	add2 --- a("a")
+	add2 --- times1("TIMES")
+	times1 --- b("b")
+	times1 --- c("c")
+linkStyle 0 stroke:#080,stroke-width:8px;
+linkStyle 1 stroke:#00e,stroke-width:9px;
+linkStyle 2 stroke:#00e,stroke-width:9px;
+linkStyle 3 stroke:#800,stroke-width:8px;
+</div>
+		<small>Query: $ a+bc $</small>
+		</div>
+		<div style="display: inline-block; width: 100px;"></div>
+		<div style="display: inline-block; width: 300px; height:200px;">
+<div class="mermaid">
+graph TD;
+	add("ADD")
+	add --- a("a")
+	add --- times1("TIMES")
+	times1 --- b("b")
+	times1 --- c("c")
+	add --- times2("TIMES")
+	times2 --- x("x")
+	times2 --- y("y")
+linkStyle 0 stroke:#080,stroke-width:8px;
+linkStyle 1 stroke:#00e,stroke-width:9px;
+linkStyle 2 stroke:#00e,stroke-width:9px;
+linkStyle 3 stroke:#800,stroke-width:8px;
+</div>
+		<small>Candidate: $ a+bc+xy $</small>
+		</div>
+	</div>
+	<small>Assumption: <br/>leaf-root paths match $\implies$ corresponding structure aligned</small>
+</section>
+
+<section>
+	<p>Leaf-root path assumption may fail</p>
+	<div style="height:50px;"></div>
+	<div>
+		<div style="display: inline-block; width: 200px; height:100px;">
+<div class="mermaid">
+graph TD;
+	add2("ADD")
+	add2 --- a("a")
+	add2 --- times1("TIMES")
+	times1 --- b("b")
+	times1 --- c("c")
+style add2 stroke:#080,stroke-width:8px
+style times1 stroke:#080,stroke-width:8px
+style b stroke:#080,stroke-width:8px
+style a stroke:#080,stroke-width:8px
+style c stroke:#080,stroke-width:8px
+linkStyle 0 stroke:#080,stroke-width:8px;
+linkStyle 1 stroke:#080,stroke-width:8px;
+linkStyle 2 stroke:#080,stroke-width:8px;
+linkStyle 3 stroke:#080,stroke-width:8px;
+</div>
+		<small>Query: $ a+bc $</small>
+		</div>
+		<div style="display: inline-block; width: 100px;"></div>
+		<div style="display: inline-block; width: 300px; height:200px;">
+<div class="mermaid">
+graph TD;
+	add("ADD")
+	add --- a("a")
+	add --- times1("TIMES")
+	times1 --- b("b")
+	times1 --- c("c")
+	add --- times2("TIMES")
+	times2 --- x("x")
+	times2 --- y("y")
+style add stroke:#080,stroke-width:8px
+style times1 stroke:#080,stroke-width:8px
+style a stroke:#080,stroke-width:8px
+style b stroke:#080,stroke-width:8px
+style times2 stroke:#080,stroke-width:8px
+style y stroke:#080,stroke-width:8px
+linkStyle 0 stroke:#080,stroke-width:8px;
+linkStyle 1 stroke:#080,stroke-width:8px;
+linkStyle 2 stroke:#080,stroke-width:8px;
+linkStyle 4 stroke:#080,stroke-width:8px;
+linkStyle 6 stroke:#080,stroke-width:8px;
+</div>
+		<small>Candidate: $ a+bc+xy $</small>
+		</div>
+	<small>Reality: <br/>
+	leaf-root paths match $\nRightarrow$ corresponding structure aligned.
+	</small>
+	</div>
+</section>
+
+
+<section>
+	<p>Greedy widest-first matching strategy</p>
+	<div style="height:20px;"></div>
+	<div>
+		<div style="display: inline-block; width: 200px; height:150px;">
+<div class="mermaid">
+graph TD;
+	add("ADD")
+	group("GROUP")
+	add --- group
+	group --- add2
+	add2("ADD")
+	add2 --- a("a")
+	add2 --- times1("TIMES")
+	times1 --- b("b")
+	times1 --- c("c")
+
+	add --- times2("TIMES ")
+	times2 --- x("x")
+	times2 --- y("y")
+linkStyle 2  stroke:#080,stroke-width:8px;
+linkStyle 3  stroke:#080,stroke-width:8px;
+linkStyle 4  stroke:#080,stroke-width:8px;
+linkStyle 5  stroke:#080,stroke-width:8px;
+style add2   stroke:#080,stroke-width:8px
+style times1 stroke:#080,stroke-width:8px
+style a stroke:#080,stroke-width:8px
+style b stroke:#080,stroke-width:8px
+style c stroke:#080,stroke-width:8px
+linkStyle 7  stroke:#800,stroke-width:8px;
+linkStyle 8  stroke:#800,stroke-width:8px;
+style times2 stroke:#800,stroke-width:8px
+style x      stroke:#800,stroke-width:8px
+style y      stroke:#800,stroke-width:8px
+</div>
+		<small>$(a+bc) + xy$ <br/> $T_1$</small>
+		</div>
+		<div style="display: inline-block; width: 100px;"></div>
+		<div style="display: inline-block; width: 240px; height:150px;">
+<div class="mermaid">
+graph TD;
+	add("ADD")
+	add --- a("a")
+	add --- times1("TIMES")
+	times1 --- b("b")
+	times1 --- c("c")
+	add --- times2("TIMES ")
+	times2 --- x("x")
+	times2 --- y("y")
+linkStyle 0  stroke:#080,stroke-width:8px;
+linkStyle 1  stroke:#080,stroke-width:8px;
+linkStyle 2  stroke:#080,stroke-width:8px;
+linkStyle 3  stroke:#080,stroke-width:8px;
+style add  stroke: #080,stroke-width:8px
+style times1 stroke:#080,stroke-width:8px
+style a stroke:#080,stroke-width:8px
+style b stroke:#080,stroke-width:8px
+style c stroke:#080,stroke-width:8px
+linkStyle 5 stroke:#800,stroke-width:8px;
+linkStyle 6 stroke:#800,stroke-width:8px;
+style times2 stroke:#800,stroke-width:8px
+style x stroke:#800,stroke-width:8px
+style y stroke:#800,stroke-width:8px
+</div>
+		<small>$a+bc + xy$ <br/> $T_2$</small>
+		</div>
+		<div style="display: inline-block; width: 100px;"></div>
+		<div style="display: inline-block; width: 240px; height:150px;">
+<div class="mermaid">
+graph TD;
+	add("ADD")
+	add --- a("a")
+	add --- times1("TIMES")
+	times1 --- b("b")
+	times1 --- c("c")
+	add --- POWER
+	POWER --- x("x")
+	POWER --- y("y")
+linkStyle 0  stroke:#080,stroke-width:8px;
+linkStyle 1  stroke:#080,stroke-width:8px;
+linkStyle 2  stroke:#080,stroke-width:8px;
+linkStyle 3  stroke:#080,stroke-width:8px;
+style add stroke:#080,stroke-width:8px
+style times1 stroke:#080,stroke-width:8px
+style a stroke:#080,stroke-width:8px
+style b stroke:#080,stroke-width:8px
+style c stroke:#080,stroke-width:8px
+</div>
+		<small>$a+bc + x^y$ <br/> $T_3$</small>
+		</div>
+	</div>
+	<div style="height:45px;"></div>
+	<small>
+We assume widest first matching will yield the best match.
+	<div style="height:25px;"></div>
+$\Gamma(T_1, T_2) = \gamma(\pi_{1,2} \in \Pi(T_1, T_2)) = (3, 2, 0)$  <br/>
+is greater than<br/>
+$\Gamma(T_1, T_3) = \gamma(\pi_{1,3} \in \Pi(T_1, T_3)) = (3, 0, 0)$
+	<div style="height:15px;"></div>
+if $\alpha = 0$ and $\beta_1 \gg \beta_2 ... \gg \beta_n$, <br/>
+	</small>
+</section>
+
+<!-- gready width match (assumption) -->
+<section>
+	<p>Greedy widest-first matching assumption</p>
+	<div style="height:50px;"></div>
+	<div>
+		<div style="display: inline-block; width: 200px; height:100px;">
+<div class="mermaid">
+graph TD;
+	add("ADD")
+	add --- times("TIMES")
+	add --- times2("TIMES")
+	times --- a("a")
+	times --- b("b")
+	times2 --- c("c")
+	times2 --- d("d")
+	times2 --- e("e")
+style add stroke:#080,stroke-width:8px
+style times stroke:#080,stroke-width:8px
+style times2 stroke:#080,stroke-width:8px
+style a stroke:#080,stroke-width:8px
+style b stroke:#080,stroke-width:8px
+style c stroke:#080,stroke-width:8px
+style d stroke:#080,stroke-width:8px
+linkStyle 0 stroke:#080,stroke-width:8px;
+linkStyle 1 stroke:#080,stroke-width:8px;
+linkStyle 2 stroke:#080,stroke-width:8px;
+linkStyle 3 stroke:#080,stroke-width:8px;
+linkStyle 4 stroke:#080,stroke-width:8px;
+linkStyle 5 stroke:#080,stroke-width:8px;
+</div>
+		<small>Query: $ \color{green}{ab + cd}e $</small>
+		</div>
+		<div style="display: inline-block; width: 100px;"></div>
+		<div style="display: inline-block; width: 300px; height:200px;">
+<div class="mermaid">
+graph TD;
+	root("FRAC")
+	root --- add
+	root --- times3("TIMES")
+	times3 --- e("c")
+	times3 --- f("d")
+	times3 --- g("e")
+	add("ADD")
+	add --- times("TIMES")
+	add --- times2("TIMES")
+	times --- a("a")
+	times --- b("b")
+	times2 --- c("c")
+	times2 --- d("d")
+style add stroke:#080,stroke-width:8px
+style times stroke:#080,stroke-width:8px
+style times2 stroke:#080,stroke-width:8px
+style a stroke:#080,stroke-width:8px
+style b stroke:#080,stroke-width:8px
+style c stroke:#080,stroke-width:8px
+style d stroke:#080,stroke-width:8px
+linkStyle 5 stroke:#080,stroke-width:8px;
+linkStyle 6 stroke:#080,stroke-width:8px;
+linkStyle 7 stroke:#080,stroke-width:8px;
+linkStyle 8 stroke:#080,stroke-width:8px;
+linkStyle 9 stroke:#080,stroke-width:8px;
+linkStyle 10 stroke:#080,stroke-width:8px;
+</div>
+		<small>Candidate: $ \frac{\color{green}{ab + cd}}{cde} $</small>
+		</div>
+	<div style="height:30px;"></div>
+	<small>Reality: <br/>
+	Greedy widest match $\nRightarrow$ optimal formula tree similarity.
+	</small>
+	</div>
+</section>
+
+<section>
+	<p>This assumption may not hold neither</p>
+	<div style="height:50px;"></div>
+	<div>
+		<div style="display: inline-block; width: 200px; height:100px;">
+<div class="mermaid">
+graph TD;
+	add("ADD")
+	add --- times("TIMES")
+	add --- times2("TIMES")
+	times --- a("a")
+	times --- b("b")
+	times2 --- c("c")
+	times2 --- d("d")
+	times2 --- e("e")
+style add stroke:#080,stroke-width:8px
+style times stroke:#080,stroke-width:8px
+style times2 stroke:#800,stroke-width:8px
+style a stroke:#080,stroke-width:8px
+style b stroke:#080,stroke-width:8px
+style c stroke:#800,stroke-width:8px
+style d stroke:#800,stroke-width:8px
+style e stroke:#800,stroke-width:8px
+linkStyle 0 stroke:#080,stroke-width:8px;
+linkStyle 2 stroke:#080,stroke-width:8px;
+linkStyle 3 stroke:#080,stroke-width:8px;
+linkStyle 4 stroke:#800,stroke-width:8px;
+linkStyle 5 stroke:#800,stroke-width:8px;
+linkStyle 6 stroke:#800,stroke-width:8px;
+</div>
+		<small>Query: $ \color{green}{ab +} \color{maroon}{cde} $</small>
+		</div>
+		<div style="display: inline-block; width: 100px;"></div>
+		<div style="display: inline-block; width: 300px; height:200px;">
+<div class="mermaid">
+graph TD;
+	root("FRAC")
+	root --- add
+	root --- times3("TIMES")
+	times3 --- e("c")
+	times3 --- f("d")
+	times3 --- g("e")
+	add("ADD")
+	add --- times("TIMES")
+	add --- times2("TIMES")
+	times --- a("a")
+	times --- b("b")
+	times2 --- c("c")
+	times2 --- d("d")
+style add stroke:#080,stroke-width:8px
+style times stroke:#080,stroke-width:8px
+style times3 stroke:#800,stroke-width:8px
+style a stroke:#080,stroke-width:8px
+style b stroke:#080,stroke-width:8px
+style e stroke:#800,stroke-width:8px
+style f stroke:#800,stroke-width:8px
+style g stroke:#800,stroke-width:8px
+linkStyle 5 stroke:#080,stroke-width:8px;
+linkStyle 7 stroke:#080,stroke-width:8px;
+linkStyle 8 stroke:#080,stroke-width:8px;
+linkStyle 2 stroke:#800,stroke-width:8px;
+linkStyle 3 stroke:#800,stroke-width:8px;
+linkStyle 4 stroke:#800,stroke-width:8px;
+</div>
+		<small>Candidate: $ \frac{\color{green}{ab +} cd}{\color{maroon}{cde}} $</small>
+		</div>
+	<div style="height:30px;"></div>
+	<small>Reality: <br/>
+	Greedy widest match $\nRightarrow$ optimal formula tree similarity.
+	</small>
+	</div>
+</section>
+
+
+<!-- Model (high level idea)--> 
+<section>
+	<p>Retrieval model (High-level idea)</p>
+	<div style="height:50px;"></div>
+	<small>
+	<ul>
+		<li>Break the formulas into <i>leaf-root</i> or <i>leaf-to-node</i> paths.</li>
+		<li>Use path as "word" and construct an inverted index.</li>
+		<li>At query processing time, process one document expression at a time.</li>
+		<ul>
+			<li>Given a set of "hit paths":</li>
+			<ul>
+				<li>Find the widest common subtree by counting paths grouped by root-end node.</li>
+				<li>Exclude the previously matched paths and find the next widest matched common subtree.</li>
+				<li>Repeat this loop until K common subexpressions have been found.</li>
+			</ul>
+			<li>On top of those matched paths, we further match operators.</li>
+			<li>Calculate similarity and ranking score.</li>
+		</ul>
+	</ul>
+	</small>
+</section>
+
+<!-- Model (notation)--> 
+<section>
+	<small>Notation to identify a path</small>
+		<div style="text-align:center">
+			<div style="width:200px; display: inline-block">
+<div class="mermaid">
+graph TD;
+	add("ADD<br/>#10")
+	group("GROUP<br/>#8")
+	add --- group
+	group --- add2
+	add2("ADD<br/>#7")
+	add2 --- a("a<br/>#1")
+	add2 --- times1("TIMES<br/>#6")
+	times1 --- b("b<br/>#2")
+	times1 --- c("c<br/>#3")
+
+	add --- times2("TIMES <br/>#9")
+	times2 --- x("x<br/>#4")
+	times2 --- y("y<br/>#5")
+linkStyle 3 stroke:#009,stroke-width:8px;
+linkStyle 4 stroke:#009,stroke-width:8px;
+style add2 stroke:#009,stroke-width:8px
+style times1 stroke:#009,stroke-width:8px
+style b stroke:#009,stroke-width:8px
+</div>
+			</div>
+		</div>
+		<small>Number the nodes and denote path: 7~2</small>
+</section>
+
+<!-- Model (hit list)--> 
+<section>
+	<p>Hit path set</p>
+	<div style="height:20px;"></div>
+	<div>
+		<div width="130px" style="display:inline-block">
+		<!-- <img src="img/hitlist.png"></img> -->
+<pre style="font-size: 0.4em; padding: 8px 0 8px 15px">
+7~1 (<i>ADD, VAR</i>): 8~1.
+
+6~2 (<i>TIMES, VAR</i>): 6~2, 6~3, 7~4, 7~5.
+6~3 (<i>TIMES, VAR</i>): 6~2, 6~3, 7~4, 7~5.
+9~4 (<i>TIMES, VAR</i>): 6~2, 6~3, 7~4, 7~5.
+9~5 (<i>TIMES, VAR</i>): 6~2, 6~3, 7~4, 7~5.
+
+7 ~2 (<i>ADD, TIMES, VAR</i>): 8~2, 8~3, 8~4, 8~5.
+7 ~3 (<i>ADD, TIMES, VAR</i>): 8~2, 8~3, 8~4, 8~5.
+10~4 (<i>ADD, TIMES, VAR</i>): 8~2, 8~3, 8~4, 8~5.
+10~5 (<i>ADD, TIMES, VAR</i>): 8~2, 8~3, 8~4, 8~5.
+</pre>
+		<br/>
+		<small>Hit paths (document paths on the right)</small>
+		</div>
+		<div style="display: inline-block; width: 40px;"></div>
+		<div style="display: inline-block; width: 200px; height:150px;">
+<div class="mermaid">
+graph TD;
+	add("ADD<br/>#10")
+	group("GROUP<br/>#8")
+	add --- group
+	group --- add2
+	add2("ADD<br/>#7")
+	add2 --- a("a<br/>#1")
+	add2 --- times1("TIMES<br/>#6")
+	times1 --- b("b<br/>#2")
+	times1 --- c("c<br/>#3")
+
+	add --- times2("TIMES <br/>#9")
+	times2 --- x("x<br/>#4")
+	times2 --- y("y<br/>#5")
+linkStyle 2 stroke:#080,stroke-width:8px;
+linkStyle 3 stroke:#080,stroke-width:8px;
+linkStyle 4 stroke:#080,stroke-width:8px;
+linkStyle 5 stroke:#080,stroke-width:8px;
+style add2  stroke:#080,stroke-width:8px
+style times1 stroke:#080,stroke-width:8px
+style a stroke:#080,stroke-width:8px
+style b stroke:#080,stroke-width:8px
+style c stroke:#080,stroke-width:8px
+linkStyle 7 stroke:#800,stroke-width:8px;
+linkStyle 8 stroke:#800,stroke-width:8px;
+style times2 stroke:#800,stroke-width:8px
+style x stroke:#800,stroke-width:8px
+style y stroke:#800,stroke-width:8px
+</div>
+		<small>$(a+bc) + xy$</small>
+		</div>
+		<div style="display: inline-block; width: 40px;"></div>
+		<div style="display: inline-block; width: 200px; height:150px;">
+<div class="mermaid">
+graph TD;
+	add("ADD<br/>#8")
+	add --- a("a<br/>#1")
+	add --- times1("TIMES<br/>#6")
+	times1 --- b("b<br/>#2")
+	times1 --- c("c<br/>#3")
+	add --- times2("TIMES <br/>#7")
+	times2 --- x("x<br/>#4")
+	times2 --- y("y<br/>#5")
+linkStyle 0  stroke:#080,stroke-width:8px;
+linkStyle 1  stroke:#080,stroke-width:8px;
+linkStyle 2  stroke:#080,stroke-width:8px;
+linkStyle 3  stroke:#080,stroke-width:8px;
+style add  stroke: #080,stroke-width:8px
+style times1 stroke:#080,stroke-width:8px
+style a stroke:#080,stroke-width:8px
+style b stroke:#080,stroke-width:8px
+style c stroke:#080,stroke-width:8px
+linkStyle 5 stroke:#800,stroke-width:8px;
+linkStyle 6 stroke:#800,stroke-width:8px;
+style times2 stroke:#800,stroke-width:8px
+style x stroke:#800,stroke-width:8px
+style y stroke:#800,stroke-width:8px
+</div>
+		<small>$a+bc + xy$</small>
+		</div>
+</div>
+</section>
+
+<!-- Model (table 1)--> 
+<section>
+	<p>Example</p>
+<div>
+<!-- ============ TABLE =================== -->
+	<div style="display: inline-block;">
+<table border="1" style="font-size: 0.4em">
+<tr>
+<th>Qry\Doc</th><th>8~1, 8~2, 8~3, 8~4, 8~5</th><th>6~2, 6~3</th><th>7~4, 7~5</th>
+</tr>
+<tr><th>7~1, 7~2, 7~3</th><td style="background-color: #3a3"> <7~1, 8~1>, <br/><7~2, 8~2>, <br/><7~3, 8~3> </td><td>   </td><td>   </td></tr>
+<tr><th>6~2, 6~3     </th><td>            </td><td> <6~2, 6~2>, <6~3, 6~3> </td><td> <6~2, 7~4>, <6~3, 7~5> </td></tr>
+<tr><th>9~4, 9~5     </th><td>            </td><td> <9~4, 6~2>, <9~5, 6~3> </td><td> <9~4, 7~4>, <9~5, 7~5> </td></tr>
+<tr><th>10~4, 10~5   </th><td> <10~4, 8~2>, <10~5, 8~3>   </td><td>   </td><td>   </td></tr>
+</table>
+		<div style="height:40px;"></div>
+		<small>1st common subtree</small>
+	</div>
+	<div style="display: inline-block; width: 40px;"></div>
+<!-- ============ TABLE =================== -->
+	<div style="display: inline-block; width: 200px; height:150px;">
+<div class="mermaid">
+graph TD;
+	add("ADD<br/>#10")
+	group("GROUP<br/>#8")
+	add --- group
+	group --- add2
+	add2("ADD<br/>#7")
+	add2 --- a("a<br/>#1")
+	add2 --- times1("TIMES<br/>#6")
+	times1 --- b("b<br/>#2")
+	times1 --- c("c<br/>#3")
+
+	add --- times2("TIMES <br/>#9")
+	times2 --- x("x<br/>#4")
+	times2 --- y("y<br/>#5")
+linkStyle 2 stroke:#080,stroke-width:8px;
+linkStyle 3 stroke:#080,stroke-width:8px;
+linkStyle 4 stroke:#080,stroke-width:8px;
+linkStyle 5 stroke:#080,stroke-width:8px;
+style add2  stroke:#080,stroke-width:8px
+style times1 stroke:#080,stroke-width:8px
+style a stroke:#080,stroke-width:8px
+style b stroke:#080,stroke-width:8px
+style c stroke:#080,stroke-width:8px
+</div>
+	<small>$(a+bc) + xy$</small>
+	</div>
+
+	<div style="display: inline-block; width: 10px;"></div>
+
+	<div style="display: inline-block; width: 200px; height:150px;">
+<div class="mermaid">
+graph TD;
+	add("ADD<br/>#8")
+	add --- a("a<br/>#1")
+	add --- times1("TIMES<br/>#6")
+	times1 --- b("b<br/>#2")
+	times1 --- c("c<br/>#3")
+	add --- times2("TIMES <br/>#7")
+	times2 --- x("x<br/>#4")
+	times2 --- y("y<br/>#5")
+linkStyle 0  stroke:#080,stroke-width:8px;
+linkStyle 1  stroke:#080,stroke-width:8px;
+linkStyle 2  stroke:#080,stroke-width:8px;
+linkStyle 3  stroke:#080,stroke-width:8px;
+style add  stroke: #080,stroke-width:8px
+style times1 stroke:#080,stroke-width:8px
+style a stroke:#080,stroke-width:8px
+style b stroke:#080,stroke-width:8px
+style c stroke:#080,stroke-width:8px
+</div>
+	<small>$a+bc + xy$</small>
+	</div>
+</div>
+<!-- ====================================== -->
+<div style="height:30px;"></div>
+<small>("max-hits" cell corresponds to the best matched common subtree)</small>
+<div style="height:70px;"></div>
+</section>
+
+<!-- Model (table 2)--> 
+<section>
+	<p>Example (Cont.)</p>
+<div>
+	<div style="display: inline-block;">
+<table border="1" style="font-size: 0.4em">
+<tr>
+<th>Qry\Doc</th><th>8~1, 8~2, 8~3, 8~4, 8~5</th><th>6~2, 6~3</th><th>7~4, 7~5</th>
+</tr>
+<tr><th>7~1, 7~2, 7~3</th><td style="background-color: #3a3"> <7~1, 8~1>, <br/><7~2, 8~2>, <br/><7~3, 8~3> </td><td>   </td><td>   </td></tr>
+<tr><th>6~2, 6~3     </th><td>            </td><td> <6~2, 6~2>, <6~3, 6~3> </td><td> <6~2, 7~4>, <6~3, 7~5> </td></tr>
+<tr><th>9~4, 9~5     </th><td>            </td><td> <9~4, 6~2>, <9~5, 6~3> </td><td style="background-color: #f33"> <9~4, 7~4>, <9~5, 7~5> </td></tr>
+<tr><th>10~4, 10~5   </th><td> <10~4, 8~2>, <10~5, 8~3>   </td><td>   </td><td>   </td></tr>
+</table>
+	<div style="height:40px;"></div>
+		<small>2nd common subtree</small>
+	</div>
+	<div style="display: inline-block; width: 40px;"></div>
+<!-- ====================================== -->
+	<div style="display: inline-block; width: 200px; height:150px;">
+<div class="mermaid">
+graph TD;
+	add("ADD<br/>#10")
+	group("GROUP<br/>#8")
+	add --- group
+	group --- add2
+	add2("ADD<br/>#7")
+	add2 --- a("a<br/>#1")
+	add2 --- times1("TIMES<br/>#6")
+	times1 --- b("b<br/>#2")
+	times1 --- c("c<br/>#3")
+
+	add --- times2("TIMES <br/>#9")
+	times2 --- x("x<br/>#4")
+	times2 --- y("y<br/>#5")
+linkStyle 2 stroke:#080,stroke-width:8px;
+linkStyle 3 stroke:#080,stroke-width:8px;
+linkStyle 4 stroke:#080,stroke-width:8px;
+linkStyle 5 stroke:#080,stroke-width:8px;
+style add2  stroke:#080,stroke-width:8px
+style times1 stroke:#080,stroke-width:8px
+style a stroke:#080,stroke-width:8px
+style b stroke:#080,stroke-width:8px
+style c stroke:#080,stroke-width:8px
+linkStyle 7 stroke:#800,stroke-width:8px;
+linkStyle 8 stroke:#800,stroke-width:8px;
+style times2 stroke:#800,stroke-width:8px
+style x stroke:#800,stroke-width:8px
+style y stroke:#800,stroke-width:8px
+</div>
+	<small>$(a+bc) + xy$</small>
+	</div>
+
+	<div style="display: inline-block; width: 10px;"></div>
+
+	<div style="display: inline-block; width: 200px; height:150px;">
+<div class="mermaid">
+graph TD;
+	add("ADD<br/>#8")
+	add --- a("a<br/>#1")
+	add --- times1("TIMES<br/>#6")
+	times1 --- b("b<br/>#2")
+	times1 --- c("c<br/>#3")
+	add --- times2("TIMES <br/>#7")
+	times2 --- x("x<br/>#4")
+	times2 --- y("y<br/>#5")
+linkStyle 0  stroke:#080,stroke-width:8px;
+linkStyle 1  stroke:#080,stroke-width:8px;
+linkStyle 2  stroke:#080,stroke-width:8px;
+linkStyle 3  stroke:#080,stroke-width:8px;
+style add  stroke: #080,stroke-width:8px
+style times1 stroke:#080,stroke-width:8px
+style a stroke:#080,stroke-width:8px
+style b stroke:#080,stroke-width:8px
+style c stroke:#080,stroke-width:8px
+linkStyle 5 stroke:#800,stroke-width:8px;
+linkStyle 6 stroke:#800,stroke-width:8px;
+style times2 stroke:#800,stroke-width:8px
+style x stroke:#800,stroke-width:8px
+style y stroke:#800,stroke-width:8px
+</div>
+	<small>$a+bc + xy$</small>
+	</div>
+<!-- ====================================== -->
+</div>
+
+<div style="height:70px;"></div>
+<small>
+Compute next best matched subtree, excluding path $Q^X=\{1,2,3\}$ and 
+ $D^X=\{1,2,3\}$ 
+<br/>
+Matched tree leaves: (3, 2, 0) ($k=3$)
+</small>
+
+</section>
+
+<!-- Model (operators)--> 
+<section>
+	<p>Example (Cont.)</p>
+<div>
+	<div style="display: inline-block;">
+<table border="1" style="font-size: 0.4em">
+<tr>
+<th>Qry\Doc</th><th>8~1, 8~2, 8~3, 8~4, 8~5</th><th>6~2, 6~3</th><th>7~4, 7~5</th>
+</tr>
+<tr><th>7~1, 7~2, 7~3</th><td style="background-color: #3a3"> <7~1, 8~1>, <br/><7~2, 8~2>, <br/><7~3, 8~3> </td><td>   </td><td>   </td></tr>
+<tr><th>6~2, 6~3     </th><td>            </td><td style="background-color: #6e6"> <6~2, 6~2>, <6~3, 6~3> </td><td> <6~2, 7~4>, <6~3, 7~5> </td></tr>
+<tr><th>9~4, 9~5     </th><td>            </td><td> <9~4, 6~2>, <9~5, 6~3> </td><td style="background-color: #f33"> <9~4, 7~4>, <9~5, 7~5> </td></tr>
+<tr><th>10~4, 10~5   </th><td> <10~4, 8~2>, <10~5, 8~3>   </td><td>   </td><td>   </td></tr>
+</table>
+	<div style="height:40px;"></div>
+	<small>matching operator (light green cell)</small>
+	</div>
+	<div style="display: inline-block; width: 40px;"></div>
+<!-- ====================================== -->
+	<div style="display: inline-block; width: 200px; height:150px;">
+<div class="mermaid">
+graph TD;
+	add("ADD<br/>#10")
+	group("GROUP<br/>#8")
+	add --- group
+	group --- add2
+	add2("ADD<br/>#7")
+	add2 --- a("a<br/>#1")
+	add2 --- times1("TIMES<br/>#6")
+	times1 --- b("b<br/>#2")
+	times1 --- c("c<br/>#3")
+
+	add --- times2("TIMES <br/>#9")
+	times2 --- x("x<br/>#4")
+	times2 --- y("y<br/>#5")
+linkStyle 2 stroke:#080,stroke-width:8px;
+linkStyle 3 stroke:#080,stroke-width:8px;
+linkStyle 4 stroke:#080,stroke-width:8px;
+linkStyle 5 stroke:#080,stroke-width:8px;
+style add2  stroke:#080,stroke-width:8px
+style times1 stroke:#6e6,stroke-width:8px
+style a stroke:#080,stroke-width:8px
+style b stroke:#080,stroke-width:8px
+style c stroke:#080,stroke-width:8px
+linkStyle 7 stroke:#800,stroke-width:8px;
+linkStyle 8 stroke:#800,stroke-width:8px;
+style times2 stroke:#800,stroke-width:8px
+style x stroke:#800,stroke-width:8px
+style y stroke:#800,stroke-width:8px
+</div>
+	<small>$(a+bc) + xy$</small>
+	</div>
+
+	<div style="display: inline-block; width: 10px;"></div>
+
+	<div style="display: inline-block; width: 200px; height:150px;">
+<div class="mermaid">
+graph TD;
+	add("ADD<br/>#8")
+	add --- a("a<br/>#1")
+	add --- times1("TIMES<br/>#6")
+	times1 --- b("b<br/>#2")
+	times1 --- c("c<br/>#3")
+	add --- times2("TIMES <br/>#7")
+	times2 --- x("x<br/>#4")
+	times2 --- y("y<br/>#5")
+linkStyle 0  stroke:#080,stroke-width:8px;
+linkStyle 1  stroke:#080,stroke-width:8px;
+linkStyle 2  stroke:#080,stroke-width:8px;
+linkStyle 3  stroke:#080,stroke-width:8px;
+style add  stroke: #080,stroke-width:8px
+style times1 stroke:#080,stroke-width:8px
+style a stroke:#080,stroke-width:8px
+style b stroke:#080,stroke-width:8px
+style c stroke:#080,stroke-width:8px
+linkStyle 5 stroke:#800,stroke-width:8px;
+linkStyle 6 stroke:#800,stroke-width:8px;
+style times2 stroke:#800,stroke-width:8px
+style x stroke:#800,stroke-width:8px
+style y stroke:#800,stroke-width:8px
+</div>
+	<small>$a+bc + xy$</small>
+	</div>
+<!-- ====================================== -->
+</div>
+
+<div style="height:70px;"></div>
+<small>
+Go through hit paths again, this time find internal nodes belonging to some previous matched common trees.
+<br/>
+Matched internal nodes: (2, 1, 0) ($k=3$)
+</small>
+
+</section>
+
+<!-- Scoring function --> 
+<section>
+	<p>Ranking score</p>
+	<div style="height:20px;"></div>
+<p style="font-size: 25px;">
+Structure similarity $S_{\text{st}}$ is normalized formula tree similarity:
+<br/>
+$$
+\Gamma_\gamma(T_q, T_d) = \max_{\pi} \gamma(\pi)
+$$
+</p>
+
+<p style="font-size: 25px;">
+Symbol set similarity $S_{\text{sy}}$ is a function of normalized Mark-and-<br/>Cross score$^{[1]}$ $y$, which is defined as:
+$ S_{\text{sy}} = \frac 1 {1 + (1 - y)^2} $
+</p>
+
+<p style="font-size: 25px;">
+Overall score for one document formula:
+$$
+\frac{ S_{\text{st}} S_{\text{sy}} }{ S_{\text{st}} + S_{\text{sy}} }
+\left[ (1-\theta)  + \theta \frac 1 {\log(1 + |\mathcal{P}(T_d)|)} \right]
+\quad (\theta = 0.05)
+$$
+</p>
+
+<div style="height:60px;"></div>
+<div style="text-align: left; line-height: 0">
+<em>
+[1] Zhong, Wei. 2015. “A Novel Similarity-Search Method for Mathematical Content in LaTeX Markup and Its Implementation.” Thesis, University of Delaware.
+</em>
+</div>
+</section>
+
+<section>
+<h3>Evaluation settings</h3>
+<div style="height:40px;"></div>
+<small>
+<ul style="list-style-type: none;">
+<li> NTCIR-12 dataset and human-assessed ratting (judged pool) 
+ Corpus has 387,947 unique math expressions, 20 non-wildcards queries. </li>
+<li> We evaluated 5 runs:
+	<div style="height:10px;"></div>
+	<ul>
+	<li>New model</li>
+		<ul>
+		<li> A0-new-1: $\beta_1 = \beta_2 = 0$ (single common subtree awareness)</li>
+		<li> A0-new-2: $\beta_1 = 1, \beta_2 = 0.1$ (multiple common subtrees awareness)</li>
+		</ul>
+	<li> A0-orig: Original system</li>
+	<li> MCAT$^{[1]}$</li>
+	<li> Tangent$^{[2]}$</li>
+	</ul>
+</ul>
+</small>
+
+<div style="text-align: left; line-height: 10px">
+<em>
+[1, 2] Zanibbi, Richard, et al. "NTCIR-12 MathIR Task Overview." NTCIR. 2016.
+</em>
+</div>
+
+</section>
+
+<!-- sample results --> 
+<section>
+	<h3>Sample results</h3>
+	<div style="height:20px;"></div>
+	<small>
+	NTCIR12-MathWiki-8 (multiple subtrees matching)
+	</small>
+	<img src="img/sample-results.png" height="490px" />
+	<br/>
+</section>
+
+<!-- Results --> 
+<section>
+	<h3>Evaluation results</h3>
+	<div style="height:20px;"></div>
+	<img src="img/rpa-results.png" height="470px" />
+</section>
+
+<!-- interesting finding --> 
+<section>
+	<h3>Sample results</h3>
+	<div style="height:20px;"></div>
+	<small>
+	NTCIR12-MathWiki-16 (multiple subtrees matching)
+	</small>
+	<img src="img/sample-results2.png" height="400px" />
+	<br/>
+</section>
+
+<section>
+	<h3>Sample results</h3>
+	<div style="height:20px;"></div>
+	<small>
+	NTCIR12-MathWiki-16 (single one subtree matching)
+	</small>
+	<img src="img/sample-results3.png" height="490px" />
+	<br/>
+</section>
+
+<section>
+	<h3>Conclusion</h3>
+	<div style="height:20px;"></div>
+	<small>
+	<ul>
+		<li>Problem Addressed: Multiple subtree similarity awareness in math expressions.</li>
+		<li>Main results: Proposed a new model for math search, overall full-relevance improvement in bpref.</li>
+		<li>Future Agenda: Improve effectiveness in general, especially multiple subtree matching in full-relevance case.
+		Improve efficiency of current system.</li>
+	</ul>
+	</small>
+</section>
+
+<section>
+	<p>Thank you!</p>
+	<div style="height:90px;"></div>
+	<div style="height:90px;">
+		<img src="img/sloan-logo.png"/>
+		<br/>
+		<em>Thanks the Sloan foundation for providing financial support for my studies.</em>
+		<br/>
+	</div>
+	<div style="margin-top: 100px">
+		<img style="height:110px; padding-top: 15px;" src="img/rit-logo.png"/>
+		<img style="height:70px; padding-bottom: 30px;" src="img/dprl2019.png"/>
+	</div>
+</section>
+			</div>
+		</div>
+
+		<script src="lib/js/head.min.js"></script>
+		<script src="tk/mermaid.min.js"></script>
+		<script>
+        mermaid.initialize({startOnLoad:true});
+        </script>
+		<script src="js/reveal.js"></script>
+
+		<script>
+
+			// More info https://github.com/hakimel/reveal.js#configuration
+			Reveal.initialize({
+				controls: true,
+				progress: true,
+				history: true,
+				center: true,
+
+				transition: 'slide', // none/fade/slide/convex/concave/zoom
+
+				// More info https://github.com/hakimel/reveal.js#dependencies
+				dependencies: [
+					{ src: 'lib/js/classList.js', condition: function() { return !document.body.classList; } },
+					{ src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
+					{ src: 'plugin/math/math.js', async: true } // mathjax / MathJaX plugin.
+				]
+			});
+
+			Reveal.configure({ slideNumber: true });
+			Reveal.configure({ slideNumber: 'c/t' });
+
+		</script>
+
+	</body>
+</html>
