@@ -4,7 +4,7 @@
 	<head>
 		<meta charset="utf-8">
 
-		<title>Slides</title>
+		<title>slides</title>
 
 		<meta name="description" content="A framework for easily creating beautiful presentations using HTML">
 		<meta name="author" content="Hakim El Hattab">
@@ -43,7 +43,7 @@ small {
     vertical-align: top !important;
 }
 em {
-    font-size: 0.29em !important;
+    font-size: 0.35em !important;
     line-height: 1.2em !important;
     vertical-align: top !important;
 }
@@ -212,15 +212,13 @@ $$
 </small>
 </div>
 	<div style="height:70px;"></div>
-<small>(https://math.stackexchange.com/questions/216752)</small>
+<em>https://math.stackexchange.com/questions/216752</em>
 </section>
 
 <!-- multi-tree match -->
 <section>
 	<p>Similarity measurement</p>
 	<div style="height:10px;"></div>
-	<small>(Capturing multiple subtrees' structure isomorphism)</small>
-	<div style="height:20px;"></div>
 	<div>
 		<div style="display: inline-block; width: 240px; height:150px;">
 <div class="mermaid">
@@ -300,10 +298,12 @@ linkStyle 6 stroke:#800,stroke-width:8px;
 <li><small>$O(n + m)$ $^{[2]}$ for finding largest common forest between rooted trees, but requires vertex matching outdegree, it also needs parent/children info to construct a Directed Acyclic Graph before starting aligning nodes</small></li>
 </ul>
 	<div style="height:70px;"></div>
-<div style="text-align: left; line-height: 1"> <em>
+<div style="text-align: left; line-height: 1">
+<em>
 [1] Ron Shamir, Dekel Tsur, Faster Subtree Isomorphism, Journal of Algorithms. 1999.<br/>
 [2] G. Valiente, "An efficient bottom-up distance between trees," Proceedings Eighth Symposium on String Processing and Information Retrieval, 2001.
-</div></em>
+</em>
+</div>
 </section>
 
 <!-- match leaf-root paths -->
@@ -1070,6 +1070,30 @@ Matched internal nodes: (2, 1, 0) ($k=3$)
 
 </section>
 
+<!-- visibility -->
+<section>
+	<p>Avoid counting "invisible" operators</p>
+	<div style="height:40px;"></div>
+	<div style="display: inline-block; width: 440px;">
+<div class="mermaid">
+graph TD;
+	h("HANGER")
+	h --- base("BASE")
+	h --- sub("SUBSCRIPT")
+	h --- sup("SUPERSCRIPT")
+	base --- x("x")
+	sub --- i("i")
+	sup --- 2("2")
+style h stroke:#800,stroke-width:8px
+style base stroke:#800,stroke-width:8px
+style sub stroke:#800,stroke-width:8px
+style sup stroke:#800,stroke-width:8px
+</div>
+	</div>
+	<div style="height:20px;"></div>
+	<small>Rendered expression: &nbsp; $x_i^2$</small>
+</section>
+
 <!-- Scoring function --> 
 <section>
 	<p>Ranking score</p>
@@ -1105,30 +1129,20 @@ $$
 </section>
 
 <section>
-<h3>Evaluation settings</h3>
+<p>Evaluation</p>
 <div style="height:40px;"></div>
 <small>
-<ul style="list-style-type: none;">
-<li> NTCIR-12 dataset and human-assessed ratting (judged pool) 
- Corpus has 387,947 unique math expressions, 20 non-wildcards queries. </li>
-<li> We evaluated 5 runs:
-	<div style="height:10px;"></div>
-	<ul>
-	<li>New model</li>
-		<ul>
-		<li> A0-new-1: $\beta_1 = \beta_2 = 0$ (single common subtree awareness)</li>
-		<li> A0-new-2: $\beta_1 = 1, \beta_2 = 0.1$ (multiple common subtrees awareness)</li>
-		</ul>
-	<li> A0-orig: Original system</li>
-	<li> MCAT$^{[1]}$</li>
-	<li> Tangent$^{[2]}$</li>
-	</ul>
+<ul>
+<li> 2016 NTCIR-12 dataset of 590,000 formulas. 20 non-wildcards queries$^{[1]}$. </li>
+<li> Pooled hits are evaluated by two human assessors, score from 0 to 4.</li>
+<li> For bpref, top-1000 results are considered. </li>
+<li> Standard, condensed and upper-bound Precision@K values are reported.</li>
 </ul>
 </small>
 
 <div style="text-align: left; line-height: 10px">
 <em>
-[1, 2] Zanibbi, Richard, et al. "NTCIR-12 MathIR Task Overview." NTCIR. 2016.
+[1] Zanibbi, Richard, et al. "NTCIR-12 MathIR Task Overview." NTCIR. 2016.
 </em>
 </div>
 
@@ -1136,52 +1150,95 @@ $$
 
 <!-- sample results --> 
 <section>
-	<h3>Sample results</h3>
-	<div style="height:20px;"></div>
-	<small>
-	NTCIR12-MathWiki-8 (multiple subtrees matching)
-	</small>
-	<img src="img/sample-results.png" height="490px" />
+	<p>Effect of different $\alpha, \beta$ weights</p>
+	<div style="height:10px;"></div>
+	<img src="img/weights-dist.png" width="300px" />
+	<img src="img/weights-dist.svg" width="300px" />
 	<br/>
+	<small>
+	(1) Evenly distributed beta weights are not effective, (2) weighting operands higher boost are effective, and (3) multi-tree matching helps, but small gap over single-tree matching.
+	</small>
 </section>
 
 <!-- Results --> 
 <section>
-	<h3>Evaluation results</h3>
-	<div style="height:20px;"></div>
-	<img src="img/rpa-results.png" height="470px" />
-</section>
+	<p>Uniform weights effectiveness over different $k$</p>
+	<div style="height:10px;"></div>
+	<img src="./img/diff-k.svg" width="290px" style="float: left; padding-left: 100px;"/>
 
-<!-- interesting finding --> 
-<section>
-	<h3>Sample results</h3>
-	<div style="height:20px;"></div>
-	<small>
-	NTCIR12-MathWiki-16 (multiple subtrees matching)
-	</small>
-	<img src="img/sample-results2.png" height="400px" />
+	<div style="width: 500px; height: 320px; background-color: white; overflow-x: hidden; overflow-y: hidden">
+	<div style="height:10px;"></div>
+	<span style="font-size: 0.29em !important;">
+	4. $\mathbf{\nabla}\times\mathbf{B}=\mu_{0}\mathbf{J}+\underbrace{\mu_{0}\epsilon_{0}\frac{\partial}{\partial t}\mathbf{E}}_{\mathrm{Maxwell^{\prime}s\ term}}$
+	<span style="padding-left: 60px"></span>
+	6. $\,{}^{238}_{92}\mathrm{U}+\,^{64}_{28}\mathrm{Ni}\to\,^{302}_{120}\mathrm{Ubn}^{*}\to\ \mathit{fission\ only}$
 	<br/>
-</section>
-
-<section>
-	<h3>Sample results</h3>
-	<div style="height:20px;"></div>
-	<small>
-	NTCIR12-MathWiki-16 (single one subtree matching)
-	</small>
-	<img src="img/sample-results3.png" height="490px" />
+	8. $w=\begin{cases}w^{*}&\mbox{if }w^{*}>\frac{1}{2},\\ \frac{1}{2}&\mbox{if }w^{*}\leq\frac{1}{2}.\\ \end{cases}$
+	<span style="padding-left: 60px"></span>
+	14. $\cos\alpha=-\cos\beta\cos\gamma+\sin\beta\sin\gamma\cosh\frac{a}{k},\,$
 	<br/>
+	16. $\tau_{\text{rms}}=\sqrt{\frac{\int_{0}^{\infty}(\tau-\overline{\tau})^{2}A_{c}(\tau)d\tau}{\int_{0}^{\infty}A_{c}(\tau)d\tau}}$
+	<span style="padding-left: 60px"></span>
+	18. $P_{i}^{x}=\frac{N!}{n_{x}!(N-n_{x})!}p_{x}^{n_{x}}(1-p_{x})^{N-n_{x}}$
+	<br/>
+	20. $r_{xy}=\frac{\sum\limits_{i=1}^{n}(x_{i}-\bar{x})(y_{i}-\bar{y})}{(n-1)s_{x}s_{y}}=\frac{\sum\limits_{i=1}^{n}(x_{i}-\bar{x})(y_{i}-\bar{y})}{\sqrt{\sum\limits_{i=1}^{n}(x_{i}-\bar{x})^{2}\sum\limits_{i=1}^{n}(y_{i}-\bar{y})^{2}}},$
+	</em>
+	</div>
+	<div style="height:10px;"></div>
+	<small>
+	(1) Query behaviours vary on different $k$ values, (2) most queries do not gain<br/> any thing from multiple tree matching, given uniform weights, and <br/>(3) those who can benefit are less complex queries.
+	</small>
 </section>
 
 <section>
-	<h3>Conclusion</h3>
+	<p>Compare with other systems</p>
+	<div style="height:15px;"></div>
+	<img src="./img/compare-results.png" height="500px" />
+	<br/>
+	<small>
+	We can consistently outperform others in fully relevant results, except for standard Precision@K metrics due to missing judgements.
+	</small>
+</section>
+
+<section>
+	<p>Efficiency evaluation</p>
+	<div style="height:15px;"></div>
+	<img src="./img/efficiency.svg" height="300px" />
+	<br/>
+	<small>
+	No significant outliers, still not considered usable system,<br/> but there are great potential we can foresee.
+	</small>
+</section>
+
+<section>
+	<p>Sample results</p>
+	<div style="height:15px;"></div>
+	<small>Query</small>
+	<span style="font-size: 0.29em !important;">
+	$r_{xy}=\frac{{\color{Maroon}\sum} _{{\color{Maroon}i}={\color{Maroon}1}}^{{\color{Maroon}n}}({\color{Maroon}x}_{{\color{Maroon}i}}-\bar{{\color{Maroon}x}})({\color{Maroon}y}_{{\color{Maroon}i}}-\bar{{\color{Maroon}y}})}{(n-1)s_{x}s_{y}}=\frac{{\color{Orange}\sum} _{{\color{Orange}i}={\color{Orange}1}}^{{\color{Orange}n}}(x_{i}-\bar{x})(y_{i}-\bar{y})}{\sqrt{{\color{Green}\sum} _{{\color{Green}i}={\color{Green}1}}^{{\color{Green}n}}({\color{Green}x}_{{\color{Green}i}}-\bar{{\color{Green}x}})^{{\color{Green}2}}\sum _{i=1}^{n}(y_{i}-\bar{y})^{2}}}$
+	</span>
+	<span style="padding-left: 60px"></span>
+	<small>Doc formula</small>
+	<span style="font-size: 0.29em !important;">
+	$r=\frac{{\color{Maroon}\sum}^{{\color{Maroon}N}}_{{\color{Maroon}i}={\color{Maroon}1}}({\color{Maroon}X}_{{\color{Maroon}i}}-\bar{{\color{Maroon}X}})({\color{Maroon}Y}_{{\color{Maroon}i}}-\bar{{\color{Maroon}Y}})}{\sqrt{{\color{Green}\sum}^{{\color{Green}N}}_{{\color{Green}i}={\color{Green}1}}({\color{Green}X}_{{\color{Green}i}}-\bar{{\color{Green}X}})^{{\color{Green}2}}}\sqrt{{\color{Orange}\sum}^{{\color{Orange}N}}_{{\color{Orange}i}={\color{Orange}1}}(Y_{i}-\bar{Y})^{2}}}$
+	</span>
+	<img src="./img/query.png" height="150px"/>
+	<img src="./img/doc.png" height="150px"/>
+<div style="text-align: left; line-height: 1">
+<em>http://approach0.xyz/ecir2019</em>
+</div>
+</section>
+
+<section>
+	<p>Conclusion</p>
 	<div style="height:20px;"></div>
 	<small>
 	<ul>
-		<li>Problem Addressed: Multiple subtree similarity awareness in math expressions.</li>
-		<li>Main results: Proposed a new model for math search, overall full-relevance improvement in bpref.</li>
-		<li>Future Agenda: Improve effectiveness in general, especially multiple subtree matching in full-relevance case.
-		Improve efficiency of current system.</li>
+		<li>Structure-aware similarity search based on matching subexpressions, good at identifying fully relevant results, and it uses simple indexing schema.</li>
+		<li>Effectiveness observations: impact of operator vs. operand number, non-uniform weights boost result,
+		count only "visible" operators.</li>
+		<li>Efficiency observations: consistent performance, computation bounded, great potential to improve (with lengthy query).
+		<li>Future Agenda: Improve efficiency by pruning and skipping, implement wildcards, handle "math synonyms", and combine text keywords into query.</li>
 	</ul>
 	</small>
 </section>
