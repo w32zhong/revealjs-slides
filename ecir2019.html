@@ -76,7 +76,7 @@ html body { background-color: white !important; }
 	<div class="slides">
 
 <section>
-	<p>Structure Similarity Search for Formulas using Leaf-root Paths in Operator Subtrees</p>
+	<p>Structure Similarity Search for Formulas using<br/>Leaf-root Paths in Operator Subtrees</p>
 	<div style="height:60px;"></div>
 	<p>
 		<small>Wei Zhong and Richard Zanibbi</small>
@@ -195,8 +195,8 @@ K. Davila, R. Zanibbi. "Layout and Semantics: Combining Representations for Math
 </section>
 
 <section>
-	<p>Intuition</p>
-	<small>Vandermonde-like identities</small>
+	<p>Intuition of math expression similarity</p>
+	<small>e.g., Vandermonde-like identities</small>
 	<div style="height:70px;"></div>
 <div style="text-align: center">
 <small>
@@ -949,7 +949,7 @@ style y stroke:#800,stroke-width:8px
 <small>
 Compute next best matched subtree, excluding path $Q^X=\{1,2,3\}$ and 
  $D^X=\{1,2,3\}$ 
-<br/>
+<div style="height:20px;"></div>
 Matched tree leaves: (3, 2, 0) ($k=3$)
 </small>
 
@@ -1043,8 +1043,8 @@ style times1 stroke:#6e6,stroke-width:8px
 
 <div style="height:70px;"></div>
 <small>
-Go through hit paths again, this time find internal nodes belonging to some previous matched common trees.
-<br/>
+This time find internal nodes belonging to some previous matched common trees.
+<div style="height:20px;"></div>
 Matched internal nodes: (2, 1, 0) ($k=3$)
 </small>
 
@@ -1129,7 +1129,35 @@ $$
 	<img src="img/weights-dist.svg" width="350px" />
 	<br/>
 	<small>
-	(1) Evenly distributed beta weights are not effective, (2) weighting operands higher boost are effective, and (3) multi-tree matching helps, but small gap over single-tree matching.
+	(1) Evenly distributed beta weights are not effective, (2) weighting operands higher may boost effectiveness, (3) multi-tree matching helps, but small gap over single-tree matching.
+	</small>
+</section>
+
+<section>
+	<p>Effect of different $\alpha, \beta$ weights</p>
+	<div style="height:10px;"></div>
+	<div style="display:inline-block; width: 225px; overflow-x: hidden; ">
+		<img src="img/weights-dist.png" style="min-width:350px" />
+	</div>
+	<div style="display:inline-block; width: 25px;"></div>
+	<img src="img/weights-dist.svg" width="350px" />
+	<br/>
+	<small>
+	(1) Evenly distributed beta weights are not effective, (2) weighting operands higher may boost effectiveness, (3) multi-tree matching helps, but small gap over single-tree matching.
+	</small>
+</section>
+
+<section>
+	<p>Effect of different $\alpha, \beta$ weights</p>
+	<div style="height:10px;"></div>
+	<div style="display:inline-block; width: 225px; overflow-x: hidden; ">
+		<img src="img/weights-dist.png" style="min-width:350px" />
+	</div>
+	<div style="display:inline-block; width: 25px;"></div>
+	<img src="img/weights-dist.svg" width="350px" />
+	<br/>
+	<small>
+	(1) Evenly distributed beta weights are not effective, (2) weighting operands higher may boost effectiveness, (3) multi-tree matching helps, but small gap over single-tree matching.
 	</small>
 </section>
 
@@ -1185,13 +1213,19 @@ $$
 </section>
 
 <section>
-	<p>Conclusion and future agenda</p>
+	<p>Conclusion</p>
 	<div style="height:20px;"></div>
 	<small>
 	<ul>
 		<li>Structure matching of common subexpressions is good at identifying fully relevant results.</li>
 		<li>Impact of operator vs. operand number, non-uniform weights and bias of "invisible" operators.</li>
 		<li>Consistent performance, computation bounded, great potential to improve (with lengthy query).
+	</ul>
+	</small>
+
+	<p>Future agenda</p>
+	<small>
+	<ul>
 		<li>Improve efficiency by pruning and skipping, implement wildcards, handle "math synonyms", and combine text keywords into query.</li>
 	</ul>
 	</small>
@@ -1200,7 +1234,7 @@ $$
 <section>
 	<p>Thank you!</p>
 	<div style="height:60px;"></div>
-		<em>Thanks to my advisor, paper reviewers, lab colleagues and Sloan foundation.</em>
+		<em>Thanks to my advisor, paper reviewers, lab colleagues and Alfred P. Sloan foundation.</em>
 	<div style="height:90px;">
 		<img src="img/sloan-logo.png"/>
 	</div>
