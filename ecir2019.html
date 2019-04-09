@@ -125,15 +125,14 @@ Zhong, Wei, and Hui Fang. “OPMES: A Similarity Search Engine for Mathematical 
 	<div style="height:60px;"></div>
 	<small>
 	<ul>
-		<li>Need new representation (Bag of words model may not be appropriate for highly structured content)</li>
+		<li>Bag of words model may not be appropriate for highly structured content</li>
 			<ul>
-				<li>Math is structured rather than linear</li>
-				<li>Symbols can be used interchangeably (e.g., $x^2+x$ and $a^2+a$)</li>
-			</ul>
-		<li>Need new similarity measurement (word frequency and proximity are not enough)</li>
-			<ul>
-				<li>Associativity/commutativity (e.g., $x+xy$ and $ab+b$)</li>
 				<li>Sub-expression identification (e.g., $a(x+1)$ vs. $ax+1$ and $x + 1$)</li>
+			</ul>
+		<li>Word frequency and proximity are not enough</li>
+			<ul>
+				<li>Symbols can be used interchangeably (e.g., $x^2+x$ and $a^2+a$)</li>
+				<li>Far-away structrual match can be better than linear local match. </li>
 			</ul>
 		<li>How to design an effective retrieval model for formulas?</li>
 		<li>...... (list goes on)</li>
@@ -194,6 +193,7 @@ K. Davila, R. Zanibbi. "Layout and Semantics: Combining Representations for Math
 </em></div>
 </section>
 
+<!--
 <section>
 	<p>Intuition of math expression similarity</p>
 	<small>e.g., Vandermonde-like identities</small>
@@ -212,6 +212,7 @@ $$
 	<div style="height:70px;"></div>
 <em>https://math.stackexchange.com/questions/216752</em>
 </section>
+-->
 
 <section>
 	<div style="max-height: 600px; overflow-y: hidden;">
@@ -300,7 +301,7 @@ linkStyle 6 stroke:#800,stroke-width:8px;
 		</div>
 	</div>
 	<div style="height:50px;"></div>
-	<small>Common formula subforest $\pi \in \Pi(T_q, T_d)$</small>
+	<small>Common formula forest $\pi \in \Pi(T_q, T_d)$</small>
 	<div></div>
 	<small>Scoring: $\gamma(\pi) = \sum_{T_q, T_d \in \pi} \beta_i (\alpha \cdot \text{operators}(T_d) + (1 - \alpha) \text{leaves}(T_d))$</small>
 </section>
@@ -423,7 +424,7 @@ linkStyle 6 stroke:#080,stroke-width:8px;
 
 
 <section>
-	<p>Greedy widest-first matching strategy</p>
+	<p>Greedy width-first match assumption</p>
 	<div style="height:20px;"></div>
 	<div>
 		<div style="display: inline-block; width: 200px; height:150px;">
@@ -527,7 +528,7 @@ if $\alpha = 0$ and $\beta_1 \gg \beta_2 ... \gg \beta_n$, <br/>
 
 <!-- gready width match (assumption) -->
 <section>
-	<p>Greedy widest-first matching assumption</p>
+	<p>Greedy width-first match assumption</p>
 	<div style="height:50px;"></div>
 	<div>
 		<div style="display: inline-block; width: 200px; height:100px;">
@@ -947,8 +948,7 @@ style y stroke:#800,stroke-width:8px
 
 <div style="height:70px;"></div>
 <small>
-Compute next best matched subtree, excluding path $Q^X=\{1,2,3\}$ and 
- $D^X=\{1,2,3\}$ 
+Compute next best matched subtree without conflict paths.
 <div style="height:20px;"></div>
 Matched tree leaves: (3, 2, 0) ($k=3$)
 </small>
