@@ -77,12 +77,12 @@ html body { background-color: white !important; }
 
 <section>
 	<p>Structure Similarity Search for Formulas using<br/>Leaf-root Paths in Operator Subtrees</p>
-	<div style="height:60px;"></div>
+	<div style="height:130px;"></div>
 	<p>
 		<small>Wei Zhong and Richard Zanibbi</small>
 	</p>
 	<small>wxz8033@rit.edu, rlaz@cs.rit.edu</small>
-	<div style="height:05px;"></div>
+	<div style="height:133px;"></div>
 	<div>
 		<img style="height:60px; padding-bottom: 15px;" src="img/ecir2019.png"/>
 		<img style="height:80px; padding-top: 15px;" src="img/rit-logo.png"/>
@@ -97,7 +97,8 @@ html body { background-color: white !important; }
 	<ul>
 		<li>Detect and extract math expressions from scientific document (e.g., PDF)</li>
 		<li>Computational scientific search (e.g., WolframAlpha)</li>
-		<li>Handwritten formulas and formula image recognition</li>
+		<li>Handwritten formulas and formula image recognition
+		(supports easier query formulation for users)</li>
 		<li>Search math by similarity</li>
 	</ul>
 	</small>
@@ -132,27 +133,13 @@ Zhong, Wei, and Hui Fang. “OPMES: A Similarity Search Engine for Mathematical 
 		<li>Word frequency and proximity are not enough</li>
 			<ul>
 				<li>Symbols can be used interchangeably (e.g., $x^2+x$ and $a^2+a$)</li>
-				<li>Far-away structrual match can be better than linear local match. </li>
+				<li>Far-away structural match can be better than linear local match. </li>
 			</ul>
 		<li>How to design an effective retrieval model for formulas?</li>
 		<li>...... (list goes on)</li>
 	</ul>
 	</small>
 </section>
-
-
-<!--
-<section>
-	<p>Math representation (Text-based)</p>
-	<div style="height:20px;"></div>
-	<img src="img/mias-perm.png" height="480px" />
-	<br/>
-
-<div style="text-align: left; line-height: 10px"><em>
-Sojka, Petr, and Martin Líška. “Indexing and Searching Mathematics in Digital Libraries.” In Intelligent Computer Mathematics, 228–43. Lecture Notes in Computer Science. Springer, Berlin, Heidelberg, 2011.
-</em></div>
-</section>
--->
 
 <section>
 	<p>Math representation (Tree-based)</p>
@@ -301,9 +288,10 @@ linkStyle 6 stroke:#800,stroke-width:8px;
 		</div>
 	</div>
 	<div style="height:50px;"></div>
-	<small>Common formula forest $\pi \in \Pi(T_q, T_d)$</small>
-	<div></div>
+	<small>Common formula forest $\pi$ (highlighted in two colors)</small>
 	<small>Scoring: $\gamma(\pi) = \sum_{T_q, T_d \in \pi} \beta_i (\alpha \cdot \text{operators}(T_d) + (1 - \alpha) \text{leaves}(T_d))$</small>
+	<br/>
+	<small>($\alpha, \beta$ are parameters, $T_q, T_d$ are trees from query and document)</small>
 </section>
 
 <!-- costly matching problem -->
@@ -326,7 +314,7 @@ linkStyle 6 stroke:#800,stroke-width:8px;
 <!-- match leaf-root paths -->
 <section>
 	<p>Matching from leaf-root paths</p>
-	<div style="height:50px;"></div>
+	<div style="height:120px;"></div>
 	<div>
 		<div style="display: inline-block; width: 200px; height:100px;">
 <div class="mermaid">
@@ -363,12 +351,15 @@ linkStyle 3 stroke:#800,stroke-width:8px;
 		<small>Candidate: $ a+bc+xy $</small>
 		</div>
 	</div>
-	<small>Assumption: <br/>leaf-root paths match $\implies$ corresponding structure aligned</small>
+	<div style="height:50px;"></div>
+	<small>Assumption:</small>
+	<div style="height:20px;"></div>
+	<small>leaf-root paths match $\implies$ corresponding structure aligned</small>
 </section>
 
 <section>
 	<p>Leaf-root path assumption may fail</p>
-	<div style="height:50px;"></div>
+	<div style="height:120px;"></div>
 	<div>
 		<div style="display: inline-block; width: 200px; height:100px;">
 <div class="mermaid">
@@ -416,12 +407,12 @@ linkStyle 6 stroke:#080,stroke-width:8px;
 </div>
 		<small>Candidate: $ a+bc+xy $</small>
 		</div>
-	<small>Reality: <br/>
+	<div style="height:60px;"></div>
+	<small>Reality: <br/> <br/>
 	leaf-root paths match $\nRightarrow$ corresponding structure aligned.
 	</small>
 	</div>
 </section>
-
 
 <section>
 	<p>Greedy width-first match assumption</p>
@@ -518,12 +509,603 @@ style c stroke:#080,stroke-width:8px
 	<small>
 We assume widest first matching will yield the best match.
 	<div style="height:25px;"></div>
-$\Gamma(T_1, T_2) = \gamma(\pi_{1,2} \in \Pi(T_1, T_2)) = (3, 2, 0)$  <br/>
+Similarity $\Gamma(T_1, T_2) = \gamma(\pi_{1,2}) = (3, 2, 0)$  <br/>
 is greater than<br/>
-$\Gamma(T_1, T_3) = \gamma(\pi_{1,3} \in \Pi(T_1, T_3)) = (3, 0, 0)$
+Similarity $\Gamma(T_1, T_3) = \gamma(\pi_{1,3}) = (3, 0, 0)$
 	<div style="height:15px;"></div>
 if $\alpha = 0$ and $\beta_1 \gg \beta_2 ... \gg \beta_n$, <br/>
 	</small>
+</section>
+
+
+<!-- Model (high level idea)--> 
+<section>
+	<p>Retrieval model (High level idea)</p>
+	<div style="height:50px;"></div>
+	<small>
+	<ul>
+		<li>Break the formulas into paths.</li>
+		<li>At query processing time, process one document expression at a time.</li>
+		<ul>
+			<li>Given a set of "hit paths":</li>
+			<ul>
+				<li>Find the widest common subtree.</li>
+				<li>Exclude the previously matched paths and find the next widest common subtree.</li>
+				<li>Repeat this loop until K common subexpressions have been found.</li>
+			</ul>
+			<li>Match operators on top of matched paths.</li>
+			<li>Calculate similarity for ranking.</li>
+		</ul>
+	</ul>
+	</small>
+</section>
+
+<!-- Model (hit list)--> 
+<section>
+	<p>Hit path set</p>
+	<div style="height:20px;"></div>
+	<div>
+		<div width="130px" style="display:inline-block">
+		<!-- <img src="img/hitlist.png"></img> -->
+<pre style="font-size: 0.4em; padding: 8px 0 8px 15px">
+a/ADD: a/ADD.
+
+{b, c}/TIMES: {b, c}/TIMES, {x, y}/TIMES.
+{x, y}/TIMES: {b, c}/TIMES, {x, y}/TIMES.
+
+{b, c}/TIMES/ADD: {b, c, x, y}/TIMES/ADD.
+{x, y}/TIMES/ADD: {b, c, x, y}/TIMES/ADD.
+</pre>
+		<br/>
+		<small>Hit paths (document paths on the right)</small>
+		</div>
+		<div style="display: inline-block; width: 40px;"></div>
+		<div style="display: inline-block; width: 200px; height:150px;">
+<div class="mermaid">
+graph TD;
+	add("ADD")
+	group("GROUP")
+	add --- group
+	group --- add2
+	add2("ADD")
+	add2 --- a("a")
+	add2 --- times1("TIMES")
+	times1 --- b("b")
+	times1 --- c("c")
+
+	add --- times2("TIMES")
+	times2 --- x("x")
+	times2 --- y("y")
+linkStyle 2 stroke:#080,stroke-width:8px;
+linkStyle 3 stroke:#080,stroke-width:8px;
+linkStyle 4 stroke:#080,stroke-width:8px;
+linkStyle 5 stroke:#080,stroke-width:8px;
+style add2  stroke:#080,stroke-width:8px
+style times1 stroke:#080,stroke-width:8px
+style a stroke:#080,stroke-width:8px
+style b stroke:#080,stroke-width:8px
+style c stroke:#080,stroke-width:8px
+linkStyle 7 stroke:#800,stroke-width:8px;
+linkStyle 8 stroke:#800,stroke-width:8px;
+style times2 stroke:#800,stroke-width:8px
+style x stroke:#800,stroke-width:8px
+style y stroke:#800,stroke-width:8px
+</div>
+		<small>$(a+bc) + xy$</small>
+		</div>
+		<div style="display: inline-block; width: 40px;"></div>
+		<div style="display: inline-block; width: 200px; height:150px;">
+<div class="mermaid">
+graph TD;
+	add("ADD")
+	add --- a("a")
+	add --- times1("TIMES")
+	times1 --- b("b")
+	times1 --- c("c")
+	add --- times2("TIMES")
+	times2 --- x("x")
+	times2 --- y("y")
+linkStyle 0  stroke:#080,stroke-width:8px;
+linkStyle 1  stroke:#080,stroke-width:8px;
+linkStyle 2  stroke:#080,stroke-width:8px;
+linkStyle 3  stroke:#080,stroke-width:8px;
+style add  stroke: #080,stroke-width:8px
+style times1 stroke:#080,stroke-width:8px
+style a stroke:#080,stroke-width:8px
+style b stroke:#080,stroke-width:8px
+style c stroke:#080,stroke-width:8px
+linkStyle 5 stroke:#800,stroke-width:8px;
+linkStyle 6 stroke:#800,stroke-width:8px;
+style times2 stroke:#800,stroke-width:8px
+style x stroke:#800,stroke-width:8px
+style y stroke:#800,stroke-width:8px
+</div>
+		<small>$a+bc + xy$</small>
+		</div>
+<div style="height:30px;"></div>
+<small>( $\{p, q\}$/path notation is a shorthand for p/PATH and q/PATH)</small>
+</div>
+</section>
+
+<!-- Model (table 1)--> 
+<section>
+	<p>Example</p>
+<div>
+<!-- ============ TABLE =================== -->
+	<div style="display: inline-block;">
+<table border="1" style="font-size: 0.3em">
+<tr>
+<th>Qry\Doc</th><th>a/ADD, {b,c,x,y}/TIMES/ADD</th><th>{b,c}/TIMES</th><th>{x,y}/TIMES</th>
+</tr>
+<tr><th>a/ADD, {b,c}/TIMES/ADD</th><td style="background-color: #3a3"> {a, a}/ADD <br/> {b, b}/TIMES/ADD <br/> {c, c}/TIMES/ADD</td><td>   </td><td>   </td></tr>
+<tr><th>{b,c}/TIMES</th><td>  </td><td> {b,b}/TIMES {c,c}/TIMES </td><td> {b,x}/TIMES {c,y}/TIMES </td></tr>
+<tr><th>{x,y}/TIMES</th><td>      </td><td> {x,b}/TIMES {y,c}/TIMES </td><td> {x,x}/TIMES {y,y}/TIMES </td></tr>
+<tr><th>{x,y}/TIMES/ADD </th><td> {x,x}/TIMES/ADD {y,y}/TIMES/ADD</td><td>   </td><td>   </td></tr>
+</table>
+		<div style="height:40px;"></div>
+		<small>1st common subtree</small>
+	</div>
+	<div style="display: inline-block; width: 40px;"></div>
+<!-- ============ TABLE =================== -->
+	<div style="display: inline-block; width: 170px; height:150px;">
+<div class="mermaid">
+graph TD;
+	add("ADD")
+	group("GROUP")
+	add --- group
+	group --- add2
+	add2("ADD")
+	add2 --- a("a")
+	add2 --- times1("TIMES")
+	times1 --- b("b")
+	times1 --- c("c")
+
+	add --- times2("TIMES")
+	times2 --- x("x")
+	times2 --- y("y")
+linkStyle 2 stroke:#080,stroke-width:8px;
+linkStyle 3 stroke:#080,stroke-width:8px;
+linkStyle 4 stroke:#080,stroke-width:8px;
+linkStyle 5 stroke:#080,stroke-width:8px;
+style add2  stroke:#080,stroke-width:8px
+style times1 stroke:#080,stroke-width:8px
+style a stroke:#080,stroke-width:8px
+style b stroke:#080,stroke-width:8px
+style c stroke:#080,stroke-width:8px
+</div>
+	<small>$(a+bc) + xy$</small>
+	</div>
+
+	<div style="display: inline-block; width: 10px;"></div>
+
+	<div style="display: inline-block; width: 170px; height:150px;">
+<div class="mermaid">
+graph TD;
+	add("ADD")
+	add --- a("a")
+	add --- times1("TIMES")
+	times1 --- b("b")
+	times1 --- c("c")
+	add --- times2("TIMES")
+	times2 --- x("x")
+	times2 --- y("y")
+linkStyle 0  stroke:#080,stroke-width:8px;
+linkStyle 1  stroke:#080,stroke-width:8px;
+linkStyle 2  stroke:#080,stroke-width:8px;
+linkStyle 3  stroke:#080,stroke-width:8px;
+style add  stroke: #080,stroke-width:8px
+style times1 stroke:#080,stroke-width:8px
+style a stroke:#080,stroke-width:8px
+style b stroke:#080,stroke-width:8px
+style c stroke:#080,stroke-width:8px
+</div>
+	<small>$a+bc + xy$</small>
+	</div>
+</div>
+<!-- ====================================== -->
+<div style="height:40px;"></div>
+<small>highlighted cell corresponds to the best matched common subtree</small>
+<small>( $\{p, q\}$/path notation in a cell indicates a pair of match between two header paths)</small>
+<div style="height:60px;"></div>
+</section>
+
+<!-- Model (table 2)--> 
+<section>
+	<p>Example (Cont.)</p>
+<div>
+<!-- ============ TABLE =================== -->
+	<div style="display: inline-block;">
+<table border="1" style="font-size: 0.3em">
+<tr>
+<th>Qry\Doc</th><th>a/ADD, {b,c,x,y}/TIMES/ADD</th><th>{b,c}/TIMES</th><th>{x,y}/TIMES</th>
+</tr>
+<tr><th>a/ADD, {b,c}/TIMES/ADD</th><td style="background-color: #3a3"> {a, a}/ADD <br/> {b, b}/TIMES/ADD <br/> {c, c}/TIMES/ADD</td><td>   </td><td>   </td></tr>
+<tr><th>{b,c}/TIMES</th><td>  </td><td> {b,b}/TIMES {c,c}/TIMES </td><td> {b,x}/TIMES {c,y}/TIMES </td></tr>
+<tr><th>{x,y}/TIMES</th><td>      </td><td> {x,b}/TIMES {y,c}/TIMES </td><td style="background-color: #e55"> {x,x}/TIMES {y,y}/TIMES </td></tr>
+<tr><th>{x,y}/TIMES/ADD </th><td> {x,x}/TIMES/ADD {y,y}/TIMES/ADD</td><td>   </td><td>   </td></tr>
+</table>
+		<div style="height:40px;"></div>
+		<small>1st common subtree</small>
+	</div>
+	<div style="display: inline-block; width: 40px;"></div>
+<!-- ============ TABLE =================== -->
+	<div style="display: inline-block; width: 170px; height:150px;">
+<div class="mermaid">
+graph TD;
+	add("ADD")
+	group("GROUP")
+	add --- group
+	group --- add2
+	add2("ADD")
+	add2 --- a("a")
+	add2 --- times1("TIMES")
+	times1 --- b("b")
+	times1 --- c("c")
+
+	add --- times2("TIMES")
+	times2 --- x("x")
+	times2 --- y("y")
+linkStyle 2 stroke:#080,stroke-width:8px;
+linkStyle 3 stroke:#080,stroke-width:8px;
+linkStyle 4 stroke:#080,stroke-width:8px;
+linkStyle 5 stroke:#080,stroke-width:8px;
+style add2  stroke:#080,stroke-width:8px
+style times1 stroke:#080,stroke-width:8px
+style a stroke:#080,stroke-width:8px
+style b stroke:#080,stroke-width:8px
+style c stroke:#080,stroke-width:8px
+linkStyle 7 stroke:#800,stroke-width:8px;
+linkStyle 8 stroke:#800,stroke-width:8px;
+style times2 stroke:#800,stroke-width:8px
+style x stroke:#800,stroke-width:8px
+style y stroke:#800,stroke-width:8px
+</div>
+	<small>$(a+bc) + xy$</small>
+	</div>
+
+	<div style="display: inline-block; width: 10px;"></div>
+
+	<div style="display: inline-block; width: 170px; height:150px;">
+<div class="mermaid">
+graph TD;
+	add("ADD")
+	add --- a("a")
+	add --- times1("TIMES")
+	times1 --- b("b")
+	times1 --- c("c")
+	add --- times2("TIMES")
+	times2 --- x("x")
+	times2 --- y("y")
+linkStyle 0  stroke:#080,stroke-width:8px;
+linkStyle 1  stroke:#080,stroke-width:8px;
+linkStyle 2  stroke:#080,stroke-width:8px;
+linkStyle 3  stroke:#080,stroke-width:8px;
+style add  stroke: #080,stroke-width:8px
+style times1 stroke:#080,stroke-width:8px
+style a stroke:#080,stroke-width:8px
+style b stroke:#080,stroke-width:8px
+style c stroke:#080,stroke-width:8px
+linkStyle 5 stroke:#800,stroke-width:8px;
+linkStyle 6 stroke:#800,stroke-width:8px;
+style times2 stroke:#800,stroke-width:8px
+style x stroke:#800,stroke-width:8px
+style y stroke:#800,stroke-width:8px
+</div>
+	<small>$a+bc + xy$</small>
+	</div>
+</div>
+
+<div style="height:70px;"></div>
+<small>
+Compute next best matched subtree without conflict paths.
+<div style="height:20px;"></div>
+Matched tree leaves: 3, 2 and 0 respectively <br/>(the maximum number of common subtree matches $k=3$)
+</small>
+
+</section>
+
+<!-- Model (table 3)--> 
+<section>
+	<p>Example (Cont.)</p>
+<div>
+	<div style="display: inline-block;">
+<table border="1" style="font-size: 0.3em">
+<tr>
+<th>Qry\Doc</th><th>a/ADD, {b,c,x,y}/TIMES/ADD</th><th>{b,c}/TIMES</th><th>{x,y}/TIMES</th>
+</tr>
+<tr><th>a/ADD, {b,c}/TIMES/ADD</th><td style="background-color: #3a3"> {a, a}/ADD <br/> {b, b}/TIMES/ADD <br/> {c, c}/TIMES/ADD</td><td>   </td><td>   </td></tr>
+<tr><th>{b,c}/TIMES</th><td>  </td><td style="background-color: #6e6"> {b,b}/TIMES {c,c}/TIMES </td><td> {b,x}/TIMES {c,y}/TIMES </td></tr>
+<tr><th>{x,y}/TIMES</th><td>      </td><td> {x,b}/TIMES {y,c}/TIMES </td><td style="background-color: #e55"> {x,x}/TIMES {y,y}/TIMES </td></tr>
+<tr><th>{x,y}/TIMES/ADD </th><td> {x,x}/TIMES/ADD {y,y}/TIMES/ADD</td><td>   </td><td>   </td></tr>
+</table>
+	<div style="height:40px;"></div>
+	<small>matching operator (light green cell)</small>
+	</div>
+	<div style="display: inline-block; width: 40px;"></div>
+<!-- ====================================== -->
+	<div style="display: inline-block; width: 200px; height:150px;">
+<div class="mermaid">
+graph TD;
+	add("ADD")
+	group("GROUP")
+	add --- group
+	group --- add2
+	add2("ADD")
+	add2 --- a("a")
+	add2 --- times1("TIMES")
+	times1 --- b("b")
+	times1 --- c("c")
+
+	add --- times2("TIMES")
+	times2 --- x("x")
+	times2 --- y("y")
+linkStyle 2 stroke:#080,stroke-width:8px;
+linkStyle 3 stroke:#080,stroke-width:8px;
+linkStyle 4 stroke:#080,stroke-width:8px;
+linkStyle 5 stroke:#080,stroke-width:8px;
+style add2  stroke:#080,stroke-width:8px
+style times1 stroke:#6e6,stroke-width:8px
+style a stroke:#080,stroke-width:8px
+style b stroke:#080,stroke-width:8px
+style c stroke:#080,stroke-width:8px
+linkStyle 7 stroke:#800,stroke-width:8px;
+linkStyle 8 stroke:#800,stroke-width:8px;
+style times2 stroke:#800,stroke-width:8px
+style x stroke:#800,stroke-width:8px
+style y stroke:#800,stroke-width:8px
+</div>
+	<small>$(a+bc) + xy$</small>
+	</div>
+
+	<div style="display: inline-block; width: 10px;"></div>
+
+	<div style="display: inline-block; width: 170px; height:150px;">
+<div class="mermaid">
+graph TD;
+	add("ADD")
+	add --- a("a")
+	add --- times1("TIMES")
+	times1 --- b("b")
+	times1 --- c("c")
+	add --- times2("TIMES")
+	times2 --- x("x")
+	times2 --- y("y")
+linkStyle 0  stroke:#080,stroke-width:8px;
+linkStyle 1  stroke:#080,stroke-width:8px;
+linkStyle 2  stroke:#080,stroke-width:8px;
+linkStyle 3  stroke:#080,stroke-width:8px;
+style add  stroke: #080,stroke-width:8px
+style a stroke:#080,stroke-width:8px
+style b stroke:#080,stroke-width:8px
+style c stroke:#080,stroke-width:8px
+linkStyle 5 stroke:#800,stroke-width:8px;
+linkStyle 6 stroke:#800,stroke-width:8px;
+style times2 stroke:#800,stroke-width:8px
+style x stroke:#800,stroke-width:8px
+style y stroke:#800,stroke-width:8px
+style times1 stroke:#6e6,stroke-width:8px
+</div>
+	<small>$a+bc + xy$</small>
+	</div>
+<!-- ====================================== -->
+</div>
+
+<div style="height:70px;"></div>
+<small>
+This time find internal nodes belonging to some previous matched common trees.
+<div style="height:20px;"></div>
+Matched tree leaves: 2, 1 and 0 respectively <br/>(the maximum number of common subtree matches $k=3$)
+</small>
+
+</section>
+
+<!-- visibility -->
+<section>
+	<p>Modification: Avoid counting "invisible" operators</p>
+	<div style="height:40px;"></div>
+	<div style="display: inline-block; width: 440px;">
+<div class="mermaid">
+graph TD;
+	sqr("SQUARE")
+	add("ADD")
+	h("HANGER")
+	add --- sqr
+	add --- y("y")
+	sqr --- h
+	h --- base("BASE")
+	h --- sub("SUBSCRIPT")
+	h --- sup("SUPERSCRIPT")
+	base --- x("x")
+	sub --- i("i")
+	sup --- 2("2")
+style h stroke:#f66,stroke-width:5px,stroke-dasharray: 5, 5;
+style base stroke:#f66,stroke-width:5px,stroke-dasharray: 5, 5;
+style sub stroke:#f66,stroke-width:5px,stroke-dasharray: 5, 5;
+style sup stroke:#f66,stroke-width:5px,stroke-dasharray: 5, 5;
+</div>
+	</div>
+
+	<div style="height:20px;"></div>
+	<small>Rendered expression: &nbsp; $\sqrt{x_i^2} + y$</small>
+</section>
+
+<!-- Scoring function --> 
+<section>
+	<p>Ranking score</p>
+	<div style="height:20px;"></div>
+<ul  style="font-size: 25px;">
+<li>Structure similarity $S_{\text{st}}$ is normalized formula tree similarity</li>
+<li>Symbol set similarity $S_{\text{sy}}$ is normalized Mark-and-Cross score$^{[1]}$</li>
+<li>Overall score for ranking:
+<p style="font-size: 25px;">
+$$
+\frac{ S_{\text{st}} S_{\text{sy}} }{ S_{\text{st}} + S_{\text{sy}} }
+\left[ (1-\theta)  + \theta \frac 1 {\log(1 + |\mathcal{P}(T_d)|)} \right]
+\quad (\theta = 0.05)
+$$
+<br/>
+<br/>
+($\mathcal{P}(T_d)$ is the leaf-root path set of document tree $T_d$)
+</p></li>
+</ul>
+<div style="height:60px;"></div>
+<div style="text-align: left; line-height: 0">
+<em>
+[1] Zhong, Wei. 2015. “A Novel Similarity-Search Method for Mathematical Content in LaTeX Markup and Its Implementation.” Thesis, University of Delaware.
+</em>
+</div>
+</section>
+
+<section>
+<p>Evaluation</p>
+<div style="height:40px;"></div>
+<small>
+<ul>
+<li> 2016 NTCIR-12 dataset$^{[1]}$ of 590,000 formulas from English Wikipedia, including 20 non-wildcards queries. </li>
+<li> Pooled hits are evaluated by two human assessors (students), scored from 0 to 4.
+ Score $\ge 3$ is considered fully relevant, otherwise if score $\ge 1$ is considered partially relevant.</li>
+<li> Top-1000 results are considered. </li>
+<li> Bpref score (penalizes irrelevant hits ranked before relevant hits), as well as standard, condensed and upperbound Precision@K are reported.</li>
+</ul>
+</small>
+
+<div style="text-align: left; line-height: 0">
+<em>
+[1] Zanibbi, Richard, Akiko Aizawa, and Michael Kohlhase. “NTCIR-12 MathIR Task Overview,” n.d., 10.
+</em>
+</div>
+
+</section>
+
+<!-- sample results --> 
+<section>
+	<p>Effect of different $\alpha, \beta$ weights</p>
+	<small>($\alpha$ weights the impact of operators/operands, $\beta$ weights the impact of different subtrees)</small>
+	<div style="height:10px;"></div>
+	<div style="display:inline-block; width: 225px; overflow-x: hidden; ">
+		<img src="img/weights-dist.png" style="min-width:350px" />
+	</div>
+	<div style="display:inline-block; width: 25px;"></div>
+	<img src="img/weights-dist.svg" width="350px" />
+	<br/>
+	<small>
+	(1) Evenly distributed beta weights are not effective, (2) weighting operands higher may boost effectiveness, (3) multi-tree matching helps, but small gap over single-tree matching.
+	</small>
+</section>
+
+<section>
+	<p>Effect of different $\alpha, \beta$ weights</p>
+	<small>($\alpha$ weights the impact of operators/operands, $\beta$ weights the impact of different subtrees)</small>
+	<div style="height:10px;"></div>
+	<div style="display:inline-block; width: 225px; overflow-x: hidden; ">
+		<img src="img/weights-dist.png" style="min-width:350px" />
+	</div>
+	<div style="display:inline-block; width: 25px;"></div>
+	<img src="img/weights-dist.svg" width="350px" />
+	<br/>
+	<small>
+	(1) Evenly distributed beta weights are not effective, (2) weighting operands higher may boost effectiveness, (3) multi-tree matching helps, but small gap over single-tree matching.
+	</small>
+</section>
+
+<section>
+	<p>Effect of different $\alpha, \beta$ weights</p>
+	<small>($\alpha$ weights the impact of operators/operands, $\beta$ weights the impact of different subtrees)</small>
+	<div style="height:10px;"></div>
+	<div style="display:inline-block; width: 225px; overflow-x: hidden; ">
+		<img src="img/weights-dist.png" style="min-width:350px" />
+	</div>
+	<div style="display:inline-block; width: 25px;"></div>
+	<img src="img/weights-dist.svg" width="350px" />
+	<br/>
+	<small>
+	(1) Evenly distributed beta weights are not effective, (2) weighting operands higher may boost effectiveness, (3) multi-tree matching helps, but small gap over single-tree matching.
+	</small>
+</section>
+
+<!-- Results --> 
+<section>
+	<p>Uniform weights effectiveness over different $k$</p>
+	<div style="height:10px;"></div>
+	<img src="./img/diff-k.svg" width="320px" style="float: left; padding-left: 40px;"/>
+
+	<div style="width: 500px; height: 380px; background-color: white; overflow-x: hidden; overflow-y: hidden">
+	<div style="height:10px;"></div>
+	<span style="font-size: 0.35em !important;">
+	4. $\mathbf{\nabla}\times\mathbf{B}=\mu_{0}\mathbf{J}+\underbrace{\mu_{0}\epsilon_{0}\frac{\partial}{\partial t}\mathbf{E}}_{\mathrm{Maxwell^{\prime}s\ term}}$
+	<span style="padding-left: 60px"></span>
+	<br/>
+	6. $\,{}^{238}_{92}\mathrm{U}+\,^{64}_{28}\mathrm{Ni}\to\,^{302}_{120}\mathrm{Ubn}^{*}\to\ \mathit{fission\ only}$
+	<br/>
+	8. $w=\begin{cases}w^{*}&\mbox{if }w^{*}>\frac{1}{2},\\ \frac{1}{2}&\mbox{if }w^{*}\leq\frac{1}{2}.\\ \end{cases}$
+	<span style="padding-left: 60px"></span>
+	14. $\cos\alpha=-\cos\beta\cos\gamma+\sin\beta\sin\gamma\cosh\frac{a}{k},\,$
+	<br/>
+	16. $\tau_{\text{rms}}=\sqrt{\frac{\int_{0}^{\infty}(\tau-\overline{\tau})^{2}A_{c}(\tau)d\tau}{\int_{0}^{\infty}A_{c}(\tau)d\tau}}$
+	<span style="padding-left: 60px"></span>
+	18. $P_{i}^{x}=\frac{N!}{n_{x}!(N-n_{x})!}p_{x}^{n_{x}}(1-p_{x})^{N-n_{x}}$
+	<br/>
+	20. $r_{xy}=\frac{\sum\limits_{i=1}^{n}(x_{i}-\bar{x})(y_{i}-\bar{y})}{(n-1)s_{x}s_{y}}=\frac{\sum\limits_{i=1}^{n}(x_{i}-\bar{x})(y_{i}-\bar{y})}{\sqrt{\sum\limits_{i=1}^{n}(x_{i}-\bar{x})^{2}\sum\limits_{i=1}^{n}(y_{i}-\bar{y})^{2}}},$
+	</em>
+	</div>
+	<div style="height:40px;"></div>
+	<small>
+	(1) Query behaviours vary on different $k$ values, (2) most queries do not gain<br/> any thing from multiple tree matching, given uniform weights, and <br/>(3) those who can benefit are those can be identified even breaking into parts.
+	</small>
+</section>
+
+<section>
+	<p>Comparison with other systems</p>
+	<div style="height:15px;"></div>
+	<img src="./img/compare.png" style="min-height:300px;"/>
+	<div style="height:45px;"></div>
+	<small>
+	We can consistently outperform others in fully relevant results, except for standard Precision@K metrics due to missing judgements. Partially relevant results are not quite strong since there are less significant common structures.
+	</small>
+</section>
+
+<section>
+	<p>Runtime efficiency</p>
+	<div style="height:15px;"></div>
+	<img src="./img/efficiency.svg" height="300px" />
+	<br/>
+	<small>
+	No significant outliers, still not considered usable system,<br/> but there are great potential we can foresee.
+	</small>
+</section>
+
+<section>
+	<p>Conclusion</p>
+	<div style="height:20px;"></div>
+	<small>
+	<ul>
+		<li>Structure matching of common subexpressions is good at identifying fully relevant results.</li>
+		<li>Slightly more weights on operands, and non-uniform weights boost performance, improve the model by avoiding to count "invisible" operators.</li>
+		<li>Consistent performance, computation bounded, great potential to improve (with lengthy query).
+	</ul>
+	</small>
+
+	<p>Future agenda</p>
+	<small>
+	<ul>
+		<li>Improve efficiency by pruning and skipping, improve partially relevant results (possibly by using statistical learning).</li>
+		<li>Implement wildcards, handle "math synonyms", and combine text keywords into query.</li>
+	</ul>
+	</small>
+</section>
+
+<section>
+	<p>Thank you!</p>
+	<div style="height:60px;"></div>
+		<em>Thanks to my advisor, paper reviewers, lab colleagues and Alfred P. Sloan foundation.</em>
+	<div style="height:90px;">
+		<img src="img/sloan-logo.png"/>
+	</div>
+	<div style="margin-top: 100px">
+		<img style="height:60px; padding-bottom: 15px;" src="img/ecir2019.png"/>
+		<img style="height:80px; padding-top: 15px;" src="img/rit-logo.png"/>
+		<img style="height:60px; padding-bottom: 10px;" src="img/dprl2019.png"/>
+	</div>
 </section>
 
 <!-- gready width match (assumption) -->
@@ -671,579 +1253,6 @@ linkStyle 4 stroke:#800,stroke-width:8px;
 	</div>
 </section>
 
-
-<!-- Model (high level idea)--> 
-<section>
-	<p>Retrieval model (High level idea)</p>
-	<div style="height:50px;"></div>
-	<small>
-	<ul>
-		<li>Break the formulas into paths.</li>
-		<li>At query processing time, process one document expression at a time.</li>
-		<ul>
-			<li>Given a set of "hit paths":</li>
-			<ul>
-				<li>Find the widest common subtree.</li>
-				<li>Exclude the previously matched paths and find the next widest common subtree.</li>
-				<li>Repeat this loop until K common subexpressions have been found.</li>
-			</ul>
-			<li>Match operators on top of matched paths.</li>
-			<li>Calculate similarity for ranking.</li>
-		</ul>
-	</ul>
-	</small>
-</section>
-
-<!-- Model (hit list)--> 
-<section>
-	<p>Hit path set</p>
-	<div style="height:20px;"></div>
-	<div>
-		<div width="130px" style="display:inline-block">
-		<!-- <img src="img/hitlist.png"></img> -->
-<pre style="font-size: 0.4em; padding: 8px 0 8px 15px">
-a/ADD: a/ADD.
-
-{b, c}/TIMES: {b, c}/TIMES, {x, y}/TIMES.
-{x, y}/TIMES: {b, c}/TIMES, {x, y}/TIMES.
-
-{b, c}/TIMES/ADD: {b, c, x, y}/TIMES/ADD.
-{x, y}/TIMES/ADD: {b, c, x, y}/TIMES/ADD.
-</pre>
-		<br/>
-		<small>Hit paths (document paths on the right)</small>
-		</div>
-		<div style="display: inline-block; width: 40px;"></div>
-		<div style="display: inline-block; width: 200px; height:150px;">
-<div class="mermaid">
-graph TD;
-	add("ADD")
-	group("GROUP")
-	add --- group
-	group --- add2
-	add2("ADD")
-	add2 --- a("a")
-	add2 --- times1("TIMES")
-	times1 --- b("b")
-	times1 --- c("c")
-
-	add --- times2("TIMES")
-	times2 --- x("x")
-	times2 --- y("y")
-linkStyle 2 stroke:#080,stroke-width:8px;
-linkStyle 3 stroke:#080,stroke-width:8px;
-linkStyle 4 stroke:#080,stroke-width:8px;
-linkStyle 5 stroke:#080,stroke-width:8px;
-style add2  stroke:#080,stroke-width:8px
-style times1 stroke:#080,stroke-width:8px
-style a stroke:#080,stroke-width:8px
-style b stroke:#080,stroke-width:8px
-style c stroke:#080,stroke-width:8px
-linkStyle 7 stroke:#800,stroke-width:8px;
-linkStyle 8 stroke:#800,stroke-width:8px;
-style times2 stroke:#800,stroke-width:8px
-style x stroke:#800,stroke-width:8px
-style y stroke:#800,stroke-width:8px
-</div>
-		<small>$(a+bc) + xy$</small>
-		</div>
-		<div style="display: inline-block; width: 40px;"></div>
-		<div style="display: inline-block; width: 200px; height:150px;">
-<div class="mermaid">
-graph TD;
-	add("ADD")
-	add --- a("a")
-	add --- times1("TIMES")
-	times1 --- b("b")
-	times1 --- c("c")
-	add --- times2("TIMES")
-	times2 --- x("x")
-	times2 --- y("y")
-linkStyle 0  stroke:#080,stroke-width:8px;
-linkStyle 1  stroke:#080,stroke-width:8px;
-linkStyle 2  stroke:#080,stroke-width:8px;
-linkStyle 3  stroke:#080,stroke-width:8px;
-style add  stroke: #080,stroke-width:8px
-style times1 stroke:#080,stroke-width:8px
-style a stroke:#080,stroke-width:8px
-style b stroke:#080,stroke-width:8px
-style c stroke:#080,stroke-width:8px
-linkStyle 5 stroke:#800,stroke-width:8px;
-linkStyle 6 stroke:#800,stroke-width:8px;
-style times2 stroke:#800,stroke-width:8px
-style x stroke:#800,stroke-width:8px
-style y stroke:#800,stroke-width:8px
-</div>
-		<small>$a+bc + xy$</small>
-		</div>
-</div>
-</section>
-
-<!-- Model (table 1)--> 
-<section>
-	<p>Example</p>
-<div>
-<!-- ============ TABLE =================== -->
-	<div style="display: inline-block;">
-<table border="1" style="font-size: 0.3em">
-<tr>
-<th>Qry\Doc</th><th>a/ADD, {b,c,x,y}/TIMES/ADD</th><th>{b,c}/TIMES</th><th>{x,y}/TIMES</th>
-</tr>
-<tr><th>a/ADD, {b,c}/TIMES/ADD</th><td style="background-color: #3a3"> {a, a}/ADD <br/> {b, c}/TIMES/ADD </td><td>   </td><td>   </td></tr>
-<tr><th>{b,c}/TIMES</th><td>  </td><td> {b,b}/TIMES {c,c}/TIMES </td><td> {b,x}/TIMES {c,y}/TIMES </td></tr>
-<tr><th>{x,y}/TIMES</th><td>      </td><td> {x,b}/TIMES {y,c}/TIMES </td><td> {x,x}/TIMES {y,y}/TIMES </td></tr>
-<tr><th>{x,y}/TIMES/ADD </th><td> {x,x}/TIMES/ADD {y,y}/TIMES/ADD</td><td>   </td><td>   </td></tr>
-</table>
-		<div style="height:40px;"></div>
-		<small>1st common subtree</small>
-	</div>
-	<div style="display: inline-block; width: 40px;"></div>
-<!-- ============ TABLE =================== -->
-	<div style="display: inline-block; width: 170px; height:150px;">
-<div class="mermaid">
-graph TD;
-	add("ADD")
-	group("GROUP")
-	add --- group
-	group --- add2
-	add2("ADD")
-	add2 --- a("a")
-	add2 --- times1("TIMES")
-	times1 --- b("b")
-	times1 --- c("c")
-
-	add --- times2("TIMES")
-	times2 --- x("x")
-	times2 --- y("y")
-linkStyle 2 stroke:#080,stroke-width:8px;
-linkStyle 3 stroke:#080,stroke-width:8px;
-linkStyle 4 stroke:#080,stroke-width:8px;
-linkStyle 5 stroke:#080,stroke-width:8px;
-style add2  stroke:#080,stroke-width:8px
-style times1 stroke:#080,stroke-width:8px
-style a stroke:#080,stroke-width:8px
-style b stroke:#080,stroke-width:8px
-style c stroke:#080,stroke-width:8px
-</div>
-	<small>$(a+bc) + xy$</small>
-	</div>
-
-	<div style="display: inline-block; width: 10px;"></div>
-
-	<div style="display: inline-block; width: 170px; height:150px;">
-<div class="mermaid">
-graph TD;
-	add("ADD")
-	add --- a("a")
-	add --- times1("TIMES")
-	times1 --- b("b")
-	times1 --- c("c")
-	add --- times2("TIMES")
-	times2 --- x("x")
-	times2 --- y("y")
-linkStyle 0  stroke:#080,stroke-width:8px;
-linkStyle 1  stroke:#080,stroke-width:8px;
-linkStyle 2  stroke:#080,stroke-width:8px;
-linkStyle 3  stroke:#080,stroke-width:8px;
-style add  stroke: #080,stroke-width:8px
-style times1 stroke:#080,stroke-width:8px
-style a stroke:#080,stroke-width:8px
-style b stroke:#080,stroke-width:8px
-style c stroke:#080,stroke-width:8px
-</div>
-	<small>$a+bc + xy$</small>
-	</div>
-</div>
-<!-- ====================================== -->
-<div style="height:30px;"></div>
-<small>"max-hits" cell corresponds to the best matched common subtree</small>
-<div style="height:70px;"></div>
-</section>
-
-<!-- Model (table 2)--> 
-<section>
-	<p>Example (Cont.)</p>
-<div>
-<!-- ============ TABLE =================== -->
-	<div style="display: inline-block;">
-<table border="1" style="font-size: 0.3em">
-<tr>
-<th>Qry\Doc</th><th>a/ADD, {b,c,x,y}/TIMES/ADD</th><th>{b,c}/TIMES</th><th>{x,y}/TIMES</th>
-</tr>
-<tr><th>a/ADD, {b,c}/TIMES/ADD</th><td style="background-color: #3a3"> {a, a}/ADD <br/> {b, c}/TIMES/ADD </td><td>   </td><td>   </td></tr>
-<tr><th>{b,c}/TIMES</th><td>  </td><td> {b,b}/TIMES {c,c}/TIMES </td><td> {b,x}/TIMES {c,y}/TIMES </td></tr>
-<tr><th>{x,y}/TIMES</th><td>      </td><td> {x,b}/TIMES {y,c}/TIMES </td><td style="background-color: #e55"> {x,x}/TIMES {y,y}/TIMES </td></tr>
-<tr><th>{x,y}/TIMES/ADD </th><td> {x,x}/TIMES/ADD {y,y}/TIMES/ADD</td><td>   </td><td>   </td></tr>
-</table>
-		<div style="height:40px;"></div>
-		<small>1st common subtree</small>
-	</div>
-	<div style="display: inline-block; width: 40px;"></div>
-<!-- ============ TABLE =================== -->
-	<div style="display: inline-block; width: 170px; height:150px;">
-<div class="mermaid">
-graph TD;
-	add("ADD")
-	group("GROUP")
-	add --- group
-	group --- add2
-	add2("ADD")
-	add2 --- a("a")
-	add2 --- times1("TIMES")
-	times1 --- b("b")
-	times1 --- c("c")
-
-	add --- times2("TIMES")
-	times2 --- x("x")
-	times2 --- y("y")
-linkStyle 2 stroke:#080,stroke-width:8px;
-linkStyle 3 stroke:#080,stroke-width:8px;
-linkStyle 4 stroke:#080,stroke-width:8px;
-linkStyle 5 stroke:#080,stroke-width:8px;
-style add2  stroke:#080,stroke-width:8px
-style times1 stroke:#080,stroke-width:8px
-style a stroke:#080,stroke-width:8px
-style b stroke:#080,stroke-width:8px
-style c stroke:#080,stroke-width:8px
-linkStyle 7 stroke:#800,stroke-width:8px;
-linkStyle 8 stroke:#800,stroke-width:8px;
-style times2 stroke:#800,stroke-width:8px
-style x stroke:#800,stroke-width:8px
-style y stroke:#800,stroke-width:8px
-</div>
-	<small>$(a+bc) + xy$</small>
-	</div>
-
-	<div style="display: inline-block; width: 10px;"></div>
-
-	<div style="display: inline-block; width: 170px; height:150px;">
-<div class="mermaid">
-graph TD;
-	add("ADD")
-	add --- a("a")
-	add --- times1("TIMES")
-	times1 --- b("b")
-	times1 --- c("c")
-	add --- times2("TIMES")
-	times2 --- x("x")
-	times2 --- y("y")
-linkStyle 0  stroke:#080,stroke-width:8px;
-linkStyle 1  stroke:#080,stroke-width:8px;
-linkStyle 2  stroke:#080,stroke-width:8px;
-linkStyle 3  stroke:#080,stroke-width:8px;
-style add  stroke: #080,stroke-width:8px
-style times1 stroke:#080,stroke-width:8px
-style a stroke:#080,stroke-width:8px
-style b stroke:#080,stroke-width:8px
-style c stroke:#080,stroke-width:8px
-linkStyle 5 stroke:#800,stroke-width:8px;
-linkStyle 6 stroke:#800,stroke-width:8px;
-style times2 stroke:#800,stroke-width:8px
-style x stroke:#800,stroke-width:8px
-style y stroke:#800,stroke-width:8px
-</div>
-	<small>$a+bc + xy$</small>
-	</div>
-</div>
-
-<div style="height:70px;"></div>
-<small>
-Compute next best matched subtree without conflict paths.
-<div style="height:20px;"></div>
-Matched tree leaves: (3, 2, 0) ($k=3$)
-</small>
-
-</section>
-
-<!-- Model (table 3)--> 
-<section>
-	<p>Example (Cont.)</p>
-<div>
-	<div style="display: inline-block;">
-<table border="1" style="font-size: 0.3em">
-<tr>
-<th>Qry\Doc</th><th>a/ADD, {b,c,x,y}/TIMES/ADD</th><th>{b,c}/TIMES</th><th>{x,y}/TIMES</th>
-</tr>
-<tr><th>a/ADD, {b,c}/TIMES/ADD</th><td style="background-color: #3a3"> {a, a}/ADD <br/> {b, c}/TIMES/ADD </td><td>   </td><td>   </td></tr>
-<tr><th>{b,c}/TIMES</th><td>  </td><td style="background-color: #6e6"> {b,b}/TIMES {c,c}/TIMES </td><td> {b,x}/TIMES {c,y}/TIMES </td></tr>
-<tr><th>{x,y}/TIMES</th><td>      </td><td> {x,b}/TIMES {y,c}/TIMES </td><td style="background-color: #e55"> {x,x}/TIMES {y,y}/TIMES </td></tr>
-<tr><th>{x,y}/TIMES/ADD </th><td> {x,x}/TIMES/ADD {y,y}/TIMES/ADD</td><td>   </td><td>   </td></tr>
-</table>
-	<div style="height:40px;"></div>
-	<small>matching operator (light green cell)</small>
-	</div>
-	<div style="display: inline-block; width: 40px;"></div>
-<!-- ====================================== -->
-	<div style="display: inline-block; width: 200px; height:150px;">
-<div class="mermaid">
-graph TD;
-	add("ADD")
-	group("GROUP")
-	add --- group
-	group --- add2
-	add2("ADD")
-	add2 --- a("a")
-	add2 --- times1("TIMES")
-	times1 --- b("b")
-	times1 --- c("c")
-
-	add --- times2("TIMES")
-	times2 --- x("x")
-	times2 --- y("y")
-linkStyle 2 stroke:#080,stroke-width:8px;
-linkStyle 3 stroke:#080,stroke-width:8px;
-linkStyle 4 stroke:#080,stroke-width:8px;
-linkStyle 5 stroke:#080,stroke-width:8px;
-style add2  stroke:#080,stroke-width:8px
-style times1 stroke:#6e6,stroke-width:8px
-style a stroke:#080,stroke-width:8px
-style b stroke:#080,stroke-width:8px
-style c stroke:#080,stroke-width:8px
-linkStyle 7 stroke:#800,stroke-width:8px;
-linkStyle 8 stroke:#800,stroke-width:8px;
-style times2 stroke:#800,stroke-width:8px
-style x stroke:#800,stroke-width:8px
-style y stroke:#800,stroke-width:8px
-</div>
-	<small>$(a+bc) + xy$</small>
-	</div>
-
-	<div style="display: inline-block; width: 10px;"></div>
-
-	<div style="display: inline-block; width: 170px; height:150px;">
-<div class="mermaid">
-graph TD;
-	add("ADD")
-	add --- a("a")
-	add --- times1("TIMES")
-	times1 --- b("b")
-	times1 --- c("c")
-	add --- times2("TIMES")
-	times2 --- x("x")
-	times2 --- y("y")
-linkStyle 0  stroke:#080,stroke-width:8px;
-linkStyle 1  stroke:#080,stroke-width:8px;
-linkStyle 2  stroke:#080,stroke-width:8px;
-linkStyle 3  stroke:#080,stroke-width:8px;
-style add  stroke: #080,stroke-width:8px
-style a stroke:#080,stroke-width:8px
-style b stroke:#080,stroke-width:8px
-style c stroke:#080,stroke-width:8px
-linkStyle 5 stroke:#800,stroke-width:8px;
-linkStyle 6 stroke:#800,stroke-width:8px;
-style times2 stroke:#800,stroke-width:8px
-style x stroke:#800,stroke-width:8px
-style y stroke:#800,stroke-width:8px
-style times1 stroke:#6e6,stroke-width:8px
-</div>
-	<small>$a+bc + xy$</small>
-	</div>
-<!-- ====================================== -->
-</div>
-
-<div style="height:70px;"></div>
-<small>
-This time find internal nodes belonging to some previous matched common trees.
-<div style="height:20px;"></div>
-Matched internal nodes: (2, 1, 0) ($k=3$)
-</small>
-
-</section>
-
-<!-- visibility -->
-<section>
-	<p>Avoid counting "invisible" operators</p>
-	<div style="height:40px;"></div>
-	<div style="display: inline-block; width: 440px;">
-<div class="mermaid">
-graph TD;
-	h("HANGER")
-	h --- base("BASE")
-	h --- sub("SUBSCRIPT")
-	h --- sup("SUPERSCRIPT")
-	base --- x("x")
-	sub --- i("i")
-	sup --- 2("2")
-style h stroke:#800,stroke-width:8px
-style base stroke:#800,stroke-width:8px
-style sub stroke:#800,stroke-width:8px
-style sup stroke:#800,stroke-width:8px
-</div>
-	</div>
-
-	<div style="height:20px;"></div>
-	<small>Rendered expression: &nbsp; $x_i^2$</small>
-</section>
-
-<!-- Scoring function --> 
-<section>
-	<p>Ranking score</p>
-	<div style="height:20px;"></div>
-<p style="font-size: 25px;">
-Structure similarity $S_{\text{st}}$ is normalized formula tree similarity.
-</p>
-
-<p style="font-size: 25px;">
-Symbol set similarity $S_{\text{sy}}$ is a function of normalized Mark-and-<br/>Cross score$^{[1]}$.
-</p>
-
-<p style="font-size: 25px;">
-Overall score for one document formula:
-$$
-\frac{ S_{\text{st}} S_{\text{sy}} }{ S_{\text{st}} + S_{\text{sy}} }
-\left[ (1-\theta)  + \theta \frac 1 {\log(1 + |\mathcal{P}(T_d)|)} \right]
-\quad (\theta = 0.05)
-$$
-</p>
-
-<div style="height:60px;"></div>
-<div style="text-align: left; line-height: 0">
-<em>
-[1] Zhong, Wei. 2015. “A Novel Similarity-Search Method for Mathematical Content in LaTeX Markup and Its Implementation.” Thesis, University of Delaware.
-</em>
-</div>
-</section>
-
-<section>
-<p>Evaluation</p>
-<div style="height:40px;"></div>
-<small>
-<ul>
-<li> 2016 NTCIR-12 dataset of 590,000 formulas. 20 non-wildcards queries$^{[1]}$. </li>
-<li> Pooled hits are evaluated by two human assessors, score from 0 to 4.</li>
-<li> For bpref, top-1000 results are considered. </li>
-<li> Standard, condensed and upper-bound Precision@K values are reported.</li>
-</ul>
-</small>
-
-</section>
-
-<!-- sample results --> 
-<section>
-	<p>Effect of different $\alpha, \beta$ weights</p>
-	<div style="height:10px;"></div>
-	<div style="display:inline-block; width: 225px; overflow-x: hidden; ">
-		<img src="img/weights-dist.png" style="min-width:350px" />
-	</div>
-	<div style="display:inline-block; width: 25px;"></div>
-	<img src="img/weights-dist.svg" width="350px" />
-	<br/>
-	<small>
-	(1) Evenly distributed beta weights are not effective, (2) weighting operands higher may boost effectiveness, (3) multi-tree matching helps, but small gap over single-tree matching.
-	</small>
-</section>
-
-<section>
-	<p>Effect of different $\alpha, \beta$ weights</p>
-	<div style="height:10px;"></div>
-	<div style="display:inline-block; width: 225px; overflow-x: hidden; ">
-		<img src="img/weights-dist.png" style="min-width:350px" />
-	</div>
-	<div style="display:inline-block; width: 25px;"></div>
-	<img src="img/weights-dist.svg" width="350px" />
-	<br/>
-	<small>
-	(1) Evenly distributed beta weights are not effective, (2) weighting operands higher may boost effectiveness, (3) multi-tree matching helps, but small gap over single-tree matching.
-	</small>
-</section>
-
-<section>
-	<p>Effect of different $\alpha, \beta$ weights</p>
-	<div style="height:10px;"></div>
-	<div style="display:inline-block; width: 225px; overflow-x: hidden; ">
-		<img src="img/weights-dist.png" style="min-width:350px" />
-	</div>
-	<div style="display:inline-block; width: 25px;"></div>
-	<img src="img/weights-dist.svg" width="350px" />
-	<br/>
-	<small>
-	(1) Evenly distributed beta weights are not effective, (2) weighting operands higher may boost effectiveness, (3) multi-tree matching helps, but small gap over single-tree matching.
-	</small>
-</section>
-
-<!-- Results --> 
-<section>
-	<p>Uniform weights effectiveness over different $k$</p>
-	<div style="height:10px;"></div>
-	<img src="./img/diff-k.svg" width="320px" style="float: left; padding-left: 40px;"/>
-
-	<div style="width: 500px; height: 380px; background-color: white; overflow-x: hidden; overflow-y: hidden">
-	<div style="height:10px;"></div>
-	<span style="font-size: 0.35em !important;">
-	4. $\mathbf{\nabla}\times\mathbf{B}=\mu_{0}\mathbf{J}+\underbrace{\mu_{0}\epsilon_{0}\frac{\partial}{\partial t}\mathbf{E}}_{\mathrm{Maxwell^{\prime}s\ term}}$
-	<span style="padding-left: 60px"></span>
-	<br/>
-	6. $\,{}^{238}_{92}\mathrm{U}+\,^{64}_{28}\mathrm{Ni}\to\,^{302}_{120}\mathrm{Ubn}^{*}\to\ \mathit{fission\ only}$
-	<br/>
-	8. $w=\begin{cases}w^{*}&\mbox{if }w^{*}>\frac{1}{2},\\ \frac{1}{2}&\mbox{if }w^{*}\leq\frac{1}{2}.\\ \end{cases}$
-	<span style="padding-left: 60px"></span>
-	14. $\cos\alpha=-\cos\beta\cos\gamma+\sin\beta\sin\gamma\cosh\frac{a}{k},\,$
-	<br/>
-	16. $\tau_{\text{rms}}=\sqrt{\frac{\int_{0}^{\infty}(\tau-\overline{\tau})^{2}A_{c}(\tau)d\tau}{\int_{0}^{\infty}A_{c}(\tau)d\tau}}$
-	<span style="padding-left: 60px"></span>
-	18. $P_{i}^{x}=\frac{N!}{n_{x}!(N-n_{x})!}p_{x}^{n_{x}}(1-p_{x})^{N-n_{x}}$
-	<br/>
-	20. $r_{xy}=\frac{\sum\limits_{i=1}^{n}(x_{i}-\bar{x})(y_{i}-\bar{y})}{(n-1)s_{x}s_{y}}=\frac{\sum\limits_{i=1}^{n}(x_{i}-\bar{x})(y_{i}-\bar{y})}{\sqrt{\sum\limits_{i=1}^{n}(x_{i}-\bar{x})^{2}\sum\limits_{i=1}^{n}(y_{i}-\bar{y})^{2}}},$
-	</em>
-	</div>
-	<div style="height:40px;"></div>
-	<small>
-	(1) Query behaviours vary on different $k$ values, (2) most queries do not gain<br/> any thing from multiple tree matching, given uniform weights, and <br/>(3) those who can benefit are less complex queries.
-	</small>
-</section>
-
-<section>
-	<p>Compare with other systems</p>
-	<div style="height:15px;"></div>
-	<img src="./img/compare.png" style="min-height:300px;"/>
-	<div style="height:45px;"></div>
-	<small>
-	We can consistently outperform others in fully relevant results, except for standard Precision@K metrics due to missing judgements.
-	</small>
-</section>
-
-<section>
-	<p>Efficiency evaluation</p>
-	<div style="height:15px;"></div>
-	<img src="./img/efficiency.svg" height="300px" />
-	<br/>
-	<small>
-	No significant outliers, still not considered usable system,<br/> but there are great potential we can foresee.
-	</small>
-</section>
-
-<section>
-	<p>Conclusion</p>
-	<div style="height:20px;"></div>
-	<small>
-	<ul>
-		<li>Structure matching of common subexpressions is good at identifying fully relevant results.</li>
-		<li>Impact of operator vs. operand number, non-uniform weights and bias of "invisible" operators.</li>
-		<li>Consistent performance, computation bounded, great potential to improve (with lengthy query).
-	</ul>
-	</small>
-
-	<p>Future agenda</p>
-	<small>
-	<ul>
-		<li>Improve efficiency by pruning and skipping, implement wildcards, handle "math synonyms", and combine text keywords into query.</li>
-	</ul>
-	</small>
-</section>
-
-<section>
-	<p>Thank you!</p>
-	<div style="height:60px;"></div>
-		<em>Thanks to my advisor, paper reviewers, lab colleagues and Alfred P. Sloan foundation.</em>
-	<div style="height:90px;">
-		<img src="img/sloan-logo.png"/>
-	</div>
-	<div style="margin-top: 100px">
-		<img style="height:60px; padding-bottom: 15px;" src="img/ecir2019.png"/>
-		<img style="height:80px; padding-top: 15px;" src="img/rit-logo.png"/>
-		<img style="height:60px; padding-bottom: 10px;" src="img/dprl2019.png"/>
-	</div>
-</section>
 			</div>
 		</div>
 
