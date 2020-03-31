@@ -395,11 +395,98 @@ linkStyle 3 stroke:#800,stroke-width:8px;
   $$
 </li>
 <li>Let $w_{m, t} = |Q_t^{(m)}|$, then $w_{m, t} \ge \min(|Q_t^{(m)}|, |D_t^{(n)}|)$</li>
-  <ul>
-    <li>Then one upperbound can be $\text{MaxRef}_t = \max_m \; w_{m, t}$</li>
-    <li>Alternatively, directly find a "largest" set of non-required posting lists satisfy the constraints $\le \theta$</li>
-  </ul>
 </ul>
+<img style="height: 220px" src="img/dp-paths-1.svg"/>
+</section>
+
+<section>
+	<p>Requirement set selection (MaxRef)</p>
+	<div style="height:20px;"></div>
+<img style="height: 220px" src="img/dp-paths-2.svg"/>
+<small>
+  One possible upperbound is $\text{MaxRef}_t = \max_m \; w_{m, t}$
+</small>
+</section>
+
+<section>
+	<p>Requirement set selection (GBP)</p>
+	<div style="height:20px;"></div>
+<small>
+  Alternatively, directly find a "largest" set of non-requirement set that satisfies the constraints $\le \theta$, this is essentially solving a <i>binary programming</i> problem.
+  <br/>
+  <br/>
+  <ol   style="font-size: 25px;">
+  <li>Maximize the number of posting lists in requirement set:
+  <br/>
+  <br/>
+  $$
+  \text{max} \qquad 1^\top \mathbf{x} \qquad s.t. \quad \mathbf{W} \mathbf{x} \le \theta \\
+  $$
+  </li>
+  <li>Maximize the total length ($\sum_i L_i$) of posting lists in requirement set:
+  <br/>
+  <br/>
+  $$
+  \text{max} \qquad [L_1, L_2, ...] \;\mathbf{x} \qquad s.t. \quad \mathbf{W} \mathbf{x} \le \theta \\
+  $$
+  </li>
+  </ol>
+  Since binary programming problem is hard, we just greedily follow one branch of the binary programming sub-problems to obtain a feasible (but not optimal) solution.
+</small>
+</section>
+
+<section>
+	<p>Indices and formula searching (1)</p>
+	<div style="height:20px;"></div>
+<img style="height: 220px" src="img/dp-step-1.svg"/>
+<small>
+Each posting list entry has expID, document root-end node IDs, <br/>and the number of paths of corresponding root-end node.
+</small>
+</section>
+
+<section>
+	<p>Indices and formula searching (2)</p>
+	<div style="height:20px;"></div>
+<img style="height: 220px" src="img/dp-step-2.svg"/>
+<small>
+For example, above document operator tree has a subtree rooted at $d4$ (highlighted in red),</br> it has leaf-root path tokens /VAR/TIMES/ADD and /VAR/ADDS, each has two associated paths and they are indexed at corresponding posting lists.
+</small>
+</section>
+
+<section>
+	<p>Indices and formula searching (3)</p>
+	<div style="height:20px;"></div>
+<img style="height: 220px" src="img/dp-step-3.svg"/>
+<small>
+The maximum matched subtree for this document expression (#12) is from query node $q1$, which has a total number of $ \min(3,2) + \min(1,2) = 3$ common leaves with $d4$.
+<br/> <br/>
+</small>
+</section>
+
+<section>
+	<p>Overall scoring</p>
+	<div style="height:20px;"></div>
+<small>
+The "structure score" is simply the width of maximum matched common tree.
+<br/> <br/>
+  $$
+ w^*_{Q, D} = \max_{m\in T_q, n \in T_d} \sum _ { t \in \mathfrak { T } ( m ) } \operatorname { min } ( | Q _ { t } ^ { ( m ) } | , | D _ { t } ^ { ( n ) } | )
+  $$
+<br/> <br/>
+
+The overall score [1] further captures symbol similarity and penalizes large formulas.
+<br/> <br/>
+  $$
+  u ( w^* ) = \frac { w^* } { | \operatorname { leaves } ( T _ { q } ) | + w^* } \left[ ( 1 - \eta ) + \eta \frac { 1 } { \operatorname { log } ( 1 + n _ { d } ) } \right]
+  $$
+</small>
+<small style="width: 90%; text-align: left;">
+  <br/> <br/>
+  where $\eta = 0.05, n_d = 1$.
+</small>
+<div style="margin-top:100px; text-align: left;">
+  <em>[1]: Zhong, Wei, and Richard Zanibbi. "Structural similarity search for formulas using leaf-root paths in operator subtrees." ECIR 2019</em>
+</div>
 </section>
 
 <section>
