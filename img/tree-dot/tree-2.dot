@@ -1,0 +1,17 @@
+graph TREE {
+    n1 [label="ADD"]
+    n3 [label="POW"]
+    n4 [label="POW"]
+
+    node [shape=box]
+    l1 [label="a"]
+    l2 [label="b"]
+
+    n2 -- n1
+
+    n1 -- n3
+    n1 -- n4
+
+    n3 -- l1
+    n4 -- l2
+}

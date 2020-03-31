@@ -1,0 +1,452 @@
+<!doctype html>
+<html lang="en">
+
+	<head>
+		<meta charset="utf-8">
+
+		<title>slides</title>
+
+		<meta name="description" content="A framework for easily creating beautiful presentations using HTML">
+		<meta name="author" content="Hakim El Hattab">
+
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+		<link rel="stylesheet" href="tk/mermaid.min.css">
+
+		<link rel="stylesheet" href="css/reveal.css">
+		<link rel="stylesheet" href="css/theme/beige.css" id="theme">
+
+		<!-- Theme used for syntax highlighting of code -->
+		<link rel="stylesheet" href="lib/css/zenburn.css">
+
+		<!-- Printing and PDF exports -->
+		<script>
+			var link = document.createElement( 'link' );
+			link.rel = 'stylesheet';
+			link.type = 'text/css';
+			link.href = window.location.search.match( /print-pdf/gi ) ? 'css/print/pdf.css' : 'css/print/paper.css';
+			document.getElementsByTagName( 'head' )[0].appendChild( link );
+		</script>
+<style>
+::-webkit-scrollbar {
+    display: none;
+}
+li {
+	padding-bottom: 30px !important;
+	margin-left: 80px !important;
+	margin-right: 80px !important;
+}
+small {
+    display: inline-block !important;
+    font-size: 0.6em !important;
+    line-height: 1.2em !important;
+    vertical-align: top !important;
+}
+em {
+    font-size: 0.35em !important;
+    line-height: 1.2em !important;
+    vertical-align: top !important;
+}
+b {
+	font-weight: bold !important;
+}
+
+td {
+   width: 100px !important;
+}
+th {
+   width: 100px !important;
+}
+
+.reveal img {
+    border: none !important;
+    box-shadow: none !important; 
+}
+
+html body { background-color: white !important; }
+</style>
+	</head>
+
+	<body>
+
+<div class="reveal">
+	<div class="slides">
+
+<section>
+	<p>Accelerating Substructure Similarity Search for Formula Retrieval</p>
+	<div style="height:130px;"></div>
+	<p>
+		<small>Wei Zhong, Shaurya Rohatgi,<br/> Jian Wu, C. Lee Giles and Richard Zanibbi.</small>
+    <div style="height:133px;"></div>
+    <div>
+      <img height="100px" src="img/mathseer.svg"/>
+      <span style="display: inline-block; width:60px;"></span>
+      <img height="100px" src="img/sloan-logo.png"/>
+    </div>
+	</p>
+</section>
+
+<section>
+	<p>Mathematical Information Retrieval (MIR)</p>
+	<div style="height:60px;"></div>
+	<small>
+	<ul>
+		<li>Detect and extract math expressions from scientific document (e.g., PDF)</li>
+		<li>Handwritten formulas and formula image recognition</li>
+		<li>Formula retrieval and math-aware search</li>
+	</ul>
+	</small>
+	<div style="height:50px;"></div>
+</section>
+
+<section>
+	<p>Formula retrieval and math-aware search</p>
+	<div style="height:30px; margin:0"></div>
+	<div style="text-align:center">
+		<div style="display: inline-block; border: 1px solid black; height:500px;">
+		<img src="img/approach0.png"/>
+		</div>
+	</div>
+	<br/>
+<div style="text-align: left;">
+<em>
+(*) Screenshot from Approach Zero math-aware search engine (https://approach0.xyz)
+</em>
+</div>
+</section>
+
+<section>
+	<p>Problems in math similarity search</p>
+	<div style="height:60px;"></div>
+	<small>
+	<ul>
+		<li>Need a good "word" representation</li>
+			<ul>
+				<li>Identify sub-expression is important:
+        $$(1+\frac 1n)^n \qquad \text{vs.} \qquad 1 + (\frac 1n)^n \quad \text{and} \quad 1 + \frac 1n$$
+        </li>
+        <li>Not meaningful to count frequency w/o considering structure:
+        $$x+ \frac 12y \qquad \text{vs.} \qquad xy+\frac 12$$
+        </li>
+				<li>Symbols can be used interchangeably (e.g., $x^2+x$ and $a^2+a$)</li>
+			</ul>
+    </li>
+		<li>Need to consider alternative forms from the same formula</li>
+		<li>...... (list goes on)</li>
+	</ul>
+	</small>
+</section>
+
+<section>
+	<p>Math representation (Tree-based)</p>
+	<div style="height:60px;"></div>
+	<div style="text-align:center">
+		<div style="display:inline-block; width: 400px">
+			<img src="img/slt-example2.svg"/>
+			<div style="height:60px;"></div>
+			<small>Symbol Layout Tree</small>
+		</div>
+		<div style="display: inline-block; width: 80px;"></div>
+
+		<div style="display: inline-block; width: 300px;">
+<div class="mermaid">
+graph TD;
+	add("ADD")
+	add --- a
+	add --- power
+	add --- frac
+	power --- base
+	power --- add2("ADD")
+	base --- b("b")
+	add2 --- 2("2")
+	add2 --- c("c")
+	frac --- rank1
+	rank1 --- 1
+	frac --- rank2
+	rank2 --- x
+</div>
+	<small>Operator tree</small>
+		</div>
+	</div>
+	<div style="height:30px;"></div>
+	<small>$a+b^{2+c} + \frac 1 x$ in two different tree representations</small>
+	<div style="height:30px;"></div>
+<div style="text-align: left; line-height: 10px"><em>
+K. Davila, R. Zanibbi. "Layout and Semantics: Combining Representations for Mathematical Formula Search". In Proceedings of the 40th International ACM SIGIR conference on Research and Development in Information Retrieval (SIGIR 2017). ACM.
+</em></div>
+</section>
+
+<!-- multi-tree match -->
+<section>
+	<p>Similarity measurement</p>
+	<div style="height:10px;"></div>
+	<div>
+		<div style="display: inline-block; width: 240px; height:150px;">
+<div class="mermaid">
+graph TD;
+	add("ADD")
+	group("GROUP")
+	add --- group
+	group --- add2
+	add2("ADD")
+	add2 --- a("a")
+	add2 --- times1("TIMES")
+	times1 --- b("b")
+	times1 --- c("c")
+
+	add --- times2("TIMES")
+	times2 --- x("x")
+	times2 --- y("y")
+style add2 stroke:#080,stroke-width:8px
+style times1 stroke:#080,stroke-width:8px
+style b stroke:#080,stroke-width:8px
+style a stroke:#080,stroke-width:8px
+style c stroke:#080,stroke-width:8px
+style times2 stroke:#800,stroke-width:8px
+style x stroke:#800,stroke-width:8px
+style y stroke:#800,stroke-width:8px
+linkStyle 2 stroke:#080,stroke-width:8px;
+linkStyle 3 stroke:#080,stroke-width:8px;
+linkStyle 4 stroke:#080,stroke-width:8px;
+linkStyle 5 stroke:#080,stroke-width:8px;
+linkStyle 7 stroke:#800,stroke-width:8px;
+linkStyle 8 stroke:#800,stroke-width:8px;
+</div>
+		<small>Query:<br/> $ (a+bc)+xy $</small>
+		</div>
+		<div style="display: inline-block; width: 100px;"></div>
+		<div style="display: inline-block; width: 240px; height:150px;">
+<div class="mermaid">
+graph TD;
+	add("ADD")
+	add --- a("a")
+	add --- times1("TIMES")
+	times1 --- b("b")
+	times1 --- c("c")
+	add --- times2("TIMES")
+	times2 --- x("x")
+	times2 --- y("y")
+style add stroke:#080,stroke-width:8px
+style times1 stroke:#080,stroke-width:8px
+style a stroke:#080,stroke-width:8px
+style b stroke:#080,stroke-width:8px
+style c stroke:#080,stroke-width:8px
+linkStyle 0 stroke:#080,stroke-width:8px;
+linkStyle 1 stroke:#080,stroke-width:8px;
+linkStyle 2 stroke:#080,stroke-width:8px;
+linkStyle 3 stroke:#080,stroke-width:8px;
+style times2 stroke:#800,stroke-width:8px
+style x stroke:#800,stroke-width:8px
+style y stroke:#800,stroke-width:8px
+linkStyle 5 stroke:#800,stroke-width:8px;
+linkStyle 6 stroke:#800,stroke-width:8px;
+</div>
+		<small>Candidate: $ a+bc+xy $</small>
+		</div>
+	</div>
+	<div style="height:50px;"></div>
+	<small>Common <i>formula forest</i> $\pi$ (highlighted in two colors)</small>
+	<small>Scoring: $\gamma(\pi) = \sum_{T_q, T_d \in \pi} \beta_i (\alpha \cdot \text{operators}(T_d) + (1 - \alpha) \text{leaves}(T_d))$</small>
+	<br/>
+	<small>($\alpha, \beta$ are parameters, $T_q, T_d$ are trees from query and document)</small>
+</section>
+
+
+<section>
+	<div style="max-height: 600px; overflow-y: hidden;">
+	<span style="font-size: 0.35em !important;">
+	Query:
+	<span style="padding-left: 60px"></span>
+	$r_{xy}=\frac{{\color{Maroon}\sum} _{{\color{Maroon}i}={\color{Maroon}1}}^{{\color{Maroon}n}}({\color{Maroon}x}_{{\color{Maroon}i}}-\bar{{\color{Maroon}x}})({\color{Maroon}y}_{{\color{Maroon}i}}-\bar{{\color{Maroon}y}})}{(n-1)s_{x}s_{y}}=\frac{{\color{Orange}\sum} _{{\color{Orange}i}={\color{Orange}1}}^{{\color{Orange}n}}(x_{i}-\bar{x})(y_{i}-\bar{y})}{\sqrt{{\color{Green}\sum} _{{\color{Green}i}={\color{Green}1}}^{{\color{Green}n}}({\color{Green}x}_{{\color{Green}i}}-\bar{{\color{Green}x}})^{{\color{Green}2}}\sum _{i=1}^{n}(y_{i}-\bar{y})^{2}}}$
+	</span><br/>
+	<img src="./img/query.png" height="180px"/><br/>
+
+	<span style="font-size: 0.35em !important;">
+	Document formula:
+	<span style="padding-left: 60px"></span>
+	$r=\frac{{\color{Maroon}\sum}^{{\color{Maroon}N}}_{{\color{Maroon}i}={\color{Maroon}1}}({\color{Maroon}X}_{{\color{Maroon}i}}-\bar{{\color{Maroon}X}})({\color{Maroon}Y}_{{\color{Maroon}i}}-\bar{{\color{Maroon}Y}})}{\sqrt{{\color{Green}\sum}^{{\color{Green}N}}_{{\color{Green}i}={\color{Green}1}}({\color{Green}X}_{{\color{Green}i}}-\bar{{\color{Green}X}})^{{\color{Green}2}}}\sqrt{{\color{Orange}\sum}^{{\color{Orange}N}}_{{\color{Orange}i}={\color{Orange}1}}(Y_{i}-\bar{Y})^{2}}}$
+	</span><br/>
+	<img src="./img/doc.png" height="190px"/><br/>
+	</div>
+</section>
+
+
+<!-- match leaf-root paths -->
+<section>
+	<p>Matching from leaf-root paths</p>
+	<div style="height:60px;"></div>
+	<div>
+		<div style="display: inline-block; width: 200px; height:100px;">
+<div class="mermaid">
+graph TD;
+	add2("ADD")
+	add2 --- a("a")
+	add2 --- times1("TIMES")
+	times1 --- b("b")
+	times1 --- c("c")
+linkStyle 0 stroke:#080,stroke-width:8px;
+linkStyle 1 stroke:#00e,stroke-width:9px;
+linkStyle 2 stroke:#00e,stroke-width:9px;
+linkStyle 3 stroke:#800,stroke-width:8px;
+</div>
+		<small>Query: $ a+bc $</small>
+		</div>
+		<div style="display: inline-block; width: 100px;"></div>
+		<div style="display: inline-block; width: 300px; height:200px;">
+<div class="mermaid">
+graph TD;
+	add("ADD")
+	add --- a("a")
+	add --- times1("TIMES")
+	times1 --- b("b")
+	times1 --- c("c")
+	add --- times2("TIMES")
+	times2 --- x("x")
+	times2 --- y("y")
+linkStyle 0 stroke:#080,stroke-width:8px;
+linkStyle 1 stroke:#00e,stroke-width:9px;
+linkStyle 2 stroke:#00e,stroke-width:9px;
+linkStyle 3 stroke:#800,stroke-width:8px;
+</div>
+		<small>Candidate: $ a+bc+xy $</small>
+		</div>
+	</div>
+	<div style="height:50px;"></div>
+	<small>Assumption: leaf-root paths match $\implies$ corresponding structure aligned</small>
+	<div style="height:10px;"></div>
+  <small>Then the matched paths from one pair of roots: $1 + \min(2, 4) = 3$</small>
+</section>
+
+<section>
+	<p>Model the path matching</p>
+	<div style="height:30px; margin:0"></div>
+	<div style="text-align:center">
+		<div style="display: inline-block; height:250px;">
+		<img src="img/bipartile.svg"/>
+		</div>
+	</div>
+	<div style="height:30px; margin:0"></div>
+  <small>
+  The number of matched leaves for $m \in T _ { q } , n \in T _ { d }$ is
+  $$
+ \sum _ { t \in \mathfrak { T } ( m ) } \operatorname { min } ( | Q _ { t } ^ { ( m ) } | , | D _ { t } ^ { ( n ) } | )
+  $$
+  If $m, n$ are the top roots, then $\mathfrak { T } ( m ) = $ { /VAR/TIMES/ADD, /VAR/ADD }. <br/>
+  The matched paths is simply $\min(2, 2) + \min(2, 1) = 3$.
+  </small>
+</section>
+
+<section>
+	<p>Path-based inverted index</p>
+	<div style="height:30px; margin:0"></div>
+	<div style="text-align:center">
+		<div style="display: inline-block; height:250px;">
+		<img src="img/architecture.svg"/>
+		</div>
+	</div>
+  <ul style="font-size: 25px;">
+    <li>Use prefix leaf-root paths from operator tree</li>
+    <li>Index (by ExpID) and retrieve formulas on an inverted index</li>
+    <li>"Recover" structure by grouping root-end node IDs</li>
+    <li>Calculate similarity score $\gamma(\pi)$</li>
+  </ul>
+	<div style="margin-top:30px; text-align: left;">
+	  <em>Ref: Zhong, Wei, and Richard Zanibbi. "Structural similarity search for formulas using leaf-root paths in operator subtrees." ECIR 2019</em>
+  </div>
+</section>
+
+<section>
+	<p>Query and inverted list length</p>
+	<div style="height:30px; margin:0"></div>
+	<div style="text-align:center">
+		<div style="display: inline-block; height:300px;">
+		  <img src="img/hot-hit.svg"/>
+		</div>
+    <div style="margin-top:6px; text-align: center;">
+      <em>(*) Evaluating queries are from NTCIR-12 Wiki-browsing dataset.</em>
+    </div>
+    <small>Formula search requires extensive "words" to carry structure information.</small>
+	</div>
+</section>
+
+<!-- dynamic pruning -->
+<section>
+	<p>Dynamic pruning</p>
+	<div style="height:20px;"></div>
+<ul  style="font-size: 25px;">
+<li>Dynamic pruning speeds up query by skipping documents unlikely to be ranked in top-K results</li>
+<li>Assume top K at a given point is <i>threshold</i> $\theta$</li>
+<li>Any hit cannot appear in the final top-K if its <i>upperbound</i> $\le \theta$</li>
+<li>In DAAT, if a set of posting lists have upperbound $\le \theta$, then they can be advanced directly to candidate docID/expID</li>
+</ul>
+<img src="img/dynamicpruning.svg"/>
+</section>
+
+<section>
+	<p>Path posting list upperbound</p>
+	<div style="height:20px;"></div>
+<ul  style="font-size: 25px;">
+<li>Simplify the similarity measurement, only score by the width of the widest common tree
+  $$
+ w^*_{Q, D} = \max_{m\in T_q, n \in T_d} \sum _ { t \in \mathfrak { T } ( m ) } \operatorname { min } ( | Q _ { t } ^ { ( m ) } | , | D _ { t } ^ { ( n ) } | )
+  $$
+</li>
+<li>Let $w_{m, t} = |Q_t^{(m)}|$, then $w_{m, t} \ge \min(|Q_t^{(m)}|, |D_t^{(n)}|)$</li>
+  <ul>
+    <li>Then one upperbound can be $\text{MaxRef}_t = \max_m \; w_{m, t}$</li>
+    <li>Alternatively, directly find a "largest" set of non-required posting lists satisfy the constraints $\le \theta$</li>
+  </ul>
+</ul>
+</section>
+
+<section>
+	<p>Thank you!</p>
+	<div style="height:60px;"></div>
+	<div style="height:90px;">
+    <img height="100px" src="img/mathseer.svg"/>
+    <span style="display: inline-block; width:60px;"></span>
+		<img src="img/sloan-logo.png"/>
+	</div>
+	<div style="height:10px;"></div>
+	<em>Work from MathSeer project, supported by Alfred P. Sloan Foundation.</em>
+</section>
+
+			</div>
+		</div>
+
+		<script src="lib/js/head.min.js"></script>
+		<script src="tk/mermaid.min.js"></script>
+		<script>
+        mermaid.initialize({startOnLoad:true});
+        </script>
+		<script src="js/reveal.js"></script>
+
+		<script>
+
+			// More info https://github.com/hakimel/reveal.js#configuration
+			Reveal.initialize({
+				controls: true,
+				progress: true,
+				history: true,
+				center: true,
+
+				transition: 'slide', // none/fade/slide/convex/concave/zoom
+
+				// More info https://github.com/hakimel/reveal.js#dependencies
+				dependencies: [
+					{ src: 'lib/js/classList.js', condition: function() { return !document.body.classList; } },
+					{ src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
+					{ src: 'plugin/math/math.js', async: true } // mathjax / MathJaX plugin.
+				]
+			});
+
+			Reveal.configure({ slideNumber: true });
+			Reveal.configure({ slideNumber: 'c/t' });
+
+		</script>
+
+	</body>
+</html>

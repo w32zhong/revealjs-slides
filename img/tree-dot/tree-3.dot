@@ -1,0 +1,25 @@
+graph TREE {
+	node [fontname="Times", fontsize=30]
+    n1 [label="ADD", penwidth=7, color="/greys6/4"]
+    n2 [label="TIMES", penwidth=7, color="/greys6/4"]
+    n3 [label="TIMES", penwidth=7, color="/greys6/6"]
+
+	node [shape=box]
+    l1 [label="a", penwidth=7, color="/greys6/4"]
+    l2 [label="b", penwidth=7, color="/greys6/4"]
+    l3 [label="c", penwidth=7, color="/greys6/4"]
+    l4 [label="x", penwidth=7, color="/greys6/6"]
+    l5 [label="y", penwidth=7, color="/greys6/6"]
+    l6 [label="z"]
+
+	n1 -- n2 [penwidth=7, color="/greys6/4"]
+	n1 -- n3 
+
+	n1 -- l1 [penwidth=7, color="/greys6/4"]
+	n2 -- l2 [penwidth=7, color="/greys6/4"]
+	n2 -- l3 [penwidth=7, color="/greys6/4"]
+	n3 -- l4 [penwidth=7, color="/greys6/6"]
+	n3 -- l5 [penwidth=7, color="/greys6/6"]
+
+	n1 -- l6
+}

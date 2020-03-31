@@ -1,0 +1,22 @@
+graph TREE {
+    n1 [label="ADD"]
+    n2 [label="EQ"]
+    n3 [label="POW"]
+    n4 [label="POW"]
+    n5 [label="POW"]
+
+    node [shape=box]
+    l1 [label="a"]
+    l2 [label="b"]
+    l3 [label="c"]
+
+    n2 -- n1
+    n2 -- n5
+
+    n1 -- n3
+    n1 -- n4
+
+    n3 -- l1
+    n4 -- l2
+    n5 -- l3
+}

@@ -1,0 +1,1590 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   xmlns:osb="http://www.openswatchbook.org/uri/2009/osb"
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   width="860mm"
+   height="354mm"
+   viewBox="0 0 860 354"
+   version="1.1"
+   id="svg8"
+   inkscape:version="0.92.4 5da689c313, 2019-01-14"
+   sodipodi:docname="bipartile.svg">
+  <defs
+     id="defs2">
+    <marker
+       inkscape:stockid="Arrow1Lstart"
+       orient="auto"
+       refY="0.0"
+       refX="0.0"
+       id="Arrow1Lstart"
+       style="overflow:visible"
+       inkscape:isstock="true">
+      <path
+         id="path1428"
+         d="M 0.0,0.0 L 5.0,-5.0 L -12.5,0.0 L 5.0,5.0 L 0.0,0.0 z "
+         style="fill-rule:evenodd;stroke:#ff6464;stroke-width:1pt;stroke-opacity:1;fill:#ff6464;fill-opacity:1"
+         transform="scale(0.8) translate(12.5,0)" />
+    </marker>
+    <linearGradient
+       id="linearGradient6037"
+       osb:paint="solid">
+      <stop
+         style="stop-color:#000008;stop-opacity:1;"
+         offset="0"
+         id="stop6035" />
+    </linearGradient>
+  </defs>
+  <sodipodi:namedview
+     id="base"
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1.0"
+     inkscape:pageopacity="0.0"
+     inkscape:pageshadow="2"
+     inkscape:zoom="0.35000001"
+     inkscape:cx="1046.6813"
+     inkscape:cy="989.61367"
+     inkscape:document-units="mm"
+     inkscape:current-layer="layer1"
+     showgrid="false"
+     units="mm"
+     height="194mm"
+     inkscape:window-width="2560"
+     inkscape:window-height="1366"
+     inkscape:window-x="0"
+     inkscape:window-y="0"
+     inkscape:window-maximized="1">
+    <inkscape:grid
+       type="xygrid"
+       id="grid6136" />
+  </sodipodi:namedview>
+  <metadata
+     id="metadata5">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+        <dc:title />
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <g
+     inkscape:label="Layer 1"
+     inkscape:groupmode="layer"
+     id="layer1"
+     transform="translate(0,57)">
+    <g
+       transform="matrix(0.35252285,0,0,0.35252285,464.13204,18.220306)"
+       class="graph"
+       id="graph0">
+      <title
+         id="title4518">G</title>
+      <polygon
+         id="polygon4520"
+         points="397.2864,-61.9828 397.2864,4 -4,4 -4,-61.9828 "
+         stroke="transparent"
+         style="fill:#ffffff" />
+      <!-- leaf -->
+      <g
+         class="node"
+         id="node1">
+        <title
+           id="title4522">leaf</title>
+        <polygon
+           id="polygon4524"
+           points="0,-8.4914 54,-8.4914 54,-49.4914 0,-49.4914 "
+           style="fill:none;stroke:#000000;stroke-width:4" />
+        <text
+           id="text4526"
+           font-size="30.00"
+           y="-21.4914"
+           x="27"
+           style="font-size:30px;font-family:Times;text-anchor:middle;fill:#000000">b</text>
+      </g>
+      <!-- TIMES -->
+      <g
+         class="node"
+         id="node2">
+        <title
+           id="title4529">TIMES</title>
+        <ellipse
+           id="ellipse4531"
+           ry="28.9828"
+           rx="75.821198"
+           cy="-28.9914"
+           cx="165.6604"
+           style="fill:none;stroke:#000000;stroke-width:4" />
+        <text
+           id="text4533"
+           font-size="30.00"
+           y="-21.4914"
+           x="165.6604"
+           style="font-size:30px;font-family:Times;text-anchor:middle;fill:#000000">TIMES</text>
+      </g>
+      <!-- leaf&#45;&#45;TIMES -->
+      <g
+         class="edge"
+         id="edge1">
+        <title
+           id="title4536">leaf--TIMES</title>
+        <path
+           id="path4538"
+           d="m 54.0643,-28.9914 c 10.4822,0 23.0489,0 35.9098,0"
+           inkscape:connector-curvature="0"
+           style="fill:none;stroke:#000000;stroke-width:4" />
+      </g>
+      <!-- ADD -->
+      <g
+         class="node"
+         id="node3">
+        <title
+           id="title4541">ADD</title>
+        <ellipse
+           id="ellipse4543"
+           ry="28.9828"
+           rx="57.9655"
+           cy="-28.9914"
+           cx="335.30359"
+           style="fill:none;stroke:#000000;stroke-width:4" />
+        <text
+           id="text4545"
+           font-size="30.00"
+           y="-21.4914"
+           x="335.30359"
+           style="font-size:30px;font-family:Times;text-anchor:middle;fill:#000000">ADD</text>
+      </g>
+      <!-- TIMES&#45;&#45;ADD -->
+      <g
+         class="edge"
+         id="edge2">
+        <title
+           id="title4548">TIMES--ADD</title>
+        <path
+           id="path4550"
+           d="m 241.5507,-28.9914 c 11.9979,0 24.2368,0 35.7421,0"
+           inkscape:connector-curvature="0"
+           style="fill:none;stroke:#000000;stroke-width:4" />
+      </g>
+    </g>
+    <ellipse
+       style="fill:none;fill-opacity:1;stroke:#8d8d8d;stroke-width:1.97013366;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:0.66153846"
+       id="path4583-3"
+       cx="532.49573"
+       cy="113.51352"
+       rx="96.626709"
+       ry="163.55861" />
+    <g
+       transform="matrix(0.35252285,0,0,0.35252285,463.29428,63.284341)"
+       class="graph"
+       id="graph0-5">
+      <title
+         id="title6071">G</title>
+      <polygon
+         id="polygon6073"
+         points="397.2864,-61.9828 397.2864,4 -4,4 -4,-61.9828 "
+         stroke="transparent"
+         style="fill:#ffffff" />
+      <!-- leaf -->
+      <g
+         class="node"
+         id="node1-6">
+        <title
+           id="title6075">leaf</title>
+        <polygon
+           id="polygon6077"
+           points="0,-8.4914 54,-8.4914 54,-49.4914 0,-49.4914 "
+           style="fill:none;stroke:#000000;stroke-width:4" />
+        <text
+           id="text6079"
+           font-size="30.00"
+           y="-21.4914"
+           x="27"
+           style="font-size:30px;font-family:Times;text-anchor:middle;fill:#000000">c</text>
+      </g>
+      <!-- TIMES -->
+      <g
+         class="node"
+         id="node2-1">
+        <title
+           id="title6082">TIMES</title>
+        <ellipse
+           id="ellipse6084"
+           ry="28.9828"
+           rx="75.821198"
+           cy="-28.9914"
+           cx="165.6604"
+           style="fill:none;stroke:#000000;stroke-width:4" />
+        <text
+           id="text6086"
+           font-size="30.00"
+           y="-21.4914"
+           x="165.6604"
+           style="font-size:30px;font-family:Times;text-anchor:middle;fill:#000000">TIMES</text>
+      </g>
+      <!-- leaf&#45;&#45;TIMES -->
+      <g
+         class="edge"
+         id="edge1-1">
+        <title
+           id="title6089">leaf--TIMES</title>
+        <path
+           id="path6091"
+           d="m 54.0643,-28.9914 c 10.4822,0 23.0489,0 35.9098,0"
+           inkscape:connector-curvature="0"
+           style="fill:none;stroke:#000000;stroke-width:4" />
+      </g>
+      <!-- ADD -->
+      <g
+         class="node"
+         id="node3-5">
+        <title
+           id="title6094">ADD</title>
+        <ellipse
+           id="ellipse6096"
+           ry="28.9828"
+           rx="57.9655"
+           cy="-28.9914"
+           cx="335.30359"
+           style="fill:none;stroke:#000000;stroke-width:4" />
+        <text
+           id="text6098"
+           font-size="30.00"
+           y="-21.4914"
+           x="335.30359"
+           style="font-size:30px;font-family:Times;text-anchor:middle;fill:#000000">ADD</text>
+      </g>
+      <!-- TIMES&#45;&#45;ADD -->
+      <g
+         class="edge"
+         id="edge2-9">
+        <title
+           id="title6101">TIMES--ADD</title>
+        <path
+           id="path6103"
+           d="m 241.5507,-28.9914 c 11.9979,0 24.2368,0 35.7421,0"
+           inkscape:connector-curvature="0"
+           style="fill:none;stroke:#000000;stroke-width:4" />
+      </g>
+    </g>
+    <g
+       transform="matrix(0.35232499,0,0,0.35232499,463.82963,105.61188)"
+       class="graph"
+       id="graph0-7">
+      <title
+         id="title6138">G</title>
+      <polygon
+         id="polygon6140"
+         points="-4,-61.9828 245.3209,-61.9828 245.3209,4 -4,4 "
+         stroke="transparent"
+         style="fill:#ffffff" />
+      <!-- leaf -->
+      <g
+         class="node"
+         id="node1-8">
+        <title
+           id="title6142">leaf</title>
+        <polygon
+           id="polygon6144"
+           points="0,-49.4914 0,-8.4914 54,-8.4914 54,-49.4914 "
+           style="fill:none;stroke:#000000;stroke-width:4" />
+        <text
+           id="text6146"
+           font-size="30.00"
+           y="-21.4914"
+           x="27"
+           style="font-size:30px;font-family:Times;text-anchor:middle;fill:#000000">x</text>
+      </g>
+      <!-- TIMES -->
+      <g
+         class="node"
+         id="node2-5">
+        <title
+           id="title6149">TIMES</title>
+        <ellipse
+           id="ellipse6151"
+           ry="28.9828"
+           rx="75.821198"
+           cy="-28.9914"
+           cx="165.6604"
+           style="fill:none;stroke:#000000;stroke-width:4" />
+        <text
+           id="text6153"
+           font-size="30.00"
+           y="-21.4914"
+           x="165.6604"
+           style="font-size:30px;font-family:Times;text-anchor:middle;fill:#000000">TIMES</text>
+      </g>
+      <!-- leaf&#45;&#45;TIMES -->
+      <g
+         class="edge"
+         id="edge1-7">
+        <title
+           id="title6156">leaf--TIMES</title>
+        <path
+           id="path6158"
+           d="m 54.0643,-28.9914 c 10.4822,0 23.0489,0 35.9098,0"
+           inkscape:connector-curvature="0"
+           style="fill:none;stroke:#000000;stroke-width:4" />
+      </g>
+    </g>
+    <g
+       transform="matrix(0.35232499,0,0,0.35232499,463.82963,147.94521)"
+       class="graph"
+       id="graph0-8">
+      <title
+         id="title6184">G</title>
+      <polygon
+         id="polygon6186"
+         points="-4,-61.9828 245.3209,-61.9828 245.3209,4 -4,4 "
+         stroke="transparent"
+         style="fill:#ffffff" />
+      <!-- leaf -->
+      <g
+         class="node"
+         id="node1-5">
+        <title
+           id="title6188">leaf</title>
+        <polygon
+           id="polygon6190"
+           points="0,-49.4914 0,-8.4914 54,-8.4914 54,-49.4914 "
+           style="fill:none;stroke:#000000;stroke-width:4" />
+        <text
+           id="text6192"
+           font-size="30.00"
+           y="-21.4914"
+           x="27"
+           style="font-size:30px;font-family:Times;text-anchor:middle;fill:#000000">y</text>
+      </g>
+      <!-- TIMES -->
+      <g
+         class="node"
+         id="node2-9">
+        <title
+           id="title6195">TIMES</title>
+        <ellipse
+           id="ellipse6197"
+           ry="28.9828"
+           rx="75.821198"
+           cy="-28.9914"
+           cx="165.6604"
+           style="fill:none;stroke:#000000;stroke-width:4" />
+        <text
+           id="text6199"
+           font-size="30.00"
+           y="-21.4914"
+           x="165.6604"
+           style="font-size:30px;font-family:Times;text-anchor:middle;fill:#000000">TIMES</text>
+      </g>
+      <!-- leaf&#45;&#45;TIMES -->
+      <g
+         class="edge"
+         id="edge1-75">
+        <title
+           id="title6202">leaf--TIMES</title>
+        <path
+           id="path6204"
+           d="m 54.0643,-28.9914 c 10.4822,0 23.0489,0 35.9098,0"
+           inkscape:connector-curvature="0"
+           style="fill:none;stroke:#000000;stroke-width:4" />
+      </g>
+    </g>
+    <g
+       transform="matrix(0.35282725,0,0,0.35282725,463.8614,190.29311)"
+       class="graph"
+       id="graph0-89">
+      <title
+         id="title6230">G</title>
+      <polygon
+         id="polygon6232"
+         points="-4,-61.9828 209.9655,-61.9828 209.9655,4 -4,4 "
+         stroke="transparent"
+         style="fill:#ffffff" />
+      <!-- leaf -->
+      <g
+         class="node"
+         id="node1-64">
+        <title
+           id="title6234">leaf</title>
+        <polygon
+           id="polygon6236"
+           points="0,-49.4914 0,-8.4914 54,-8.4914 54,-49.4914 "
+           style="fill:none;stroke:#000000;stroke-width:4" />
+        <text
+           id="text6238"
+           font-size="30.00"
+           y="-21.4914"
+           x="27"
+           style="font-size:30px;font-family:Times;text-anchor:middle;fill:#000000">a</text>
+      </g>
+      <!-- ADD -->
+      <g
+         class="node"
+         id="node2-3">
+        <title
+           id="title6241">ADD</title>
+        <ellipse
+           id="ellipse6243"
+           ry="28.9828"
+           rx="57.9655"
+           cy="-28.9914"
+           cx="147.9828"
+           style="fill:none;stroke:#000000;stroke-width:4" />
+        <text
+           id="text6245"
+           font-size="30.00"
+           y="-21.4914"
+           x="147.9828"
+           style="font-size:30px;font-family:Times;text-anchor:middle;fill:#000000">ADD</text>
+      </g>
+      <!-- leaf&#45;&#45;ADD -->
+      <g
+         class="edge"
+         id="edge1-3">
+        <title
+           id="title6248">leaf--ADD</title>
+        <path
+           id="path6250"
+           d="m 54.1509,-28.9914 c 10.5894,0 23.1613,0 35.6051,0"
+           inkscape:connector-curvature="0"
+           style="fill:none;stroke:#000000;stroke-width:4" />
+      </g>
+    </g>
+    <g
+       transform="matrix(0.35282725,0,0,0.35282725,463.8614,232.62644)"
+       class="graph"
+       id="graph0-9">
+      <title
+         id="title6276">G</title>
+      <polygon
+         id="polygon6278"
+         points="-4,-61.9828 209.9655,-61.9828 209.9655,4 -4,4 "
+         stroke="transparent"
+         style="fill:#ffffff" />
+      <!-- leaf -->
+      <g
+         class="node"
+         id="node1-7">
+        <title
+           id="title6280">leaf</title>
+        <polygon
+           id="polygon6282"
+           points="0,-49.4914 0,-8.4914 54,-8.4914 54,-49.4914 "
+           style="fill:none;stroke:#000000;stroke-width:4" />
+        <text
+           id="text6284"
+           font-size="30.00"
+           y="-21.4914"
+           x="27"
+           style="font-size:30px;font-family:Times;text-anchor:middle;fill:#000000">z</text>
+      </g>
+      <!-- ADD -->
+      <g
+         class="node"
+         id="node2-7">
+        <title
+           id="title6287">ADD</title>
+        <ellipse
+           id="ellipse6289"
+           ry="28.9828"
+           rx="57.9655"
+           cy="-28.9914"
+           cx="147.9828"
+           style="fill:none;stroke:#000000;stroke-width:4" />
+        <text
+           id="text6291"
+           font-size="30.00"
+           y="-21.4914"
+           x="147.9828"
+           style="font-size:30px;font-family:Times;text-anchor:middle;fill:#000000">ADD</text>
+      </g>
+      <!-- leaf&#45;&#45;ADD -->
+      <g
+         class="edge"
+         id="edge1-6">
+        <title
+           id="title6294">leaf--ADD</title>
+        <path
+           id="path6296"
+           d="m 54.1509,-28.9914 c 10.5894,0 23.1613,0 35.6051,0"
+           inkscape:connector-curvature="0"
+           style="fill:none;stroke:#000000;stroke-width:4" />
+      </g>
+    </g>
+    <g
+       transform="matrix(0.35252285,0,0,0.35252285,694.66432,49.902976)"
+       class="graph"
+       id="graph0-0">
+      <title
+         id="title6322">G</title>
+      <polygon
+         id="polygon6324"
+         points="397.2864,4 -4,4 -4,-61.9828 397.2864,-61.9828 "
+         stroke="transparent"
+         style="fill:#ffffff" />
+      <!-- leaf -->
+      <g
+         class="node"
+         id="node1-3">
+        <title
+           id="title6326">leaf</title>
+        <polygon
+           id="polygon6328"
+           points="54,-8.4914 54,-49.4914 0,-49.4914 0,-8.4914 "
+           style="fill:none;stroke:#000000;stroke-width:4" />
+        <text
+           id="text6330"
+           font-size="30.00"
+           y="-21.4914"
+           x="27"
+           style="font-size:30px;font-family:Times;text-anchor:middle;fill:#000000">b</text>
+      </g>
+      <!-- TIMES -->
+      <g
+         class="node"
+         id="node2-0">
+        <title
+           id="title6333">TIMES</title>
+        <ellipse
+           id="ellipse6335"
+           ry="28.9828"
+           rx="75.821198"
+           cy="-28.9914"
+           cx="165.6604"
+           style="fill:none;stroke:#000000;stroke-width:4" />
+        <text
+           id="text6337"
+           font-size="30.00"
+           y="-21.4914"
+           x="165.6604"
+           style="font-size:30px;font-family:Times;text-anchor:middle;fill:#000000">TIMES</text>
+      </g>
+      <!-- leaf&#45;&#45;TIMES -->
+      <g
+         class="edge"
+         id="edge1-9">
+        <title
+           id="title6340">leaf--TIMES</title>
+        <path
+           id="path6342"
+           d="m 54.0643,-28.9914 c 10.4822,0 23.0489,0 35.9098,0"
+           inkscape:connector-curvature="0"
+           style="fill:none;stroke:#000000;stroke-width:4" />
+      </g>
+      <!-- ADD -->
+      <g
+         class="node"
+         id="node3-2">
+        <title
+           id="title6345">ADD</title>
+        <ellipse
+           id="ellipse6347"
+           ry="28.9828"
+           rx="57.9655"
+           cy="-28.9914"
+           cx="335.30359"
+           style="fill:none;stroke:#000000;stroke-width:4" />
+        <text
+           id="text6349"
+           font-size="30.00"
+           y="-21.4914"
+           x="335.30359"
+           style="font-size:30px;font-family:Times;text-anchor:middle;fill:#000000">ADD</text>
+      </g>
+      <!-- TIMES&#45;&#45;ADD -->
+      <g
+         class="edge"
+         id="edge2-5">
+        <title
+           id="title6352">TIMES--ADD</title>
+        <path
+           id="path6354"
+           d="m 241.5507,-28.9914 c 11.9979,0 24.2368,0 35.7421,0"
+           inkscape:connector-curvature="0"
+           style="fill:none;stroke:#000000;stroke-width:4" />
+      </g>
+    </g>
+    <g
+       transform="matrix(0.35252285,0,0,0.35252285,694.66432,92.23631)"
+       class="graph"
+       id="graph0-6">
+      <title
+         id="title6387">G</title>
+      <polygon
+         id="polygon6389"
+         points="397.2864,4 -4,4 -4,-61.9828 397.2864,-61.9828 "
+         stroke="transparent"
+         style="fill:#ffffff" />
+      <!-- leaf -->
+      <g
+         class="node"
+         id="node1-9">
+        <title
+           id="title6391">leaf</title>
+        <polygon
+           id="polygon6393"
+           points="54,-8.4914 54,-49.4914 0,-49.4914 0,-8.4914 "
+           style="fill:none;stroke:#000000;stroke-width:4" />
+        <text
+           id="text6395"
+           font-size="30.00"
+           y="-21.4914"
+           x="27"
+           style="font-size:30px;font-family:Times;text-anchor:middle;fill:#000000">c</text>
+      </g>
+      <!-- TIMES -->
+      <g
+         class="node"
+         id="node2-2">
+        <title
+           id="title6398">TIMES</title>
+        <ellipse
+           id="ellipse6400"
+           ry="28.9828"
+           rx="75.821198"
+           cy="-28.9914"
+           cx="165.6604"
+           style="fill:none;stroke:#000000;stroke-width:4" />
+        <text
+           id="text6402"
+           font-size="30.00"
+           y="-21.4914"
+           x="165.6604"
+           style="font-size:30px;font-family:Times;text-anchor:middle;fill:#000000">TIMES</text>
+      </g>
+      <!-- leaf&#45;&#45;TIMES -->
+      <g
+         class="edge"
+         id="edge1-2">
+        <title
+           id="title6405">leaf--TIMES</title>
+        <path
+           id="path6407"
+           d="m 54.0643,-28.9914 c 10.4822,0 23.0489,0 35.9098,0"
+           inkscape:connector-curvature="0"
+           style="fill:none;stroke:#000000;stroke-width:4" />
+      </g>
+      <!-- ADD -->
+      <g
+         class="node"
+         id="node3-4">
+        <title
+           id="title6410">ADD</title>
+        <ellipse
+           id="ellipse6412"
+           ry="28.9828"
+           rx="57.9655"
+           cy="-28.9914"
+           cx="335.30359"
+           style="fill:none;stroke:#000000;stroke-width:4" />
+        <text
+           id="text6414"
+           font-size="30.00"
+           y="-21.4914"
+           x="335.30359"
+           style="font-size:30px;font-family:Times;text-anchor:middle;fill:#000000">ADD</text>
+      </g>
+      <!-- TIMES&#45;&#45;ADD -->
+      <g
+         class="edge"
+         id="edge2-7">
+        <title
+           id="title6417">TIMES--ADD</title>
+        <path
+           id="path6419"
+           d="m 241.5507,-28.9914 c 11.9979,0 24.2368,0 35.7421,0"
+           inkscape:connector-curvature="0"
+           style="fill:none;stroke:#000000;stroke-width:4" />
+      </g>
+    </g>
+    <g
+       transform="matrix(0.35282725,0,0,0.35282725,694.74595,137.93508)"
+       class="graph"
+       id="graph0-93">
+      <title
+         id="title6452">G</title>
+      <polygon
+         id="polygon6454"
+         points="-4,4 -4,-61.9828 209.9655,-61.9828 209.9655,4 "
+         stroke="transparent"
+         style="fill:#ffffff" />
+      <!-- leaf -->
+      <g
+         class="node"
+         id="node1-68">
+        <title
+           id="title6456">leaf</title>
+        <polygon
+           id="polygon6458"
+           points="54,-49.4914 0,-49.4914 0,-8.4914 54,-8.4914 "
+           style="fill:none;stroke:#000000;stroke-width:4" />
+        <text
+           id="text6460"
+           font-size="30.00"
+           y="-21.4914"
+           x="27"
+           style="font-size:30px;font-family:Times;text-anchor:middle;fill:#000000">a</text>
+      </g>
+      <!-- ADD -->
+      <g
+         class="node"
+         id="node2-02">
+        <title
+           id="title6463">ADD</title>
+        <ellipse
+           id="ellipse6465"
+           ry="28.9828"
+           rx="57.9655"
+           cy="-28.9914"
+           cx="147.9828"
+           style="fill:none;stroke:#000000;stroke-width:4" />
+        <text
+           id="text6467"
+           font-size="30.00"
+           y="-21.4914"
+           x="147.9828"
+           style="font-size:30px;font-family:Times;text-anchor:middle;fill:#000000">ADD</text>
+      </g>
+      <!-- leaf&#45;&#45;ADD -->
+      <g
+         class="edge"
+         id="edge1-10">
+        <title
+           id="title6470">leaf--ADD</title>
+        <path
+           id="path6472"
+           d="m 54.1509,-28.9914 c 10.5894,0 23.1613,0 35.6051,0"
+           inkscape:connector-curvature="0"
+           style="fill:none;stroke:#000000;stroke-width:4" />
+      </g>
+    </g>
+    <g
+       transform="matrix(0.35232499,0,0,0.35232499,694.71419,180.25385)"
+       class="graph"
+       id="graph0-62">
+      <title
+         id="title6498">G</title>
+      <polygon
+         id="polygon6500"
+         points="245.3209,-61.9828 245.3209,4 -4,4 -4,-61.9828 "
+         stroke="transparent"
+         style="fill:#ffffff" />
+      <!-- leaf -->
+      <g
+         class="node"
+         id="node1-58">
+        <title
+           id="title6502">leaf</title>
+        <polygon
+           id="polygon6504"
+           points="0,-8.4914 54,-8.4914 54,-49.4914 0,-49.4914 "
+           style="fill:none;stroke:#000000;stroke-width:4" />
+        <text
+           id="text6506"
+           font-size="30.00"
+           y="-21.4914"
+           x="27"
+           style="font-size:30px;font-family:Times;text-anchor:middle;fill:#000000">x</text>
+      </g>
+      <!-- TIMES -->
+      <g
+         class="node"
+         id="node2-6">
+        <title
+           id="title6509">TIMES</title>
+        <ellipse
+           id="ellipse6511"
+           ry="28.9828"
+           rx="75.821198"
+           cy="-28.9914"
+           cx="165.6604"
+           style="fill:none;stroke:#000000;stroke-width:4" />
+        <text
+           id="text6513"
+           font-size="30.00"
+           y="-21.4914"
+           x="165.6604"
+           style="font-size:30px;font-family:Times;text-anchor:middle;fill:#000000">TIMES</text>
+      </g>
+      <!-- leaf&#45;&#45;TIMES -->
+      <g
+         class="edge"
+         id="edge1-28">
+        <title
+           id="title6516">leaf--TIMES</title>
+        <path
+           id="path6518"
+           d="m 54.0643,-28.9914 c 10.4822,0 23.0489,0 35.9098,0"
+           inkscape:connector-curvature="0"
+           style="fill:none;stroke:#000000;stroke-width:4" />
+      </g>
+    </g>
+    <g
+       transform="matrix(0.35232499,0,0,0.35232499,694.71419,222.58718)"
+       class="graph"
+       id="graph0-4">
+      <title
+         id="title6544">G</title>
+      <polygon
+         id="polygon6546"
+         points="245.3209,-61.9828 245.3209,4 -4,4 -4,-61.9828 "
+         stroke="transparent"
+         style="fill:#ffffff" />
+      <!-- leaf -->
+      <g
+         class="node"
+         id="node1-0">
+        <title
+           id="title6548">leaf</title>
+        <polygon
+           id="polygon6550"
+           points="0,-8.4914 54,-8.4914 54,-49.4914 0,-49.4914 "
+           style="fill:none;stroke:#000000;stroke-width:4" />
+        <text
+           id="text6552"
+           font-size="30.00"
+           y="-21.4914"
+           x="27"
+           style="font-size:30px;font-family:Times;text-anchor:middle;fill:#000000">y</text>
+      </g>
+      <!-- TIMES -->
+      <g
+         class="node"
+         id="node2-62">
+        <title
+           id="title6555">TIMES</title>
+        <ellipse
+           id="ellipse6557"
+           ry="28.9828"
+           rx="75.821198"
+           cy="-28.9914"
+           cx="165.6604"
+           style="fill:none;stroke:#000000;stroke-width:4" />
+        <text
+           id="text6559"
+           font-size="30.00"
+           y="-21.4914"
+           x="165.6604"
+           style="font-size:30px;font-family:Times;text-anchor:middle;fill:#000000">TIMES</text>
+      </g>
+      <!-- leaf&#45;&#45;TIMES -->
+      <g
+         class="edge"
+         id="edge1-99">
+        <title
+           id="title6562">leaf--TIMES</title>
+        <path
+           id="path6564"
+           d="m 54.0643,-28.9914 c 10.4822,0 23.0489,0 35.9098,0"
+           inkscape:connector-curvature="0"
+           style="fill:none;stroke:#000000;stroke-width:4" />
+      </g>
+    </g>
+    <ellipse
+       style="fill:none;fill-opacity:1;stroke:#8d8d8d;stroke-width:1.9089098;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:0.6627451"
+       id="path4583-3-0"
+       cx="761.32788"
+       cy="109.72591"
+       rx="91.144234"
+       ry="162.7874" />
+    <path
+       style="fill:none;stroke:#000000;stroke-width:2.66666675;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:0.49019608"
+       d="m 603.34682,17.915467 84.66667,65.851854"
+       id="path6605"
+       inkscape:connector-curvature="0" />
+    <path
+       style="fill:none;stroke:#000000;stroke-width:3;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:0.49034753"
+       d="m 603.34682,17.621488 84.66667,21.166667 v 0 l -84.66667,10.583334 v 0"
+       id="path6607"
+       inkscape:connector-curvature="0" />
+    <path
+       style="fill:none;stroke:#000000;stroke-width:3;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:0.49019608"
+       d="m 603.34682,52.01732 84.66667,31.75 v 0"
+       id="path6609"
+       inkscape:connector-curvature="0" />
+    <path
+       style="fill:none;stroke:#000000;stroke-width:3;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       d="m 550.43016,94.350653 137.58333,74.083317 v 0"
+       id="path6611"
+       inkscape:connector-curvature="0" />
+    <path
+       style="fill:none;stroke:#000000;stroke-width:3;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       d="m 688.01349,168.43397 -137.58333,-31.75 137.58333,74.08334 L 550.43016,94.350653"
+       id="path6613"
+       inkscape:connector-curvature="0" />
+    <path
+       style="fill:none;stroke:#000000;stroke-width:3;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:0.49019608"
+       d="m 539.84682,179.0173 148.16667,-52.91666 v 0 l -148.16667,95.25"
+       id="path6615"
+       inkscape:connector-curvature="0" />
+    <flowRoot
+       xml:space="preserve"
+       id="flowRoot1005"
+       style="font-style:normal;font-weight:normal;font-size:10.66666698px;line-height:5;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none"><flowRegion
+         id="flowRegion1007"
+         style="line-height:5"><rect
+           id="rect1009"
+           width="540"
+           height="140"
+           x="140"
+           y="37.952755"
+           style="line-height:5" /></flowRegion><flowPara
+         id="flowPara1011" /></flowRoot>    <flowRoot
+       xml:space="preserve"
+       id="flowRoot1013"
+       style="font-style:normal;font-weight:normal;font-size:10.66666698px;line-height:0;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none"><flowRegion
+         id="flowRegion1015"><rect
+           id="rect1017"
+           width="520"
+           height="120"
+           x="120"
+           y="17.952755" /></flowRegion><flowPara
+         id="flowPara1019" /></flowRoot>    <flowRoot
+       xml:space="preserve"
+       id="flowRoot1021"
+       style="font-style:normal;font-weight:normal;font-size:10.66666698px;line-height:0;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none"><flowRegion
+         id="flowRegion1023"><rect
+           id="rect1025"
+           width="540"
+           height="80"
+           x="140"
+           y="37.952755" /></flowRegion><flowPara
+         id="flowPara1027" /></flowRoot>    <text
+       xml:space="preserve"
+       style="font-style:normal;font-weight:normal;font-size:14.11111069px;line-height:0;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.26458332"
+       x="492.98337"
+       y="291.72964"
+       id="text1035"><tspan
+         sodipodi:role="line"
+         id="tspan1033"
+         x="492.98337"
+         y="291.72964"
+         style="font-size:22.57777786px;stroke-width:0.26458332">Query</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-weight:normal;font-size:14.11111069px;line-height:0;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.26458332"
+       x="706.24286"
+       y="293.26611"
+       id="text1039"><tspan
+         sodipodi:role="line"
+         id="tspan1037"
+         x="706.24286"
+         y="293.26611"
+         style="font-size:22.57777786px;stroke-width:0.26458332">Candidate</tspan></text>
+    <g
+       transform="matrix(0.37887964,0,0,0.37887964,2.6200948,180.41164)"
+       class="graph"
+       id="graph0-66">
+      <title
+         id="title1021">TREE</title>
+      <polygon
+         id="polygon1023"
+         points="468.66,4 -4,4 -4,-232.97 468.66,-232.97 "
+         stroke="transparent"
+         style="fill:#ffffff" />
+      <!-- n1 -->
+      <g
+         class="node"
+         id="node1-4">
+        <title
+           id="title1025">n1</title>
+        <ellipse
+           id="ellipse1027"
+           ry="28.98"
+           rx="57.970001"
+           cy="-199.97"
+           cx="304.66"
+           style="fill:none;stroke:#969696;stroke-width:7" />
+        <text
+           id="text1029"
+           font-size="30.00"
+           y="-192.47"
+           x="304.66"
+           style="font-size:30px;font-family:Times;text-anchor:middle">ADD</text>
+      </g>
+      <!-- n2 -->
+      <g
+         class="node"
+         id="node2-95">
+        <title
+           id="title1032">n2</title>
+        <ellipse
+           id="ellipse1034"
+           ry="28.98"
+           rx="75.82"
+           cy="-105.99"
+           cx="75.660004"
+           style="fill:none;stroke:#969696;stroke-width:7" />
+        <text
+           id="text1036"
+           font-size="30.00"
+           y="-98.489998"
+           x="75.660004"
+           style="font-size:30px;font-family:Times;text-anchor:middle">TIMES</text>
+      </g>
+      <!-- n1&#45;&#45;n2 -->
+      <g
+         class="edge"
+         id="edge1-0">
+        <title
+           id="title1039">n1--n2</title>
+        <path
+           id="path1041"
+           d="m 260.24,-181.13 c -38.24,15.36 -93.43,37.53 -133.49,53.62"
+           inkscape:connector-curvature="0"
+           style="fill:none;stroke:#969696;stroke-width:7" />
+      </g>
+      <!-- n3 -->
+      <g
+         class="node"
+         id="node3-48">
+        <title
+           id="title1044">n3</title>
+        <ellipse
+           id="ellipse1046"
+           ry="28.98"
+           rx="75.82"
+           cy="-105.99"
+           cx="244.66"
+           style="fill:none;stroke:#252525;stroke-width:7" />
+        <text
+           id="text1048"
+           font-size="30.00"
+           y="-98.489998"
+           x="244.66"
+           style="font-size:30px;font-family:Times;text-anchor:middle">TIMES</text>
+      </g>
+      <!-- n1&#45;&#45;n3 -->
+      <g
+         class="edge"
+         id="edge2-71">
+        <title
+           id="title1051">n1--n3</title>
+        <path
+           id="path1053"
+           d="m 286.98,-171.87 c -7.74,11.87 -16.81,25.77 -24.56,37.65"
+           inkscape:connector-curvature="0"
+           style="fill:none;stroke:#000000" />
+      </g>
+      <!-- l1 -->
+      <g
+         class="node"
+         id="node4">
+        <title
+           id="title1056">l1</title>
+        <polygon
+           id="polygon1058"
+           points="392.66,-85.49 392.66,-126.49 338.66,-126.49 338.66,-85.49 "
+           style="fill:none;stroke:#969696;stroke-width:7" />
+        <text
+           id="text1060"
+           font-size="30.00"
+           y="-98.489998"
+           x="365.66"
+           style="font-size:30px;font-family:Times;text-anchor:middle">a</text>
+      </g>
+      <!-- n1&#45;&#45;l1 -->
+      <g
+         class="edge"
+         id="edge3">
+        <title
+           id="title1063">n1--l1</title>
+        <path
+           id="path1065"
+           d="m 322.63,-171.87 c 9.63,14.52 21.28,32.08 30.02,45.27"
+           inkscape:connector-curvature="0"
+           style="fill:none;stroke:#969696;stroke-width:7" />
+      </g>
+      <!-- l6 -->
+      <g
+         class="node"
+         id="node9">
+        <title
+           id="title1068">l6</title>
+        <polygon
+           id="polygon1070"
+           points="464.66,-85.49 464.66,-126.49 410.66,-126.49 410.66,-85.49 "
+           style="fill:none;stroke:#000000" />
+        <text
+           id="text1072"
+           font-size="30.00"
+           y="-98.489998"
+           x="437.66"
+           style="font-size:30px;font-family:Times;text-anchor:middle">z</text>
+      </g>
+      <!-- n1&#45;&#45;l6 -->
+      <g
+         class="edge"
+         id="edge8">
+        <title
+           id="title1075">n1--l6</title>
+        <path
+           id="path1077"
+           d="m 339.67,-176.81 c 18.64,12.03 41.82,27.37 61.99,41.83 3.73,2.67 7.62,5.57 11.4,8.46"
+           inkscape:connector-curvature="0"
+           style="fill:none;stroke:#000000" />
+      </g>
+      <!-- l2 -->
+      <g
+         class="node"
+         id="node5">
+        <title
+           id="title1080">l2</title>
+        <polygon
+           id="polygon1082"
+           points="79.66,0 79.66,-41 25.66,-41 25.66,0 "
+           style="fill:none;stroke:#969696;stroke-width:7" />
+        <text
+           id="text1084"
+           font-size="30.00"
+           y="-13"
+           x="52.66"
+           style="font-size:30px;font-family:Times;text-anchor:middle">b</text>
+      </g>
+      <!-- n2&#45;&#45;l2 -->
+      <g
+         class="edge"
+         id="edge4">
+        <title
+           id="title1087">n2--l2</title>
+        <path
+           id="path1089"
+           d="m 67.87,-76.73 c -3.23,11.74 -6.9,25.06 -9.82,35.68"
+           inkscape:connector-curvature="0"
+           style="fill:none;stroke:#969696;stroke-width:7" />
+      </g>
+      <!-- l3 -->
+      <g
+         class="node"
+         id="node6">
+        <title
+           id="title1092">l3</title>
+        <polygon
+           id="polygon1094"
+           points="151.66,0 151.66,-41 97.66,-41 97.66,0 "
+           style="fill:none;stroke:#969696;stroke-width:7" />
+        <text
+           id="text1096"
+           font-size="30.00"
+           y="-13"
+           x="124.66"
+           style="font-size:30px;font-family:Times;text-anchor:middle">c</text>
+      </g>
+      <!-- n2&#45;&#45;l3 -->
+      <g
+         class="edge"
+         id="edge5">
+        <title
+           id="title1099">n2--l3</title>
+        <path
+           id="path1101"
+           d="m 91.7,-77.65 c 6.98,11.89 15,25.55 21.38,36.43"
+           inkscape:connector-curvature="0"
+           style="fill:none;stroke:#969696;stroke-width:7" />
+      </g>
+      <!-- l4 -->
+      <g
+         class="node"
+         id="node7">
+        <title
+           id="title1104">l4</title>
+        <polygon
+           id="polygon1106"
+           points="247.66,0 247.66,-41 193.66,-41 193.66,0 "
+           style="fill:none;stroke:#252525;stroke-width:7" />
+        <text
+           id="text1108"
+           font-size="30.00"
+           y="-13"
+           x="220.66"
+           style="font-size:30px;font-family:Times;text-anchor:middle">x</text>
+      </g>
+      <!-- n3&#45;&#45;l4 -->
+      <g
+         class="edge"
+         id="edge6">
+        <title
+           id="title1111">n3--l4</title>
+        <path
+           id="path1113"
+           d="m 236.54,-76.73 c -3.38,11.74 -7.21,25.06 -10.26,35.68"
+           inkscape:connector-curvature="0"
+           style="fill:none;stroke:#252525;stroke-width:7" />
+      </g>
+      <!-- l5 -->
+      <g
+         class="node"
+         id="node8">
+        <title
+           id="title1116">l5</title>
+        <polygon
+           id="polygon1118"
+           points="319.66,0 319.66,-41 265.66,-41 265.66,0 "
+           style="fill:none;stroke:#252525;stroke-width:7" />
+        <text
+           id="text1120"
+           font-size="30.00"
+           y="-13"
+           x="292.66"
+           style="font-size:30px;font-family:Times;text-anchor:middle">y</text>
+      </g>
+      <!-- n3&#45;&#45;l5 -->
+      <g
+         class="edge"
+         id="edge7">
+        <title
+           id="title1123">n3--l5</title>
+        <path
+           id="path1125"
+           d="m 260.64,-77.19 c 6.82,11.86 14.61,25.41 20.81,36.18"
+           inkscape:connector-curvature="0"
+           style="fill:none;stroke:#252525;stroke-width:7" />
+      </g>
+    </g>
+    <g
+       transform="matrix(0.37727055,0,0,0.37727055,204.79541,198.37362)"
+       class="graph"
+       id="graph0-72">
+      <title
+         id="title1200">TREE</title>
+      <polygon
+         id="polygon1202"
+         points="-4,-420.93 391.32,-420.93 391.32,4 -4,4 "
+         stroke="transparent"
+         style="fill:#ffffff" />
+      <!-- a1 -->
+      <g
+         class="node"
+         id="node1-72">
+        <title
+           id="title1204">a1</title>
+        <ellipse
+           id="ellipse1206"
+           ry="28.98"
+           rx="57.970001"
+           cy="-387.94"
+           cx="223.66"
+           style="fill:none;stroke:#000000" />
+        <text
+           id="text1208"
+           font-size="30.00"
+           y="-380.44"
+           x="223.66"
+           style="font-size:30px;font-family:Times;text-anchor:middle">ADD</text>
+      </g>
+      <!-- gr -->
+      <g
+         class="node"
+         id="node3-26">
+        <title
+           id="title1211">gr</title>
+        <ellipse
+           id="ellipse1213"
+           ry="28.98"
+           rx="82.959999"
+           cy="-293.95999"
+           cx="135.66"
+           style="fill:none;stroke:#000000" />
+        <text
+           id="text1215"
+           font-size="30.00"
+           y="-286.45999"
+           x="135.66"
+           style="font-size:30px;font-family:Times;text-anchor:middle">GROUP</text>
+      </g>
+      <!-- a1&#45;&#45;gr -->
+      <g
+         class="edge"
+         id="edge1-106">
+        <title
+           id="title1218">a1--gr</title>
+        <path
+           id="path1220"
+           d="m 199.15,-361.32 c -11.8,12.34 -25.94,27.12 -37.88,39.6"
+           inkscape:connector-curvature="0"
+           style="fill:none;stroke:#000000" />
+      </g>
+      <!-- t2 -->
+      <g
+         class="node"
+         id="node5-1">
+        <title
+           id="title1223">t2</title>
+        <ellipse
+           id="ellipse1225"
+           ry="28.98"
+           rx="75.82"
+           cy="-293.95999"
+           cx="311.66"
+           style="fill:none;stroke:#252525;stroke-width:7" />
+        <text
+           id="text1227"
+           font-size="30.00"
+           y="-286.45999"
+           x="311.66"
+           style="font-size:30px;font-family:Times;text-anchor:middle">TIMES</text>
+      </g>
+      <!-- a1&#45;&#45;t2 -->
+      <g
+         class="edge"
+         id="edge4-5">
+        <title
+           id="title1230">a1--t2</title>
+        <path
+           id="path1232"
+           d="m 248.17,-361.32 c 11.9,12.44 26.19,27.37 38.19,39.92"
+           inkscape:connector-curvature="0"
+           style="fill:none;stroke:#000000" />
+      </g>
+      <!-- a2 -->
+      <g
+         class="node"
+         id="node2-94">
+        <title
+           id="title1235">a2</title>
+        <ellipse
+           id="ellipse1237"
+           ry="28.98"
+           rx="57.970001"
+           cy="-199.97"
+           cx="135.66"
+           style="fill:none;stroke:#969696;stroke-width:7" />
+        <text
+           id="text1239"
+           font-size="30.00"
+           y="-192.47"
+           x="135.66"
+           style="font-size:30px;font-family:Times;text-anchor:middle">ADD</text>
+      </g>
+      <!-- t1 -->
+      <g
+         class="node"
+         id="node4-9">
+        <title
+           id="title1242">t1</title>
+        <ellipse
+           id="ellipse1244"
+           ry="28.98"
+           rx="75.82"
+           cy="-105.99"
+           cx="75.660004"
+           style="fill:none;stroke:#969696;stroke-width:7" />
+        <text
+           id="text1246"
+           font-size="30.00"
+           y="-98.489998"
+           x="75.660004"
+           style="font-size:30px;font-family:Times;text-anchor:middle">TIMES</text>
+      </g>
+      <!-- a2&#45;&#45;t1 -->
+      <g
+         class="edge"
+         id="edge3-0">
+        <title
+           id="title1249">a2--t1</title>
+        <path
+           id="path1251"
+           d="m 117.98,-171.87 c -7.74,11.87 -16.81,25.77 -24.56,37.65"
+           inkscape:connector-curvature="0"
+           style="fill:none;stroke:#969696;stroke-width:7" />
+      </g>
+      <!-- a -->
+      <g
+         class="node"
+         id="node6-9">
+        <title
+           id="title1254">a</title>
+        <polygon
+           id="polygon1256"
+           points="169.66,-126.49 169.66,-85.49 223.66,-85.49 223.66,-126.49 "
+           style="fill:none;stroke:#969696;stroke-width:7" />
+        <text
+           id="text1258"
+           font-size="30.00"
+           y="-98.489998"
+           x="196.66"
+           style="font-size:30px;font-family:Times;text-anchor:middle">a</text>
+      </g>
+      <!-- a2&#45;&#45;a -->
+      <g
+         class="edge"
+         id="edge5-1">
+        <title
+           id="title1261">a2--a</title>
+        <path
+           id="path1263"
+           d="m 153.63,-171.87 c 9.63,14.52 21.28,32.08 30.02,45.27"
+           inkscape:connector-curvature="0"
+           style="fill:none;stroke:#969696;stroke-width:7" />
+      </g>
+      <!-- gr&#45;&#45;a2 -->
+      <g
+         class="edge"
+         id="edge2-77">
+        <title
+           id="title1266">gr--a2</title>
+        <path
+           id="path1268"
+           d="m 135.66,-264.86 c 0,11.31 0,24.32 0,35.64"
+           inkscape:connector-curvature="0"
+           style="fill:none;stroke:#000000" />
+      </g>
+      <!-- b -->
+      <g
+         class="node"
+         id="node7-1">
+        <title
+           id="title1271">b</title>
+        <polygon
+           id="polygon1273"
+           points="12.66,-41 12.66,0 66.66,0 66.66,-41 "
+           style="fill:none;stroke:#969696;stroke-width:7" />
+        <text
+           id="text1275"
+           font-size="30.00"
+           y="-13"
+           x="39.66"
+           style="font-size:30px;font-family:Times;text-anchor:middle">b</text>
+      </g>
+      <!-- t1&#45;&#45;b -->
+      <g
+         class="edge"
+         id="edge6-1">
+        <title
+           id="title1278">t1--b</title>
+        <path
+           id="path1280"
+           d="m 63.67,-77.19 c -5.11,11.86 -10.96,25.41 -15.6,36.18"
+           inkscape:connector-curvature="0"
+           style="fill:none;stroke:#969696;stroke-width:7" />
+      </g>
+      <!-- c -->
+      <g
+         class="node"
+         id="node8-5">
+        <title
+           id="title1283">c</title>
+        <polygon
+           id="polygon1285"
+           points="84.66,-41 84.66,0 138.66,0 138.66,-41 "
+           style="fill:none;stroke:#969696;stroke-width:7" />
+        <text
+           id="text1287"
+           font-size="30.00"
+           y="-13"
+           x="111.66"
+           style="font-size:30px;font-family:Times;text-anchor:middle">c</text>
+      </g>
+      <!-- t1&#45;&#45;c -->
+      <g
+         class="edge"
+         id="edge7-9">
+        <title
+           id="title1290">t1--c</title>
+        <path
+           id="path1292"
+           d="m 87.65,-77.19 c 5.11,11.86 10.96,25.41 15.6,36.18"
+           inkscape:connector-curvature="0"
+           style="fill:none;stroke:#969696;stroke-width:7" />
+      </g>
+      <!-- x -->
+      <g
+         class="node"
+         id="node9-7">
+        <title
+           id="title1295">x</title>
+        <polygon
+           id="polygon1297"
+           points="248.66,-220.47 248.66,-179.47 302.66,-179.47 302.66,-220.47 "
+           style="fill:none;stroke:#252525;stroke-width:7" />
+        <text
+           id="text1299"
+           font-size="30.00"
+           y="-192.47"
+           x="275.66"
+           style="font-size:30px;font-family:Times;text-anchor:middle">x</text>
+      </g>
+      <!-- t2&#45;&#45;x -->
+      <g
+         class="edge"
+         id="edge8-7">
+        <title
+           id="title1302">t2--x</title>
+        <path
+           id="path1304"
+           d="m 300.66,-264.86 c -5.58,14.27 -12.23,31.25 -17.26,44.12"
+           inkscape:connector-curvature="0"
+           style="fill:none;stroke:#252525;stroke-width:7" />
+      </g>
+      <!-- y -->
+      <g
+         class="node"
+         id="node10">
+        <title
+           id="title1307">y</title>
+        <polygon
+           id="polygon1309"
+           points="320.66,-220.47 320.66,-179.47 374.66,-179.47 374.66,-220.47 "
+           style="fill:none;stroke:#252525;stroke-width:7" />
+        <text
+           id="text1311"
+           font-size="30.00"
+           y="-192.47"
+           x="347.66"
+           style="font-size:30px;font-family:Times;text-anchor:middle">y</text>
+      </g>
+      <!-- t2&#45;&#45;y -->
+      <g
+         class="edge"
+         id="edge9">
+        <title
+           id="title1314">t2--y</title>
+        <path
+           id="path1316"
+           d="m 322.66,-264.86 c 5.58,14.27 12.23,31.25 17.27,44.12"
+           inkscape:connector-curvature="0"
+           style="fill:none;stroke:#252525;stroke-width:7" />
+      </g>
+    </g>
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-weight:normal;font-size:22.30119133px;line-height:0;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.41814733"
+       x="274.57877"
+       y="243.43785"
+       id="text1039-3"><tspan
+         sodipodi:role="line"
+         id="tspan1037-6"
+         x="274.57877"
+         y="243.43785"
+         style="font-size:35.68190765px;stroke-width:0.41814733">T<tspan
+   style="font-size:23.19323921px;baseline-shift:sub;stroke-width:0.41814733"
+   id="tspan1173">d</tspan></tspan></text>
+    <path
+       style="fill:#ff6464;fill-opacity:1;stroke:#ff6464;stroke-width:1.6310277;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;marker-start:url(#Arrow1Lstart)"
+       d="M 416.42745,147.34401 H 364.52416"
+       id="path1734"
+       inkscape:connector-curvature="0" />
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-weight:normal;font-size:22.30119324px;line-height:0;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.41814733"
+       x="73.718018"
+       y="243.99992"
+       id="text1039-3-6"><tspan
+         sodipodi:role="line"
+         id="tspan1037-6-6"
+         x="73.718018"
+         y="243.99992"
+         style="font-size:35.68190765px;stroke-width:0.41814733">T<tspan
+   style="font-size:64.99999762%;baseline-shift:sub"
+   id="tspan1196">q</tspan></tspan></text>
+  </g>
+</svg>
