@@ -49,9 +49,9 @@
      borderopacity="1.0"
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
-     inkscape:zoom="0.35000001"
-     inkscape:cx="1046.6813"
-     inkscape:cy="989.61367"
+     inkscape:zoom="0.49497476"
+     inkscape:cx="1816.9045"
+     inkscape:cy="559.42035"
      inkscape:document-units="mm"
      inkscape:current-layer="layer1"
      showgrid="false"
@@ -1586,5 +1586,27 @@
          style="font-size:35.68190765px;stroke-width:0.41814733">T<tspan
    style="font-size:64.99999762%;baseline-shift:sub"
    id="tspan1196">q</tspan></tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-weight:normal;font-size:14.11111069px;line-height:0;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.26458332"
+       x="514.90082"
+       y="251.71454"
+       id="text1035-6"><tspan
+         sodipodi:role="line"
+         id="tspan1033-6"
+         x="514.90082"
+         y="251.71454"
+         style="font-size:22.57777786px;stroke-width:0.26458332">......</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-weight:normal;font-size:14.11111069px;line-height:0;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.26458332"
+       x="746.7132"
+       y="249.54758"
+       id="text1035-6-9"><tspan
+         sodipodi:role="line"
+         id="tspan1033-6-5"
+         x="746.7132"
+         y="249.54758"
+         style="font-size:22.57777786px;stroke-width:0.26458332">......</tspan></text>
   </g>
 </svg>
