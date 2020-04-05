@@ -17,7 +17,7 @@
    version="1.1"
    id="svg8"
    inkscape:version="0.92.4 5da689c313, 2019-01-14"
-   sodipodi:docname="dp-step-2.svg">
+   sodipodi:docname="dp-step-3.svg">
   <defs
      id="defs2">
     <linearGradient
@@ -973,9 +973,9 @@
      borderopacity="1.0"
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
-     inkscape:zoom="3.959798"
-     inkscape:cx="428.57953"
-     inkscape:cy="107.9505"
+     inkscape:zoom="2.8"
+     inkscape:cx="368.12654"
+     inkscape:cy="45.496536"
      inkscape:document-units="mm"
      inkscape:current-layer="layer1"
      showgrid="false"
@@ -2637,5 +2637,27 @@
          x="42.382359"
          y="272.24109"
          style="fill:#ff0000;fill-opacity:1;stroke:none;stroke-width:0.3045387;stroke-opacity:1">Max matched node</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-weight:normal;font-size:2.11666656px;line-height:0;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#ff0000;fill-opacity:1;stroke:none;stroke-width:0.26458332"
+       x="71.996307"
+       y="267.76477"
+       id="text5297-6"><tspan
+         sodipodi:role="line"
+         id="tspan5295-649"
+         x="71.996307"
+         y="267.76477"
+         style="fill:#ff0000;fill-opacity:1;stroke-width:0.26458332">5</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-weight:normal;font-size:2.11666656px;line-height:0;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#ff0000;fill-opacity:1;stroke:none;stroke-width:0.26458332"
+       x="71.237503"
+       y="288.79474"
+       id="text5297-6-0"><tspan
+         sodipodi:role="line"
+         id="tspan5295-649-4"
+         x="71.237503"
+         y="288.79474"
+         style="fill:#ff0000;fill-opacity:1;stroke-width:0.26458332">1</tspan></text>
   </g>
 </svg>
