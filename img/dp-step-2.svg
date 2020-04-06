@@ -973,9 +973,9 @@
      borderopacity="1.0"
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
-     inkscape:zoom="7.919596"
-     inkscape:cx="232.99201"
-     inkscape:cy="75.285156"
+     inkscape:zoom="22.4"
+     inkscape:cx="92.221204"
+     inkscape:cy="13.540753"
      inkscape:document-units="mm"
      inkscape:current-layer="layer1"
      showgrid="false"
@@ -1302,7 +1302,7 @@
          id="polygon3852" />
     </g>
     <use
-       style="fill:#000000;fill-opacity:1;stroke:#ff0000;stroke-width:0;stroke-opacity:1"
+       style="fill:#000000;fill-opacity:1;stroke:none;stroke-width:0;stroke-opacity:1"
        height="100%"
        width="100%"
        xlink:href="#MJMATHI-61"
@@ -1311,7 +1311,7 @@
        id="use3956"
        transform="matrix(0.00301029,0,0,-0.00301029,14.1418,295.2851)" />
     <use
-       style="fill:#000000;fill-opacity:1;stroke:#ff0000;stroke-width:0;stroke-opacity:1"
+       style="fill:#000000;fill-opacity:1;stroke:none;stroke-width:0;stroke-opacity:1"
        height="100%"
        width="100%"
        xlink:href="#MJMATHI-62"
@@ -1320,7 +1320,7 @@
        id="use3958"
        transform="matrix(0.00301029,0,0,-0.00301029,14.1418,295.2851)" />
     <use
-       style="fill:#000000;stroke:#000000;stroke-width:0"
+       style="fill:#000000;stroke:none;stroke-width:0;fill-opacity:1"
        height="100%"
        width="100%"
        xlink:href="#MJMATHI-63"
@@ -1329,7 +1329,7 @@
        id="use3960"
        transform="matrix(0.00301029,0,0,-0.00301029,14.1418,295.2851)" />
     <use
-       style="fill:#000000;stroke:#000000;stroke-width:0"
+       style="fill:#000000;stroke:none;stroke-width:0;fill-opacity:1"
        height="100%"
        width="100%"
        xlink:href="#MJMAIN-2B"
@@ -1338,7 +1338,7 @@
        id="use3962"
        transform="matrix(0.00301029,0,0,-0.00301029,14.1418,295.2851)" />
     <use
-       style="fill:#000000;stroke:#000000;stroke-width:0"
+       style="fill:#000000;stroke:none;stroke-width:0;fill-opacity:1"
        height="100%"
        width="100%"
        xlink:href="#MJMATHI-64"
@@ -1347,7 +1347,7 @@
        id="use3964"
        transform="matrix(0.00301029,0,0,-0.00301029,14.1418,295.2851)" />
     <use
-       style="fill:#000000;stroke:#000000;stroke-width:0"
+       style="fill:#000000;stroke:none;stroke-width:0;fill-opacity:1"
        height="100%"
        width="100%"
        xlink:href="#MJMATHI-65"
@@ -1356,7 +1356,7 @@
        id="use3966"
        transform="matrix(0.00301029,0,0,-0.00301029,14.1418,295.2851)" />
     <use
-       style="fill:#000000;stroke:#000000;stroke-width:0"
+       style="fill:#000000;stroke:none;stroke-width:0;fill-opacity:1"
        height="100%"
        width="100%"
        xlink:href="#MJMAIN-2B"
@@ -1365,7 +1365,7 @@
        id="use3968"
        transform="matrix(0.00301029,0,0,-0.00301029,14.1418,295.2851)" />
     <use
-       style="fill:#000000;fill-opacity:1;stroke:#ff0000;stroke-width:0;stroke-opacity:1"
+       style="fill:#000000;fill-opacity:1;stroke:none;stroke-width:0;stroke-opacity:1"
        height="100%"
        width="100%"
        xlink:href="#MJMATHI-66"
@@ -1373,101 +1373,118 @@
        y="0"
        id="use3970"
        transform="matrix(0.00301029,0,0,-0.00301029,14.1418,295.2851)" />
+    <use
+       style="fill:#000000;stroke:#000000;stroke-width:0"
+       height="100%"
+       width="100%"
+       xlink:href="#MJMAIN-28"
+       x="0"
+       y="0"
+       id="use4033"
+       transform="matrix(0.00311297,0,0,-0.00311297,163.42744,294.25275)" />
     <g
-       id="g4057"
-       transform="matrix(0.00311297,0,0,-0.00311297,163.42744,294.25275)"
-       style="fill:currentColor;stroke:currentColor;stroke-width:0">
+       id="g1497"
+       style="fill:#ff0000;fill-opacity:1;stroke:#ff0000;stroke-opacity:1">
       <use
-         id="use4033"
-         y="0"
-         x="0"
-         xlink:href="#MJMAIN-28"
-         width="100%"
-         height="100%" />
-      <use
+         transform="matrix(0.00311297,0,0,-0.00311297,163.42744,294.25275)"
          id="use4035"
          y="0"
          x="389"
          xlink:href="#MJMATHI-61-0"
          width="100%"
          height="100%"
-         style="fill:#ff0000;fill-opacity:1" />
+         style="fill:#ff0000;fill-opacity:1;stroke:#ff0000;stroke-width:0;stroke-opacity:1" />
       <use
+         transform="matrix(0.00311297,0,0,-0.00311297,163.42744,294.25275)"
          id="use4037"
          y="0"
          x="919"
          xlink:href="#MJMATHI-62-9"
          width="100%"
          height="100%"
-         style="fill:#ff0000;fill-opacity:1" />
+         style="fill:#ff0000;fill-opacity:1;stroke:#ff0000;stroke-width:0;stroke-opacity:1" />
       <use
+         transform="matrix(0.00311297,0,0,-0.00311297,163.42744,294.25275)"
          id="use4039"
          y="0"
          x="1570"
          xlink:href="#MJMAIN-2B-0"
          width="100%"
          height="100%"
-         style="fill:#ff0000;fill-opacity:1" />
+         style="fill:#ff0000;fill-opacity:1;stroke:#ff0000;stroke-width:0;stroke-opacity:1" />
       <use
+         transform="matrix(0.00311297,0,0,-0.00311297,163.42744,294.25275)"
          id="use4041"
          y="0"
          x="2571"
          xlink:href="#MJMATHI-63-9"
          width="100%"
          height="100%"
-         style="fill:#ff0000;fill-opacity:1" />
+         style="fill:#ff0000;fill-opacity:1;stroke:#ff0000;stroke-width:0;stroke-opacity:1" />
       <use
+         transform="matrix(0.00311297,0,0,-0.00311297,163.42744,294.25275)"
          id="use4043"
          y="0"
          x="3227"
          xlink:href="#MJMAIN-2B-0"
          width="100%"
          height="100%"
-         style="stroke:#ff0000;stroke-opacity:1;fill:#ff0000;fill-opacity:1" />
+         style="fill:#ff0000;fill-opacity:1;stroke:#ff0000;stroke-width:0;stroke-opacity:1" />
       <use
+         transform="matrix(0.00311297,0,0,-0.00311297,163.42744,294.25275)"
          id="use4045"
          y="0"
          x="4227"
          xlink:href="#MJMATHI-64-6"
          width="100%"
          height="100%"
-         style="fill:#ff0000;fill-opacity:1" />
-      <use
-         id="use4047"
-         y="0"
-         x="4751"
-         xlink:href="#MJMAIN-29"
-         width="100%"
-         height="100%" />
-      <use
-         id="use4049"
-         y="0"
-         x="5363"
-         xlink:href="#MJMAIN-2B-0"
-         width="100%"
-         height="100%" />
-      <use
-         id="use4051"
-         y="0"
-         x="6363"
-         xlink:href="#MJMATHI-65-2"
-         width="100%"
-         height="100%" />
-      <use
-         id="use4053"
-         y="0"
-         x="6830"
-         xlink:href="#MJMATHI-66-6"
-         width="100%"
-         height="100%" />
-      <use
-         id="use4055"
-         y="0"
-         x="7380"
-         xlink:href="#MJMATHI-67"
-         width="100%"
-         height="100%" />
+         style="fill:#ff0000;fill-opacity:1;stroke:#ff0000;stroke-width:0;stroke-opacity:1" />
     </g>
+    <use
+       style="fill:#000000;stroke:#000000;stroke-width:0"
+       height="100%"
+       width="100%"
+       xlink:href="#MJMAIN-29"
+       x="4751"
+       y="0"
+       id="use4047"
+       transform="matrix(0.00311297,0,0,-0.00311297,163.42744,294.25275)" />
+    <use
+       style="fill:#000000;stroke:#000000;stroke-width:0"
+       height="100%"
+       width="100%"
+       xlink:href="#MJMAIN-2B-0"
+       x="5363"
+       y="0"
+       id="use4049"
+       transform="matrix(0.00311297,0,0,-0.00311297,163.42744,294.25275)" />
+    <use
+       style="fill:#000000;stroke:#000000;stroke-width:0"
+       height="100%"
+       width="100%"
+       xlink:href="#MJMATHI-65-2"
+       x="6363"
+       y="0"
+       id="use4051"
+       transform="matrix(0.00311297,0,0,-0.00311297,163.42744,294.25275)" />
+    <use
+       style="fill:#000000;stroke:#000000;stroke-width:0"
+       height="100%"
+       width="100%"
+       xlink:href="#MJMATHI-66-6"
+       x="6830"
+       y="0"
+       id="use4053"
+       transform="matrix(0.00311297,0,0,-0.00311297,163.42744,294.25275)" />
+    <use
+       style="fill:#000000;stroke:#000000;stroke-width:0"
+       height="100%"
+       width="100%"
+       xlink:href="#MJMATHI-67"
+       x="7380"
+       y="0"
+       id="use4055"
+       transform="matrix(0.00311297,0,0,-0.00311297,163.42744,294.25275)" />
     <polygon
        style="fill:#ffffff"
        stroke="transparent"
