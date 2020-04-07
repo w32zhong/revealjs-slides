@@ -381,7 +381,7 @@ linkStyle 3 stroke:#800,stroke-width:8px;
 	<div style="height:15px;"></div>
 <ul  style="font-size: 20px;">
 <li>Dynamic pruning speeds up query by skipping documents unlikely to be ranked in top-K results</li>
-<li>Assume top K at a given point is <i>threshold</i> $\theta$. Any hit cannot appear in the final top-K if its <i>upperbound</i> $\le \theta$</li>
+<li>Assume the minimal score of top K candidates at a given point is <i>threshold</i> $\theta$. Any hit cannot appear in the final top-K if its <i>upperbound</i> $\le \theta$</li>
 <li>In MaxScore [1-3], if a set of posting lists have upperbound $\le \theta$, then they can be advanced directly to candidate docID. They are called <i>non-requirement set</i>.</li>
 </ul>
 <img src="img/dynamicpruning.svg"/>
