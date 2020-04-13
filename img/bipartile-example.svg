@@ -1,0 +1,316 @@
+<svg xmlns:osb="http://www.openswatchbook.org/uri/2009/osb" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:cc="http://creativecommons.org/ns#" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:svg="http://www.w3.org/2000/svg" xmlns="http://www.w3.org/2000/svg" xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd" xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape" width="860" height="354" version="1.1" inkscape:version="0.92.4 5da689c313, 2019-01-14" sodipodi:docname="bipartile.svg" style=""><rect id="backgroundrect" width="100%" height="100%" x="0" y="0" fill="none" stroke="none"/>
+  <defs id="defs2">
+    <marker inkscape:stockid="Arrow1Lstart" orient="auto" refY="0.0" refX="0.0" id="Arrow1Lstart" style="overflow:visible" inkscape:isstock="true">
+      <path id="path1428" d="M 0.0,0.0 L 5.0,-5.0 L -12.5,0.0 L 5.0,5.0 L 0.0,0.0 z " style="fill-rule:evenodd;stroke:#ff6464;stroke-width:1pt;stroke-opacity:1;fill:#ff6464;fill-opacity:1" transform="scale(0.800000011920929) translate(12.5,0) "/>
+    </marker>
+    <linearGradient id="linearGradient6037" osb:paint="solid">
+      <stop style="stop-color:#000008;stop-opacity:1;" offset="0" id="stop6035"/>
+    </linearGradient>
+  </defs>
+  <sodipodi:namedview id="base" pagecolor="#ffffff" bordercolor="#666666" borderopacity="1.0" inkscape:pageopacity="0.0" inkscape:pageshadow="2" inkscape:zoom="0.49497476" inkscape:cx="1816.9045" inkscape:cy="559.42035" inkscape:document-units="mm" inkscape:current-layer="layer1" showgrid="false" units="mm" height="194mm" inkscape:window-width="2560" inkscape:window-height="1366" inkscape:window-x="0" inkscape:window-y="0" inkscape:window-maximized="1">
+    <inkscape:grid type="xygrid" id="grid6136"/>
+  </sodipodi:namedview>
+  <metadata id="metadata5">
+    <rdf:RDF>
+      <cc:Work rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type rdf:resource="http://purl.org/dc/dcmitype/StillImage"/>
+        <dc:title/>
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <g inkscape:label="Layer 1" inkscape:groupmode="layer" id="layer1" style="" class="currentLayer">
+    <g class="graph" id="graph0">
+      <title id="title4518" transform="translate(14.634145736694336,5.691056728363037) translate(-220.3251953125,-7.317072868347168) translate(0,0.8130081295967102) matrix(0.35252285,0,0,0.35252285,464.13204,75.22030741690673) " stroke-width="0">G</title>
+      <polygon id="polygon4520" points="398.49352073669434,52.55694341659546 398.49352073669434,75.81739950180054 257.03090476989746,75.81739950180054 257.03090476989746,52.55694341659546 " stroke="transparent" style="fill:#ffffff" stroke-width="0"/>
+      <!-- leaf -->
+      <g class="node" id="node1" stroke-width="0">
+        <title id="title4522" transform="translate(14.634145736694336,5.691056728363037) translate(-220.3251953125,-7.317072868347168) translate(0,0.8130081295967102) matrix(0.35252285,0,0,0.35252285,464.13204,75.22030741690673) " stroke-width="0">leaf</title>
+        <polygon id="polygon4524" points="258.4409999847412,71.41389608383179 277.4772243499756,71.41389608383179 277.4772243499756,56.96044683456421 258.4409999847412,56.96044683456421 " style="fill:none;stroke:#000000;stroke-width:4" stroke-width="0"/>
+        <text id="text4526" font-size="30.00" y="156.34404568889585" x="68.51261609479889" style="font-size:30px;font-family:Times;text-anchor:middle;fill:#000000" transform="matrix(0.3525228499999999,0,0,0.3525228499999999,243.80684468750002,11.716241261249543) " stroke-width="0">b</text>
+      </g>
+      <!-- TIMES -->
+      <g class="node" id="node2" stroke-width="0">
+        <title id="title4529" transform="translate(14.634145736694336,5.691056728363037) translate(-220.3251953125,-7.317072868347168) translate(0,0.8130081295967102) matrix(0.35252285,0,0,0.35252285,464.13204,75.22030741690673) " stroke-width="0">TIMES</title>
+        <ellipse id="ellipse4531" ry="28.982799530029286" rx="75.82119750976558" cy="130.39400014217213" cx="-417.8224846927269" style="fill:none;stroke:#000000;stroke-width:4" transform="matrix(0.35252285,0,0,0.35252285,464.13204,18.220306) " stroke-width="0"/>
+        <text id="text4533" font-size="30.00" y="156.34404568889585" x="207.1730160947989" style="font-size:30px;font-family:Times;text-anchor:middle;fill:#000000" transform="matrix(0.3525228499999999,0,0,0.3525228499999999,243.80684468750002,11.716241261249543) " stroke-width="0">TIMES</text>
+      </g>
+      <!-- leaf&#45;&#45;TIMES -->
+      <g class="edge" id="edge1" stroke-width="0">
+        <title id="title4536" transform="translate(14.634145736694336,5.691056728363037) translate(-220.3251953125,-7.317072868347168) translate(0,0.8130081295967102) matrix(0.35252285,0,0,0.35252285,464.13204,75.22030741690673) " stroke-width="0">leaf--TIMES</title>
+        <path id="path4538" d="m277.49989154344934,64.18716845302932 c3.6952150182700008,0 8.125263917365,0 12.659025038929999,0 " inkscape:connector-curvature="0" style="fill:none;stroke:#000000;stroke-width:4" stroke-width="0"/>
+      </g>
+      <!-- ADD -->
+      <g class="node" id="node3" stroke-width="0">
+        <title id="title4541" transform="translate(14.634145736694336,5.691056728363037) translate(-220.3251953125,-7.317072868347168) translate(0,0.8130081295967102) matrix(0.35252285,0,0,0.35252285,464.13204,75.22030741690673) " stroke-width="0">ADD</title>
+        <ellipse id="ellipse4543" ry="28.982799530029286" rx="57.965499877929666" cy="130.39400014217213" cx="-248.17929621616446" style="fill:none;stroke:#000000;stroke-width:4" transform="matrix(0.35252285,0,0,0.35252285,464.13204,18.220306) " stroke-width="0"/>
+        <text id="text4545" font-size="30.00" y="156.34404568889585" x="376.8162060947989" style="font-size:30px;font-family:Times;text-anchor:middle;fill:#000000" transform="matrix(0.3525228499999999,0,0,0.3525228499999999,243.80684468750002,11.716241261249543) " stroke-width="0">ADD</text>
+      </g>
+      <!-- TIMES&#45;&#45;ADD -->
+      <g class="edge" id="edge2" stroke-width="0">
+        <title id="title4548" transform="translate(14.634145736694336,5.691056728363037) translate(-220.3251953125,-7.317072868347168) translate(0,0.8130081295967102) matrix(0.35252285,0,0,0.35252285,464.13204,75.22030741690673) " stroke-width="0">TIMES--ADD</title>
+        <path id="path4550" d="m343.5931316076893,64.18716845302932 c4.2295339020150005,0 8.544025810880001,0 12.599906956985,0 " inkscape:connector-curvature="0" style="fill:none;stroke:#000000;stroke-width:4" stroke-width="0"/>
+      </g>
+    </g>
+    <ellipse style="fill:none;fill-opacity:1;stroke:#8d8d8d;stroke-width:1.97013366;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:0.66153846" id="path4583-3" cx="326.80467796325684" cy="169.70051127672195" rx="96.626708984375" ry="163.55860900878906" class=""/>
+    <g class="graph" id="graph0-5">
+      <title id="title6071" transform="translate(14.634145736694336,5.691056728363037) translate(-220.3251953125,-7.317072868347168) translate(0,0.8130081295967102) matrix(0.35252285,0,0,0.35252285,463.29428,120.28434241690674) " stroke-width="0">G</title>
+      <polygon id="polygon6073" points="397.65575218200684,97.62098836898804 397.65575218200684,120.88143301010132 256.19313621520996,120.88143301010132 256.19313621520996,97.62098836898804 " stroke="transparent" style="fill:#ffffff" stroke-width="0"/>
+      <!-- leaf -->
+      <g class="node" id="node1-6" stroke-width="0">
+        <title id="title6075" transform="translate(14.634145736694336,5.691056728363037) translate(-220.3251953125,-7.317072868347168) translate(0,0.8130081295967102) matrix(0.35252285,0,0,0.35252285,463.29428,120.28434241690674) " stroke-width="0">leaf</title>
+        <polygon id="polygon6077" points="257.6032314300537,116.47792959213257 276.6394557952881,116.47792959213257 276.6394557952881,102.02449178695679 257.6032314300537,102.02449178695679 " style="fill:none;stroke:#000000;stroke-width:4" stroke-width="0"/>
+        <text id="text6079" font-size="30.00" y="156.34404568889587" x="68.51261609479877" style="font-size:30px;font-family:Times;text-anchor:middle;fill:#000000" transform="matrix(0.3525228499999999,0,0,0.3525228499999999,242.96908468750001,56.780276261249526) " stroke-width="0">c</text>
+      </g>
+      <!-- TIMES -->
+      <g class="node" id="node2-1" stroke-width="0">
+        <title id="title6082" transform="translate(14.634145736694336,5.691056728363037) translate(-220.3251953125,-7.317072868347168) translate(0,0.8130081295967102) matrix(0.35252285,0,0,0.35252285,463.29428,120.28434241690674) " stroke-width="0">TIMES</title>
+        <ellipse id="ellipse6084" ry="28.982799530029286" rx="75.82119750976558" cy="130.39400014217205" cx="-417.8224846927269" style="fill:none;stroke:#000000;stroke-width:4" transform="matrix(0.35252285,0,0,0.35252285,463.29428,63.284341) " stroke-width="0"/>
+        <text id="text6086" font-size="30.00" y="156.34404568889587" x="207.17301609479878" style="font-size:30px;font-family:Times;text-anchor:middle;fill:#000000" transform="matrix(0.3525228499999999,0,0,0.3525228499999999,242.96908468750001,56.780276261249526) " stroke-width="0">TIMES</text>
+      </g>
+      <!-- leaf&#45;&#45;TIMES -->
+      <g class="edge" id="edge1-1" stroke-width="0">
+        <title id="title6089" transform="translate(14.634145736694336,5.691056728363037) translate(-220.3251953125,-7.317072868347168) translate(0,0.8130081295967102) matrix(0.35252285,0,0,0.35252285,463.29428,120.28434241690674) " stroke-width="0">leaf--TIMES</title>
+        <path id="path6091" d="m276.66213154344933,109.25120345302932 c3.6952150182700008,0 8.125263917365,0 12.659025038929999,0 " inkscape:connector-curvature="0" style="fill:none;stroke:#000000;stroke-width:4" stroke-width="0"/>
+      </g>
+      <!-- ADD -->
+      <g class="node" id="node3-5" stroke-width="0">
+        <title id="title6094" transform="translate(14.634145736694336,5.691056728363037) translate(-220.3251953125,-7.317072868347168) translate(0,0.8130081295967102) matrix(0.35252285,0,0,0.35252285,463.29428,120.28434241690674) " stroke-width="0">ADD</title>
+        <ellipse id="ellipse6096" ry="28.982799530029286" rx="57.965499877929666" cy="130.39400014217205" cx="-248.17929621616446" style="fill:none;stroke:#000000;stroke-width:4" transform="matrix(0.35252285,0,0,0.35252285,463.29428,63.284341) " stroke-width="0"/>
+        <text id="text6098" font-size="30.00" y="156.34404568889587" x="376.81620609479876" style="font-size:30px;font-family:Times;text-anchor:middle;fill:#000000" transform="matrix(0.3525228499999999,0,0,0.3525228499999999,242.96908468750001,56.780276261249526) " stroke-width="0">ADD</text>
+      </g>
+      <!-- TIMES&#45;&#45;ADD -->
+      <g class="edge" id="edge2-9" stroke-width="0">
+        <title id="title6101" transform="translate(14.634145736694336,5.691056728363037) translate(-220.3251953125,-7.317072868347168) translate(0,0.8130081295967102) matrix(0.35252285,0,0,0.35252285,463.29428,120.28434241690674) " stroke-width="0">TIMES--ADD</title>
+        <path id="path6103" d="m342.7553716076893,109.25120345302932 c4.2295339020150005,0 8.544025810880001,0 12.599906956985,0 " inkscape:connector-curvature="0" style="fill:none;stroke:#000000;stroke-width:4" stroke-width="0"/>
+      </g>
+    </g>
+    <g class="graph" id="graph0-7">
+      <title id="title6138" transform="translate(14.634145736694336,5.691056728363037) translate(-220.3251953125,-7.317072868347168) translate(0,0.8130081295967102) matrix(0.35232499,0,0,0.35232499,463.82963,162.6118819966011) " stroke-width="0">G</title>
+      <polygon id="polygon6140" points="256.72926902770996,139.9607710838318 344.57127952575684,139.9607710838318 344.57127952575684,163.2081618309021 256.72926902770996,163.2081618309021 " stroke="transparent" style="fill:#ffffff" stroke-width="0"/>
+      <!-- leaf -->
+      <g class="node" id="node1-8" stroke-width="0">
+        <title id="title6142" transform="translate(14.634145736694336,5.691056728363037) translate(-220.3251953125,-7.317072868347168) translate(0,0.8130081295967102) matrix(0.35232499,0,0,0.35232499,463.82963,162.6118819966011) " stroke-width="0">leaf</title>
+        <polygon id="polygon6144" points="258.13857078552246,144.3618025779724 258.13857078552246,158.80713033676147 277.1641445159912,158.80713033676147 277.1641445159912,144.3618025779724 " style="fill:none;stroke:#000000;stroke-width:4" stroke-width="0"/>
+        <text id="text6146" font-size="30.00" y="137.9835040827724" x="-556.8105596080645" style="font-size:30px;font-family:Times;text-anchor:middle;fill:#000000" transform="matrix(0.35232499,0,0,0.35232499,463.82963,105.61188) " stroke-width="0">x</text>
+      </g>
+      <!-- TIMES -->
+      <g class="node" id="node2-5" stroke-width="0">
+        <title id="title6149" transform="translate(14.634145736694336,5.691056728363037) translate(-220.3251953125,-7.317072868347168) translate(0,0.8130081295967102) matrix(0.35232499,0,0,0.35232499,463.82963,162.6118819966011) " stroke-width="0">TIMES</title>
+        <ellipse id="ellipse6151" ry="28.982799530029297" rx="75.82119750976562" cy="130.48351003980366" cx="-418.1501592174395" style="fill:none;stroke:#000000;stroke-width:4" transform="matrix(0.35232499,0,0,0.35232499,463.82963,105.61188) " stroke-width="0"/>
+        <text id="text6153" font-size="30.00" y="137.9835040827724" x="-418.15015960806454" style="font-size:30px;font-family:Times;text-anchor:middle;fill:#000000" transform="matrix(0.35232499,0,0,0.35232499,463.82963,105.61188) " stroke-width="0">TIMES</text>
+      </g>
+      <!-- leaf&#45;&#45;TIMES -->
+      <g class="edge" id="edge1-7" stroke-width="0">
+        <title id="title6156" transform="translate(14.634145736694336,5.691056728363037) translate(-220.3251953125,-7.317072868347168) translate(0,0.8130081295967102) matrix(0.35232499,0,0,0.35232499,463.82963,162.6118819966011) " stroke-width="0">leaf--TIMES</title>
+        <path id="path6158" d="m277.1867843810513,151.5844792711277 c3.693141010178002,0 8.120703462011,0 12.651919925902,0 " inkscape:connector-curvature="0" style="fill:none;stroke:#000000;stroke-width:4" stroke-width="0"/>
+      </g>
+    </g>
+    <g class="graph" id="graph0-8">
+      <title id="title6184" transform="translate(14.634145736694336,5.691056728363037) translate(-220.3251953125,-7.317072868347168) translate(0,0.8130081295967102) matrix(0.35232499,0,0,0.35232499,463.82963,204.9452119966011) " stroke-width="0">G</title>
+      <polygon id="polygon6186" points="256.72926902770996,182.2940993309021 344.57127952575684,182.2940993309021 344.57127952575684,205.5414900779724 256.72926902770996,205.5414900779724 " stroke="transparent" style="fill:#ffffff" stroke-width="0"/>
+      <!-- leaf -->
+      <g class="node" id="node1-5" stroke-width="0">
+        <title id="title6188" transform="translate(14.634145736694336,5.691056728363037) translate(-220.3251953125,-7.317072868347168) translate(0,0.8130081295967102) matrix(0.35232499,0,0,0.35232499,463.82963,204.9452119966011) " stroke-width="0">leaf</title>
+        <polygon id="polygon6190" points="258.13857078552246,186.69513082504272 258.13857078552246,201.1404585838318 277.1641445159912,201.1404585838318 277.1641445159912,186.69513082504272 " style="fill:none;stroke:#000000;stroke-width:4" stroke-width="0"/>
+        <text id="text6192" font-size="30.00" y="137.98350408277224" x="-556.8105596080645" style="font-size:30px;font-family:Times;text-anchor:middle;fill:#000000" transform="matrix(0.35232499,0,0,0.35232499,463.82963,147.94521) " stroke-width="0">y</text>
+      </g>
+      <!-- TIMES -->
+      <g class="node" id="node2-9" stroke-width="0">
+        <title id="title6195" transform="translate(14.634145736694336,5.691056728363037) translate(-220.3251953125,-7.317072868347168) translate(0,0.8130081295967102) matrix(0.35232499,0,0,0.35232499,463.82963,204.9452119966011) " stroke-width="0">TIMES</title>
+        <ellipse id="ellipse6197" ry="28.982799530029297" rx="75.82119750976562" cy="130.4835100398035" cx="-418.1501592174395" style="fill:none;stroke:#000000;stroke-width:4" transform="matrix(0.35232499,0,0,0.35232499,463.82963,147.94521) " stroke-width="0"/>
+        <text id="text6199" font-size="30.00" y="137.98350408277224" x="-418.15015960806454" style="font-size:30px;font-family:Times;text-anchor:middle;fill:#000000" transform="matrix(0.35232499,0,0,0.35232499,463.82963,147.94521) " stroke-width="0">TIMES</text>
+      </g>
+      <!-- leaf&#45;&#45;TIMES -->
+      <g class="edge" id="edge1-75" stroke-width="0">
+        <title id="title6202" transform="translate(14.634145736694336,5.691056728363037) translate(-220.3251953125,-7.317072868347168) translate(0,0.8130081295967102) matrix(0.35232499,0,0,0.35232499,463.82963,204.9452119966011) " stroke-width="0">leaf--TIMES</title>
+        <path id="path6204" d="m277.1867843810513,193.91780927112768 c3.693141010178002,0 8.120703462011,0 12.651919925902,0 " inkscape:connector-curvature="0" style="fill:none;stroke:#000000;stroke-width:4" stroke-width="0"/>
+      </g>
+    </g>
+    <g class="graph" id="graph0-89">
+      <title id="title6230" transform="translate(14.634145736694336,5.691056728363037) translate(-220.3251953125,-7.317072868347168) translate(0,0.8130081295967102) matrix(0.35282725,0,0,0.35282725,463.86140000000006,247.29311241828157) " stroke-width="0">G</title>
+      <polygon id="polygon6232" points="256.75905418395996,224.6108717918396 332.2518825531006,224.6108717918396 332.2518825531006,247.89140462875366 256.75905418395996,247.89140462875366 " stroke="transparent" style="fill:#ffffff" stroke-width="0"/>
+      <!-- leaf -->
+      <g class="node" id="node1-64" stroke-width="0">
+        <title id="title6234" transform="translate(14.634145736694336,5.691056728363037) translate(-220.3251953125,-7.317072868347168) translate(0,0.8130081295967102) matrix(0.35282725,0,0,0.35282725,463.86140000000006,247.29311241828157) " stroke-width="0">leaf</title>
+        <polygon id="polygon6236" points="258.1703395843506,229.0181746482849 258.1703395843506,243.48410177230835 277.22301292419434,243.48410177230835 277.22301292419434,229.0181746482849 " style="fill:none;stroke:#000000;stroke-width:4" stroke-width="0"/>
+        <text id="text6238" font-size="30.00" y="137.75648804689615" x="-555.9794880520293" style="font-size:30px;font-family:Times;text-anchor:middle;fill:#000000" transform="matrix(0.35282725,0,0,0.35282725,463.8614,190.29311) " stroke-width="0">a</text>
+      </g>
+      <!-- ADD -->
+      <g class="node" id="node2-3" stroke-width="0">
+        <title id="title6241" transform="translate(14.634145736694336,5.691056728363037) translate(-220.3251953125,-7.317072868347168) translate(0,0.8130081295967102) matrix(0.35282725,0,0,0.35282725,463.86140000000006,247.29311241828157) " stroke-width="0">ADD</title>
+        <ellipse id="ellipse6243" ry="28.982799530029297" rx="57.96549987792969" cy="130.2564940039274" cx="-434.99668470730296" style="fill:none;stroke:#000000;stroke-width:4" transform="matrix(0.35282725,0,0,0.35282725,463.8614,190.29311) " stroke-width="0"/>
+        <text id="text6245" font-size="30.00" y="137.75648804689615" x="-434.9966880520293" style="font-size:30px;font-family:Times;text-anchor:middle;fill:#000000" transform="matrix(0.35282725,0,0,0.35282725,463.8614,190.29311) " stroke-width="0">ADD</text>
+      </g>
+      <!-- leaf&#45;&#45;ADD -->
+      <g class="edge" id="edge1-3" stroke-width="0">
+        <title id="title6248" transform="translate(14.634145736694336,5.691056728363037) translate(-220.3251953125,-7.317072868347168) translate(0,0.8130081295967102) matrix(0.35282725,0,0,0.35282725,463.86140000000006,247.29311241828157) " stroke-width="0">leaf--ADD</title>
+        <path id="path6250" d="m277.2762635562194,236.25114847224415 c3.7362288811499997,0 8.171937785425,0 12.562449518974999,0 " inkscape:connector-curvature="0" style="fill:none;stroke:#000000;stroke-width:4" stroke-width="0"/>
+      </g>
+    </g>
+    <g class="graph" id="graph0-9">
+      <title id="title6276" transform="translate(14.634145736694336,5.691056728363037) translate(-220.3251953125,-7.317072868347168) translate(0,0.8130081295967102) matrix(0.35282725,0,0,0.35282725,463.86140000000006,289.62644241828156) " stroke-width="0">G</title>
+      <polygon id="polygon6278" points="256.75905418395996,266.94423055648804 332.2518825531006,266.94423055648804 332.2518825531006,290.22474813461304 256.75905418395996,290.22474813461304 " stroke="transparent" style="fill:#ffffff" stroke-width="0"/>
+      <!-- leaf -->
+      <g class="node" id="node1-7" stroke-width="0">
+        <title id="title6280" transform="translate(14.634145736694336,5.691056728363037) translate(-220.3251953125,-7.317072868347168) translate(0,0.8130081295967102) matrix(0.35282725,0,0,0.35282725,463.86140000000006,289.62644241828156) " stroke-width="0">leaf</title>
+        <polygon id="polygon6282" points="258.1703395843506,271.3515181541443 258.1703395843506,285.81743001937866 277.22301292419434,285.81743001937866 277.22301292419434,271.3515181541443 " style="fill:none;stroke:#000000;stroke-width:4" stroke-width="0"/>
+        <text id="text6284" font-size="30.00" y="137.7564880468958" x="-555.9794880520293" style="font-size:30px;font-family:Times;text-anchor:middle;fill:#000000" transform="matrix(0.35282725,0,0,0.35282725,463.8614,232.62644) " stroke-width="0">z</text>
+      </g>
+      <!-- ADD -->
+      <g class="node" id="node2-7" stroke-width="0">
+        <title id="title6287" transform="translate(14.634145736694336,5.691056728363037) translate(-220.3251953125,-7.317072868347168) translate(0,0.8130081295967102) matrix(0.35282725,0,0,0.35282725,463.86140000000006,289.62644241828156) " stroke-width="0">ADD</title>
+        <ellipse id="ellipse6289" ry="28.982799530029297" rx="57.96549987792969" cy="130.25649400392706" cx="-434.99668470730296" style="fill:none;stroke:#000000;stroke-width:4" transform="matrix(0.35282725,0,0,0.35282725,463.8614,232.62644) " stroke-width="0"/>
+        <text id="text6291" font-size="30.00" y="137.7564880468958" x="-434.9966880520293" style="font-size:30px;font-family:Times;text-anchor:middle;fill:#000000" transform="matrix(0.35282725,0,0,0.35282725,463.8614,232.62644) " stroke-width="0">ADD</text>
+      </g>
+      <!-- leaf&#45;&#45;ADD -->
+      <g class="edge" id="edge1-6" stroke-width="0">
+        <title id="title6294" transform="translate(14.634145736694336,5.691056728363037) translate(-220.3251953125,-7.317072868347168) translate(0,0.8130081295967102) matrix(0.35282725,0,0,0.35282725,463.86140000000006,289.62644241828156) " stroke-width="0">leaf--ADD</title>
+        <path id="path6296" d="m277.2762635562194,278.58447847224414 c3.7362288811499997,0 8.171937785425,0 12.562449518974999,0 " inkscape:connector-curvature="0" style="fill:none;stroke:#000000;stroke-width:4" stroke-width="0"/>
+      </g>
+    </g>
+    <g class="graph" id="graph0-0">
+      <title id="title6322" transform="translate(14.634145736694336,5.691056728363037) translate(-220.3251953125,-7.317072868347168) translate(0,0.8130081295967102) matrix(0.35252285,0,0,0.35252285,694.6643199999999,106.90297741690674) " stroke-width="0">G</title>
+      <polygon id="polygon6324" points="629.0258083343506,107.50007009506226 487.5631618499756,107.50007009506226 487.5631618499756,84.23961782455444 629.0258083343506,84.23961782455444 " stroke="transparent" style="fill:#ffffff" stroke-width="0"/>
+      <!-- leaf -->
+      <g class="node" id="node1-3" stroke-width="0">
+        <title id="title6326" transform="translate(14.634145736694336,5.691056728363037) translate(-220.3251953125,-7.317072868347168) translate(0,0.8130081295967102) matrix(0.35252285,0,0,0.35252285,694.6643199999999,106.90297741690674) " stroke-width="0">leaf</title>
+        <polygon id="polygon6328" points="508.00951194763184,103.0965666770935 508.00951194763184,88.64312887191772 488.97325706481934,88.64312887191772 488.97325706481934,103.0965666770935 " style="fill:none;stroke:#000000;stroke-width:4" stroke-width="0"/>
+        <text id="text6330" font-size="30.00" y="156.34404568889585" x="68.51261609479866" style="font-size:30px;font-family:Times;text-anchor:middle;fill:#000000" transform="matrix(0.3525228499999999,0,0,0.3525228499999999,474.33912468749986,43.39891126124954) " stroke-width="0">b</text>
+      </g>
+      <!-- TIMES -->
+      <g class="node" id="node2-0" stroke-width="0">
+        <title id="title6333" transform="translate(14.634145736694336,5.691056728363037) translate(-220.3251953125,-7.317072868347168) translate(0,0.8130081295967102) matrix(0.35252285,0,0,0.35252285,694.6643199999999,106.90297741690674) " stroke-width="0">TIMES</title>
+        <ellipse id="ellipse6335" ry="28.982799530029286" rx="75.82119750976558" cy="130.39400014217208" cx="-417.82248469272713" style="fill:none;stroke:#000000;stroke-width:4" transform="matrix(0.35252285,0,0,0.35252285,694.66432,49.902976) " stroke-width="0"/>
+        <text id="text6337" font-size="30.00" y="156.34404568889585" x="207.17301609479867" style="font-size:30px;font-family:Times;text-anchor:middle;fill:#000000" transform="matrix(0.3525228499999999,0,0,0.3525228499999999,474.33912468749986,43.39891126124954) " stroke-width="0">TIMES</text>
+      </g>
+      <!-- leaf&#45;&#45;TIMES -->
+      <g class="edge" id="edge1-9" stroke-width="0">
+        <title id="title6340" transform="translate(14.634145736694336,5.691056728363037) translate(-220.3251953125,-7.317072868347168) translate(0,0.8130081295967102) matrix(0.35252285,0,0,0.35252285,694.6643199999999,106.90297741690674) " stroke-width="0">leaf--TIMES</title>
+        <path id="path6342" d="m508.0321715434492,95.86983845302932 c3.6952150182700008,0 8.125263917365,0 12.659025038929999,0 " inkscape:connector-curvature="0" style="fill:none;stroke:#000000;stroke-width:4" stroke-width="0"/>
+      </g>
+      <!-- ADD -->
+      <g class="node" id="node3-2" stroke-width="0">
+        <title id="title6345" transform="translate(14.634145736694336,5.691056728363037) translate(-220.3251953125,-7.317072868347168) translate(0,0.8130081295967102) matrix(0.35252285,0,0,0.35252285,694.6643199999999,106.90297741690674) " stroke-width="0">ADD</title>
+        <ellipse id="ellipse6347" ry="28.982799530029286" rx="57.965499877929666" cy="130.39400014217208" cx="-248.1792962161647" style="fill:none;stroke:#000000;stroke-width:4" transform="matrix(0.35252285,0,0,0.35252285,694.66432,49.902976) " stroke-width="0"/>
+        <text id="text6349" font-size="30.00" y="156.34404568889585" x="376.81620609479864" style="font-size:30px;font-family:Times;text-anchor:middle;fill:#000000" transform="matrix(0.3525228499999999,0,0,0.3525228499999999,474.33912468749986,43.39891126124954) " stroke-width="0">ADD</text>
+      </g>
+      <!-- TIMES&#45;&#45;ADD -->
+      <g class="edge" id="edge2-5" stroke-width="0">
+        <title id="title6352" transform="translate(14.634145736694336,5.691056728363037) translate(-220.3251953125,-7.317072868347168) translate(0,0.8130081295967102) matrix(0.35252285,0,0,0.35252285,694.6643199999999,106.90297741690674) " stroke-width="0">TIMES--ADD</title>
+        <path id="path6354" d="m574.1254116076892,95.86983845302932 c4.2295339020150005,0 8.544025810880001,0 12.599906956985,0 " inkscape:connector-curvature="0" style="fill:none;stroke:#000000;stroke-width:4" stroke-width="0"/>
+      </g>
+    </g>
+    <g class="graph" id="graph0-6">
+      <title id="title6387" transform="translate(14.634145736694336,5.691056728363037) translate(-220.3251953125,-7.317072868347168) translate(0,0.8130081295967102) matrix(0.35252285,0,0,0.35252285,694.6643199999999,149.23631141690674) " stroke-width="0">G</title>
+      <polygon id="polygon6389" points="629.0258083343506,149.83339071273804 487.5631618499756,149.83339071273804 487.5631618499756,126.57294607162476 629.0258083343506,126.57294607162476 " stroke="transparent" style="fill:#ffffff" stroke-width="0"/>
+      <!-- leaf -->
+      <g class="node" id="node1-9" stroke-width="0">
+        <title id="title6391" transform="translate(14.634145736694336,5.691056728363037) translate(-220.3251953125,-7.317072868347168) translate(0,0.8130081295967102) matrix(0.35252285,0,0,0.35252285,694.6643199999999,149.23631141690674) " stroke-width="0">leaf</title>
+        <polygon id="polygon6393" points="508.00951194763184,145.4298872947693 508.00951194763184,130.9764494895935 488.97325706481934,130.9764494895935 488.97325706481934,145.4298872947693 " style="fill:none;stroke:#000000;stroke-width:4" stroke-width="0"/>
+        <text id="text6395" font-size="30.00" y="156.34404568889585" x="68.51261609479866" style="font-size:30px;font-family:Times;text-anchor:middle;fill:#000000" transform="matrix(0.3525228499999999,0,0,0.3525228499999999,474.33912468749986,85.73224526124955) " stroke-width="0">c</text>
+      </g>
+      <!-- TIMES -->
+      <g class="node" id="node2-2" stroke-width="0">
+        <title id="title6398" transform="translate(14.634145736694336,5.691056728363037) translate(-220.3251953125,-7.317072868347168) translate(0,0.8130081295967102) matrix(0.35252285,0,0,0.35252285,694.6643199999999,149.23631141690674) " stroke-width="0">TIMES</title>
+        <ellipse id="ellipse6400" ry="28.982799530029286" rx="75.82119750976558" cy="130.39400014217216" cx="-417.82248469272713" style="fill:none;stroke:#000000;stroke-width:4" transform="matrix(0.35252285,0,0,0.35252285,694.66432,92.23631) " stroke-width="0"/>
+        <text id="text6402" font-size="30.00" y="156.34404568889585" x="207.17301609479867" style="font-size:30px;font-family:Times;text-anchor:middle;fill:#000000" transform="matrix(0.3525228499999999,0,0,0.3525228499999999,474.33912468749986,85.73224526124955) " stroke-width="0">TIMES</text>
+      </g>
+      <!-- leaf&#45;&#45;TIMES -->
+      <g class="edge" id="edge1-2" stroke-width="0">
+        <title id="title6405" transform="translate(14.634145736694336,5.691056728363037) translate(-220.3251953125,-7.317072868347168) translate(0,0.8130081295967102) matrix(0.35252285,0,0,0.35252285,694.6643199999999,149.23631141690674) " stroke-width="0">leaf--TIMES</title>
+        <path id="path6407" d="m508.0321715434492,138.2031724530293 c3.6952150182700008,0 8.125263917365,0 12.659025038929999,0 " inkscape:connector-curvature="0" style="fill:none;stroke:#000000;stroke-width:4" stroke-width="0"/>
+      </g>
+      <!-- ADD -->
+      <g class="node" id="node3-4" stroke-width="0">
+        <title id="title6410" transform="translate(14.634145736694336,5.691056728363037) translate(-220.3251953125,-7.317072868347168) translate(0,0.8130081295967102) matrix(0.35252285,0,0,0.35252285,694.6643199999999,149.23631141690674) " stroke-width="0">ADD</title>
+        <ellipse id="ellipse6412" ry="28.982799530029286" rx="57.965499877929666" cy="130.39400014217216" cx="-248.1792962161647" style="fill:none;stroke:#000000;stroke-width:4" transform="matrix(0.35252285,0,0,0.35252285,694.66432,92.23631) " stroke-width="0"/>
+        <text id="text6414" font-size="30.00" y="156.34404568889585" x="376.81620609479864" style="font-size:30px;font-family:Times;text-anchor:middle;fill:#000000" transform="matrix(0.3525228499999999,0,0,0.3525228499999999,474.33912468749986,85.73224526124955) " stroke-width="0">ADD</text>
+      </g>
+      <!-- TIMES&#45;&#45;ADD -->
+      <g class="edge" id="edge2-7" stroke-width="0">
+        <title id="title6417" transform="translate(14.634145736694336,5.691056728363037) translate(-220.3251953125,-7.317072868347168) translate(0,0.8130081295967102) matrix(0.35252285,0,0,0.35252285,694.6643199999999,149.23631141690674) " stroke-width="0">TIMES--ADD</title>
+        <path id="path6419" d="m574.1254116076892,138.2031724530293 c4.2295339020150005,0 8.544025810880001,0 12.599906956985,0 " inkscape:connector-curvature="0" style="fill:none;stroke:#000000;stroke-width:4" stroke-width="0"/>
+      </g>
+    </g>
+    <g class="graph" id="graph0-93">
+      <title id="title6452" transform="translate(14.634145736694336,5.691056728363037) translate(-220.3251953125,-7.317072868347168) translate(0,0.8130081295967102) matrix(0.35282725,0,0,0.35282725,694.7459500000001,194.93508241828155) " stroke-width="0">G</title>
+      <polygon id="polygon6454" points="487.6436061859131,195.53337240219116 487.6436061859131,172.2528395652771 563.1364650726318,172.2528395652771 563.1364650726318,195.53337240219116 " stroke="transparent" style="fill:#ffffff" stroke-width="0"/>
+      <!-- leaf -->
+      <g class="node" id="node1-68" stroke-width="0">
+        <title id="title6456" transform="translate(14.634145736694336,5.691056728363037) translate(-220.3251953125,-7.317072868347168) translate(0,0.8130081295967102) matrix(0.35282725,0,0,0.35282725,694.7459500000001,194.93508241828155) " stroke-width="0">leaf</title>
+        <polygon id="polygon6458" points="508.1075954437256,176.6601424217224 489.05492210388184,176.6601424217224 489.05492210388184,191.12606954574585 508.1075954437256,191.12606954574585 " style="fill:none;stroke:#000000;stroke-width:4" stroke-width="0"/>
+        <text id="text6460" font-size="30.00" y="137.75648804689604" x="-555.9794880520294" style="font-size:30px;font-family:Times;text-anchor:middle;fill:#000000" transform="matrix(0.35282725,0,0,0.35282725,694.74595,137.93508) " stroke-width="0">a</text>
+      </g>
+      <!-- ADD -->
+      <g class="node" id="node2-02" stroke-width="0">
+        <title id="title6463" transform="translate(14.634145736694336,5.691056728363037) translate(-220.3251953125,-7.317072868347168) translate(0,0.8130081295967102) matrix(0.35282725,0,0,0.35282725,694.7459500000001,194.93508241828155) " stroke-width="0">ADD</title>
+        <ellipse id="ellipse6465" ry="28.982799530029297" rx="57.96549987792969" cy="130.2564940039273" cx="-434.9966847073031" style="fill:none;stroke:#000000;stroke-width:4" transform="matrix(0.35282725,0,0,0.35282725,694.74595,137.93508) " stroke-width="0"/>
+        <text id="text6467" font-size="30.00" y="137.75648804689604" x="-434.9966880520294" style="font-size:30px;font-family:Times;text-anchor:middle;fill:#000000" transform="matrix(0.35282725,0,0,0.35282725,694.74595,137.93508) " stroke-width="0">ADD</text>
+      </g>
+      <!-- leaf&#45;&#45;ADD -->
+      <g class="edge" id="edge1-10" stroke-width="0">
+        <title id="title6470" transform="translate(14.634145736694336,5.691056728363037) translate(-220.3251953125,-7.317072868347168) translate(0,0.8130081295967102) matrix(0.35282725,0,0,0.35282725,694.7459500000001,194.93508241828155) " stroke-width="0">leaf--ADD</title>
+        <path id="path6472" d="m508.1608135562194,183.89311847224414 c3.7362288811499997,0 8.171937785425,0 12.562449518974999,0 " inkscape:connector-curvature="0" style="fill:none;stroke:#000000;stroke-width:4" stroke-width="0"/>
+      </g>
+    </g>
+    <g class="graph" id="graph0-62">
+      <title id="title6498" transform="translate(14.634145736694336,5.691056728363037) translate(-220.3251953125,-7.317072868347168) translate(0,0.8130081295967102) matrix(0.35232499,0,0,0.35232499,694.7141900000001,237.2538519966011) " stroke-width="0">G</title>
+      <polygon id="polygon6500" points="575.4558010101318,214.6027388572693 575.4558010101318,237.8501296043396 487.6138210296631,237.8501296043396 487.6138210296631,214.6027388572693 " stroke="transparent" style="fill:#ffffff" stroke-width="0"/>
+      <!-- leaf -->
+      <g class="node" id="node1-58" stroke-width="0">
+        <title id="title6502" transform="translate(14.634145736694336,5.691056728363037) translate(-220.3251953125,-7.317072868347168) translate(0,0.8130081295967102) matrix(0.35232499,0,0,0.35232499,694.7141900000001,237.2538519966011) " stroke-width="0">leaf</title>
+        <polygon id="polygon6504" points="489.0231227874756,233.44909811019897 508.04869651794434,233.44909811019897 508.04869651794434,219.0037703514099 489.0231227874756,219.0037703514099 " style="fill:none;stroke:#000000;stroke-width:4" stroke-width="0"/>
+        <text id="text6506" font-size="30.00" y="137.9835040827723" x="-556.8105596080636" style="font-size:30px;font-family:Times;text-anchor:middle;fill:#000000" transform="matrix(0.35232499,0,0,0.35232499,694.71419,180.25385) " stroke-width="0">x</text>
+      </g>
+      <!-- TIMES -->
+      <g class="node" id="node2-6" stroke-width="0">
+        <title id="title6509" transform="translate(14.634145736694336,5.691056728363037) translate(-220.3251953125,-7.317072868347168) translate(0,0.8130081295967102) matrix(0.35232499,0,0,0.35232499,694.7141900000001,237.2538519966011) " stroke-width="0">TIMES</title>
+        <ellipse id="ellipse6511" ry="28.982799530029297" rx="75.82119750976562" cy="130.48351003980355" cx="-418.15015921743884" style="fill:none;stroke:#000000;stroke-width:4" transform="matrix(0.35232499,0,0,0.35232499,694.71419,180.25385) " stroke-width="0"/>
+        <text id="text6513" font-size="30.00" y="137.9835040827723" x="-418.15015960806363" style="font-size:30px;font-family:Times;text-anchor:middle;fill:#000000" transform="matrix(0.35232499,0,0,0.35232499,694.71419,180.25385) " stroke-width="0">TIMES</text>
+      </g>
+      <!-- leaf&#45;&#45;TIMES -->
+      <g class="edge" id="edge1-28" stroke-width="0">
+        <title id="title6516" transform="translate(14.634145736694336,5.691056728363037) translate(-220.3251953125,-7.317072868347168) translate(0,0.8130081295967102) matrix(0.35232499,0,0,0.35232499,694.7141900000001,237.2538519966011) " stroke-width="0">leaf--TIMES</title>
+        <path id="path6518" d="m508.0713443810514,226.22644927112768 c3.693141010178002,0 8.120703462011,0 12.651919925902,0 " inkscape:connector-curvature="0" style="fill:none;stroke:#000000;stroke-width:4" stroke-width="0"/>
+      </g>
+    </g>
+    <g class="graph" id="graph0-4">
+      <title id="title6544" transform="translate(14.634145736694336,5.691056728363037) translate(-220.3251953125,-7.317072868347168) translate(0,0.8130081295967102) matrix(0.35232499,0,0,0.35232499,694.7141900000001,279.5871819966011) " stroke-width="0">G</title>
+      <polygon id="polygon6546" points="575.4558010101318,256.93608236312866 575.4558010101318,280.18348836898804 487.6138210296631,280.18348836898804 487.6138210296631,256.93608236312866 " stroke="transparent" style="fill:#ffffff" stroke-width="0"/>
+      <!-- leaf -->
+      <g class="node" id="node1-0" stroke-width="0">
+        <title id="title6548" transform="translate(14.634145736694336,5.691056728363037) translate(-220.3251953125,-7.317072868347168) translate(0,0.8130081295967102) matrix(0.35232499,0,0,0.35232499,694.7141900000001,279.5871819966011) " stroke-width="0">leaf</title>
+        <polygon id="polygon6550" points="489.0231227874756,275.7824568748474 508.04869651794434,275.7824568748474 508.04869651794434,261.3371138572693 489.0231227874756,261.3371138572693 " style="fill:none;stroke:#000000;stroke-width:4" stroke-width="0"/>
+        <text id="text6552" font-size="30.00" y="137.98350408277236" x="-556.8105596080636" style="font-size:30px;font-family:Times;text-anchor:middle;fill:#000000" transform="matrix(0.35232499,0,0,0.35232499,694.71419,222.58718) " stroke-width="0">y</text>
+      </g>
+      <!-- TIMES -->
+      <g class="node" id="node2-62" stroke-width="0">
+        <title id="title6555" transform="translate(14.634145736694336,5.691056728363037) translate(-220.3251953125,-7.317072868347168) translate(0,0.8130081295967102) matrix(0.35232499,0,0,0.35232499,694.7141900000001,279.5871819966011) " stroke-width="0">TIMES</title>
+        <ellipse id="ellipse6557" ry="28.982799530029297" rx="75.82119750976562" cy="130.4835100398036" cx="-418.15015921743884" style="fill:none;stroke:#000000;stroke-width:4" transform="matrix(0.35232499,0,0,0.35232499,694.71419,222.58718) " stroke-width="0"/>
+        <text id="text6559" font-size="30.00" y="137.98350408277236" x="-418.15015960806363" style="font-size:30px;font-family:Times;text-anchor:middle;fill:#000000" transform="matrix(0.35232499,0,0,0.35232499,694.71419,222.58718) " stroke-width="0">TIMES</text>
+      </g>
+      <!-- leaf&#45;&#45;TIMES -->
+      <g class="edge" id="edge1-99" stroke-width="0">
+        <title id="title6562" transform="translate(14.634145736694336,5.691056728363037) translate(-220.3251953125,-7.317072868347168) translate(0,0.8130081295967102) matrix(0.35232499,0,0,0.35232499,694.7141900000001,279.5871819966011) " stroke-width="0">leaf--TIMES</title>
+        <path id="path6564" d="m508.0713443810514,268.5597792711277 c3.693141010178002,0 8.120703462011,0 12.651919925902,0 " inkscape:connector-curvature="0" style="fill:none;stroke:#000000;stroke-width:4" stroke-width="0"/>
+      </g>
+    </g>
+    <ellipse style="fill:none;fill-opacity:1;stroke:#8d8d8d;stroke-width:1.9089098;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:0.6627451" id="path4583-3-0" cx="555.6368312835693" cy="165.9128983616829" rx="91.14423370361328" ry="162.7873992919922" class=""/>
+    <path style="fill: none; stroke-width: 2.66667; stroke-linecap: butt; stroke-linejoin: miter; stroke-miterlimit: 4; stroke-dasharray: none;" d="m397.6557704241943,74.10245898961259 l84.66667,65.851854 " id="path6605" inkscape:connector-curvature="0" class="" stroke="#eb1a1a" stroke-opacity="1"/>
+    <path style="fill: none; stroke-width: 3; stroke-linecap: butt; stroke-linejoin: miter; stroke-miterlimit: 4; stroke-dasharray: none;" d="m397.6557704241943,73.80847998961258 l84.66667,21.166667 v0 l-84.66667,10.583334 v0 " id="path6607" inkscape:connector-curvature="0" class="" stroke="#eb1a1a" stroke-opacity="1"/>
+    <path style="fill: none; stroke-width: 3; stroke-linecap: butt; stroke-linejoin: miter; stroke-miterlimit: 4; stroke-dasharray: none;" d="m397.6557704241943,108.20431198961258 l84.66667,31.75 v0 " id="path6609" inkscape:connector-curvature="0" class="" stroke="#e84141" stroke-opacity="1"/>
+    <path style="fill:none;stroke:#000000;stroke-width:3;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" d="m344.73911042419434,150.53764498961257 l137.58333,74.083317 v0 " id="path6611" inkscape:connector-curvature="0" class=""/>
+    <path style="fill:none;stroke:#000000;stroke-width:3;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" d="m482.3224404241944,224.62096198961257 l-137.58333,-31.75 l137.58333,74.08334 L344.73911042419434,150.53764498961257 " id="path6613" inkscape:connector-curvature="0" class=""/>
+    <path style="fill: none; stroke-width: 3; stroke-linecap: butt; stroke-linejoin: miter; stroke-miterlimit: 4; stroke-dasharray: none;" d="m334.1557704241943,235.20429198961259 l148.16667,-52.91666 v0 l-148.16667,95.25 " id="path6615" inkscape:connector-curvature="0" class="" stroke="#1a1aeb" stroke-opacity="1"/>
+    <flowRoot xml:space="preserve" id="flowRoot1005" style="font-style:normal;font-weight:normal;font-size:10.66666698px;line-height:5;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none" transform="translate(0,57) "><flowRegion id="flowRegion1007" style="line-height:5"><rect id="rect1009" width="540" height="140" x="140" y="37.952754974365234" style="line-height:5"/></flowRegion><flowPara id="flowPara1011"/></flowRoot>    <flowRoot xml:space="preserve" id="flowRoot1013" style="font-style:normal;font-weight:normal;font-size:10.66666698px;line-height:0;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none" transform="translate(0,57) "><flowRegion id="flowRegion1015"><rect id="rect1017" width="520" height="120" x="120" y="17.952754974365234"/></flowRegion><flowPara id="flowPara1019"/></flowRoot>    <flowRoot xml:space="preserve" id="flowRoot1021" style="font-style:normal;font-weight:normal;font-size:10.66666698px;line-height:0;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none" transform="translate(0,57) "><flowRegion id="flowRegion1023"><rect id="rect1025" width="540" height="80" x="140" y="37.952754974365234"/></flowRegion><flowPara id="flowPara1027"/></flowRoot>    <text xml:space="preserve" style="font-style:normal;font-weight:normal;font-size:14.11111069px;line-height:0;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.26458332" x="287.2923204241943" y="347.9166319896126" id="text1035" class=""><tspan sodipodi:role="line" id="tspan1033" x="287.2923204241943" y="347.9166319896126" style="font-size:22.57777786px;stroke-width:0.26458332">Query</tspan></text>
+    <text xml:space="preserve" style="font-style:normal;font-weight:normal;font-size:14.11111069px;line-height:0;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.26458332" x="500.5518104241943" y="349.4531019896126" id="text1039" class=""><tspan sodipodi:role="line" id="tspan1037" x="500.5518104241943" y="349.4531019896126" style="font-size:22.57777786px;stroke-width:0.26458332">Candidate</tspan></text>
+    
+    
+    
+    
+    
+    <text xml:space="preserve" style="font-style:normal;font-weight:normal;font-size:14.11111069px;line-height:0;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.26458332" x="309.2097704241943" y="307.9015319896126" id="text1035-6" class=""><tspan sodipodi:role="line" id="tspan1033-6" x="309.2097704241943" y="307.9015319896126" style="font-size:22.57777786px;stroke-width:0.26458332">......</tspan></text>
+    <text xml:space="preserve" style="font-style:normal;font-weight:normal;font-size:14.11111069px;line-height:0;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.26458332" x="541.0221504241944" y="305.7345719896126" id="text1035-6-9" class=""><tspan sodipodi:role="line" id="tspan1033-6-5" x="541.0221504241944" y="305.7345719896126" style="font-size:22.57777786px;stroke-width:0.26458332">......</tspan></text>
+  </g>
+</svg>

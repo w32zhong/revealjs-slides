@@ -66,6 +66,13 @@ th {
     box-shadow: none !important; 
 }
 
+.reveal sup {
+  vertical-align: top;
+  line-height: 1.5;
+  color: grey;
+  font-size: 15px;
+}
+
 html body { background-color: white !important; }
 </style>
 	</head>
@@ -79,16 +86,16 @@ html body { background-color: white !important; }
 	<p>Accelerating Substructure Similarity Search for Formula Retrieval</p>
 	<div style="height:20px;"></div>
 	<p>
-		<small>Wei Zhong, Shaurya Rohatgi,<br/> Jian Wu, C. Lee Giles and Richard Zanibbi.</small>
+		<small>Wei Zhong<sup>1</sup>, Shaurya Rohatgi<sup>3</sup>,<br/> Jian Wu<sup>2</sup>, C. Lee Giles<sup>3</sup> and Richard Zanibbi<sup>1</sup></small>
     <div style="height:73px;"></div>
-		<small>Rochester Institute of Technology, Pennsylvania State University, Old Dominion University.</small>
+		<small>Rochester Institute of Technology<sup>1</sup></small><br/>
+    <small>Old Dominion University<sup>2</sup></small><br/>
+    <small>Pennsylvania State University<sup>3</sup></small><br/>
     <div style="height:23px;"></div>
     <div>
       <img height="100px" src="img/ecir2020.png"/>
       <span style="display: inline-block; width:60px;"></span>
       <img height="100px" src="img/mathseer.svg"/>
-      <span style="display: inline-block; width:60px;"></span>
-      <img height="100px" src="img/sloan-logo.png"/>
     </div>
 	</p>
 </section>
@@ -109,7 +116,7 @@ html body { background-color: white !important; }
 -->
 
 <section>
-	<p>What is formula retrieval?</p>
+	<p>What is Formula Retrieval?</p>
 	<div style="height:10px; margin:0"></div>
 	<div style="text-align:center">
 		<div style="display: inline-block; border: 1px solid black; height:500px;">
@@ -147,18 +154,10 @@ html body { background-color: white !important; }
 </section>
 
 <section>
-	<p>Math representation (tree-based)</p>
+	<p>Operator Tree Representation</p>
 	<div style="height:60px;"></div>
 	<div style="text-align:center">
-		<div style="display:inline-block; width: 400px">
-			<img src="img/slt-example2.svg"/>
-			<div style="height:60px;"></div>
-			<small>Symbol Layout Tree</small>
-		</div>
-		<div style="display: inline-block; width: 80px;"></div>
-
-		<div style="display: inline-block; width: 300px;">
-<div class="mermaid">
+<div class="mermaid" style="height: 230px">
 graph TD;
 	add("ADD")
 	add --- a
@@ -174,20 +173,18 @@ graph TD;
 	frac --- rank2
 	rank2 --- x
 </div>
-	<small>Operator tree</small>
-		</div>
 	</div>
 	<div style="height:30px;"></div>
-	<small>$a+b^{2+c} + \frac 1 x$ in two different tree representations</small>
+	<small>$a+b^{2+c} + \frac 1 x$ in Operator Tree representation</small>
 	<div style="height:30px;"></div>
 <div style="text-align: left; line-height: 10px"><em>
-K. Davila, R. Zanibbi. "Layout and Semantics: Combining Representations for Mathematical Formula Search". In Proceedings of the 40th International ACM SIGIR conference on Research and Development in Information Retrieval (SIGIR 2017). ACM.
+A Survey of Table Recognition: Models, Observations, Transformations, and Inferences R. Zanibbi, D. Blostein and J.R. Cordy
 </em></div>
 </section>
 
 <!-- multi-tree match -->
 <section>
-	<p>Similarity measurement</p>
+	<p>Similarity Measurement</p>
 	<div style="height:10px;"></div>
 	<div>
 		<div style="display: inline-block; width: 240px; height:150px;">
@@ -260,47 +257,9 @@ linkStyle 6 stroke:#800,stroke-width:8px;
 	<small>($\alpha, \beta$ are parameters, $T_q, T_d$ are trees from query and document)</small>
 </section>
 
-
-<section>
-	<div style="max-height: 600px; overflow-y: hidden;">
-	<span style="font-size: 0.35em !important;">
-	Query:
-	<span style="padding-left: 60px"></span>
-	$r_{xy}=\frac{{\color{Maroon}\sum} _{{\color{Maroon}i}={\color{Maroon}1}}^{{\color{Maroon}n}}({\color{Maroon}x}_{{\color{Maroon}i}}-\bar{{\color{Maroon}x}})({\color{Maroon}y}_{{\color{Maroon}i}}-\bar{{\color{Maroon}y}})}{(n-1)s_{x}s_{y}}=\frac{{\color{Orange}\sum} _{{\color{Orange}i}={\color{Orange}1}}^{{\color{Orange}n}}(x_{i}-\bar{x})(y_{i}-\bar{y})}{\sqrt{{\color{Green}\sum} _{{\color{Green}i}={\color{Green}1}}^{{\color{Green}n}}({\color{Green}x}_{{\color{Green}i}}-\bar{{\color{Green}x}})^{{\color{Green}2}}\sum _{i=1}^{n}(y_{i}-\bar{y})^{2}}}$
-	</span><br/>
-	<img src="./img/query.png" height="180px"/><br/>
-
-	<span style="font-size: 0.35em !important;">
-	Document formula:
-	<span style="padding-left: 60px"></span>
-	$r=\frac{{\color{Maroon}\sum}^{{\color{Maroon}N}}_{{\color{Maroon}i}={\color{Maroon}1}}({\color{Maroon}X}_{{\color{Maroon}i}}-\bar{{\color{Maroon}X}})({\color{Maroon}Y}_{{\color{Maroon}i}}-\bar{{\color{Maroon}Y}})}{\sqrt{{\color{Green}\sum}^{{\color{Green}N}}_{{\color{Green}i}={\color{Green}1}}({\color{Green}X}_{{\color{Green}i}}-\bar{{\color{Green}X}})^{{\color{Green}2}}}\sqrt{{\color{Orange}\sum}^{{\color{Orange}N}}_{{\color{Orange}i}={\color{Orange}1}}(Y_{i}-\bar{Y})^{2}}}$
-	</span><br/>
-	<img src="./img/doc.png" height="190px"/><br/>
-	</div>
-</section>
-
-<section>
-	<div style="max-height: 600px; overflow-y: hidden;">
-	<span style="font-size: 0.35em !important;">
-	Query:
-	<span style="padding-left: 60px"></span>
-	$r_{xy}=\frac{{\color{Maroon}\sum} _{{\color{Maroon}i}={\color{Maroon}1}}^{{\color{Maroon}n}}({\color{Maroon}x}_{{\color{Maroon}i}}-\bar{{\color{Maroon}x}})({\color{Maroon}y}_{{\color{Maroon}i}}-\bar{{\color{Maroon}y}})}{(n-1)s_{x}s_{y}}=\frac{{\color{Orange}\sum} _{{\color{Orange}i}={\color{Orange}1}}^{{\color{Orange}n}}(x_{i}-\bar{x})(y_{i}-\bar{y})}{\sqrt{{\color{Green}\sum} _{{\color{Green}i}={\color{Green}1}}^{{\color{Green}n}}({\color{Green}x}_{{\color{Green}i}}-\bar{{\color{Green}x}})^{{\color{Green}2}}\sum _{i=1}^{n}(y_{i}-\bar{y})^{2}}}$
-	</span><br/>
-	<img src="./img/query-hl.png" height="180px"/><br/>
-
-	<span style="font-size: 0.35em !important;">
-	Document formula:
-	<span style="padding-left: 60px"></span>
-	$r=\frac{{\color{Maroon}\sum}^{{\color{Maroon}N}}_{{\color{Maroon}i}={\color{Maroon}1}}({\color{Maroon}X}_{{\color{Maroon}i}}-\bar{{\color{Maroon}X}})({\color{Maroon}Y}_{{\color{Maroon}i}}-\bar{{\color{Maroon}Y}})}{\sqrt{{\color{Green}\sum}^{{\color{Green}N}}_{{\color{Green}i}={\color{Green}1}}({\color{Green}X}_{{\color{Green}i}}-\bar{{\color{Green}X}})^{{\color{Green}2}}}\sqrt{{\color{Orange}\sum}^{{\color{Orange}N}}_{{\color{Orange}i}={\color{Orange}1}}(Y_{i}-\bar{Y})^{2}}}$
-	</span><br/>
-	<img src="./img/doc-hl.png" height="190px"/><br/>
-	</div>
-</section>
-
-
 <!-- match leaf-root paths -->
 <section>
-	<p>Matching from leaf-root paths</p>
+	<p>Matching from Leaf-Root Paths</p>
 	<div style="height:60px;"></div>
 	<div>
 		<div style="display: inline-block; width: 200px; height:100px;">
@@ -345,7 +304,26 @@ linkStyle 3 stroke:#800,stroke-width:8px;
 </section>
 
 <section>
-	<p>Path-based inverted index</p>
+	<div style="max-height: 600px; overflow-y: hidden;">
+	<span style="font-size: 0.35em !important;">
+	Query:
+	<span style="padding-left: 60px"></span>
+	$r_{xy}=\frac{{\color{Maroon}\sum} _{{\color{Maroon}i}={\color{Maroon}1}}^{{\color{Maroon}n}}({\color{Maroon}x}_{{\color{Maroon}i}}-\bar{{\color{Maroon}x}})({\color{Maroon}y}_{{\color{Maroon}i}}-\bar{{\color{Maroon}y}})}{(n-1)s_{x}s_{y}}=\frac{{\color{Orange}\sum} _{{\color{Orange}i}={\color{Orange}1}}^{{\color{Orange}n}}(x_{i}-\bar{x})(y_{i}-\bar{y})}{\sqrt{{\color{Green}\sum} _{{\color{Green}i}={\color{Green}1}}^{{\color{Green}n}}({\color{Green}x}_{{\color{Green}i}}-\bar{{\color{Green}x}})^{{\color{Green}2}}\sum _{i=1}^{n}(y_{i}-\bar{y})^{2}}}$
+	</span><br/>
+	<img src="./img/query-hl.png" height="180px"/><br/>
+
+	<span style="font-size: 0.35em !important;">
+	Document formula:
+	<span style="padding-left: 60px"></span>
+	$r=\frac{{\color{Maroon}\sum}^{{\color{Maroon}N}}_{{\color{Maroon}i}={\color{Maroon}1}}({\color{Maroon}X}_{{\color{Maroon}i}}-\bar{{\color{Maroon}X}})({\color{Maroon}Y}_{{\color{Maroon}i}}-\bar{{\color{Maroon}Y}})}{\sqrt{{\color{Green}\sum}^{{\color{Green}N}}_{{\color{Green}i}={\color{Green}1}}({\color{Green}X}_{{\color{Green}i}}-\bar{{\color{Green}X}})^{{\color{Green}2}}}\sqrt{{\color{Orange}\sum}^{{\color{Orange}N}}_{{\color{Orange}i}={\color{Orange}1}}(Y_{i}-\bar{Y})^{2}}}$
+	</span><br/>
+	<img src="./img/doc-hl.png" height="190px"/><br/>
+	</div>
+</section>
+
+
+<section>
+	<p>Path-Based Inverted Index</p>
 	<div style="height:30px; margin:0"></div>
 	<div style="text-align:center">
 		<div style="display: inline-block; height:250px;">
@@ -364,22 +342,27 @@ linkStyle 3 stroke:#800,stroke-width:8px;
 </section>
 
 <section>
-	<p>Query and inverted list length</p>
+	<p>Exhaustive Search is Expensive!</p>
 	<div style="height:30px; margin:0"></div>
 	<div style="text-align:center">
-		<div style="display: inline-block; height:300px;">
+		<div style="display: inline-block; height:400px;">
 		  <img src="img/hot-hit.svg"/>
 		</div>
     <div style="margin-top:6px; text-align: center;">
       <em>(*) Evaluating queries are from NTCIR-12 Wiki-browsing dataset.</em>
     </div>
-    <small>Formula search requires extensive "words" to carry structure information.</small>
+    <small>
+    <ul>
+      <li>Left figure: Query is typically very long (many paths tokens)</li>
+      <li>Right figure: While most of time only a few paths contribute to score</li>
+    </ul>
+    </small>
 	</div>
 </section>
 
 <!-- dynamic pruning -->
 <section>
-	<p>Dynamic pruning</p>
+	<p>Dynamic Pruning</p>
 	<div style="height:15px;"></div>
 <ul  style="font-size: 20px;">
 <li>Dynamic pruning speeds up query by skipping documents unlikely to be ranked in top-K results</li>
@@ -395,7 +378,7 @@ linkStyle 3 stroke:#800,stroke-width:8px;
 </section>
 
 <section>
-	<p>Model the path matching</p>
+	<p>Model the Path Matching</p>
 	<div style="height:30px; margin:0"></div>
 	<div style="text-align:center">
 		<div style="display: inline-block; height:250px;">
@@ -408,13 +391,26 @@ linkStyle 3 stroke:#800,stroke-width:8px;
   $$
  \sum _ { t \in \mathfrak { T } ( m ) } \operatorname { min } ( | Q _ { t } ^ { ( m ) } | , | D _ { t } ^ { ( n ) } | )
   $$
-  If $m, n$ are the top roots, then $\mathfrak { T } ( m ) = $ { /VAR/TIMES/ADD, /VAR/ADD }. <br/>
-  The matched paths is simply $\min(2, 2) + \min(2, 1) = 3$.
   </small>
 </section>
 
 <section>
-	<p>Path posting list upperbound</p>
+	<p>Model the Path Matching (Example)</p>
+	<div style="height:30px; margin:0"></div>
+	<div style="text-align:center">
+		<div style="display: inline-block; height:250px;">
+		<img src="img/bipartile-example.svg"/>
+		</div>
+	</div>
+	<div style="height:30px; margin:0"></div>
+  <small>
+  If $m, n$ are the top roots, then $\mathfrak { T } ( m ) = $ { /VAR/TIMES/ADD, /VAR/ADD }. <br/>
+  The matched paths is simply $\color{red}{\min(2, 2)} + \color{blue}{\min(2, 1)} = 3$.
+  </small>
+</section>
+
+<section>
+	<p>Path Posting List Upperbound</p>
 	<div style="height:20px;"></div>
 <ul  style="font-size: 25px;">
 <li>Simplify the similarity measurement, only score by the width of the widest common tree
@@ -423,35 +419,31 @@ linkStyle 3 stroke:#800,stroke-width:8px;
   $$
 </li>
 <li>Let $w_{m, t} = |Q_t^{(m)}|$, then $w_{m, t} \ge \min(|Q_t^{(m)}|, |D_t^{(n)}|)$</li>
+<li>$w_{m, t}$ can be viewed as a partial upperbound of our desired score</li>
+<li>$w_{m, t}$ can be pre-computed since the inequality does not depend on document</li>
 </ul>
-<img style="height: 220px" src="img/dp-paths-1.svg"/>
 </section>
 
 <section>
-	<p>Requirement set selection (MaxRef)</p>
-	<div style="height:20px;"></div>
-<img style="height: 220px" src="img/dp-paths-2.svg"/>
-<small>
-  One possible upperbound is $\text{MaxRef}_t = \max_m \; w_{m, t}$
-</small>
-</section>
-
-<section>
-	<p>Requirement set selection (GBP)</p>
+	<p>Required Set Selection Strategies</p>
 	<div style="height:20px;"></div>
 <small>
-  Alternatively, directly find a "largest" set of non-requirement set that satisfies the constraints $\le \theta$, this is essentially solving a <i>binary programming</i> problem.
-  <br/>
-  <br/>
   <ol   style="font-size: 25px;">
-  <li>GBP-NUM: Maximize the number of posting lists in non-requirement set:
+  <li>MaxRef: Assign upperbounds for posting lists explicitly
+  <br/>
+  <br/>
+  $$
+  \text{MaxRef}_t = \max_m \; w_{m, t}
+  $$
+  </li>
+  <li>GBP-NUM: Maximize number of posting lists in non-required set:
   <br/>
   <br/>
   $$
   \text{max} \qquad 1^\top \mathbf{x} \qquad s.t. \quad \mathbf{W} \mathbf{x} \le \theta \\
   $$
   </li>
-  <li>GBP-LEN: Maximize the total length ($\sum_i L_i$) of posting lists in non-requirement set:
+  <li>GBP-LEN: Maximize total length in non-required set:
   <br/>
   <br/>
   $$
@@ -459,12 +451,16 @@ linkStyle 3 stroke:#800,stroke-width:8px;
   $$
   </li>
   </ol>
-  Since binary programming problem is hard, we just greedily follow one branch of the binary programming sub-problems to obtain a feasible (but may not be optimal) solution.
 </small>
+<div style="margin-top:15px; text-align: left;">
+<em>
+(*) Since binary programming problem is hard, we greedily follow one branch of the sub-problems to obtain a feasible (but may not be optimal) solution.
+</em>
+</div>
 </section>
 
 <section>
-	<p>Indices and substructure scoring (1)</p>
+	<p>Indices and Substructure Scoring (1)</p>
 	<div style="height:20px;"></div>
 <img style="height: 220px" src="img/dp-step-1.svg"/>
 <small>
@@ -473,7 +469,7 @@ Each posting list entry has expID, document root-end node IDs, <br/>and the numb
 </section>
 
 <section>
-	<p>Indices and substructure scoring (2)</p>
+	<p>Indices and Substructure Scoring (2)</p>
 	<div style="height:20px;"></div>
 <img style="height: 220px" src="img/dp-step-2.svg"/>
 <small>
@@ -482,7 +478,7 @@ Document expression #12 has a subexpression rooted at $d4$,<br/> which has leaf-
 </section>
 
 <section>
-	<p>Indices and substructure scoring (3)</p>
+	<p>Indices and Substructure Scoring (3)</p>
 	<div style="height:20px;"></div>
 <img style="height: 220px" src="img/dp-step-3.svg"/>
 <small>
@@ -491,7 +487,7 @@ The maximum matched sub-expression rooted at $d4$ from document expression (#12)
 </section>
 
 <section>
-	<p>Posting list dropout</p>
+	<p>Posting List Dropout</p>
 	<div style="height:20px;"></div>
 <img style="height: 220px" src="img/dp-drop.svg"/>
 <small>
@@ -501,7 +497,7 @@ Some of the posting lists (iterators) may be dropped due to zero reference. <br/
 </section>
 
 <section>
-	<p>Final score</p>
+	<p>Final Score</p>
 	<div style="height:20px;"></div>
 <small style="text-align: left">
 The "structure score" is simply the width of maximum matched common tree.
@@ -518,10 +514,10 @@ The overall score [1] further captures symbol similarity (e.g., to discern <br/>
   $$
 </small>
 <small style="width: 90%; text-align: left;">
-  <br/> <br/>
+  <br/>
   where $\eta = 0.05, n_d = 1$.
 </small>
-<div style="margin-top:100px; text-align: left;">
+<div style="margin-top:30px; text-align: left;">
   <em>[1]: Zhong, Wei, and Richard Zanibbi. "Structural similarity search for formulas using leaf-root paths in operator subtrees." ECIR 2019</em>
 </div>
 </section>
@@ -531,33 +527,44 @@ The overall score [1] further captures symbol similarity (e.g., to discern <br/>
 	<div style="height:20px;"></div>
 <small>
   <ul>
-  <li>2016 NTCIR-12 dataset [1] of 590,000 formulas from English Wikipedia, including 20 non-wildcards queries.</li>
-  <li>Math StackExchange (MSE) corpus with over 1 million Q&A threads.</li>
-  <li>We investigate different $K$ values: 100, 200 and 1000. A baseline with $K=1000$ without pruning is also compared.</li>
-  <li>Bpref [2] scores are compared among systems for effectiveness. Efficiency is evaluated by query run times statistics of 5 independent runs.</li>
+  <li>2016 NTCIR-12 Wiki dataset [1] of 590,000 formulas from English Wikipedia, including 20 non-wildcards queries.</li>
+  <li>Math StackExchange (MSE) corpus [2] with ~1 million documents  from mathematics Q&A, this corpus is generated by our own.</li>
+  <li>We investigate different number of returned results ($K$): 100, 200 and 1000. A baseline with $K=1000$ without pruning is also compared.</li>
+  <li>Bpref [3] scores are compared among systems for effectiveness (Wiki). Efficiency is evaluated by query run times statistics of 5 independent runs (MSE and Wiki).</li>
   </ul>
 </small>
-<div style="margin-top:100px; text-align: left; line-height: 0.5">
+<div style="margin-top:80px; text-align: left; line-height: 0.5">
   <em>[1]: Zanibbi, Richard, Akiko Aizawa, and Michael Kohlhase. “NTCIR-12 MathIR Task Overview,”</em>
   <br/>
-  <em>[2]: Buckley, Chris, and Ellen M. Voorhees. "Retrieval evaluation with incomplete information." ACM SIGIR 2004.</em>
+  <em>[2]: https://www.cs.rit.edu/~dprl/data/mse-corpus.tar.gz.</em>
+  <br/>
+  <em>[3]: Buckley, Chris, and Ellen M. Voorhees. "Retrieval evaluation with incomplete information." ACM SIGIR 2004.</em>
 </div>
 </section>
 
 <section>
-	<p>Performance of different strategies</p>
+	<p>Runtimes (ms) for Pruning Strategies</p>
 	<div style="height:10px;"></div>
-  <img height="500px" src="img/query-runtimes.png"/>
+  <img height="200px" src="img/query-runtimes.jpg"/>
+  <small> <ul>
+    <li>Most of the time, GBP-LEN consistently outperform others</li>
+    <li>GBP strategies have tighter upperbound than MaxRef, and GBP-LEN models the pruning possibility better than GBP-NUM</li>
+  </ul> </small>
 </section>
 
 <section>
-	<p>Performance of different strategies (Cont.)</p>
+	<p>Special case where MaxRef stands out</p>
 	<div style="height:10px;"></div>
-  <img height="500px" src="img/query-runtimes-annot.png"/>
+  <img height="200px" src="img/query-runtimes-annot2.png"/>
+  <small> <ul>
+    <li>However, there is one case where MaxRef stands out </li>
+    <li>This is due to large K, small index and we run non-wildcards, all these factors will result in a small threshold thus less pruning potential</li>
+    <li>In this case, the benefits of GBP strategies are offset by their algorithm complexity</li>
+  </ul> </small>
 </section>
 
 <section>
-	<p>Effectiveness compared to other systems</p>
+	<p>Effectiveness Compared with Existing Systems</p>
 	<div style="height:10px;"></div>
   <img height="300px" src="img/pruning-effectiveness.png"/>
   <br/>
@@ -572,11 +579,17 @@ The overall score [1] further captures symbol similarity (e.g., to discern <br/>
 </section>
 
 <section>
-	<p>Efficiency compared to other systems</p>
+	<p>Efficiency Compared with Existing Systems</p>
 	<div style="height:10px;"></div>
-  <img height="200px" src="img/pruning-eff-compared.png"/>
-  <br/>
-  <small>Our best performant strategy GBP-LEN stands out when compared <br/>among other effective math formula retrieval systems.</small>
+  <small>
+  <ul>
+  <li> Existing most effective math formula retrieval systems are MCAT and Tangent-S</li>
+  <li>Tangent-S is compared without its runtime outliers</li>
+  <li> We also compare our previous system using exhaustive search</li>
+  <li> Our best performant strategy GBP-LEN outperform others (both median and max values), even if Tangent-S runtime outliers are removed</li>
+  </ul>
+  </small>
+
 <div style="margin-top:100px; text-align: left; line-height: 0.5">
   <em>Notes</em><br/>
   <em>(1) MCAT is not included here, it reportedly has a median query execution time around 25 seconds</em>
@@ -588,9 +601,22 @@ The overall score [1] further captures symbol similarity (e.g., to discern <br/>
 </section>
 
 <section>
-	<p>Thank you!</p>
+  <p>Conclusion / Future Work</p>
+	<div style="height:10px;"></div>
+  <small>
+  <ul>
+  <li>We proposed three dynamic pruning strategies for math formula retrieval</li>
+  <li>We associated structure representation to required set selection</li>
+  <li>We have made effective tree-based math formula retrieval more efficient while maintaining highly relevant search results using substructure search</li>
+  <li>In the future, we consider to incorporate TF-IDF into our scoring function</li>
+  </ul>
+  </small>
+</section>
+
+<section>
+	<p>Thank You!</p>
 	<div style="height:60px;"></div>
-	<small>Download this slide: <a>http://approach0.xyz/ecir2020.pdf</a></small>
+	<small>Download these slides: <a>http://approach0.xyz/ecir2020.pdf</a></small>
 	<div style="height:60px;"></div>
 	<div style="height:90px;">
     <img height="100px" src="img/mathseer.svg"/>
@@ -602,16 +628,31 @@ The overall score [1] further captures symbol similarity (e.g., to discern <br/>
 </section>
 
 <section>
-	<p>Appendix - Formula search algorithm</p>
+	<p>Appendix - Formula Search Algorithm</p>
 	<div style="height:10px;"></div>
   <img height="500px" src="img/pruning-algo.png"/>
 </section>
 
 <section>
-	<p>Appendix - GBP algorithm</p>
+	<p>Appendix - GBP Algorithm</p>
 	<div style="height:10px;"></div>
   <img height="500px" src="img/algo-gbp.png"/>
 </section>
+
+<section>
+	<p>Appendix - MaxRef</p>
+	<div style="height:20px;"></div>
+<img style="height: 220px" src="img/dp-paths-2.svg"/>
+</section>
+
+<section>
+	<p>Appendix - Efficiency</p>
+	<div style="height:10px;"></div>
+    <img height="200px" src="img/pruning-eff-compared.png"/>
+    <br/>
+  <small>
+</section>
+
 
 			</div>
 		</div>
