@@ -1149,17 +1149,17 @@
      borderopacity="1.0"
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
-     inkscape:zoom="1.979899"
-     inkscape:cx="174.09258"
-     inkscape:cy="14.180542"
+     inkscape:zoom="3.959798"
+     inkscape:cx="317.7833"
+     inkscape:cy="86.82557"
      inkscape:document-units="mm"
      inkscape:current-layer="layer1"
      showgrid="false"
      units="in"
      inkscape:snap-bbox="true"
      inkscape:snap-global="false"
-     inkscape:window-width="2560"
-     inkscape:window-height="1366"
+     inkscape:window-width="1920"
+     inkscape:window-height="1006"
      inkscape:window-x="0"
      inkscape:window-y="0"
      inkscape:window-maximized="1"
@@ -1808,7 +1808,7 @@
        inkscape:original-d="m 58.161086,275.97505 c 4.91249,4.20172 9.824715,8.4037 14.736678,12.60594"
        transform="translate(1.5874997)" />
     <path
-       style="fill:none;stroke:#ff0000;stroke-width:0.08;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:0.96, 0.95999999999999996;stroke-dashoffset:0;stroke-opacity:1"
+       style="fill:none;stroke:#ff0000;stroke-width:0.18;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:2.16,2.16;stroke-dashoffset:0;stroke-opacity:1"
        d="m 58.064304,283.16878 14.766642,-5.21175"
        id="path6025"
        inkscape:connector-curvature="0"
@@ -1816,7 +1816,7 @@
        inkscape:original-d="m 58.064304,283.16878 c 4.922478,-1.73752 9.844693,-3.47477 14.766642,-5.21175"
        transform="translate(1.5874997)" />
     <path
-       style="fill:none;stroke:#ff0000;stroke-width:0.08;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:0.64, 0.64000000000000001;stroke-dashoffset:0;stroke-opacity:1"
+       style="fill:none;stroke:#ff0000;stroke-width:0.18;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:1.44,1.44;stroke-dashoffset:0;stroke-opacity:1"
        d="M 58.264758,290.98642 72.830946,277.95703"
        id="path6029"
        inkscape:connector-curvature="0"
@@ -2248,15 +2248,14 @@
          style="stroke-width:0.47298101">15</tspan></text>
     <text
        xml:space="preserve"
-       style="font-style:normal;font-weight:normal;font-size:2.11666656px;line-height:0;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.26458332"
-       x="49.968304"
-       y="268.66873"
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:3.88055563px;line-height:0;font-family:sans-serif;-inkscape-font-specification:'sans-serif, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:start;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#ff0000;fill-opacity:1;stroke:none;stroke-width:0.26458332"
+       x="25.780411"
+       y="266.12967"
        id="text5297-15-7-6"><tspan
          sodipodi:role="line"
-         id="tspan5295-9-4-6"
-         x="49.968304"
-         y="268.66873"
-         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:3.88055563px;font-family:sans-serif;-inkscape-font-specification:'sans-serif, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:start;writing-mode:lr-tb;text-anchor:start;fill:#ff0000;fill-opacity:1;stroke-width:0.26458332">θ = 5</tspan></text>
+         id="tspan1385"
+         x="25.780411"
+         y="266.12967">Assume that θ = 5</tspan></text>
     <g
        id="g1538"
        transform="translate(1.3229167,0.23623512)">

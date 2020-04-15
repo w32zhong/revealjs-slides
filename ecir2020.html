@@ -88,9 +88,9 @@ html body { background-color: white !important; }
 	<p>
 		<small>Wei Zhong<sup>1</sup>, Shaurya Rohatgi<sup>3</sup>,<br/> Jian Wu<sup>2</sup>, C. Lee Giles<sup>3</sup> and Richard Zanibbi<sup>1</sup></small>
     <div style="height:73px;"></div>
-		<small>Rochester Institute of Technology, USA<sup>1</sup></small><br/>
-    <small>Old Dominion University, USA<sup>2</sup></small><br/>
-    <small>Pennsylvania State University, USA<sup>3</sup></small><br/>
+		<small>Rochester Institute of Technology<sup>1</sup></small><br/>
+    <small>Old Dominion University<sup>2</sup></small><br/>
+    <small>Pennsylvania State University<sup>3</sup></small><br/>
     <div style="height:23px;"></div>
     <div>
       <img height="100px" src="img/ecir2020.png"/>
@@ -178,7 +178,7 @@ graph TD;
 	</div>
 	<div style="height:30px;"></div>
 	<small>$a+b^{2+c} + \frac 1 x$ in Operator Tree representation</small>
-	<div style="height:30px;"></div>
+	<div style="height:60px;"></div>
 <div style="text-align: left; line-height: 10px"><em>
 A Survey of Table Recognition: Models, Observations, Transformations, and Inferences R. Zanibbi, D. Blostein and J.R. Cordy
 </em></div>
@@ -256,7 +256,7 @@ linkStyle 6 stroke:#800,stroke-width:8px;
 	<small>Common <i>formula forest</i> $\pi$ (highlighted in two colors)</small>
 	<small>Scoring: $\gamma(\pi) = \sum_{T_q, T_d \in \pi} \beta_i (\alpha \cdot \text{operators}(T_d) + (1 - \alpha) \text{leaves}(T_d))$</small>
 	<br/>
-	<small>($\alpha, \beta$ are parameters, $T_q, T_d$ are trees from query and document)</small>
+	<small>($\alpha, \beta$ are parameters and $T_q, T_d$ are trees from query and document)</small>
 </section>
 
 <!-- match leaf-root paths -->
@@ -355,7 +355,7 @@ linkStyle 3 stroke:#800,stroke-width:8px;
     </div>
     <small>
     <ul>
-      <li>Left figure: Query is typically very long (many paths tokens)</li>
+      <li>Left figure: Query is typically very long (many query paths)</li>
       <li>Right figure: Most of time only a small number of paths contribute to score</li>
     </ul>
     </small>
@@ -407,8 +407,8 @@ where $\mathfrak { T }(m)$ is the set of tokenized paths attached to node $m$.
 	</div>
 	<div style="height:30px; margin:0"></div>
   <small>
-  If $m, n$ are the top roots, then $\mathfrak { T } ( m ) = $ { /VAR/TIMES/ADD, /VAR/ADD }. <br/>
-  The matched paths is simply $\color{red}{\min(2, 2)} + \color{blue}{\min(2, 1)} = 3$.
+  If $m, n$ are the highlighted ADD nodes, then $\mathfrak { T } ( m ) = $ { /VAR/TIMES/ADD, /VAR/ADD }. <br/>
+  The maximum matched number of paths is $\color{red}{\min(2, 2)} + \color{blue}{\min(2, 1)} = 3$.
   </small>
 </section>
 
@@ -432,7 +432,7 @@ where $\mathfrak { T }(m)$ is the set of tokenized paths attached to node $m$.
 	<div style="height:20px;"></div>
 <small>
   <ol   style="font-size: 25px;">
-  <li>MaxRef: Assign upperbounds for posting lists explicitly
+  <li>MaxRef: Assign upperbounds for each posting list $t$ explicitly
   <br/>
   <br/>
   $$
@@ -457,7 +457,7 @@ where $\mathfrak { T }(m)$ is the set of tokenized paths attached to node $m$.
 </small>
 <div style="margin-top:15px; text-align: left;">
 <em>
-(*) Since binary programming problem is hard, we greedily follow one branch of the sub-problems to obtain a feasible (but may not be optimal) solution.
+(*) Since binary programming problem is hard, we greedily follow one branch of the sub-problems to obtain a feasible (sub-optimal) solution.
 </em>
 </div>
 </section>
@@ -474,18 +474,36 @@ Each posting list entry has expID, document root-end node IDs, <br/>and the numb
 <section>
 	<p>Indices and Substructure Scoring (2)</p>
 	<div style="height:20px;"></div>
-<img style="height: 220px" src="img/dp-step-2.svg"/>
+<img style="height: 220px" src="img/dp-step-2.0.svg"/>
 <small>
-Document expression #12 has a subexpression rooted at $d4$,<br/> which has leaf-root paths /VAR/TIMES/ADD and /VAR/ADD,<br/> each indexes the corresponding "<i>root/#paths</i>" information.
+Document expression #12 has a subexpression rooted at $d4$.
 </small>
 </section>
 
 <section>
 	<p>Indices and Substructure Scoring (3)</p>
 	<div style="height:20px;"></div>
+<img style="height: 220px" src="img/dp-step-2.1.svg"/>
+<small>
+Document expression #12 has a subexpression rooted at $d4$,<br/> which has leaf-root paths /VAR/TIMES/ADD and /VAR/ADD
+</small>
+</section>
+
+<section>
+	<p>Indices and Substructure Scoring (4)</p>
+	<div style="height:20px;"></div>
+<img style="height: 220px" src="img/dp-step-2.2.svg"/>
+<small>
+Document expression #12 has a subexpression rooted at $d4$,<br/> which has leaf-root paths /VAR/TIMES/ADD and /VAR/ADD,<br/> each indexes the corresponding "<i>root/#paths</i>" information.
+</small>
+</section>
+
+<section>
+	<p>Indices and Substructure Scoring (5)</p>
+	<div style="height:20px;"></div>
 <img style="height: 220px" src="img/dp-step-3.svg"/>
 <small>
-The maximum matched sub-expression rooted at $d4$ from document expression (#12) <br/>is query expression $q1$, which has a total of $ \min(5,2) + \min(1,2) = 3$ common leaves.
+The only relevant query node regarding to $d4$ is query node $q1$ here,<br/> which has a total of $ \min(5,2) + \min(1,2) = 3$ common leaves.
 </small>
 </section>
 
@@ -561,7 +579,7 @@ The overall score [1] further captures symbol similarity (e.g., to discern <br/>
 <section>
 	<p>Effectiveness Compared with Existing Systems</p>
 	<div style="height:10px;"></div>
-  <img height="300px" src="img/pruning-effectiveness.png"/>
+  <img height="250px" src="img/pruning-effectiveness.png"/>
   <br/>
   <small>Compared with most effective from NTCIR-12 (MCAT and Tangent-S), and our previous system w/o pruning (base-$*$), we still obtain very effective full relevance results (also being rank-safe), but overall effectiveness is skewed by wildcards queries.</small>
 <div style="margin-top:50px; text-align: left; line-height: 0.5">
@@ -633,7 +651,7 @@ The overall score [1] further captures symbol similarity (e.g., to discern <br/>
 </section>
 
 <section>
-	<p>Appendix - Special case where MaxRef stands out</p>
+	<p>Appendix - Special Case where MaxRef Stands Out</p>
 	<div style="height:10px;"></div>
   <img height="200px" src="img/query-runtimes-annot2.png"/>
   <small> <ul>
