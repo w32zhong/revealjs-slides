@@ -1,0 +1,335 @@
+<!doctype html>
+<html lang="en">
+
+	<head>
+		<meta charset="utf-8">
+
+		<title>slides</title>
+
+		<meta name="description" content="A framework for easily creating beautiful presentations using HTML">
+		<meta name="author" content="Hakim El Hattab">
+
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+		<link rel="stylesheet" href="tk/mermaid.min.css">
+
+		<link rel="stylesheet" href="css/reveal.css">
+		<link rel="stylesheet" href="css/theme/beige.css" id="theme">
+
+		<!-- Theme used for syntax highlighting of code -->
+		<link rel="stylesheet" href="lib/css/zenburn.css">
+
+		<!-- Printing and PDF exports -->
+		<script>
+			var link = document.createElement( 'link' );
+			link.rel = 'stylesheet';
+			link.type = 'text/css';
+			link.href = window.location.search.match( /print-pdf/gi ) ? 'css/print/pdf.css' : 'css/print/paper.css';
+			document.getElementsByTagName( 'head' )[0].appendChild( link );
+		</script>
+<style>
+::-webkit-scrollbar {
+    display: none;
+}
+li {
+	padding-bottom: 30px !important;
+	margin-left: 80px !important;
+	margin-right: 80px !important;
+}
+small {
+    display: inline-block !important;
+    font-size: 0.6em !important;
+    line-height: 1.2em !important;
+    vertical-align: top !important;
+}
+em {
+    font-size: 0.35em !important;
+    line-height: 1.2em !important;
+    vertical-align: top !important;
+}
+b {
+	font-weight: bold !important;
+}
+
+td {
+   width: 100px !important;
+}
+th {
+   width: 100px !important;
+}
+
+.reveal img {
+    border: none !important;
+    box-shadow: none !important; 
+}
+
+.reveal sup {
+  vertical-align: top;
+  line-height: 1.5;
+  color: grey;
+  font-size: 15px;
+}
+
+html body { background-color: white !important; }
+</style>
+	</head>
+
+	<body>
+
+<div class="reveal">
+	<div class="slides">
+
+<section>
+	<p>习题小组：理科习题的问答社区</p>
+	<div style="height:10px;"></div>
+	<p>
+		<small>商业计划书</small>
+    <div style="height:70px;"></div>
+		<small>深圳市南山区钟小威信息咨询工作室</small><br/>
+	</p>
+</section>
+
+<!--
+<section>
+	<p>Mathematical Information Retrieval (MIR)</p>
+	<div style="height:60px;"></div>
+	<small>
+	<ul>
+		<li>Detect and extract math expressions from scientific document (e.g., PDF)</li>
+		<li>Handwritten formulas and formula image recognition</li>
+		<li>Formula retrieval and math-aware search</li>
+	</ul>
+	</small>
+	<div style="height:50px;"></div>
+</section>
+-->
+
+<section>
+	<p>团队介绍 （成员一）</p>
+	<div style="height:10px; margin:0"></div>
+	<div style="text-align:center">
+		<div style="display: inline-block; height:200px;">
+		<img src="img/profile.jpg"/>
+    <br/>
+    <small>钟威</small>
+    <br/>
+    <small>美国 RIT 在读博士<sup>[1]</sup>。因疫情目前在广州暗物智能（教育类 AI 公司）实习 </small>
+    <br/>
+    <small>研究数学公式搜索，Approach Zero<sup>[2]</sup> 作者，ECIR2019 Best Paper Award</small>
+		</div>
+	</div>
+	<br/>
+<div style="text-align: left; line-height: 0.5">
+<em>
+[1]: 在 DPRL 实验室： https://www.cs.rit.edu/~dprl/members.html， https://www.cs.rit.edu/~dprl/mathseer/members.html
+<br/>
+[2]: 支持数学公式的搜索引擎: https://approach0.xyz
+</em>
+</div>
+</section>
+
+<section>
+	<p>团队介绍 （成员二）</p>
+	<div style="height:10px; margin:0"></div>
+	<div style="text-align:center">
+		<div style="display: inline-block; height:200px;">
+		<img src="img/zhangkai.jpg"/>
+    <br/>
+    <small>张凯</small>
+    <br/>
+    <small>University of Delaware 硕士<sup>[1]</sup></small>
+    <br/>
+    <small>曾在联合国、Bloomberg 全职工作，目前供职上海花旗银行。</small>
+    <br/>
+    <small>Web 全栈工程师</small>
+		</div>
+	</div>
+	<br/>
+<div style="text-align: left;">
+<em>
+[1]: 美国特拉华大学，和钟威是校友关系。
+</em>
+</div>
+</section>
+
+<section>
+	<p>电梯介绍</p>
+	<div style="height:10px; margin:0"></div>
+  <ul style="font-size: 25px;">
+    <li>我们想做：基于小程序的理科问答社区，可以悬赏+打赏+搜索</li>
+    <li>我们的优势：SOTA 数学公式搜索技术<sup>[1]</sup>，有 AI, Web 技术</li>
+    <li>我们需要：种子融资，支持我们全职开发数月，将原型投入市场</li>
+    <li>目前状态：业余开发小程序半成品，暂时注册独资个体户<sup>[2]</sup>。若有资金支持，将会全职投入尝试。</li>
+  </ul>
+<div style="text-align: left; line-height: 0.5">
+<em>
+[1]: 数学公式是习题搜索的难点、硬骨头。
+<br/>
+[2]: 主要目的是获取微信开发资质，用于原型开发，探测市场反应。已取得所有必要资质：社交问答、域名备案(xitizu.cn)、商户以及微信支付
+</em>
+</div>
+</section>
+
+<section>
+	<p>业余开发原型</p>
+	<div style="height:10px; margin:0"></div>
+	<div style="text-align: center">
+		<div style="display: inline-block; height:500px;">
+      <img src="img/demo-1.jpg"/>
+      <img src="img/demo-2.jpg"/>
+      <img src="img/demo-3.jpg"/>
+		</div>
+	</div>
+  <small>我们正在用心写代码 ...</small>
+</section>
+
+<section>
+	<p>要解决的问题</p>
+	<div style="height:30px; margin:0"></div>
+  <ul style="font-size: 25px;">
+    <li>平台分散：很多“高手”习惯在微信群里交流习题，发图片、求解答...</li>
+    <li>为什么不用作业帮？搜不到答案，广告多，用语偏低智，高手不常驻</li>
+    <li>数据不沉淀：很多问题群里问了一遍又一遍，社会成本大</li>
+    <li>题库应用太强调拍照搜题技术，技术投入大 + 资本包袱重</li>
+  </ul>
+</section>
+
+<section>
+	<p>我们怎么解决</p>
+	<div style="height:30px; margin:0"></div>
+  <ul style="font-size: 25px;">
+    <li>我们的小程序默认图片分享，符合微信群里“理科高手”交流习惯</li>
+    <li>重视社区机制，激励贡献者，给高手成就感和一个年轻态、干净的社区</li>
+    <li>搜索技术 5 年+ 的积累<sup>[1]</sup>，秒内搜索百万量级，公开数据跑分最佳<sup>[2,3]</sup></li>
+      <ul>
+      <li>Demo 在线 5 年，近期搜索量每月上万: <a>https://approach0.xyz/stats</a></li>
+      <li>全球最大数学问答社区2020社区广告投票夺冠<sup>[4]</sup>，liked by top users<sup>[5]</sup></li>
+      </ul>
+    <li>我们技术全面，可以做到初期人员精简，用少量的资本去拥有足够耐心，做用心的产品。我们的搜题：社区为主 AI 为辅</li>
+  </ul>
+	<div style="margin-top:30px; text-align: left; line-height: 0.5">
+  <em>
+  [1] Zhong, Wei and Fang, Hui "A novel similarity-search method for mathematical content in LaTeX markup and its implementation"
+  <br/>
+  [2] ECIR 2020 Zhong, W., Rohatgi, S., Wu, J., Giles, C.L., and Zanibbi, R. (2020) Accelerating Substructure Similarity Search for Formula Retrieval.
+  <br/>
+  [3] Zhong, W. and Zanibbi, R. (2019) Structural Similarity Search for Formulas using Leaf-Root Paths in Operator Subtrees.
+  <br/>
+  [4] https://math.meta.stackexchange.com/questions/31296
+  <br/>
+  [5] https://math.meta.stackexchange.com/questions/24978
+  </em>
+  </div>
+</section>
+
+<section>
+	<p>技术和数据说话</p>
+	<div style="height:10px; margin:0"></div>
+	<div style="text-align: center">
+		<div style="display: inline-block; height:500px;">
+      <img src="img/stats.png"/>
+		</div>
+	</div>
+  <small>如果牛人想吹牛，是因为做得好就想晒一晒</small>
+</section>
+
+
+<section>
+	<p>经营理念</p>
+  <ul style="font-size: 25px;">
+    <li>精团队、少融资、慢发展模式</li>
+    <li>界面干净、用心打磨产品、做快乐团队</li>
+    <li>Less bullshit</li>
+  </ul>
+</section>
+
+<section>
+	<p>市场定位 / 分析</p>
+  <ul style="font-size: 25px;">
+    <li>中学、大学以及更高阶（针对数据工作者、程序员等）理科问答、相似题搜索 和 数学建模悬赏</li>
+    <li>一点观察：2018 年考研人数增幅 18.41% , 2019 年更加达到 19.75% 。但是同类软件
+还没有覆盖非 K12 人群, 帮助他们解决习题中的问题。</li>
+    <li>亚洲理科应试至少有百亿级别市场，少国际竞争公司，基本无政策和政治风险</li>
+  </ul>
+</section>
+
+<section>
+	<div style="height:90px; margin:0"></div>
+	<p>盈利模式</p>
+  <ul style="font-size: 25px;">
+    <li>打赏、悬赏抽成</li>
+    <li>教育广告引流</li>
+    <li>虚拟产品</li>
+    <li>理科高手猎头</li>
+  </ul>
+</section>
+
+<section>
+  <img src="img/looks-danger.png"></img>
+  <br/>
+  <small>Looks like risky, but you never know what will happen ...</small>
+</section>
+
+<section>
+	<p>融资用途</p>
+  <ul style="font-size: 25px;">
+    <li>支撑原型产品研发</li>
+    <li>吸引市场合伙人、购买题目数据、学校实地推广</li>
+    <li>首笔融资需求：100 - 500 万，股权须商议</li>
+  </ul>
+	<div style="height:30px; margin:0"></div>
+</section>
+
+<section>
+	<p>联系我们</p>
+	<div style="height:60px;"></div>
+	<small><a>wxz8033@rit.edu</a> (请抄送 <a>zhongwei@udel.edu</a>)</small>
+	<div style="height:60px;"></div>
+  <small>电话：130 9994 8921</small>
+  <br/>
+  <em>由于我们还没全职投入，请在非工作时间电话联系。</em>
+</section>
+
+<section>
+  <em>人生就那几百个月，希望能找到自己的梦想。</em>
+</section>
+
+			</div>
+		</div>
+
+		<script src="lib/js/head.min.js"></script>
+		<script src="tk/mermaid.min.js"></script>
+		<script>
+        mermaid.initialize({startOnLoad:true});
+        </script>
+		<script src="js/reveal.js"></script>
+
+		<script>
+
+			// More info https://github.com/hakimel/reveal.js#configuration
+			Reveal.initialize({
+				controls: true,
+				progress: true,
+				history: true,
+				center: true,
+
+				transition: 'slide', // none/fade/slide/convex/concave/zoom
+
+				// More info https://github.com/hakimel/reveal.js#dependencies
+				dependencies: [
+					{ src: 'lib/js/classList.js', condition: function() { return !document.body.classList; } },
+					{ src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
+					{ src: 'plugin/math/math.js', async: true } // mathjax / MathJaX plugin.
+				]
+			});
+
+			Reveal.configure({ slideNumber: true });
+			Reveal.configure({ slideNumber: 'c/t' });
+
+		</script>
+
+	</body>
+</html>
